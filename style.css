@@ -1,3 +1,129 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+html {
+  font-family: "Pretendard-Regular", sans-serif;
+}
+
 * {
   box-sizing: border-box;
 }
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+.container {
+  min-width: 1120px;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #3692ff;
+  height: 48px;
+  width: 128px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.button-login > a:visited {
+  color: #ffffff;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fcfcfc;
+}
+
+section:first-of-type,
+section:last-of-type {
+  background-color: #cfe5ff;
+}
+
+.section-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.button-items {
+  background-color: #3692ff;
+  border-radius: 40px;
+  padding: 16px 124px;
+  cursor: pointer;
+}
+
+.button-items > a:visited {
+  color: #ffffff;
+}
+
+.content-tag {
+  font-size: 18px;
+  font-weight: 700;
+  color: #3692ff;
+}
+
+.content-text {
+  font-size: 24px;
+}
+
+footer {
+  font-weight: 400;
+  color: #9ca3af;
+  background-color: #111827;
+  height: 160px;
+  padding-top: 40px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-links {
+  display: flex;
+  gap: 0 30px;
+  font-weight: 400;
+}
+
+.footer-links > a:visited {
+  color: #9ca3af;
+}
+
+.footer-social {
+  display: flex;
+  gap: 0 12px;
+}
+
+/*
+  TODO
+  1. 첫번째 & 마지막 세션과 나머지 세션 선택자 구분
+  2. 세션들 마진, 패딩 수정
+*/
