@@ -19,16 +19,26 @@ a:visited {
   text-decoration: none;
 }
 
-.container {
-  min-width: 1120px;
-  max-width: 1920px;
-  margin: 0 auto;
+header {
+  background-color: #ffffff;
+  border-bottom: solid 1px #dfdfdf;
 }
 
-.header {
+.header-footer-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1520px;
+  gap: 20px;
+  padding: 0 200px;
+  margin: 0 auto;
+}
+
+.header-footer-container > *,
+.hero-section-container > *,
+.middle-section-container > *,
+.last-section-container > * {
+  flex-shrink: 0;
 }
 
 .button-login {
@@ -49,27 +59,24 @@ a:visited {
   color: #ffffff;
 }
 
-.section {
+section > * {
+  flex-shrink: 0;
+}
+
+.hero-section {
   display: flex;
   justify-content: center;
-  align-items: center;
-  background-color: #fcfcfc;
-}
-
-section:first-of-type,
-section:last-of-type {
+  align-items: end;
   background-color: #cfe5ff;
+  height: 540px;
 }
 
-.section-content {
+.hero-section-container {
   display: flex;
-  flex-direction: column;
-  align-items: start;
-}
-
-h2 {
-  font-size: 40px;
-  font-weight: 700;
+  justify-content: space-between;
+  align-items: center;
+  width: 1120px;
+  margin: 0 auto;
 }
 
 .button-items {
@@ -83,6 +90,49 @@ h2 {
   color: #ffffff;
 }
 
+.middle-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 720px;
+}
+
+.middle-section-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fcfcfc;
+  width: 988px;
+  margin: 0 auto;
+}
+
+.last-section {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  background-color: #cfe5ff;
+  height: 540px;
+}
+
+.last-section-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1120px;
+  margin: 0 auto;
+}
+
+.section-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
 .content-tag {
   font-size: 18px;
   font-weight: 700;
@@ -93,18 +143,18 @@ h2 {
   font-size: 24px;
 }
 
+.spacer {
+  width: 100%;
+  height: 160px;
+  background-color: #fcfcfc;
+}
+
 footer {
   font-weight: 400;
   color: #9ca3af;
   background-color: #111827;
   height: 160px;
   padding-top: 40px;
-}
-
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .footer-links {
