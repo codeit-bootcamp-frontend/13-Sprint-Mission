@@ -21,26 +21,50 @@ footer {
   color: white;
 }
 
-.section1 {
+.login-btn {
+  width: 128px;
+  height: 48px;
+  padding: 12px 23px;
+  gap: 10px;
+  border-radius: 8px;
+  background-color: #3692ff;
+  border: none;
+  color: white;
+}
+
+.section1,
+.section6 {
   background-color: #cfe5ff;
-  box-sizing: border-box;
+  width: 100%; /* 뷰포트값이 달라져도 너비 전체를 차지 */
   min-height: 540px;
   display: flex;
-  align-items: flex-end;
   justify-content: center;
+  align-items: flex-end;
+  padding: 0;
 }
 
 .container {
-  max-width: 1120px; /* 1920 - 400*2 */
-  margin: 0 auto;
+  max-width: 1120px; /* 내부 요소 최대 너비 고정 */
+  width: 100%; /* 1120px 보다 작아지면 100% 로 축소됨 */
+  margin: 0 auto; /* 가로축 가운데에 정렬 */
   display: flex;
-  align-items: flex-end;
+  align-items: flex-end; /* 수직 축에서 아래쪽 정렬 */
 }
 
 .text-box {
-  max-width: 357px;
+  max-width: 100%; /* 부모 컨테이너를 초과하지 않음 */
   max-height: 260px;
-  margin: 0 0 60px 0;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+img {
+  max-width: 100%; /* 부모 요소의 너비를 초과하지 않도록 제한 */
+  height: auto; /* 이미지의 비율 유지 */
+  display: block; /* inline-block 속성 제거 */
+  object-fit: cover;
 }
 
 h1 {
@@ -106,15 +130,6 @@ span {
   margin-top: 20px;
 }
 
-.section6 {
-  background-color: #cfe5ff;
-  box-sizing: border-box;
-  min-height: 540px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-}
-
 .section6 .container {
   gap: 30px;
 }
@@ -137,7 +152,6 @@ span {
 .footer-content {
   display: flex;
   justify-content: space-between;
-  border: 1px solid yellow;
 }
 
 .footer-links {
@@ -147,4 +161,9 @@ span {
 .footer-sns {
   display: flex;
   gap: 12px;
+}
+
+.footer-sns i {
+  cursor: pointer;
+  color: white;
 }
