@@ -12,6 +12,15 @@ header {
   margin: 0 auto;
 }
 
+footer {
+  background-color: #111827;
+  width: 100%; /* 화면 전체 너비*/
+  height: auto;
+  padding: 32px 400px 32px 400px;
+  gap: 10px;
+  color: white;
+}
+
 .section1 {
   background-color: #cfe5ff;
   box-sizing: border-box;
@@ -68,7 +77,6 @@ section {
 }
 
 section article {
-  border: 1px solid red;
   width: 988px;
   height: 444px;
   background-color: #fcfcfc;
@@ -96,4 +104,47 @@ span {
   font-weight: 500;
   line-height: 32px;
   margin-top: 20px;
+}
+
+.section6 {
+  background-color: #cfe5ff;
+  box-sizing: border-box;
+  min-height: 540px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.section6 .container {
+  gap: 30px;
+}
+
+.section6 img {
+  max-width: 746px;
+  max-height: 397px;
+  gap: 0px;
+  opacity: 0px;
+}
+
+.section6 .text-box {
+  padding-bottom: 60px;
+}
+
+/* footer */
+.footer {
+  padding: 32px 400px;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid yellow;
+}
+
+.footer-links {
+  display: flex;
+  gap: 30px;
+}
+.footer-sns {
+  display: flex;
+  gap: 12px;
 }
