@@ -21,43 +21,14 @@ footer {
   color: white;
 }
 
-.login-btn {
-  width: 128px;
-  height: 48px;
-  padding: 12px 23px;
-  gap: 10px;
-  border-radius: 8px;
-  background-color: #3692ff;
-  border: none;
+a,
+a:visited {
+  text-decoration: none;
   color: white;
 }
 
-.section1,
-.section6 {
-  background-color: #cfe5ff;
-  width: 100%; /* 뷰포트값이 달라져도 너비 전체를 차지 */
-  min-height: 540px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  padding: 0;
-}
-
-.container {
-  max-width: 1120px; /* 내부 요소 최대 너비 고정 */
-  width: 100%; /* 1120px 보다 작아지면 100% 로 축소됨 */
-  margin: 0 auto; /* 가로축 가운데에 정렬 */
-  display: flex;
-  align-items: flex-end; /* 수직 축에서 아래쪽 정렬 */
-}
-
-.text-box {
-  max-width: 100%; /* 부모 컨테이너를 초과하지 않음 */
-  max-height: 260px;
-  margin-bottom: 60px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+button {
+  cursor: pointer;
 }
 
 img {
@@ -81,6 +52,50 @@ h1 {
   text-align: right;
 }
 
+/* 로그인 버튼*/
+.login-btn {
+  width: 128px;
+  height: 48px;
+  padding: 12px 23px;
+  gap: 10px;
+  border-radius: 8px;
+  background-color: #3692ff;
+  border: none;
+  color: white;
+}
+
+/* Banner */
+.section1,
+.section5 {
+  background-color: #cfe5ff;
+  width: 100%; /* 뷰포트값이 달라져도 너비 전체를 차지 */
+  min-height: 540px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0;
+}
+
+/* Banner container*/
+.container {
+  max-width: 1120px; /* 컨테이너 안 요소들 최대 너비 */
+  width: 100%; /* 1120px 보다 작아지면 100% 로 축소됨 */
+  margin: 0 auto; /* 가로축 가운데에 정렬 */
+  display: flex;
+  align-items: flex-end; /* 수직 축에서 아래쪽 정렬 */
+}
+
+/* Banner text-box */
+.text-box {
+  max-width: 100%; /* 부모 컨테이너를 초과하지 않음 */
+  max-height: 260px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* 구경하러 가기 버튼*/
 .btn-large {
   width: 357px;
   height: 56px;
@@ -93,6 +108,7 @@ h1 {
   border: none;
 }
 
+/* 전체 섹션*/
 section {
   display: flex;
   justify-content: center;
@@ -108,6 +124,7 @@ section article {
   grid-template-columns: 1fr 1fr;
 }
 
+/* Banner 을 제외한 섹션 */
 .text {
   display: flex;
   justify-content: center;
@@ -130,18 +147,19 @@ span {
   margin-top: 20px;
 }
 
-.section6 .container {
+/* Banner : Section 5 */
+.section5 .container {
   gap: 30px;
 }
 
-.section6 img {
+.section5 img {
   max-width: 746px;
   max-height: 397px;
   gap: 0px;
   opacity: 0px;
 }
 
-.section6 .text-box {
+.section5 .text-box {
   padding-bottom: 60px;
 }
 
