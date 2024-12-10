@@ -24,6 +24,7 @@ a:link,
 a:active,
 a:visited {
   text-decoration: none;
+  color: inherit; /* 부모 요소의 텍스트 색상 속성값 사용  */
 }
 
 /* <header>와 그 하위 태그 스타일 속성 정의 */
@@ -56,10 +57,6 @@ header {
   cursor: pointer;
 }
 
-.button-login > a:visited {
-  color: #ffffff;
-}
-
 /* <main> 하위 태그 스타일 속성 정의 */
 /* hero section과 last section */
 .hero-last-section {
@@ -79,15 +76,12 @@ header {
 }
 
 .button-items {
+  color: #ffffff;
   background-color: #3692ff;
   border-radius: 40px;
   padding: 1rem 7.75rem;
   cursor: pointer;
   white-space: nowrap;
-}
-
-.button-items > a:visited {
-  color: #ffffff;
 }
 
 /* features section */
@@ -154,10 +148,6 @@ footer {
   display: flex;
   gap: 0 30px;
   font-weight: 400;
-}
-
-.footer-links > a:visited {
-  color: #9ca3af;
 }
 
 .footer-social {
