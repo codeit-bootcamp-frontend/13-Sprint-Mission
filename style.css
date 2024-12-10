@@ -6,15 +6,22 @@
   font-style: normal;
 }
 
-html {
-  font-family: "Pretendard-Regular", sans-serif;
-}
-
 * {
   box-sizing: border-box;
 }
 
+html {
+  font-family: "Pretendard-Regular", sans-serif;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 a:link,
+a:active,
 a:visited {
   text-decoration: none;
 }
@@ -28,25 +35,18 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1520px;
+  max-width: 1980px;
   gap: 20px;
   padding: 0 200px;
   margin: 0 auto;
-}
-
-.header-footer-container > *,
-.hero-section-container > *,
-.middle-section-container > *,
-.last-section-container > * {
-  flex-shrink: 0;
 }
 
 .button-login {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
   color: #ffffff;
-  font-size: 16px;
   font-weight: 600;
   background-color: #3692ff;
   height: 48px;
@@ -75,7 +75,7 @@ section > * {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 1120px;
+  max-width: 1980px;
   margin: 0 auto;
 }
 
@@ -90,20 +90,22 @@ section > * {
   color: #ffffff;
 }
 
-.middle-section {
+.features-section {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  height: 720px;
+  gap: 138px;
+  padding-top: 138px;
+  padding-bottom: 276px;
 }
 
-.middle-section-container {
+.feature-item {
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: #fcfcfc;
   width: 988px;
-  margin: 0 auto;
 }
 
 .last-section {
@@ -118,29 +120,29 @@ section > * {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 1120px;
+  max-width: 1980px;
   margin: 0 auto;
 }
 
-.section-content {
+.feature-content {
   display: flex;
   flex-direction: column;
   align-items: start;
 }
 
 h2 {
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: 700;
 }
 
-.content-tag {
-  font-size: 18px;
+.feature-content-tag {
+  font-size: 1.125rem;
   font-weight: 700;
   color: #3692ff;
 }
 
-.content-text {
-  font-size: 24px;
+.feature-content-text {
+  font-size: 1.5rem;
 }
 
 .spacer {
