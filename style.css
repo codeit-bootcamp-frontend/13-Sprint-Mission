@@ -63,7 +63,7 @@ section > * {
   flex-shrink: 0;
 }
 
-.hero-section {
+.hero-last-section {
   display: flex;
   justify-content: center;
   align-items: end;
@@ -71,7 +71,7 @@ section > * {
   height: 540px;
 }
 
-.hero-section-container {
+.hero-last-section-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -114,14 +114,6 @@ section > * {
   align-items: end;
   background-color: #cfe5ff;
   height: 540px;
-}
-
-.last-section-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1980px;
-  margin: 0 auto;
 }
 
 .feature-content {
