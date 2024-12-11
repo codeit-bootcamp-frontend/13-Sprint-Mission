@@ -55,6 +55,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    position: relative;
     label {
         font-size: 18px;
         font-weight: 700;
@@ -77,6 +78,20 @@ form {
         border: 2px solid var(--primary);
         outline: none;
     }
+}
+
+.visibility {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 73%;
+    right: 16px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.visibility {
+    display: none;
 }
 
 button {
