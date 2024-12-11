@@ -16,6 +16,21 @@ function togglePasswordVisibility() {
             : (visibilityPassword2.style.display = "none");
     };
 
+    const passwordClickHandler = (targetInput, targetImg) => {
+        if (targetInput.type === "password") {
+            targetInput.type = "text";
+            targetImg.src = "../assets/invisibility.svg";
+        } else {
+            targetInput.type = "password";
+            targetImg.src = "../assets/visibility.svg";
+        }
+    };
+
+    visibilityPassword?.addEventListener("click", () => passwordClickHandler(passwordTarget, visibilityPassword));
+    visibilityPassword2?.addEventListener("click", () =>
+        passwordClickHandler(passwordCheckTarget, visibilityPassword2)
+    );
+
     passwordTarget?.addEventListener("input", passwordVisibility);
     passwordCheckTarget?.addEventListener("input", passwordCheckVisibility);
 
@@ -23,9 +38,3 @@ function togglePasswordVisibility() {
     passwordCheckVisibility();
 }
 togglePasswordVisibility();
-
-/* 추가할 기능 
-    visibility click event 발생 시
-    passwordTarget / passwordCheckTarget type이 password에서 text로 변환
-    visibility src visibility에서 invisibility로 변환
-*/
