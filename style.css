@@ -220,6 +220,10 @@ a.logo-container {
 }
 
 .icons {
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
     gap: 1.3em;
 }
 
