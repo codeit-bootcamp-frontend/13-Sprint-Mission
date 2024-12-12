@@ -4,15 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>판다마켓</title>
-    <link rel="stylesheet" href="./styles/login.css" />
+    <link rel="stylesheet" href="./styles/sign-up.css" />
   </head>
   <body>
     <div class="container">
-      <div class="login-logo">
-        <img class="login-logo-image" src="./img/logo.svg" alt="판다마켓" />
-        <a class="home-anchor" href="./index.html">판다마켓</a>
+      <div class="sign-up-logo">
+        <img class="sign-up-logo-image" src="./img/logo.svg" alt="판다마켓" />
+        <a class="home-anchor" href="index.html">판다마켓</a>
       </div>
-      <form action="#" class="login-form">
+      <form action="#" class="sign-up-form">
         <div class="input-box">
           <label class="label-text" for="email">이메일 </label>
           <div class="input-wrapper">
@@ -21,6 +21,18 @@
               id="email"
               name="email"
               placeholder="이메일을 입력해주세요"
+              required
+            />
+          </div>
+        </div>
+        <div class="input-box">
+          <label class="label-text" for="nickname">닉네임 </label>
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="nickname"
+              name="nickname"
+              placeholder="닉네임을 입력해주세요"
               required
             />
           </div>
@@ -38,8 +50,21 @@
             <img src="./img/closedEye.svg" alt="눈 감은 아이콘" />
           </div>
         </div>
-        <button>
-          <span class="btn-text">로그인</span>
+        <div class="input-box">
+          <label class="label-text" for="checkPassword">비밀번호 확인 </label>
+          <div class="input-wrapper">
+            <input
+              type="password"
+              id="checkPassword"
+              name="checkPassword"
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
+              required
+            />
+            <img src="./img/closedEye.svg" alt="눈 감은 아이콘" />
+          </div>
+        </div>
+        <button disabled>
+          <span class="btn-text">회원가입</span>
         </button>
       </form>
       <div class="sns-login-box">
@@ -53,9 +78,9 @@
           /></a>
         </div>
       </div>
-      <div class="sign-up">
-        <span class="sign-up-description">판다마켓이 처음이신가요?</span>
-        <a class="sign-up-anchor" href="sign-up.html">회원가입</a>
+      <div class="login">
+        <span class="login-description">이미 회원이신가요?</span>
+        <a class="login-anchor" href="login.html">로그인</a>
       </div>
     </div>
   </body>
