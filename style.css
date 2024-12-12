@@ -38,7 +38,8 @@ img {
   object-fit: cover;
 }
 
-h1 {
+/* hot-item,search,register section 소제목 */
+h2 {
   font-size: 40px;
   font-weight: 700;
   line-height: 56px;
@@ -65,8 +66,8 @@ h1 {
 }
 
 /* Banner */
-.section1,
-.section5 {
+.banner-section,
+.banner-last-section {
   background-color: #cfe5ff;
   width: 100%; /* 뷰포트값이 달라져도 너비 전체를 차지 */
   min-height: 540px;
@@ -86,7 +87,7 @@ h1 {
 }
 
 /* Banner text-box */
-.text-box {
+.banner-section__text {
   max-width: 100%; /* 부모 컨테이너를 초과하지 않음 */
   max-height: 260px;
   margin-bottom: 60px;
@@ -148,18 +149,18 @@ span {
 }
 
 /* Banner : Section 5 */
-.section5 .container {
+.banner-last-section .container {
   gap: 30px;
 }
 
-.section5 img {
+.banner-last-section img {
   max-width: 746px;
   max-height: 397px;
   gap: 0px;
   opacity: 0px;
 }
 
-.section5 .text-box {
+.banner-last-section .banner-section__text {
   padding-bottom: 60px;
 }
 
