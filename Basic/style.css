@@ -1,27 +1,22 @@
 @import "global.css";
 
-body {
-    margin: 0;
-    padding: 0;
-}
-
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 9px 400px;
+    padding: 0.9rem 40rem;
 }
 
 .btn-small-40-primary {
-    width: 128px;
-    height: 48px;
+    width: 12.8rem;
+    height: 4.8rem;
     background-color: #3692FF;
     border: none;
-    border-radius: 8px;
-    padding: 12px 23px;
+    border-radius: 0.8rem;
+    padding: 1.2rem 2.3rem;
     font-weight: 600;
-    font-size: 16px;
-    line-height: 26px;
+    font-size: 1.6rem;
+    line-height: 2.6rem;
     text-align: center;
     color: #F3F4F6;
     cursor: pointer;
@@ -31,7 +26,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    height: 540px;
+    height: 54rem;
     background-color: #CFE5FF;
 }
 
@@ -39,95 +34,98 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 7px;
+    gap: 0.7rem;
 }
 
 .landing-banner-left {
     display: flex;
     flex-direction: column;
-    gap: 32px;
-    width: 357px;
-    height: 260px;
-    padding-bottom: 32px;
+    gap: 3.2rem;
+    width: 35.7rem;
+    height: 26rem;
+    padding-bottom: 3.2rem;
 }
 
 .text {
     font-weight: 500;
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 2.4rem;
+    line-height: 3.2rem;
     color: #374151;
 }
 
 .text-bold {
     font-weight: 700;
-    font-size: 40px;
-    line-height: 56px;
+    font-size: 4rem;
+    line-height: 5.6rem;
     color: #374151;
     margin: 0;
 }
 
 .text-blue {
     font-weight: 700;
-    font-size: 18px;
-    line-height: 26px;
+    font-size: 1.8rem;
+    line-height: 2.6rem;
     color: #3692FF;
 }
 
 .btn-large-primary {
-    width: 357px;
-    height: 56px;
+    width: 35.7rem;
+    height: 5.6rem;
     background-color: #3692FF;
     border: none;
-    border-radius: 40px;
-    padding: 16px 114px;
+    border-radius: 4rem;
+    padding: 1.6rem 11.4rem;
     font-weight: 600;
-    font-size: 20px;
-    line-height: 32px;
+    font-size: 2rem;
+    line-height: 3.2rem;
     text-align: center;
     color: #F9FAFB;
     cursor: pointer;
 }
 
+.landing-banner-right {
+    display: flex;
+}
+
 .landing-content-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 138px;
+    margin-bottom: 13.8rem;
 }
 
 .landing-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 64px;
-    height: 720px;
-    padding: 138px 466px;
+    gap: 6.4rem;
+    height: 72rem;
+    padding: 13.8rem 46.6rem;
 }
 
 .landing-content-text-container-right {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    padding-right: 24px  ;
+    gap: 1.2rem;
+    padding-right: 2.4rem  ;
 }
 
 .landing-content-text-container-left {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    padding-left: 24px  ;
+    gap: 1.2rem;
+    padding-left: 2.4rem  ;
 }
 
 .landing-content-text {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 2.4rem;
 }
 
 footer {
     background-color: #111827;
-    height: 160px;
-    padding: 32px 400px;
+    height: 16rem;
+    padding: 3.2rem 40rem;
 }
 
 .footer-container {
@@ -138,22 +136,22 @@ footer {
 
 .footer-left {
     font-weight: 400;
-    font-size: 16px;
-    line-height: 19.09px;
+    font-size: 1.6rem;
+    line-height: 1.909rem;
     color: #9CA3AF;
-    flex-basis: 150px;
+    flex-basis: 15rem;
 }
 
 .footer-center {
     display: flex;
-    gap: 30px;
+    gap: 3rem;
 }
 
 .footer-center a {
     text-decoration: none;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 19.09px;
+    font-size: 1.6rem;
+    line-height: 1.909rem;
     text-align: center;
     color: #E5E7EB;
 }
@@ -162,8 +160,8 @@ footer {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 12px;
-    flex-basis: 150px;
+    gap: 1.2rem;
+    flex-basis: 15rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -177,8 +175,8 @@ footer {
     cursor: pointer;
 }
 
-@media (max-width: 1920px) {
+@media (max-width: 192rem) {
     header {
-        padding: 9px 200px;
+        padding: 0.9rem 20rem;
     }
 }
