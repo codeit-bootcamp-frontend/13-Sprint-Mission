@@ -12,6 +12,13 @@ form {
   width: 640px;
 }
 
+form button {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  cursor: pointer;
+}
+
 .sns-login {
   padding: 16px 0;
   margin: 24px 0;
@@ -49,4 +56,49 @@ button {
 
 .logo-container {
   text-align: center;
+}
+
+.sns-login {
+  height: 74px;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 23px;
+}
+
+.sns-login__text {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.sns-login__logo {
+  display: flex;
+  gap: 10px;
+}
+
+.sns-login__logo img {
+  cursor: pointer;
+}
+
+.signup-link {
+  color: #3692ff;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration-line: underline;
+  cursor: pointer;
+}
+
+.signup-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.signup-section__text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
 }
