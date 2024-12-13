@@ -197,11 +197,13 @@ footer {
   margin: 0 10px;
   cursor: pointer;
 }
-
 .footer-sns {
   flex: 1;
   text-align: right;
   margin-top: -50px;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .footer-sns a {
