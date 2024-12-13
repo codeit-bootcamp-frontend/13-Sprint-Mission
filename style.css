@@ -1,0 +1,210 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Pretendard, "Noto Sans KR", sans-serif;
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 200px;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+nav .logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+nav .logo ul {
+  display: flex;
+  gap: 20px;
+}
+
+nav .logo ul li {
+  list-style: none;
+  letter-spacing: 2px;
+  font: bold;
+}
+
+nav .logo ul li a {
+  text-decoration: none;
+  color: #4b5563;
+  font-weight: 600;
+  font-size: 16px;
+  color: #4b5563;
+}
+
+nav .logo ul li a:hover {
+  color: #000000;
+}
+nav .login a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 10px 20px;
+  background-color: #369eff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+nav .login a:hover {
+  background-color: #0077b5;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #cfe5ff;
+  width: 100%;
+}
+
+.main-text,
+.main-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #374151;
+}
+
+.main-text {
+  flex-direction: column;
+  line-height: 2;
+  align-items: flex-start;
+}
+
+.main-text h2 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.store-container a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #369eff;
+  border-radius: 30px;
+  padding: 12px 124px;
+  cursor: pointer;
+}
+
+.store-container a:hover {
+  background-color: #0077b5;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #fcfcfc;
+}
+
+section div img {
+  margin: 0 auto;
+}
+
+.section-text {
+  margin: 0 50px;
+}
+
+section div h2 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #374151;
+}
+
+section div h3 {
+  color: #369eff;
+}
+
+section div p {
+  color: #374151;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+figure {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  background-color: #cfe5ff;
+  width: 100%;
+}
+
+.banner-text > h2 {
+  display: flex;
+  flex-direction: column;
+  color: #374151;
+  font-size: 30px;
+  font-weight: 700;
+  margin-right: 50px;
+}
+
+footer {
+  display: flex;
+  background-color: #111827;
+  width: 100%;
+  margin-top: 100px;
+  height: 160px;
+  padding: 0 200px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+
+.footer-company {
+  flex: 1;
+  text-align: left;
+}
+
+.footer-company h3 {
+  color: #9ca3af;
+  margin-top: -30px;
+}
+
+.footer-privacy {
+  flex: 1;
+  text-align: center;
+  margin-top: -50px;
+}
+
+.footer-privacy a {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.footer-sns {
+  flex: 1;
+  text-align: right;
+  margin-top: -50px;
+}
+
+.footer-sns a {
+  margin-left: 10px;
+  cursor: pointer;
+}
