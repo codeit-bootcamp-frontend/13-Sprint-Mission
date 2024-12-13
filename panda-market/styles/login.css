@@ -1,0 +1,154 @@
+@font-face {
+  font-family: "ROKAF_Sans";
+  src: url("./fonts/ROKAF_Sans_Bold.otf") format("opentype");
+  font-weight: 700; /* Bold weight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Pretendard, "ROKAF_Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 231px auto;
+  gap: 40px;
+}
+
+.login-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+}
+.home-anchor {
+  font-family: "ROKAF_Sans";
+  font-size: 66.34px;
+  font-weight: 700;
+  line-height: 89.56px;
+  color: #3692ff;
+  text-decoration: none;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.input-box {
+  width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.label-text {
+  max-width: 98px;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+}
+.input-wrapper {
+  background-color: #f3f4f6;
+  width: 640px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  padding: 15px 24px;
+}
+input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  flex: 1;
+}
+
+input::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: #9ca3af;
+}
+
+.input-wrapper:has(input:focus) {
+  border: 3px solid #3692ff;
+}
+
+button {
+  width: 640px;
+  border: none;
+  background-color: #9ca3af;
+  border-radius: 40px;
+  padding: 12px 0;
+}
+.btn-text {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: center;
+  color: #f3f4f6;
+}
+form:has(#email:valid):has(#password:valid) button {
+  background-color: #3692ff;
+  cursor: pointer;
+}
+.sns-login-box {
+  display: flex;
+  width: 640px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e6f2ff;
+  padding: 16px 23px;
+}
+.sns-login-text {
+  color: #1f2937;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.sns-login-list {
+  display: flex;
+  gap: 16px;
+}
+
+.sing-up {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.sign-up-description {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #1f2937;
+}
+
+.sign-up-anchor {
+  color: #3692ff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.71px;
+  text-align: left;
+}

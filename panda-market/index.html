@@ -4,27 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>판다마켓</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
     <div class="layout">
       <header>
         <nav class="user-nav">
           <div class="logo-container">
-            <img class="logo" src="img/logo.png" alt="판다마켓 로고" />
+            <img class="logo" src="img/logo.svg" alt="판다마켓 로고" />
             <a class="panda-anchor" href="./index.html">판다마켓</a>
           </div>
           <a class="login-anchor button" href="./login.html">로그인</a>
         </nav>
       </header>
       <main>
+        <!-- section에 h2, h3 태그 추가 -->
         <section>
           <div class="items-bg">
             <div class="items-container">
               <div class="items-anchor-box">
                 <div class="items-text">
-                  <span class="lg-text">일상의 모든 물건을</span>
-                  <span class="lg-text">거래해 보세요</span>
+                  <h2 class="lg-text">일상의 모든 물건을</h2>
+                  <h3 class="lg-text">거래해 보세요</h3>
                 </div>
                 <a class="items-anchor button" href="./items.html"
                   >구경하러 가기</a
@@ -50,12 +51,12 @@
                 <span class="sm-text">Hot item</span>
                 <div class="text">
                   <div class="divide-text">
-                    <span class="lg-text">인기 상품을</span>
-                    <span class="lg-text">확인해 보세요</span>
+                    <h2 class="lg-text">인기 상품을</h2>
+                    <h2 class="lg-text">확인해 보세요</h2>
                   </div>
                   <div class="divide-text">
-                    <span class="md-text">가장 HOT한 중고거래 물품을</span>
-                    <span class="md-text">판다 마켓에서 확인해 보세요</span>
+                    <h3 class="md-text">가장 HOT한 중고거래 물품을</h3>
+                    <h3 class="md-text">판다 마켓에서 확인해 보세요</h3>
                   </div>
                 </div>
               </div>
@@ -69,12 +70,12 @@
                 <span class="sm-text search">Search</span>
                 <div class="text search">
                   <div class="divide-text">
-                    <span class="lg-text">구매를 원하는</span>
-                    <span class="lg-text">상품을 검색하세요</span>
+                    <h2 class="lg-text">구매를 원하는</h2>
+                    <h2 class="lg-text">상품을 검색하세요</h2>
                   </div>
                   <div class="divide-text">
-                    <span class="md-text">구매하고 싶은 물품은 검색해서</span>
-                    <span class="md-text">쉽게 찾아보세요</span>
+                    <h3 class="md-text">구매하고 싶은 물품은 검색해서</h3>
+                    <h3 class="md-text">쉽게 찾아보세요</h3>
                   </div>
                 </div>
               </div>
@@ -98,14 +99,12 @@
                 <span class="sm-text">Register</span>
                 <div class="text">
                   <div class="divide-text">
-                    <span class="lg-text">판매를 원하는</span>
-                    <span class="lg-text">상품을 등록하세요</span>
+                    <h2 class="lg-text">판매를 원하는</h2>
+                    <h2 class="lg-text">상품을 등록하세요</h2>
                   </div>
                   <div class="divide-text">
-                    <span class="md-text"
-                      >어떤 물건이든 판매하고 싶은 상품을</span
-                    >
-                    <span class="md-text">쉽게 등록하세요</span>
+                    <h3 class="md-text">어떤 물건이든 판매하고 싶은 상품을</h3>
+                    <h3 class="md-text">쉽게 등록하세요</h3>
                   </div>
                 </div>
               </div>
@@ -129,26 +128,32 @@
               <a href="./faq.html">FAQ</a>
             </div>
             <div class="sns-box">
+              <!-- icon 파일 png -> svg 변경 및 a 태그 안에 img 태그 넣어서 
+               이미지 로딩 안될시에 alt 나올 수 있게 변경 -->
               <a
                 class="facebook-anchor sns-anchor"
                 href="https://www.facebook.com/"
                 target="_blank"
-              ></a>
+                ><img src="img/facebook.svg" alt="페이스북 아이콘"
+              /></a>
               <a
                 class="twitter-anchor sns-anchor"
                 href="https://x.com/"
                 target="_blank"
-              ></a>
+                ><img src="./img/twitter.svg" alt="트위터 아이콘"
+              /></a>
               <a
                 class="youtube-anchor sns-anchor"
                 href="https://www.youtube.com/"
                 target="_blank"
-              ></a>
+                ><img src="./img/youtube.svg" alt="유튜브 아이콘"
+              /></a>
               <a
                 class="instagram-anchor sns-anchor"
                 href="https://www.instagram.com/"
                 target="_blank"
-              ></a>
+                ><img src="./img/instagram.svg" alt="인스타그램 아이콘"
+              /></a>
             </div>
           </div>
         </div>

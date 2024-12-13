@@ -10,10 +10,25 @@ body {
   margin: 0;
   padding: 0;
 }
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+}
+
+main {
+  margin-top: 70px;
+}
+
 a,
-span {
+span,
+h2,
+h3 {
   display: inline-block;
   white-space: nowrap;
+  margin: 0;
 }
 
 a {
@@ -135,6 +150,10 @@ img {
   padding-right: 24px;
   gap: 24px;
 }
+.search {
+  padding-right: 0;
+  padding-left: 24px;
+}
 .divide-text {
   display: flex;
   flex-direction: column;
@@ -185,18 +204,7 @@ footer {
   background-size: cover;
   background-repeat: no-repeat;
 }
-.facebook-anchor {
-  background-image: url("img/facebook.png");
-}
-.twitter-anchor {
-  background-image: url("img/twitter.png");
-}
-.youtube-anchor {
-  background-image: url("img/youtube.png");
-}
-.instagram-anchor {
-  background-image: url("img/instagram.png");
-}
+
 @media (max-width: 1920px) {
   .user-nav {
     padding-left: 200px;
