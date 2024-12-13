@@ -1,30 +1,8 @@
-* {
-    box-sizing: border-box;
-}
-
-:root {
-    --primary: #3692ff;
-    --primary-hover: #1967d6;
-    --dark-text: #374151;
-    --bright-text: #f3f4f6;
-    --white: #ffffff;
-    --main-background: #fcfcfc;
-    --footer-background: #111827;
-    --landing-background: #cfe5ff;
-}
-
-@font-face {
-    font-family: ROKAF Sans;
-    src: url("font/ROKAF\ Slab\ Serif\ Bold.ttf");
-}
-
 html {
-    font-family: Pretendard, sans-serif;
-    font-size: 16px;
+    font-family: var(--font);
 }
 
 body {
-    margin: 0;
     background: var(--main-background);
     white-space: nowrap;
 }
@@ -242,6 +220,10 @@ a.logo-container {
 }
 
 .icons {
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
     gap: 1.3em;
 }
 

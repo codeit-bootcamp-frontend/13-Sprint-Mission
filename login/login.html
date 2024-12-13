@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <title>Panda Market | Login</title>
+        <link rel="stylesheet" href="login.css" />
+        <link rel="stylesheet" href="../global.css" />
+        <link
+            rel="stylesheet"
+            as="style"
+            crossorigin
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        />
+    </head>
+    <body>
+        <div id="login-wrap">
+            <div id="login">
+                <a id="logo-wrap" href="/">
+                    <img src="../assets/pandaFace.svg" id="logo" />
+                    <h1>판다마켓</h1>
+                </a>
+                <div id="form-wrap">
+                    <form>
+                        <div class="login-fields">
+                            <label for="email">이메일</label>
+                            <input id="email" name="email" type="email" placeholder="이메일을 입력해주세요" required />
+                        </div>
+                        <div class="login-fields">
+                            <label for="password">비밀번호</label>
+                            <input
+                                id="password"
+                                name="password"
+                                type="password"
+                                placeholder="비밀번호를 입력해주세요"
+                                required
+                            />
+                            <img src="../assets/visibility.svg" class="visibility" />
+                        </div>
+                        <button id="login-btn" disabled>로그인</button>
+                    </form>
+                    <div id="easy-login">
+                        <p>간편 로그인하기</p>
+                        <div id="platform">
+                            <a href="https://www.google.com"><img src="../assets/google.svg" /></a>
+                            <a href="https://www.kakaocorp.com/page"><img src="../assets/kakao.svg" /></a>
+                        </div>
+                    </div>
+                    <div id="first-time">
+                        판다마켓은 처음이신가요?<a id="signup" href="/signup/signup.html">회원가입</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="btnEnabled.js"></script>
+        <script src="../togglePasswordVisibility.js"></script>
+    </body>
+</html>
