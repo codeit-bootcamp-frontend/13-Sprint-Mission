@@ -1,13 +1,8 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Pretendard, "Noto Sans KR", sans-serif;
-  margin: 0;
-}
-
 nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -60,6 +55,7 @@ nav .login a:hover {
 }
 
 .main {
+  margin-top: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
