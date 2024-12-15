@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Pretendard, sans-serif;
+    word-break: keep-all;
+    font-size: 62.5%; /* 16px * 62.5% = 10px = 1rem */
+}
+
+body {
+    font-size: 1.6rem; /* 브라우저에서 설정한 폰트 크기가 기본값이 되도록 설정 */
+    margin: 0;
+    padding: 0;
+}
