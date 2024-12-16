@@ -6,141 +6,111 @@
         <title>판다마켓</title>
         <link rel="icon" href="images/logo/favicon.ico" />
         <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+        <link rel="stylesheet" href="styles/global.css">
         <link rel="stylesheet" href="styles/home.css">
     </head>
     <body>
-        <!-- Landing Page -->
+        <!-- id 이름은 camelCase를, class 이름은 kebab-case를 사용 -->
         <header>
-            <div class="logo-container">
-                <a href="./">
-                    <img src="./images/logo/panda-market-logo.svg" width="153" height="51" alt="로고 이미지">
-                </a> 
-            </div>
-            <form action="./login.html" class="login-btn-container">
-                <button class="btn-small-40-primary">로그인</button>
-            </form>
+            <a href="./">
+                <img src="./images/logo/panda-market-logo.svg" width="153" alt="판다마켓 홈">
+            </a> 
+            <form action="./login.html">
+                <button id="loginLinkButton">로그인</button>
+            </form> 
         </header>
         <main>
-            <section class="landing-banner">
-                <div class="landing-banner-container">
-                    <div class="landing-banner-left">
-                        <h1 class="text-bold">
-                            일상의 모든 물건을<br>거래해 보세요
-                        </h1>
-                        <form action="./items.html" class="items-btn-container">
-                            <button class="btn-large-primary">구경하러 가기</button>
-                        </form>
-                    </div>
-                    <div class="landing-banner-right">
-                        <img src="./images/home/Img_home_top.svg" alt="랜딩 페이지 상단 이미지">
-                    </div>
-                </div>
-            </section>
-            <section class="landing-content-container">
-                <div class="landing-content">
-                    <div class="landing-content-img">
-                        <img src="./images/home/Img_home_01.svg" alt="랜딩 페이지 핫 아이템 이미지">
-                    </div>
-                    <div class="landing-content-text-container-right">
-                        <div class="text-blue">
-                            Hot item
+            <section class="banner">
+                <div class="wrapper">
+                    <div class="banner-container">
+                        <div class="banner-left">
+                            <h1>일상의 모든 물건을<br>거래해 보세요</h1>
+                            <form action="./items.html">
+                                <button id="itemsLinkButton">구경하러 가기</button>
+                            </form>
                         </div>
-                        <div class="landing-content-text">
-                            <h1 class="text-bold">
-                                인기 상품을<br>확인해 보세요
-                            </h1>
-                            <div class="text">
-                                가장 HOT한 중고거래 물품을 판다 마켓에서 확인해 보세요
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="landing-content">
-                    <div class="landing-content-text-container-left">
-                        <div class="text-blue">
-                            Search
-                        </div>
-                        <div class="landing-content-text">
-                            <h1 class="text-bold">
-                                구매를 원하는<br>상품을 검색하세요
-                            </h1>
-                            <div class="text">
-                                구매하고 싶은 물품은 검색해서 쉽게 찾아보세요
-                            </div>
-                        </div>
-                    </div>
-                    <div class="landing-content-img">
-                        <img src="./images/home/Img_home_02.svg" alt="랜딩 페이지 검색 이미지">
-                    </div>
-                </div>
-                <div class="landing-content">
-                    <div class="landing-content-img">
-                        <img src="./images/home/Img_home_03.svg" alt="랜딩 페이지 등록 이미지">
-                    </div>
-                    <div class="landing-content-text-container-right">
-                        <div class="text-blue">
-                            Register
-                        </div>
-                        <div class="landing-content-text">
-                            <h1 class="text-bold">
-                                판매를 원하는<br>상품을 등록하세요
-                            </h1>
-                            <div class="text">
-                                어떤 물건이든 판매하고 싶은 상품을 쉽게 등록하세요
-                            </div>
+                        <div class="banner-right">
+                            <img src="./images/home/Img_home_top.svg" alt="상단 배너">
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="landing-banner">
-                <div class="landing-banner-container">
-                    <div class="landing-banner-left">
-                        <h1 class="text-bold">
-                            믿을 수 있는<br>판다마켓 중고 거래
-                        </h1>
+            <section id="features" class="wrapper">
+                <div class="feature">
+                    <!-- 화면 크기에 따라 이미지 사이즈가 자동으로 조정되도록 이미지의 width를 고정된 px값이 아닌 부모 컨테이너의 너비의 50%로 설정 -->
+                    <img src="./images/home/Img_home_01.png" width=50% alt="인기 상품">
+                    <div class="feature-content">
+                        <h2 class="feature-tag">Hot item</h2>
+                        <h1>인기 상품을<br>확인해 보세요</h1>
+                        <p class="feature-description">
+                            가장 HOT한 중고거래 물품을<br>판다 마켓에서 확인해 보세요
+                        </p>
+                        </div>
                     </div>
-                    <div class="landing-banner-right">
-                        <img src="./images/home/Img_home_bottom.svg" alt="랜딩 페이지 하단 이미지">
+                </div>
+                <div class="feature">
+                    <div class="feature-content">
+                        <h2 class="feature-tag">Search</h2>
+                        <h1>구매를 원하는<br>상품을 검색하세요</h1>
+                        <p class="feature-description">
+                            구매하고 싶은 물품은 검색해서<br>쉽게 찾아보세요
+                        </p>
+                    </div>
+                    <img src="./images/home/Img_home_02.png" width=50% alt="검색 기능">
+                </div>
+                <div class="feature">
+                    <img src="./images/home/Img_home_03.png" width=50% alt="판매 상품 등록">
+                    <div class="feature-content">
+                        <h2 class="feature-tag">Register</h2>
+                        <h1>판매를 원하는<br>상품을 등록하세요</h1>
+                        <p class="feature-description">
+                            어떤 물건이든 판매하고 싶은 상품을<br>쉽게 등록하세요
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section class="banner">
+                <div class="wrapper">
+                    <div class="banner-container">
+                        <div class="banner-left">
+                            <h1>믿을 수 있는<br>판다마켓 중고 거래</h1>
+                        </div>
+                        <div class="banner-right">
+                            <img src="./images/home/Img_home_bottom.svg" alt="하단 배너">
+                        </div>
                     </div>
                 </div>
             </section>
         </main>
         <footer>
-            <div class="footer-container">
-                <div class="footer-left">
-                    ©codeit - 2024
-                </div>
-                <div class="footer-center">
-                    <div class="privacy-policy-link">
-                        <a href="./privacy.html">Privacy Policy</a>
-                    </div>
-                    <div class="faq-link">
-                        <a href="./faq.html">FAQ</a>
-                    </div>
-                </div>
-                <ul class="footer-right">
-                    <li>
-                        <a href="https://www.facebook.com/" target="_blank">
-                            <img src="./images/icon/ic_facebook.svg" alt="페이스북 아이콘">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://x.com/" target="_blank">
-                            <img src="./images/icon/ic_twitter.svg" alt="트위터 아이콘">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.youtube.com/" target="_blank">
-                            <img src="./images/icon/ic_youtube.svg" alt="유튜브 아이콘">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/" target="_blank">
-                            <img src="./images/icon/ic_instagram.svg" alt="인스타그램 아이콘">
-                        </a> 
-                    </li>
-                </ul>
+            <div>©codeit - 2024</div>
+            <div id="footerMenu">
+                <a href="./privacy.html">Privacy Policy</a>
+                <a href="./faq.html">FAQ</a>
             </div>
+            <ul id="socialMedia">
+                <!-- 새 창에서 하이퍼링크를 열 때에는 보안상 취약점 또는 퍼포먼스 이슈가 발생할 수 있기 때문에 rel="noopener noreferrer" 속성값을 함께 넣어주는 경우가 많음 -->
+                <li>
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                        <img src="./images/icon/ic_facebook.svg" alt="페이스북">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://x.com/" target="_blank" rel="noopener noreferrer">
+                        <img src="./images/icon/ic_twitter.svg" alt="트위터">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+                        <img src="./images/icon/ic_youtube.svg" alt="유튜브">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                        <img src="./images/icon/ic_instagram.svg" alt="인스타그램">
+                    </a> 
+                </li>
+            </ul>
         </footer>
     </body>
 </html>

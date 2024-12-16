@@ -1,0 +1,74 @@
+#loginLinkButton {
+    font-size: 1.6rem;
+    font-weight: 600;
+    border-radius: 0.8rem;
+    padding: 1.2rem 2.3rem;
+}
+
+#itemsLinkButton {
+    font-size: 2rem;
+    font-weight: 600;
+    border-radius: 4rem;
+    padding: 1.6rem 11.4rem;
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 54rem;
+    background-color: #CFE5FF;
+}
+
+.banner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
+}
+
+.banner-left {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    width: 35.7rem;
+    height: 26rem;
+    padding-bottom: 3.2rem;
+}
+
+.banner-right {
+    display: flex;
+}
+
+#features {
+    margin-bottom: 13.8rem;
+}
+
+.feature {
+    padding: 13.8rem 0;
+    display: flex;
+    align-items: center;
+    gap: 5%;
+}
+
+.feature:nth-child(2) {
+    text-align: right;
+}
+  
+  /* 부모 요소인 feature의 남은 공간을 모두 차지하도록 설정 */
+  .feature-content {
+    flex: 1;
+}
+
+.feature-tag {
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2.6rem;
+    color: #3692FF;
+}
+
+.feature-description {
+    font-weight: 500;
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+}
