@@ -5,6 +5,7 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  font-family: "Pretendard Variable", sans-serif;
 }
 
 .login-container {
@@ -27,7 +28,9 @@ body {
 .input-label {
   display: block;
   margin: 8px 0;
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 18px;
+  color: #1f2937;
 }
 
 .input-field {
@@ -58,20 +61,30 @@ body {
 
 .social-login {
   width: 100%;
-  padding: 15px;
+  padding: 0;
   text-align: center;
   border: 1px solid #ddd;
   border-radius: 4px;
   background-color: #f8f9fa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
 }
 
+.social-login p {
+  margin: 16px 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #1f2937;
+}
 .input-field:focus {
   outline: none;
   border: 1px solid #3692ff;
 }
 
 .social-icons {
-  margin: 20px 0;
+  margin: 15px 15px;
 }
 
 .social-icons a {
