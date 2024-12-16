@@ -47,7 +47,7 @@ body {
 .login-button {
   width: 100%;
   height: 48px;
-  background-color: #007bff;
+  background-color: #9ca3af;
   color: white;
   border: none;
   border-radius: 40px;
@@ -56,7 +56,7 @@ body {
 }
 
 .login-button:hover {
-  background-color: #0056b3;
+  background-color: #3692ff;
 }
 
 .social-login {
@@ -70,6 +70,8 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
+  border-radius: 8px;
+  background-color: #e6f2ff;
 }
 
 .social-login p {
@@ -99,6 +101,7 @@ body {
 
 .signup-link {
   margin-top: 15px;
+  text-align: center;
 }
 
 .signup-link a {
@@ -112,4 +115,8 @@ body {
 
 .logo-image {
   margin-top: 40px;
+}
+
+.input-field::placeholder {
+  color: #9ca3af;
 }
