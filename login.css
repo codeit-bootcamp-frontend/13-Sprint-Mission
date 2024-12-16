@@ -21,7 +21,7 @@ body {
 }
 
 .logo-image img {
-  max-width: 200px;
+  max-width: 400px;
 }
 
 .input-label {
@@ -36,7 +36,7 @@ body {
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 12px;
   box-sizing: border-box;
 }
 
@@ -46,7 +46,7 @@ body {
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 12px;
   cursor: pointer;
   margin-bottom: 20px;
 }
@@ -62,4 +62,40 @@ body {
   border: 1px solid #ddd;
   border-radius: 4px;
   background-color: #f8f9fa;
+}
+
+.input-field:focus {
+  outline: none;
+  border: 1px solid #3692ff;
+}
+
+.social-icons {
+  margin: 20px 0;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.social-icons img {
+  width: 40px;
+  height: 40px;
+}
+
+.signup-link {
+  margin-top: 15px;
+}
+
+.signup-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+.logo-image {
+  margin-top: 40px;
 }

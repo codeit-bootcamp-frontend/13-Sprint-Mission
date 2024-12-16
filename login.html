@@ -1,32 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>로그인 - 판다마켓</title>
     <link rel="stylesheet" href="login.css" />
-    <link
-      rel="stylesheet"
-      as="style"
-      crossorigin
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
-    />
   </head>
   <body>
     <div class="login-container">
       <div class="logo-image">
-        <img src="Img/Property 1=lg.svg" alt="판다마켓" />
+        <a href="/">
+          <img src="Img/logo.svg" alt="판다마켓 로고" />
+        </a>
       </div>
-      <div class="input-field">
-        <input type="text" placeholder="아이디" />
+
+      <form action="/login" method="POST">
+        <label class="input-label" for="email">이메일</label>
+        <input type="email" id="email" class="input-field" required />
+
+        <label class="input-label" for="password">비밀번호</label>
+        <input type="password" id="password" class="input-field" required />
+
+        <button type="submit" class="login-button">로그인</button>
+      </form>
+
+      <div class="social-login">
+        <p>간편 로그인</p>
+        <div class="social-icons">
+          <a href="https://www.google.com/" target="_blank">
+            <img src="path-to-google-icon.png" alt="Google 로그인" />
+          </a>
+          <a href="https://www.kakaocorp.com/page/" target="_blank">
+            <img src="path-to-kakao-icon.png" alt="Kakao 로그인" />
+          </a>
+        </div>
+        <div class="signup-link">
+          <a href="/signup">회원가입</a>
+        </div>
       </div>
-      <div class="input-field">
-        <input type="password" placeholder="비밀번호" />
-      </div>
-      <div class="login-button">
-        <button>로그인</button>
-      </div>
-      <div class="social-login"></div>
     </div>
   </body>
 </html>
