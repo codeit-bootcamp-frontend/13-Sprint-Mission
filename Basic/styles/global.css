@@ -1,9 +1,23 @@
+/* color palette */
+:root {
+    --gray900 : #111827;
+    --gray800 : #1F2937;
+    --gray700 : #374151;
+    --gray600 : #4B5563;
+    --gray500 : #6B7280;
+    --gray400 : #9CA3AF;
+    --gray200 : #E5E7EB;
+    --gray100 : #F3F4F6;
+    --gray50 : #F9FAFB;
+    --blue : #3692FF;
+}
+
 * {
     box-sizing: border-box;
 }
 
 html {
-    color: #374151;
+    color: var(--gray700);
     font-family: Pretendard, sans-serif;
     word-break: keep-all;
     font-size: 62.5%; /* 16px * 62.5% = 10px = 1rem */
@@ -44,8 +58,8 @@ header {
 }
 
 footer {
-    background-color: #111827;
-    color: #9ca3af;
+    background-color: var(--gray900);
+    color: var(--gray400);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -56,7 +70,7 @@ footer {
 #footerMenu {
     display: flex;
     gap: 30px;
-    color: #e5e7eb;
+    color: var(--gray200);
 }
   
 #socialMedia {
@@ -82,8 +96,8 @@ h1 {
 }
 
 button {
-    background-color: #3692ff;
-    color: #F3F4F6;
+    background-color: var(--blue);
+    color: var(--gray100);
     display: inline-flex; 
     align-items: center;
     justify-content: center;
@@ -98,7 +112,7 @@ button:focus {
 }
   
 button:disabled {
-    background-color: #9ca3af;
+    background-color: var(--gray400);
     cursor: default;
     pointer-events: none;
 }
