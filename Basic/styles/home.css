@@ -56,7 +56,7 @@
 }
   
   /* 부모 요소인 feature의 남은 공간을 모두 차지하도록 설정 */
-  .feature-content {
+.feature-content {
     flex: 1;
 }
 

@@ -78,6 +78,7 @@ footer {
     gap: 12px;
     list-style: none;
     margin: 0;
+    padding: 0;
 }
 
 /* 요소의 최대 너비를 1200px로 제한하고, 요소가 그보다 큰 경우에는 가로 중앙 정렬해 주는 inner container */
