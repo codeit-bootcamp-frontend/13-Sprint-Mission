@@ -45,6 +45,11 @@ input {
   outline-color: #3692ff;
 }
 
+form input:last-of-type {
+  /* 마지막 input 요소만 밑 margin 제거 */
+  margin-bottom: 0;
+}
+
 button {
   margin: 24px 0 0 0;
   height: 56px;
@@ -83,6 +88,15 @@ button {
   cursor: pointer;
 }
 
+.login-link {
+  color: #3692ff;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 18px;
+  text-decoration-line: underline;
+  cursor: pointer;
+}
+
 .signup-link {
   color: #3692ff;
   font-size: 14px;
@@ -91,7 +105,7 @@ button {
   cursor: pointer;
 }
 
-.signup-section {
+.auth-options {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,4 +116,5 @@ button {
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
+  margin: 0;
 }
