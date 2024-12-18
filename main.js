@@ -1,5 +1,5 @@
-const userEmail = document.getElementById("user-email");
-const userPwd = document.getElementById("user-password");
+const userEmail = document.getElementById("userEmail");
+const userPwd = document.getElementById("userPassword");
 const loginBtn = document.getElementById("loginBtn");
 
 // 입력 상태를 추적하는 함수

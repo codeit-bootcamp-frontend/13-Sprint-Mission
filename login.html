@@ -17,11 +17,14 @@
         </a>
       </div>
       <form>
-        <label for="user-email">이메일</label>
-        <input placeholder="이메일을 입력해주세요" id="user-email" type="email" />
+        <label for="userEmail">이메일</label>
+        <input placeholder="이메일을 입력해주세요" id="userEmail" type="email" />
         <!--required 속성으로 유효성 검사-->
-        <label for="user-password">비밀번호</label>
-        <input placeholder="비밀번호를 입력해주세요" id="user-password" type="password" />
+        <label for="userPassword" class="pwd-label">비밀번호</label>
+        <div class="input-wrapper">
+          <input placeholder="비밀번호를 입력해주세요" id="userPassword" type="password" class="user-pwd" />
+          <img src="img/login/login-close-eyes.svg" />
+        </div>
         <button type="submit" id="loginBtn">로그인</button>
         <div class="sns-login">
           <div class="sns-login__text">간편 로그인하기</div>
@@ -33,11 +36,13 @@
           </div>
         </div>
       </form>
+
       <div class="auth-options">
         <div class="signup-section__text">판다마켓이 처음이신가요?</div>
         <a href="signup.html" class="signup-link">회원가입</a>
       </div>
     </main>
+    <script src="https://kit.fontawesome.com/e9a57534d5.js" crossorigin="anonymous"></script>
     <script src="main.js"></script>
   </body>
 </html>

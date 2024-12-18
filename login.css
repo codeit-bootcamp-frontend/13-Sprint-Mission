@@ -41,7 +41,6 @@ input {
 }
 
 input {
-  margin: 16px 0;
   outline-color: #3692ff;
 }
 
@@ -51,7 +50,7 @@ form input:last-of-type {
 }
 
 button {
-  margin: 24px 0 0 0;
+  margin-top: 24px;
   height: 56px;
   padding: 16px 124px;
   border-radius: 40px;
@@ -121,4 +120,30 @@ button {
 
 .color-blue {
   background-color: #3692ff;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+/* 로그인 창 비밀번호 입력필드*/
+.user-pwd {
+  width: 100%; /*input-wrapper 너비 전체 차지*/
+}
+
+.input-wrapper img {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  color: #9ca3af;
+  cursor: pointer;
+  width: 24px;
+}
+
+label {
+  margin-bottom: 16px;
+}
+
+.pwd-label {
+  margin-top: 24px;
 }
