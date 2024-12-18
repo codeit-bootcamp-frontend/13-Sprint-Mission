@@ -38,9 +38,6 @@ input {
   border-radius: 12px;
   border: none;
   background-color: #f3f4f6;
-}
-
-input {
   outline-color: #3692ff;
 }
 
@@ -144,6 +141,6 @@ label {
   margin-bottom: 16px;
 }
 
-.pwd-label {
+label:not(.margin-exclude) {
   margin-top: 24px;
 }
