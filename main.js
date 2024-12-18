@@ -4,15 +4,15 @@ const loginBtn = document.getElementById("loginBtn");
 
 // 입력 상태를 추적하는 함수
 function toggleButton() {
+  // 이메일, 비밀번호가 유효한지 확인
   const isEmailValid = userEmail.value.trim() !== "" && userEmail.checkValidity();
   const isPasswordValid = userPwd.value.length >= 8;
 
+  // 이메일, 비밀번호 모두 조건을 만족하는 순간
   if (isEmailValid && isPasswordValid) {
     loginBtn.classList.add("color-blue");
-    loginBtn.disabled = false; // 일부러 언제나 활성화로 설정하였습니다.
   } else {
     loginBtn.classList.remove("color-blue");
-    loginBtn.disabled = false; // 일부러 언제나 활성화로 설정하였습니다.
   }
 }
 
