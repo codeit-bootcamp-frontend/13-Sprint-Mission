@@ -20,15 +20,15 @@
         <label for="userEmail" class="margin-exclude">이메일</label>
         <input placeholder="이메일을 입력해주세요" id="userEmail" type="email" />
         <label for="userName">닉네임</label>
-        <input placeholder="닉네임을 입력해주세요" id="userName" type="text" />
+        <input placeholder="닉네임을 입력해주세요" id="userName" type="text" required />
         <label for="userPassword" class="pwd-label">비밀번호</label>
         <div class="input-wrapper">
-          <input placeholder="비밀번호를 입력해주세요" id="userPassword" type="password" class="user-pwd" />
+          <input placeholder="비밀번호를 입력해주세요" id="userPassword" class="user-pwd" type="password" minlength="8" maxlength="12" required />
           <img src="img/login/login-close-eyes.svg" class="eyes-icon" />
         </div>
         <label for="pwdConfirm">비밀번호 확인</label>
         <div class="input-wrapper">
-          <input placeholder="비밀번호를 다시 한 번 입력해주세요" id="pwdConfirm" type="password" class="user-pwd" />
+          <input placeholder="비밀번호를 다시 한 번 입력해주세요" id="pwdConfirm" class="user-pwd" type="password" minlength="8" maxlength="12" required />
           <img src="img/login/login-close-eyes.svg" class="eyes-icon" />
         </div>
         <button type="submit" id="signupBtn">회원가입</button>
