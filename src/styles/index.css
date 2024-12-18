@@ -8,16 +8,18 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 0 200px;
     width: 1120px;
 }
 
 .login-button {
-    background-color: #3692FF;
-    border-radius: 8px;
+    cursor: pointer;
     /*figma에는 12px 23px로 나와있으나 24px로 사료되어 24px로 설정함*/
     padding: 12px 24px;
-    font-weight: 600;
     font-size: 16px;
+    font-weight: 600;
     line-height: 28px;
+    border-radius: 8px;
     color: #F3F4F6;
+    background-color: #3692FF;
 }
