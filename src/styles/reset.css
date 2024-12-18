@@ -26,6 +26,11 @@ input, button, textarea, select {
   font: inherit;
 }
 
+button {
+  all: unset;
+  box-sizing: border-box;
+}
+
 ul, ol {
   list-style: none;
 }
