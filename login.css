@@ -126,12 +126,12 @@ button {
   position: relative;
 }
 
-/* 로그인 창 비밀번호 입력필드*/
+/* 로그인, 회원가입창 입력필드*/
 .user-pwd {
   width: 100%; /*input-wrapper 너비 전체 차지*/
 }
 
-.input-wrapper img {
+.eyes-icon {
   position: absolute;
   top: 16px;
   right: 24px;
