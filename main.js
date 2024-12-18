@@ -2,17 +2,20 @@ const userEmail = document.getElementById("user-email");
 const userPwd = document.getElementById("user-password");
 const loginBtn = document.getElementById("loginBtn");
 
-let emailFilled = false;
+// 입력 상태를 추적하는 함수
+function toggleButton() {
+  const isEmailValid = userEmail.value.trim() !== "" && userEmail.checkValidity();
+  const isPasswordValid = userPwd.value.length >= 8;
 
-userEmail.addEventListener("blur", () => {
-  // 입력한 이메일 필드가 비어있는지 확인
-  userEmail.value !== "" ? (emailFilled = true) : (emailFilled = false);
-});
-
-// 비밀번호 입력 시,  조건에 따라 버튼 색상을 변경
-userPwd.addEventListener("input", () => {
-  // 이메일이 입력되어 있고 비밀번호가 8자 이상인 경우
-  if (emailFilled && userPwd.value.length >= 8) {
+  if (isEmailValid && isPasswordValid) {
     loginBtn.classList.add("color-blue");
+    loginBtn.disabled = false; // 일부러 언제나 활성화로 설정하였습니다.
+  } else {
+    loginBtn.classList.remove("color-blue");
+    loginBtn.disabled = false; // 일부러 언제나 활성화로 설정하였습니다.
   }
-});
+}
+
+// 이벤트 리스너 설정
+userEmail.addEventListener("input", toggleButton);
+userPwd.addEventListener("input", toggleButton);
