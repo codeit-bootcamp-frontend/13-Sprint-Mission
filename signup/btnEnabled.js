@@ -3,15 +3,16 @@ function signupActive() {
     const nicknameTarget = document.getElementById("nickname");
     const passwordTarget = document.getElementById("password");
     const passwordCheckTarget = document.getElementById("password-check");
-    const signupBtn = document.getElementById("signup-btn");
+    const signupBtn = document.querySelector(".signup-btn");
 
     const inputValue = () => {
-        emailTarget.value.trim() &&
-        nicknameTarget.value.trim() &&
-        passwordTarget.value.trim() &&
-        passwordCheckTarget.value.trim()
-            ? (signupBtn.disabled = false)
-            : (signupBtn.disabled = true);
+        const isValid =
+            emailTarget.value.trim() &&
+            nicknameTarget.value.trim() &&
+            passwordTarget.value.trim() &&
+            passwordCheckTarget.value.trim();
+
+        signupBtn.disabled = !isValid;
     };
 
     emailTarget.addEventListener("input", inputValue);
