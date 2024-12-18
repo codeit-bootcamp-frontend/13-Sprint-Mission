@@ -13,13 +13,49 @@ header {
 }
 
 .login-button {
-    cursor: pointer;
-    /*figma에는 12px 23px로 나와있으나 24px로 사료되어 24px로 설정함*/
     padding: 12px 24px;
     font-size: 16px;
     font-weight: 600;
     line-height: 28px;
     border-radius: 8px;
-    color: #F3F4F6;
-    background-color: #3692FF;
+}
+
+.main-title {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    height: 540px;
+    background-color: #CFE5FF;
+}
+
+.main-title-content {
+    display: flex;
+    align-items: center;
+}
+
+.main-title-content-left {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 357px;
+    height: 260px;
+}
+
+.main-title-h1 {
+    font-size: 40px;
+    line-height: 56px;
+    color: #374151;
+}
+
+.visit-button {
+    padding: 16px 124px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 32px;
+    border-radius: 40px;
+}
+
+.main-title-content-right {
+    height: 340px;
+    width: 746px;
 }
