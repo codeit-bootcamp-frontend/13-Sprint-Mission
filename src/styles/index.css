@@ -59,3 +59,57 @@ header {
     height: 340px;
     width: 746px;
 }
+
+.main-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 720px;
+}
+
+.main-content {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    width: 988px;
+    height: 444px;
+    border-radius: 12px;
+    background-color: #FCFCFC;
+}
+
+.main-content-left-picture {
+    margin-left: 24px;
+    width: 580px;
+    height: 444px;
+}
+
+/*
+* 각각 gap이 12px과 24px인데 이거를 한 번에 처리하는 방법 확인!
+*/
+.main-content-right-text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: start;
+}
+
+.main-content-text-header {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28px;
+    color: #3692FF;
+}
+
+.main-content-text-title {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 56px;
+}
+
+.main-content-text-detail {
+    margin-top: 12px;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    color: #374151;
+}
