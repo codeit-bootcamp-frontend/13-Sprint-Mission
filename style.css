@@ -57,6 +57,10 @@ header {
   cursor: pointer;
 }
 
+.button-login:visited {
+  color: #f3f4f6;
+}
+
 /* <main> 하위 태그 스타일 속성 정의 */
 /* hero section과 last section */
 .hero-last-section {
