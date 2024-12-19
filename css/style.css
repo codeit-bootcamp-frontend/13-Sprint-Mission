@@ -7,18 +7,18 @@ header {
 }
 
 footer {
-  background-color: #111827;
+  background-color: var(--gray-900);
   width: 100%; /* 화면 전체 너비*/
   height: auto;
   padding: 32px 400px 32px 400px;
   gap: 10px;
-  color: white;
+  color: var(--gray-50);
 }
 
 a,
 a:visited {
   text-decoration: none;
-  color: white;
+  color: var(--gray-50);
 }
 
 button {
@@ -54,15 +54,15 @@ h2 {
   padding: 12px 23px;
   gap: 10px;
   border-radius: 8px;
-  background-color: #3692ff;
+  background-color: var(--primary);
   border: none;
-  color: white;
+  color: var(--gray-50);
 }
 
 /* Banner */
 .banner-section,
 .banner-last-section {
-  background-color: #cfe5ff;
+  background-color: var(--banner-background);
   width: 100%; /* 뷰포트값이 달라져도 너비 전체를 차지 */
   min-height: 540px;
   display: flex;
@@ -98,8 +98,8 @@ h2 {
   gap: 10px;
   border-radius: 40px;
   opacity: 0px;
-  background-color: #3692ff;
-  color: white;
+  background-color: var(--primary);
+  color: var(--gray-50);
   border: none;
 }
 
@@ -114,7 +114,7 @@ section {
 section article {
   width: 988px;
   height: 444px;
-  background-color: #fcfcfc;
+  background-color: var(--gray-50);
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -130,7 +130,7 @@ section article {
   font-size: 18px;
   font-weight: 700;
   line-height: 26px;
-  color: #3692ff;
+  color: var(--primary);
   margin-bottom: 10px;
 }
 
@@ -178,5 +178,5 @@ span {
 
 .footer-sns i {
   cursor: pointer;
-  color: white;
+  color: var(--gray-50);
 }

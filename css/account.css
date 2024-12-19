@@ -22,7 +22,7 @@ form button {
 .sns-login {
   padding: 16px 0;
   margin: 24px 0;
-  background-color: #e6f2ff;
+  background-color: var(--banner-login);
 }
 
 label {
@@ -37,12 +37,11 @@ input {
   padding: 16px 24px;
   border-radius: 12px;
   border: none;
-  background-color: #f3f4f6;
-  outline-color: #3692ff;
+  background-color: var(--gray-100);
+  outline-color: var(--primary);
 }
 
 form input:last-of-type {
-  /* 마지막 input 요소만 밑 margin 제거 */
   margin-bottom: 0;
 }
 
@@ -52,8 +51,8 @@ button {
   padding: 16px 124px;
   border-radius: 40px;
   border: none;
-  background-color: #9ca3af;
-  color: white;
+  background-color: var(--gray-400);
+  color: var(--gray-50);
 }
 
 .logo-container {
@@ -85,7 +84,7 @@ button {
 }
 
 .login-link {
-  color: #3692ff;
+  color: var(--primary);
   font-size: 15px;
   font-weight: 500;
   line-height: 18px;
@@ -94,7 +93,7 @@ button {
 }
 
 .signup-link {
-  color: #3692ff;
+  color: var(--primary);
   font-size: 14px;
   font-weight: 500;
   text-decoration-line: underline;
@@ -116,7 +115,7 @@ button {
 }
 
 .color-blue {
-  background-color: #3692ff;
+  background-color: var(--primary);
 }
 
 .input-wrapper {
@@ -132,7 +131,7 @@ button {
   position: absolute;
   top: 16px;
   right: 24px;
-  color: #9ca3af;
+  color: var(--gray-400);
   cursor: pointer;
   width: 24px;
 }
