@@ -4,16 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" />
-    <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="global.css" />
-    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/account.css" />
     <title>로그인</title>
   </head>
   <body>
     <main>
       <div class="logo-container">
-        <a href="index.html">
-          <img src="./img/login/login-logo.svg" alt="판다마켓 로고" />
+        <a href="/html/index.html">
+          <img src="/img/login/login-logo.svg" alt="판다마켓 로고" />
         </a>
       </div>
       <form>
@@ -22,15 +22,15 @@
         <label for="userPassword">비밀번호</label>
         <div class="input-wrapper">
           <input placeholder="비밀번호를 입력해주세요" id="userPassword" class="user-pwd" type="password" minlength="8" maxlength="12" required />
-          <img src="img/login/login-close-eyes.svg" class="eyes-icon" />
+          <img src="/img/login/login-close-eyes.svg" class="eyes-icon" />
         </div>
         <button type="submit" id="loginBtn">로그인</button>
         <div class="sns-login">
           <div class="sns-login__text">간편 로그인하기</div>
           <div class="sns-login__logo">
-            <a href="https://www.google.co.kr"> <img src="./img/login/login-google.svg" alt="구글 로그인" /> </a>
+            <a href="https://www.google.co.kr"> <img src="/img/login/login-google.svg" alt="구글 로그인" /> </a>
             <a href="https://www.kakaocorp.com/page/service/service/KakaoTalk?lang=en">
-              <img src="./img/login/login-kakao.svg" alt="카카오 로그인" />
+              <img src="/img/login/login-kakao.svg" alt="카카오 로그인" />
             </a>
           </div>
         </div>
@@ -38,9 +38,9 @@
 
       <div class="auth-options">
         <div class="signup-section__text">판다마켓이 처음이신가요?</div>
-        <a href="signup.html" class="signup-link">회원가입</a>
+        <a href="/html/signup.html" class="signup-link">회원가입</a>
       </div>
     </main>
-    <script src="login.js"></script>
+    <script src="/scripts/login.js"></script>
   </body>
 </html>
