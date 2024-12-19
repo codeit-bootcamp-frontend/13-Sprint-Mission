@@ -155,3 +155,32 @@ button:disabled {
         margin-left: 5px;
     }
 }
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+    .signup {
+        padding: 0 16px;
+        gap: 24px;
+    }
+    .logo-wrap {
+        gap: 12px;
+        .logo {
+            width: 50px;
+            height: 50px;
+        }
+        h1 {
+            font-size: 33px;
+            line-height: 44px;
+        }
+    }
+    .form-wrap {
+        width: 100%;
+        max-width: 400px;
+    }
+    .signup-fields {
+        gap: 8px;
+        label {
+            font-size: 14px;
+            line-height: 24px;
+        }
+    }
+}
