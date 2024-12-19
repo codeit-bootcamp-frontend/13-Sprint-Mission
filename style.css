@@ -1,30 +1,12 @@
+@import "global.css";
+@import "reset.css";
+
 @font-face {
   font-family: "Pretendard-Regular";
   src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
     format("woff");
   font-weight: 400;
   font-style: normal;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  font-family: "Pretendard-Regular", sans-serif;
-  font-size: 16px;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-a:link,
-a:active,
-a:visited {
-  text-decoration: none;
-  color: inherit; /* 부모 요소의 텍스트 색상 속성값 사용  */
 }
 
 /* <header>와 그 하위 태그 스타일 속성 정의 */
@@ -157,10 +139,6 @@ footer {
 .footer-social {
   display: flex;
   gap: 0 12px;
-}
-
-.footer-social li {
-  list-style: none;
 }
 
 /* 뷰포트에 따라 이미지 크기 조정*/
