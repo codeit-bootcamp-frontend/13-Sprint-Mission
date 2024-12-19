@@ -159,6 +159,10 @@ footer {
   gap: 0 12px;
 }
 
+.footer-social li {
+  list-style: none;
+}
+
 /* 뷰포트에 따라 이미지 크기 조정*/
 .hero-last-section-image {
   width: 40vw;
