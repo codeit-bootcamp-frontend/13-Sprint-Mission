@@ -1,15 +1,14 @@
 html {
     font-family: var(--font);
+    font-size: 16px;
 }
 
 body {
     background: var(--main-background);
-    white-space: nowrap;
 }
 
 header {
     background: var(--white);
-    padding: 0.5625em 25em;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,7 +18,7 @@ header {
 }
 
 main {
-    margin-bottom: 6.25em;
+    margin-bottom: 100px;
 }
 
 a {
@@ -33,7 +32,7 @@ a {
 a.logo-container {
     display: flex;
     align-items: center;
-    gap: 0.5em;
+    gap: 8px;
     cursor: pointer;
 }
 
@@ -44,7 +43,7 @@ a.logo-container {
 
 .name {
     font-family: ROKAF Sans;
-    font-size: 1.56rem;
+    font-size: 25px;
     font-weight: 700;
     color: var(--primary);
     margin: 0;
@@ -53,12 +52,13 @@ a.logo-container {
 .login-btn {
     background: var(--primary);
     color: var(--bright-text);
-    width: 8em;
-    padding: 0.75em 1.5em;
+    width: 128px;
+    height: 48px;
+    padding: 12px 23px;
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: 600;
-    line-height: 1.625rem;
+    line-height: 26px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,11 +68,10 @@ a.logo-container {
 .landing {
     background: var(--landing-background);
     width: 100%;
-    height: 33.8em;
+    height: 540px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    padding: 0 25em;
 }
 
 .landing-wrap {
@@ -85,14 +84,17 @@ a.logo-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.8rem;
+    gap: 32px;
+    width: 357px;
 }
 
 .landing-content p {
-    font-size: 2.5em;
+    font-size: 40px;
     font-weight: 700;
-    line-height: 3.5rem;
+    color: var(--gray700);
+    line-height: 56px;
     margin: 0;
+    width: 300px;
 }
 
 .go-btn {
@@ -100,10 +102,10 @@ a.logo-container {
     color: var(--white);
     border: none;
     width: 100%;
-    min-width: 150px;
-    padding: 0.5em 1rem;
-    border-radius: 2.5rem;
-    font-size: 1.25rem;
+    height: 56px;
+    padding: 16px 120px;
+    border-radius: 40px;
+    font-size: 20px;
     font-weight: 600;
     display: flex;
     justify-content: center;
@@ -112,14 +114,13 @@ a.logo-container {
 }
 
 .panda {
-    width: 46.25em;
-    height: 21.25em;
+    width: 744px;
+    height: 340px;
 }
 
 .card-container {
     background: var(--white);
-    height: 45em;
-    padding: 8.625em 29.125em;
+    padding: 138px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,14 +131,14 @@ a.logo-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 62em;
-    height: 27.8rem;
-    gap: 3.1rem;
+    width: 988px;
+    height: 444px;
+    gap: 64px;
     border-radius: 12px;
 }
 
 .card-img {
-    width: 36.188rem;
+    width: 579px;
     height: auto;
 }
 
@@ -150,45 +151,48 @@ a.logo-container {
     flex-direction: column;
     justify-content: center;
     color: var(--dark-text);
-    gap: 0.75em;
+    gap: 12px;
+    padding-right: 24px;
 }
 
 .card-container .right {
     text-align: right;
+    padding: 0;
+    padding-left: 24px;
 }
 
 .title {
-    font-size: 1.1rem;
+    font-size: 18px;
     font-weight: 700;
-    line-height: 1.6rem;
+    line-height: 26px;
     color: var(--primary);
     margin: 0;
 }
 
 .second-title {
-    font-size: 2.5rem;
+    font-size: 40px;
     font-weight: 700;
-    line-height: 3.5rem;
+    color: var(--gray700);
+    line-height: 56px;
     margin: 0;
 }
 
 .text {
-    font-size: 1.5rem;
+    font-size: 24px;
     font-weight: 500;
-    line-height: 2rem;
+    color: var(--gray700);
+    line-height: 32px;
     margin: 0;
-    padding-right: 1.25em;
+    white-space: nowrap;
 }
 
 .text.right {
     padding: 0;
-    padding-left: 1.25em;
 }
 
 .footer {
     width: 100%;
-    height: 10rem;
-    padding: 2em 25em;
+    height: 160px;
     background: var(--footer-background);
 }
 
@@ -199,23 +203,23 @@ a.logo-container {
 }
 
 .codeit {
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 1.2rem;
+    line-height: 19px;
     color: #9ca3af;
     margin: 0;
 }
 
 .help-menu {
     display: flex;
-    gap: 1.9rem;
+    gap: 30px;
     a {
         margin: 0;
         cursor: pointer;
         color: #e5e7eb;
-        font-size: 1rem;
+        font-size: 16px;
         font-weight: 400;
-        line-height: 1.2rem;
+        line-height: 19px;
     }
 }
 
@@ -224,72 +228,24 @@ a.logo-container {
     align-items: flex-start;
     margin: 0;
     padding: 0;
-    gap: 1.3em;
+    gap: 12px;
 }
 
-/*s*/
-@media screen and (max-width: 1240px) {
-    html {
-        font-size: 12px;
-    }
+/*desktop*/
+@media screen and (min-width: 1200px) {
     header {
-        padding: 0.75em 16.667em;
-    }
-    .landing {
-        padding: 0 16.667em;
-    }
-    .card-container {
-        padding: 11.5em 19.417em;
+        padding: 9px 200px;
     }
     .footer {
-        padding: 2.6em 16.667em;
+        padding: 32px 200px;
     }
 }
-/*m*/
-@media screen and (min-width: 1241px) {
-    html {
-        font-size: 14px;
-    }
-    header {
-        padding: 0.64em 14.3em;
-    }
-    .landing {
-        padding: 0 14.3em;
-    }
-    .card-container {
-        padding: 9.8em 16.64em;
-    }
-    .footer {
-        padding: 2.2em 14.3em;
-    }
-}
-/*l*/
-@media screen and (min-width: 1536px) {
-    header {
-        padding: 0.5625em 12.5em;
-    }
-    .landing {
-        padding: 0 12.5em;
-    }
-    .card-container {
-        padding: 8.6em 14.56em;
-    }
-    .footer {
-        padding: 2em 12.5em;
-    }
-}
-/*xl*/
+
 @media screen and (min-width: 1920px) {
     header {
-        padding: 0.5625em 25em;
-    }
-    .landing {
-        padding: 0 25em;
-    }
-    .card-container {
-        padding: 8.625em 29.125em;
+        padding: 9px 400px;
     }
     .footer {
-        padding: 2em 25em;
+        padding: 32px 400px;
     }
 }
