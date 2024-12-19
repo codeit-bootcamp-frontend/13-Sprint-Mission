@@ -139,7 +139,7 @@ a.logo-container {
 
 .card-img {
     width: 579px;
-    height: auto;
+    height: 100%;
 }
 
 .card-img.last {
@@ -155,10 +155,18 @@ a.logo-container {
     padding-right: 24px;
 }
 
-.card-container .right {
+.card-container.right {
     text-align: right;
+}
+
+.card-content.right {
     padding: 0;
     padding-left: 24px;
+    order: 1;
+}
+
+.card-img.right {
+    order: 2;
 }
 
 .title {
@@ -184,10 +192,6 @@ a.logo-container {
     line-height: 32px;
     margin: 0;
     white-space: nowrap;
-}
-
-.text.right {
-    padding: 0;
 }
 
 .footer {
@@ -229,6 +233,89 @@ a.logo-container {
     margin: 0;
     padding: 0;
     gap: 12px;
+}
+
+/*tablet*/
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    body {
+        background-color: var(--white);
+    }
+    header {
+        padding: 9px 24px;
+    }
+    .footer {
+        padding: 32px 104px;
+    }
+    .brNone {
+        display: inline-block;
+        content: " ";
+    }
+    .landing {
+        height: 771px;
+    }
+    .landing-wrap {
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .landing-content {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin-top: 84px;
+        p {
+            width: 100%;
+            text-align: center;
+        }
+        a {
+            width: 357px;
+        }
+    }
+    .cards {
+        display: flex;
+        flex-direction: column;
+        gap: 52px;
+        padding: 24px;
+    }
+    .card-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+    .card {
+        background-color: var(--white);
+        width: 696px;
+        height: 100%;
+        flex-direction: column;
+        gap: 24px;
+    }
+    .card-content {
+        width: 100%;
+        align-items: flex-start;
+        padding: 0;
+    }
+    .card-content.right {
+        order: 2;
+        align-items: flex-end;
+        padding: 0;
+    }
+    .card-img,
+    .card-img.last {
+        width: 696px;
+        height: 524px;
+        border-radius: 20px;
+    }
+    .card-img.right {
+        order: 1;
+    }
+    .landing.bottom {
+        height: 927px;
+        .landing-content {
+            margin: 0;
+            margin-top: 200px;
+        }
+    }
 }
 
 /*desktop*/
