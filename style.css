@@ -237,9 +237,10 @@ a.logo-container {
 }
 
 /*mobile*/
-@media screen and (min-width: 375px) and (max-width: 767px) {
+@media screen and (max-width: 767px) {
     body {
         background-color: var(--white);
+        min-width: 375px;
     }
     header {
         padding: 9px 16px;
@@ -272,6 +273,7 @@ a.logo-container {
         height: 100%;
         flex-direction: column;
         justify-content: space-between;
+        overflow: hidden;
     }
     .landing-content {
         width: 100%;
@@ -445,14 +447,5 @@ a.logo-container {
     }
     .footer {
         padding: 32px 200px;
-    }
-}
-
-@media screen and (min-width: 1920px) {
-    header {
-        padding: 9px 400px;
-    }
-    .footer {
-        padding: 32px 400px;
     }
 }
