@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/account.css" />
+    <title>회원가입</title>
+  </head>
+  <body>
+    <main>
+      <div class="logo-container">
+        <a href="/html/index.html">
+          <img src="/img/login/login-logo.svg" alt="판다마켓 로고" />
+        </a>
+      </div>
+      <form>
+        <label for="userEmail" class="margin-exclude">이메일</label>
+        <input placeholder="이메일을 입력해주세요" id="userEmail" type="email" />
+        <label for="userName">닉네임</label>
+        <input placeholder="닉네임을 입력해주세요" id="userName" type="text" required />
+        <label for="userPassword" class="pwd-label">비밀번호</label>
+        <div class="input-wrapper">
+          <input placeholder="비밀번호를 입력해주세요" id="userPassword" class="user-pwd" type="password" minlength="8" maxlength="12" required />
+          <img src="/img/login/login-close-eyes.svg" class="eyes-icon" />
+        </div>
+        <label for="pwdConfirm">비밀번호 확인</label>
+        <div class="input-wrapper">
+          <input placeholder="비밀번호를 다시 한 번 입력해주세요" id="pwdConfirm" class="user-pwd" type="password" minlength="8" maxlength="12" required />
+          <img src="/img/login/login-close-eyes.svg" class="eyes-icon" />
+        </div>
+        <button type="submit" id="signupBtn">회원가입</button>
+        <div class="sns-login">
+          <div class="sns-login__text">간편 로그인하기</div>
+          <div class="sns-login__logo">
+            <a href="https://www.google.co.kr"> <img src="/img/login/login-google.svg" alt="구글 로그인" /> </a>
+            <a href="https://www.kakaocorp.com/page/service/service/KakaoTalk?lang=en">
+              <img src="/img/login/login-kakao.svg" alt="카카오 로그인" />
+            </a>
+          </div>
+        </div>
+      </form>
+      <div class="auth-options">
+        <div class="signup-section__text">이미 회원이신가요?</div>
+        <a href="/html/login.html" class="login-link">로그인</a>
+      </div>
+    </main>
+    <script src="/scripts/signup.js"></script>
+  </body>
+</html>

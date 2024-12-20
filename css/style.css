@@ -1,9 +1,3 @@
-* {
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Pretendard", sans-serif;
-}
-
 header {
   display: flex;
   justify-content: space-between;
@@ -13,18 +7,18 @@ header {
 }
 
 footer {
-  background-color: #111827;
+  background-color: var(--gray-900);
   width: 100%; /* 화면 전체 너비*/
   height: auto;
   padding: 32px 400px 32px 400px;
   gap: 10px;
-  color: white;
+  color: var(--gray-50);
 }
 
 a,
 a:visited {
   text-decoration: none;
-  color: white;
+  color: var(--gray-50);
 }
 
 button {
@@ -38,7 +32,8 @@ img {
   object-fit: cover;
 }
 
-h1 {
+/* hot-item,search,register section 소제목 */
+h2 {
   font-size: 40px;
   font-weight: 700;
   line-height: 56px;
@@ -59,15 +54,15 @@ h1 {
   padding: 12px 23px;
   gap: 10px;
   border-radius: 8px;
-  background-color: #3692ff;
+  background-color: var(--primary);
   border: none;
-  color: white;
+  color: var(--gray-50);
 }
 
 /* Banner */
-.section1,
-.section5 {
-  background-color: #cfe5ff;
+.banner-section,
+.banner-last-section {
+  background-color: var(--banner-background);
   width: 100%; /* 뷰포트값이 달라져도 너비 전체를 차지 */
   min-height: 540px;
   display: flex;
@@ -86,7 +81,7 @@ h1 {
 }
 
 /* Banner text-box */
-.text-box {
+.banner-section__text {
   max-width: 100%; /* 부모 컨테이너를 초과하지 않음 */
   max-height: 260px;
   margin-bottom: 60px;
@@ -103,8 +98,8 @@ h1 {
   gap: 10px;
   border-radius: 40px;
   opacity: 0px;
-  background-color: #3692ff;
-  color: white;
+  background-color: var(--primary);
+  color: var(--gray-50);
   border: none;
 }
 
@@ -119,7 +114,7 @@ section {
 section article {
   width: 988px;
   height: 444px;
-  background-color: #fcfcfc;
+  background-color: var(--gray-50);
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -135,7 +130,7 @@ section article {
   font-size: 18px;
   font-weight: 700;
   line-height: 26px;
-  color: #3692ff;
+  color: var(--primary);
   margin-bottom: 10px;
 }
 
@@ -148,18 +143,18 @@ span {
 }
 
 /* Banner : Section 5 */
-.section5 .container {
+.banner-last-section .container {
   gap: 30px;
 }
 
-.section5 img {
+.banner-last-section img {
   max-width: 746px;
   max-height: 397px;
   gap: 0px;
   opacity: 0px;
 }
 
-.section5 .text-box {
+.banner-last-section .banner-section__text {
   padding-bottom: 60px;
 }
 
@@ -183,5 +178,5 @@ span {
 
 .footer-sns i {
   cursor: pointer;
-  color: white;
+  color: var(--gray-50);
 }
