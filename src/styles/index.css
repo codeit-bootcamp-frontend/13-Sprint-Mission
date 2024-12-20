@@ -1,0 +1,195 @@
+header {
+    display: flex;
+    justify-content: center;
+    padding: 9px 0;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 200px;
+    width: 1120px;
+}
+
+.login-button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 28px;
+    border-radius: 8px;
+}
+
+.main-title {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 540px;
+    background-color: #CFE5FF;
+}
+
+.main-title-content {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.main-title-content-left {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 357px;
+    height: 260px;
+}
+
+.main-title-h1 {
+    font-size: 40px;
+    line-height: 56px;
+    color: #374151;
+}
+
+.visit-button {
+    padding: 16px 124px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 32px;
+    border-radius: 40px;
+}
+
+.main-title-content-right {
+    height: 340px;
+    width: 746px;
+}
+
+.main-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 720px;
+}
+
+.main-content {
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    gap: 64px;
+    width: 988px;
+    height: 444px;
+    border-radius: 12px;
+    background-color: #FCFCFC;
+}
+
+.main-content-picture {
+    width: 580px;
+    height: 444px;
+}
+
+/*
+* 각각 gap이 12px과 24px인데 이거를 한 번에 처리하는 방법 확인!
+*/
+.main-content-right-text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.main-content-left-text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.main-content-text-header {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28px;
+    color: #3692FF;
+}
+
+.main-content-text-title {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 56px;
+}
+
+.main-content-text-detail {
+    margin-top: 12px;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    color: #374151;
+}
+
+.main-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 540px;
+    background-color: #CFE5FF;
+}
+
+.main-bottom-content {
+    display: flex;
+    gap: 68px;
+    align-items: center;
+}
+
+.main-bottom-content-left {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 56px;
+    color: #374151;
+}
+
+.main-bottom-content-right {
+    width: 744px;
+    height: 396px;
+}
+
+footer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 160px;
+    padding: 32px 0;
+    background-color: #111827;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    width: 1120px;
+    justify-content: space-between;
+}
+
+.codeit-logo {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #9CA3AF;
+}
+
+.informations {
+    display: flex;
+    gap: 32px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #E5E7EB;
+}
+
+.social-network-icons {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.social-network-icons li {
+    width: 20px;
+    height: 20px;
+}
