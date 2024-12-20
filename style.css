@@ -27,7 +27,7 @@ header {
   flex-shrink: 0;
   color: #ffffff;
   font-weight: 600;
-  background-color: #3692ff;
+  background-color: var(--blue100);
   height: 48px;
   width: 128px;
   border-radius: 8px;
@@ -35,7 +35,7 @@ header {
 }
 
 .button-login:visited {
-  color: #f3f4f6;
+  color: var(--gray100);
 }
 
 /* <main> 하위 태그 스타일 속성 정의 */
@@ -58,7 +58,7 @@ header {
 
 .button-items {
   color: #ffffff;
-  background-color: #3692ff;
+  background-color: var(--blue100);
   border-radius: 40px;
   padding: 1rem 7.75rem;
   cursor: pointer;
@@ -111,7 +111,7 @@ header {
 .feature-content-tag {
   font-size: 1.125rem;
   font-weight: 700;
-  color: #3692ff;
+  color: var(--blue100);
 }
 
 .feature-content-text {
@@ -121,8 +121,8 @@ header {
 /* <footer>와 그 하위 태그 스타일 속성 정의 */
 footer {
   font-weight: 400;
-  color: #9ca3af;
-  background-color: #111827;
+  color: var(--gray400);
+  background-color: var(--gray900);
   height: 160px;
   padding-top: 40px;
 }

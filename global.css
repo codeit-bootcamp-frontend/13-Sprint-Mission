@@ -10,7 +10,11 @@
   font-family: "Pretendard-Regular", sans-serif;
   font-size: 16px;
 
-  --blue: #3692ff;
+  --blue100: #3692ff;
+  --blue200: #1967d6;
+  --blue300: #1251aa;
+
+  --red: #f74747;
 
   --gray50: #f9fafb;
   --gray100: #f3f4f6;

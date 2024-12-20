@@ -49,21 +49,21 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f3f4f6;
+  background-color: var(--gray100);
   border-radius: 12px;
   height: 3.5rem;
   padding: 1rem 1.5rem;
 }
 
 .form-field-input {
-  color: #1f2937;
+  color: var(--gray800);
   font-weight: 400;
-  background-color: #f3f4f6;
+  background-color: var(--gray100);
   width: 100%;
 }
 
 .form-field-input::placeholder {
-  color: #9ca3af;
+  color: var(--gray400);
 }
 
 .input-visibility-button {
@@ -72,10 +72,10 @@ main {
 }
 
 .form-buttom-submit {
-  color: #f3f4f6;
+  color: var(--gray100);
   font-size: 1.25rem;
   font-weight: 600;
-  background-color: #9ca3af;
+  background-color: var(--gray400);
   border-radius: 2.5rem;
   width: 100%;
   padding: 1rem 0;
@@ -103,6 +103,6 @@ main {
 }
 
 a.helper-text-link {
-  color: #3692ff;
+  color: var(--blue100);
   text-decoration: underline;
 }
