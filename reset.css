@@ -29,9 +29,11 @@ dd {
   margin-block-end: 0;
 }
 
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role="list"],
-ol[role="list"] {
+/* Remove list styles on ul, ol elements, which suggests default styling will be removed */
+ul,
+ol {
+  margin: 0;
+  padding: 0;
   list-style: none;
 }
 
@@ -92,13 +94,20 @@ textarea:not([rows]) {
   scroll-margin-block: 5ex;
 }
 
-ol,
-ul {
-  list-style: none;
-}
-
+/* Remove default styles based on link status (General, Click, Visit) */
 a:link,
 a:active,
 a:visited {
   text-decoration: none;
+}
+
+/* Remove the default border of interactive elements. */
+input,
+button {
+  border: 0;
+}
+
+/* Remove the default outline with the input element in focus. */
+input:focus {
+  outline: 0;
 }

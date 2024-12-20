@@ -11,15 +11,37 @@
       <a class="buttom-home" href="/">
         <img src="../images/logo_lg.svg" alt="판다마켓 로고" />
       </a>
-      <form action="">
-        <label for="">이메일</label>
-        <input type="text" />
-        <label for="">비밀번호</label>
-        <input type="text" />
-        <button>로그인</button>
+      <form action="submit" class="auth-form">
+        <div class="form-field">
+          <label for="" class="form-field-label">이메일</label>
+          <div class="form-field-input-wrapper">
+            <input
+              class="form-field-input"
+              type="email"
+              placeholder="이메일을 입력해주세요"
+            />
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="" class="form-field-label">비밀번호</label>
+          <div class="form-field-input-wrapper">
+            <input
+              class="form-field-input"
+              type="password"
+              placeholder="비밀번호를 입력해주세요"
+            />
+            <button class="input-visibility-button" type="button">
+              <img
+                src="../images/ic_visibility_off.svg"
+                alt="비밀번호 가리기"
+              />
+            </button>
+          </div>
+        </div>
+        <button class="form-buttom-submit" type="submit">로그인</button>
       </form>
       <div class="social-login-container">
-        <div>간편 로그인하기</div>
+        간편 로그인하기
         <ul>
           <li>
             <a href="https://www.google.com/">
@@ -33,10 +55,11 @@
           </li>
         </ul>
       </div>
-      <div>
+      <div class="helper-text">
         판다마켓이 처음이신가요?
-        <a href="/signup">회원가입</a>
+        <a href="/signup" class="helper-text-link">회원가입</a>
       </div>
     </main>
   </body>
+  <script src="script.js"></script>
 </html>
