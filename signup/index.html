@@ -1,11 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>signup</title>
+    <title>login</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    회원가입 페이지
+    <main>
+      <a class="buttom-home" href="/">
+        <img src="../images/logo_lg.svg" alt="판다마켓 로고" />
+      </a>
+      <form action="">
+        <label for="">이메일</label>
+        <input type="text" />
+        <label for="">닉네임</label>
+        <input type="text" />
+        <label for="">비밀번호</label>
+        <input type="text" />
+        <label for="">비밀번호 확인</label>
+        <input type="text" />
+        <button>회원가입</button>
+      </form>
+      <div class="social-login-container">
+        <div>간편 로그인하기</div>
+        <ul>
+          <li>
+            <a href="https://www.google.com/">
+              <img src="../images/ic_google.svg" alt="구글 소셜로그인" />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.kakaocorp.com/page/">
+              <img src="../images/ic_kakaoTalk.svg" alt="카카오 소셜로그인" />
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        이미 회원이신가요?
+        <a href="/login">로그인</a>
+      </div>
+    </main>
   </body>
 </html>
