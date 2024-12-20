@@ -22,7 +22,7 @@ header {
   max-width: 1980px; /* 최대 너비 설정 */
   gap: 20px;
   padding: 0 200px; /* 좌우 여백 200px 유지 */
-  margin: 0 auto;
+  margin: 0.5rem auto;
 }
 
 .button-login {
@@ -108,7 +108,9 @@ header {
 .feature-content-title {
   font-size: 2.5rem;
   font-weight: 700;
+  line-height: 1.4;
   white-space: nowrap;
+  margin: 1.75rem 0;
 }
 
 .feature-content-tag {
