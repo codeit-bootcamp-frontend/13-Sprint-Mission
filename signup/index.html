@@ -11,19 +11,73 @@
       <a class="buttom-home" href="/">
         <img src="../images/logo_lg.svg" alt="판다마켓 로고" />
       </a>
-      <form action="">
-        <label for="">이메일</label>
-        <input type="text" />
-        <label for="">닉네임</label>
-        <input type="text" />
-        <label for="">비밀번호</label>
-        <input type="text" />
-        <label for="">비밀번호 확인</label>
-        <input type="text" />
-        <button>회원가입</button>
+      <form action="submit" class="auth-form">
+        <div class="form-field">
+          <label for="email" class="form-field-label">이메일</label>
+          <div class="form-field-input-wrapper">
+            <input
+              class="form-field-input"
+              id="email"
+              type="email"
+              placeholder="이메일을 입력해주세요"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="nickname" class="form-field-label">닉네임</label>
+          <div class="form-field-input-wrapper">
+            <input
+              class="form-field-input"
+              id="nickname"
+              type="text"
+              placeholder="닉네임을 입력해주세요"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="password" class="form-field-label">비밀번호</label>
+          <div class="form-field-input-wrapper">
+            <input
+              class="form-field-input"
+              id="password"
+              type="password"
+              placeholder="비밀번호를 입력해주세요"
+              required
+            />
+            <button class="input-visibility-button" type="button">
+              <img
+                src="../images/ic_visibility_off.svg"
+                alt="비밀번호 가리기"
+              />
+            </button>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="password-check" class="form-field-label">
+            비밀번호 확인
+          </label>
+          <div class="form-field-input-wrapper">
+            <input
+              class="form-field-input"
+              id="password-check"
+              type="password"
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
+              required
+            />
+            <button class="input-visibility-button" type="button">
+              <img
+                src="../images/ic_visibility_off.svg"
+                alt="비밀번호 가리기"
+              />
+            </button>
+          </div>
+        </div>
+        <button class="form-buttom-submit" type="submit">회원가입</button>
       </form>
       <div class="social-login-container">
-        <div>간편 로그인하기</div>
+        간편 로그인하기
         <ul>
           <li>
             <a href="https://www.google.com/">
@@ -37,10 +91,11 @@
           </li>
         </ul>
       </div>
-      <div>
+      <div class="helper-text">
         이미 회원이신가요?
-        <a href="/login">로그인</a>
+        <a href="/login " class="helper-text-link">로그인</a>
       </div>
     </main>
   </body>
+  <script src="script.js"></script>
 </html>
