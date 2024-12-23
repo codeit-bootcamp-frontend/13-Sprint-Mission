@@ -16,6 +16,13 @@ function loginActive() {
         }
     };
 
+    const clearErrMessage = (input) => {
+        input.addEventListener("input", () => {
+            if (input.value.trim() === "") return;
+            errMessage(input, "");
+        });
+    };
+
     const emailValidate = () => {
         const value = emailTarget.value.trim();
         if (!validateEmpty(value)) {
@@ -63,6 +70,9 @@ function loginActive() {
 
     emailTarget.addEventListener("input", loginValidate);
     passwordTarget.addEventListener("input", loginValidate);
+
+    clearErrMessage(emailTarget);
+    clearErrMessage(passwordTarget);
 
     loginBtn.addEventListener("click", (e) => {
         e.preventDefault();
