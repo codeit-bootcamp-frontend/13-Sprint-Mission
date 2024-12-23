@@ -79,11 +79,12 @@ main {
   border-radius: 2.5rem;
   width: 100%;
   padding: 1rem 0;
-  cursor: pointer;
+  cursor: not-allowed;
 }
 
 .form-button-submit.active {
   background-color: var(--blue100);
+  cursor: pointer;
 }
 
 .social-login-container {
