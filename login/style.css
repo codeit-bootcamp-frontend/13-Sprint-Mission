@@ -59,7 +59,7 @@ main {
 :focus-within이란 - 스스로 :focus 의사 클래스와 일치하거나, 그 자손 중 하나가 :focus와 일치하는 요소를 나타냄
 */
 .form-field-input-wrapper:focus-within {
-  outline: 2px solid var(--blue100); /* 자식 요소가 focus 상태일 때 테두리 */
+  outline: 2px solid var(--blue100);
 }
 
 .form-field-input {
