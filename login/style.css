@@ -71,7 +71,7 @@ main {
   cursor: pointer;
 }
 
-.form-buttom-submit {
+.form-button-submit {
   color: var(--gray100);
   font-size: 1.25rem;
   font-weight: 600;
@@ -80,6 +80,10 @@ main {
   width: 100%;
   padding: 1rem 0;
   cursor: pointer;
+}
+
+.form-button-submit.active {
+  background-color: var(--blue100);
 }
 
 .social-login-container {
