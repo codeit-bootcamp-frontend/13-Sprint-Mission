@@ -35,7 +35,6 @@ function loginActive() {
             return false;
         }
 
-        errMessage(emailTarget, "");
         return true;
     };
 
@@ -51,7 +50,6 @@ function loginActive() {
             return false;
         }
 
-        errMessage(passwordTarget, "");
         return true;
     };
 
