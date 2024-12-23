@@ -2,14 +2,14 @@ html {
     font-family: var(--font);
 }
 
-#login-wrap {
+.login-wrap {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-#login {
+.login {
     width: 640px;
     display: flex;
     flex-direction: column;
@@ -18,12 +18,12 @@ html {
     gap: 40px;
 }
 
-#logo-wrap {
+.logo-wrap {
     display: flex;
     align-items: center;
     gap: 20px;
     text-decoration: none;
-    #logo {
+    .logo {
         width: 103px;
         height: 103px;
     }
@@ -37,7 +37,7 @@ html {
     }
 }
 
-#form-wrap {
+.form-wrap {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -111,7 +111,7 @@ button:disabled {
     cursor: not-allowed;
 }
 
-#easy-login {
+.social-login {
     width: 100%;
     background-color: #e6f2ff;
     display: flex;
@@ -127,7 +127,7 @@ button:disabled {
     }
 }
 
-#platform {
+.platform {
     display: flex;
     gap: 16px;
     img {
@@ -136,7 +136,7 @@ button:disabled {
     }
 }
 
-#first-time {
+.first-time {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -151,5 +151,34 @@ button:disabled {
         line-height: 16.71px;
         text-decoration: underline;
         margin-left: 5px;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+    .login {
+        padding: 0 16px;
+        gap: 24px;
+    }
+    .logo-wrap {
+        gap: 12px;
+        .logo {
+            width: 50px;
+            height: 50px;
+        }
+        h1 {
+            font-size: 33px;
+            line-height: 44px;
+        }
+    }
+    .form-wrap {
+        width: 100%;
+        max-width: 400px;
+    }
+    .login-fields {
+        gap: 8px;
+        label {
+            font-size: 14px;
+            line-height: 24px;
+        }
     }
 }

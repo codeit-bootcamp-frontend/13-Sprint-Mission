@@ -5,15 +5,11 @@ function togglePasswordVisibility() {
     const visibilityPassword2 = document.querySelector(".visibility2");
 
     const passwordVisibility = () => {
-        passwordTarget.value.trim()
-            ? (visibilityPassword.style.display = "block")
-            : (visibilityPassword.style.display = "none");
+        visibilityPassword.style.display = passwordTarget.value.trim() ? "block" : "none";
     };
 
     const passwordCheckVisibility = () => {
-        passwordCheckTarget.value.trim()
-            ? (visibilityPassword2.style.display = "block")
-            : (visibilityPassword2.style.display = "none");
+        visibilityPassword2.style.display = passwordCheckTarget.value.trim() ? "block" : "none";
     };
 
     const passwordClickHandler = (targetInput, targetImg) => {
