@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 16rem auto;
+    margin: 10rem auto;
     gap: 2.4rem;
 }
 
@@ -31,18 +31,18 @@ input {
     margin-top: 1.2rem;
 }
 
-.check-password {
+.toggle-password {
     position: absolute;
     top: 4.9rem;
     right: 2rem;
     background: none;
 }
 
-.check-password:hover {
+.toggle-password:hover {
     background: none;
 }
   
-.check-password:focus {
+.toggle-password:focus {
     background: none;
 }
 
@@ -62,7 +62,7 @@ input::placeholder {
     padding: 1.6rem 12.4rem;
 }
 
-.easy-login {
+.social-login {
     display: flex;
     justify-content: space-between;
     align-items: center;

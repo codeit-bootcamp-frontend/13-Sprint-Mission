@@ -7,7 +7,7 @@
         <link rel="icon" href="images/logo/favicon.ico" />
         <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
         <link rel="stylesheet" href="styles/global.css">
-        <link rel="stylesheet" href="styles/login.css">
+        <link rel="stylesheet" href="styles/auth.css">
     </head>
     <body>
         <main>
@@ -21,11 +21,11 @@
                     </label>
                     <label>비밀번호
                         <input type="password" placeholder="비밀번호를 입력해주세요" required>
-                        <button class="check-password" type="button"><img src="./images/icon/visibility_off.svg" alt="비밀번호 보이기"></button>
+                        <button class="toggle-password" type="button"><img src="./images/icon/visibility_off.svg" alt="비밀번호 숨김"></button>
                     </label>
                     <button id="loginButton" type="submit">로그인</button>
                 </form>
-                <div class="easy-login">
+                <div class="social-login">
                     <div>간편 로그인하기</div>
                     <ul id="accountLogin">
                         <li id="google">
