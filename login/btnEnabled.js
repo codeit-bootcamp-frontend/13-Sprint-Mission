@@ -1,9 +1,24 @@
 import { validateEmail, validateEmpty, validatePassword, errorMessage } from "../utils/validate.js";
 
 function loginActive() {
-    const emailTarget = document.getElementById("email");
-    const passwordTarget = document.getElementById("password");
     const loginBtn = document.querySelector(".login-btn");
+
+    const validateObject = {
+        email: {
+            target: document.getElementById("email"),
+            validators: [
+                { check: validateEmpty, error: errorMessage.email.empty },
+                { check: validateEmail, error: errorMessage.email.invalid },
+            ],
+        },
+        password: {
+            target: document.getElementById("password"),
+            validators: [
+                { check: validateEmpty, error: errorMessage.password.empty },
+                { check: validatePassword, error: errorMessage.password.invalid },
+            ],
+        },
+    };
 
     const errMessage = (input, errorM) => {
         const err = input.parentElement.parentElement.querySelector(".error-message");
@@ -23,54 +38,28 @@ function loginActive() {
         });
     };
 
-    const emailValidate = () => {
-        const value = emailTarget.value.trim();
-        if (!validateEmpty(value)) {
-            errMessage(emailTarget, errorMessage.email.empty);
-            return false;
+    const validates = (key) => {
+        const { target, validators } = validateObject[key];
+        const value = target.value.trim();
+        for (const { check, error } of validators) {
+            if (!check(value)) {
+                errMessage(target, error);
+                return false;
+            }
         }
-
-        if (!validateEmail(value)) {
-            errMessage(emailTarget, errorMessage.email.invalid);
-            return false;
-        }
-
-        return true;
-    };
-
-    const passwordValidate = () => {
-        const value = passwordTarget.value.trim();
-        if (!validateEmpty(value)) {
-            errMessage(passwordTarget, errorMessage.password.empty);
-            return false;
-        }
-
-        if (!validatePassword(value)) {
-            errMessage(passwordTarget, errorMessage.password.invalid);
-            return false;
-        }
-
         return true;
     };
 
     const loginValidate = () => {
-        const isEmailValid =
-            !emailTarget.classList.contains("error") &&
-            validateEmpty(emailTarget.value) &&
-            validateEmail(emailTarget.value);
-        const isPasswordValid = !passwordTarget.classList.contains("error") && validatePassword(passwordTarget.value);
-
-        loginBtn.disabled = !(isEmailValid && isPasswordValid);
+        const isValid = Object.keys(validateObject).every((key) => validates(key));
+        loginBtn.disabled = !isValid;
     };
 
-    emailTarget.addEventListener("blur", emailValidate);
-    passwordTarget.addEventListener("blur", passwordValidate);
-
-    emailTarget.addEventListener("input", loginValidate);
-    passwordTarget.addEventListener("input", loginValidate);
-
-    clearErrMessage(emailTarget);
-    clearErrMessage(passwordTarget);
+    for (const [key, { target }] of Object.entries(validateObject)) {
+        target.addEventListener("blur", () => validates(key));
+        target.addEventListener("input", loginValidate);
+        clearErrMessage(target);
+    }
 
     loginBtn.addEventListener("click", (e) => {
         e.preventDefault();
