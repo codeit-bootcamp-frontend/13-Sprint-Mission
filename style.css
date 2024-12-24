@@ -156,10 +156,34 @@ footer {
   .header-footer-container {
     padding: 0 24px;
   }
+
+  .hero-last-section {
+    align-items: stretch;
+  }
+
+  .hero-last-section-container {
+    flex-direction: column;
+  }
+
+  .feature-item {
+    flex-direction: column;
+  }
 }
 
 @media (375px <= width < 768px) {
   .header-footer-container {
     padding: 0 16px;
+  }
+
+  .hero-last-section {
+    align-items: stretch;
+  }
+
+  .hero-last-section-container {
+    flex-direction: column;
+  }
+
+  .feature-item {
+    flex-direction: column;
   }
 }
