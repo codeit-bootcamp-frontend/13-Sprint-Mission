@@ -157,3 +157,9 @@ footer {
     padding: 0 24px;
   }
 }
+
+@media (375px <= width < 768px) {
+  .header-footer-container {
+    padding: 0 16px;
+  }
+}
