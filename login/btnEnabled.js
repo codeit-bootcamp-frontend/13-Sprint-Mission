@@ -51,7 +51,13 @@ function loginActive() {
     };
 
     const loginValidate = () => {
-        const isValid = Object.keys(validateObject).every((key) => validates(key));
+        const allValidate = (key) => {
+            const { target, validators } = validateObject[key];
+            const value = target.value.trim();
+
+            return validators.every(({ check }) => check(value));
+        };
+        const isValid = Object.keys(validateObject).every(allValidate);
         loginBtn.disabled = !isValid;
     };
 
