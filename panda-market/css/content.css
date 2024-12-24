@@ -10,8 +10,10 @@
 .login_wrap form fieldset {width: 100%;}
 .login_wrap form label {display: inline-block; position: relative; color: var(--gray-800); font-weight: 700; font-size: 16px; margin-bottom: 16px; width: 100%;}
 .login_wrap form .toggle-password {position: absolute; content: ""; width: 24px; height: 24px; right: 16px; top: 43px; background: center center url(../images/btn_visibility_off_24px.svg) no-repeat;}
+.login_wrap form .toggle-password.on {background: center center url(../images/btn_visibility_on_24px.svg) no-repeat;}
 /* .login_wrap form label[for="login_pw"]::after {position: absolute; content: ""; width: 24px; height: 24px; right: 16px; top: 47px; background: center center url(../images/btn_visibility_off_24px.svg) no-repeat;} */
-.login_wrap form input {outline: none; cursor: pointer; display: inline-block; box-sizing: border-box; width: 100%; border: none; background-color: var(--gray-100); color: var(--gray-800); padding: 16px 24px; font-size: 14px; border-radius: 12px; margin-bottom: 24px;}
+.login_wrap form input {outline: none; border: none; cursor: pointer; display: inline-block; box-sizing: border-box; width: 100%; border: none; background-color: var(--gray-100); border: 2px solid var(--gray-100); color: var(--gray-800); padding: 16px 24px; font-size: 14px; border-radius: 12px; margin-bottom: 24px;}
+.login_wrap form input:focus {border: 2px solid var(--blue);}
 .login_wrap form input::placeholder {color: var(--gray-400);}
 .login_wrap form button.btn_login, .login_wrap form button.btn_signup {display: inline-block; width: 100%; border: none; border-radius: 40px; padding: 16px; text-align: center; background-color: var(--gray-400); transition: 0.2s; color: #fff; font-size: 16px; margin-bottom: 24px;}
 .login_wrap form button.btn_login:hover, .login_wrap form button.btn_signup:hover {background-color: var(--blue); transition: 0.2s;}
