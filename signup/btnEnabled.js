@@ -7,11 +7,38 @@ import {
 } from "../utils/validate.js";
 
 function signupActive() {
-    const emailTarget = document.getElementById("email");
-    const nicknameTarget = document.getElementById("nickname");
-    const passwordTarget = document.getElementById("password");
-    const passwordCheckTarget = document.getElementById("password-check");
     const signupBtn = document.querySelector(".signup-btn");
+
+    const validateObject = {
+        email: {
+            target: document.getElementById("email"),
+            validators: [
+                { check: validateEmpty, error: errorMessage.email.empty },
+                { check: validateEmail, error: errorMessage.email.invalid },
+            ],
+        },
+        nickname: {
+            target: document.getElementById("nickname"),
+            validators: [{ check: validateEmpty, error: errorMessage.nickname }],
+        },
+        password: {
+            target: document.getElementById("password"),
+            validators: [
+                { check: validateEmpty, error: errorMessage.password.empty },
+                { check: validatePassword, error: errorMessage.password.invalid },
+            ],
+        },
+        "password-check": {
+            target: document.getElementById("password-check"),
+            validators: [
+                { check: validateEmpty, error: errorMessage.password.empty },
+                {
+                    check: (value) => validatePasswordCheck(validateObject.password.target.value, value),
+                    error: errorMessage.password.notEqual,
+                },
+            ],
+        },
+    };
 
     const errMessage = (input, errorM) => {
         const err = input.parentElement.parentElement.querySelector(".error-message");
@@ -31,97 +58,28 @@ function signupActive() {
         });
     };
 
-    const emailValidate = () => {
-        const value = emailTarget.value.trim();
-        if (!validateEmpty(value)) {
-            errMessage(emailTarget, errorMessage.email.empty);
-            return false;
+    const validates = (key) => {
+        const { target, validators } = validateObject[key];
+        const value = target.value.trim();
+        for (const { check, error } of validators) {
+            if (!check(value)) {
+                errMessage(target, error);
+                return false;
+            }
         }
-
-        if (!validateEmail(value)) {
-            errMessage(emailTarget, errorMessage.email.invalid);
-            return false;
-        }
-
-        return true;
-    };
-
-    const nicknameValidate = () => {
-        const value = nicknameTarget.value.trim();
-        if (!validateEmpty(value)) {
-            errMessage(nicknameTarget, errorMessage.nickname);
-            return false;
-        }
-
-        return true;
-    };
-
-    const passwordValidate = () => {
-        const value = passwordTarget.value.trim();
-        if (!validateEmpty(value)) {
-            errMessage(passwordTarget, errorMessage.password.empty);
-            return false;
-        }
-
-        if (!validatePassword(value)) {
-            errMessage(passwordTarget, errorMessage.password.invalid);
-            return false;
-        }
-
-        return true;
-    };
-
-    const passwordCheckValidate = () => {
-        const password1 = passwordTarget.value.trim();
-        const password2 = passwordCheckTarget.value.trim();
-        if (!validateEmpty(password2)) {
-            errMessage(passwordCheckTarget, errorMessage.password.empty);
-            return false;
-        }
-
-        if (!validatePasswordCheck(password1, password2)) {
-            errMessage(passwordCheckTarget, errorMessage.password.notEqual);
-            return false;
-        }
-
         return true;
     };
 
     const signupValidate = () => {
-        const isEmailValid =
-            !emailTarget.classList.contains("error") &&
-            validateEmpty(emailTarget.value) &&
-            validateEmail(emailTarget.value);
-
-        const isNicknameValid = !nicknameTarget.classList.contains("error") && validateEmpty(nicknameTarget.value);
-
-        const isPasswordValid =
-            !passwordTarget.classList.contains("error") &&
-            validateEmpty(passwordTarget.value) &&
-            validatePassword(passwordTarget.value);
-
-        const isPasswordCheckValid =
-            !passwordCheckTarget.classList.contains("error") &&
-            validateEmpty(passwordCheckTarget.value) &&
-            validatePasswordCheck(passwordTarget.value, passwordCheckTarget.value);
-
-        signupBtn.disabled = !(isEmailValid && isNicknameValid && isPasswordValid && isPasswordCheckValid);
+        const isValid = Object.keys(validateObject).every((key) => validates(key));
+        signupBtn.disabled = !isValid;
     };
 
-    emailTarget.addEventListener("blur", emailValidate);
-    nicknameTarget.addEventListener("blur", nicknameValidate);
-    passwordTarget.addEventListener("blur", passwordValidate);
-    passwordCheckTarget.addEventListener("blur", passwordCheckValidate);
-
-    emailTarget.addEventListener("input", signupValidate);
-    nicknameTarget.addEventListener("input", signupValidate);
-    passwordTarget.addEventListener("input", signupValidate);
-    passwordCheckTarget.addEventListener("input", signupValidate);
-
-    clearErrMessage(emailTarget);
-    clearErrMessage(nicknameTarget);
-    clearErrMessage(passwordTarget);
-    clearErrMessage(passwordCheckTarget);
+    for (const [key, { target }] of Object.entries(validateObject)) {
+        target.addEventListener("blur", () => validates(key));
+        target.addEventListener("input", signupValidate);
+        clearErrMessage(target);
+    }
 
     signupBtn.addEventListener("click", (e) => {
         e.preventDefault();
