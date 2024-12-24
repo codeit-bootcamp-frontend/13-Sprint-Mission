@@ -38,20 +38,29 @@
 
 .banner-right {
     display: flex;
+    justify-content: center;
 }
 
 #features {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 13.8rem;
+    gap: 0%;
 }
 
 .feature {
-    padding: 13.8rem 0;
+    margin: 13.8rem 0;
+    padding-right: 5%;
     display: flex;
     align-items: center;
     gap: 5%;
+    border-radius: 1.2rem;
+    background-color: #FCFCFC;
 }
 
 .feature:nth-child(2) {
+    padding-right: 0;
+    padding-left: 5%;
     text-align: right;
 }
   
@@ -71,4 +80,147 @@
     font-weight: 500;
     font-size: 2.4rem;
     line-height: 3.2rem;
+}
+
+.mobile {
+    display: none;
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .banner.top {
+        height: 77.1rem;
+    }
+
+    .banner.bottom {
+        height: 92.7rem;
+    }
+
+    .banner-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .banner-left {
+        display: flex;
+        flex-direction: column;
+        gap: 3.2rem;
+        width: auto;
+        text-align: center;
+        padding-bottom: 35rem;
+    }
+
+    #features {
+        margin-bottom: 8rem;
+    }
+
+    .feature {
+        margin: 3rem;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+        border-radius: 0;
+    }
+
+    .feature > img {
+        width: 100%;
+    }
+
+    .pc {
+        display: none;
+    }
+
+    .tablet {
+        display: flex;
+    }
+
+    .feature:nth-child(2) {
+        padding: 0;
+        align-items: flex-end;
+    }
+
+    .feature-description {
+        font-size: 1.8rem;
+        line-height: 2.6rem;
+    }
+}
+
+/* Mobile */
+@media (min-width: 375px) and (max-width: 767px) {
+    #itemsLinkButton {
+        padding: 1.2rem 6.1rem;
+        font-size: 1.8rem;
+    }
+    
+    .banner {
+        height: 54rem;
+        position: relative;
+    }
+
+    .banner-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .banner-left {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 3.2rem;
+        width: auto;
+        text-align: center;
+        position: absolute;
+        top: 4rem;
+    }
+
+    .top .banner-left {
+        padding: 0;
+    }
+
+    .banner-right > img {
+        width: 100%;
+    }
+
+    #features {
+        margin-bottom: 8rem;
+    }
+
+    .feature {
+        margin: 4rem 1.5rem 0 1.5rem;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        border-radius: 0;
+    }
+
+    .feature > img {
+        width: 100%;
+    }
+
+    .pc {
+        display: none;
+    }
+
+    .mobile {
+        display: flex;
+    }
+
+    .feature:nth-child(2) {
+        padding: 0;
+        align-items: flex-end;
+    }
+
+    .feature-tag {
+        font-size: 1.6rem;
+    }
+
+    .feature-description {
+        font-size: 1.6rem;
+        line-height: 2.6rem;
+        letter-spacing: 0.08em;
+    }    
 }
