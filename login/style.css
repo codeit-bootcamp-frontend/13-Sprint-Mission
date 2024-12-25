@@ -6,6 +6,8 @@ body {
   flex-direction: column;
   justify-content: start;
   align-items: center;
+  width: 100%;
+  padding: 0 16px;
 }
 
 main {
@@ -14,9 +16,9 @@ main {
   justify-content: space-between;
   align-items: center;
   gap: 1.5rem;
-  width: 50%;
-  margin: 64px auto;
-  width: 600px;
+  margin: 2rem 0;
+  width: 100%;
+  max-width: 640px;
 }
 
 .button-home {
@@ -117,4 +119,15 @@ main {
 a.helper-text-link {
   color: var(--blue100);
   text-decoration: underline;
+}
+
+/*
+@media (768px <= width < 1200px) {
+}
+*/
+
+@media (375px <= width < 768px) {
+  main {
+    max-width: 400px;
+  }
 }
