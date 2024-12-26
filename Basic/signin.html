@@ -15,15 +15,15 @@
                 <a href="./">
                     <img src="./images/logo/panda-market-logo.svg" id="logoBtn" alt="판다마켓 홈">
                 </a>
-                <form>
+                <form class="input" action="./items.html">
                     <label>이메일
-                        <input type="email" placeholder="이메일을 입력해주세요" required>
+                        <input type="email" class="email-input" placeholder="이메일을 입력해주세요" required>
                     </label>
                     <label>비밀번호
-                        <input type="password" placeholder="비밀번호를 입력해주세요" required>
                         <button class="toggle-password" type="button"><img src="./images/icon/visibility_off.svg" alt="비밀번호 숨김"></button>
+                        <input type="password" class="password-input" placeholder="비밀번호를 입력해주세요" required>
                     </label>
-                    <button id="loginButton" type="submit">로그인</button>
+                    <button id="loginButton" type="submit" disabled>로그인</button>
                 </form>
                 <div class="social-login">
                     <div>간편 로그인하기</div>
@@ -45,6 +45,7 @@
                     <a href="./signup.html" id="signupLink">회원가입</a>
                 </div>
             </div>
-        </main> 
+        </main>
+        <script src="auth.js"></script>
     </body>
 </html>
