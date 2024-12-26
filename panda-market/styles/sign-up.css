@@ -9,6 +9,11 @@
   gap: 40px;
 }
 
+.sign-up-logo-image {
+  width: 103px;
+  height: 103px;
+}
+
 .sign-up-logo {
   display: flex;
   align-items: center;
@@ -131,4 +136,25 @@ form:has(#email:valid):has(#nickname:valid):has(#password:valid):has(
   font-weight: 500;
   line-height: 16.71px;
   text-align: left;
+}
+
+@media screen and (min-width: 375px) and (max-width: 768px) {
+  .container {
+    max-width: 400px;
+  }
+  .sign-up-logo-image {
+    width: 52px;
+    height: 52px;
+  }
+  .home-anchor {
+    font-size: 33px;
+    line-height: 45px;
+  }
+  .sign-up-form,
+  .input-wrapper,
+  .input-box,
+  button,
+  .sns-login-box {
+    width: 100%;
+  }
 }
