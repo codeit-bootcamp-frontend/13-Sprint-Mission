@@ -7,157 +7,117 @@
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
-    <div class="layout">
-      <header>
-        <nav class="user-nav">
-          <div class="logo-container">
-            <img class="logo" src="img/logo.svg" alt="판다마켓 로고" />
-            <a class="panda-anchor" href="./index.html">판다마켓</a>
-          </div>
-          <a class="login-anchor button" href="./login.html">로그인</a>
-        </nav>
-      </header>
-      <main>
-        <!-- section에 h2, h3 태그 추가 -->
-        <section>
-          <div class="items-bg">
-            <div class="items-container">
-              <div class="items-anchor-box">
-                <div class="items-text">
-                  <h2 class="lg-text">일상의 모든 물건을</h2>
-                  <h3 class="lg-text">거래해 보세요</h3>
-                </div>
-                <a class="items-anchor button" href="./items.html"
-                  >구경하러 가기</a
-                >
-              </div>
-              <img
-                class="items-img"
-                src="img/items.png"
-                alt="장바구니 들고있는 판다 캐릭터"
-              />
-            </div>
-          </div>
-        </section>
-        <section>
-          <div class="container">
-            <div class="box">
-              <img
-                class="text-with-img"
-                src="img/favorite.png"
-                alt="초록 반팔티를 좋아하는 판타 캐릭터"
-              />
-              <div class="text-box">
-                <span class="sm-text">Hot item</span>
-                <div class="text">
-                  <div class="divide-text">
-                    <h2 class="lg-text">인기 상품을</h2>
-                    <h2 class="lg-text">확인해 보세요</h2>
-                  </div>
-                  <div class="divide-text">
-                    <h3 class="md-text">가장 HOT한 중고거래 물품을</h3>
-                    <h3 class="md-text">판다 마켓에서 확인해 보세요</h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section>
-          <div class="container">
-            <div class="box">
-              <div class="text-box search">
-                <span class="sm-text search">Search</span>
-                <div class="text search">
-                  <div class="divide-text">
-                    <h2 class="lg-text">구매를 원하는</h2>
-                    <h2 class="lg-text">상품을 검색하세요</h2>
-                  </div>
-                  <div class="divide-text">
-                    <h3 class="md-text">구매하고 싶은 물품은 검색해서</h3>
-                    <h3 class="md-text">쉽게 찾아보세요</h3>
-                  </div>
-                </div>
-              </div>
-              <img
-                class="text-with-img"
-                src="img/search.png"
-                alt="초록 반팔티를 좋아하는 판타 캐릭터"
-              />
-            </div>
-          </div>
-        </section>
-        <section>
-          <div class="container">
-            <div class="box">
-              <img
-                class="text-with-img"
-                src="img/register.png"
-                alt="초록 반팔티를 좋아하는 판타 캐릭터"
-              />
-              <div class="text-box">
-                <span class="sm-text">Register</span>
-                <div class="text">
-                  <div class="divide-text">
-                    <h2 class="lg-text">판매를 원하는</h2>
-                    <h2 class="lg-text">상품을 등록하세요</h2>
-                  </div>
-                  <div class="divide-text">
-                    <h3 class="md-text">어떤 물건이든 판매하고 싶은 상품을</h3>
-                    <h3 class="md-text">쉽게 등록하세요</h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-      <footer>
-        <div class="footer-img-bg">
-          <img
-            class="footer-img"
-            src="img/footer-img.png"
-            alt="판다 캐릭터 2마리 대화 나누는 모습"
-          />
+    <header>
+      <nav>
+        <div class="logo-wrapper">
+          <img src="./img/logo.svg" alt="판다 얼굴 로고" />
+          <a class="home-anchor" href="index.html">판다마켓</a>
         </div>
-        <div class="footer-bg">
-          <div class="footer-box">
-            <span>&copy;codeit - 2024</span>
-            <div class="footer-anchor">
-              <a href="./privacy.html">Privacy Policy</a>
-              <a href="./faq.html">FAQ</a>
+        <a class="login-anchor" href="./login.html">로그인</a>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <div class="landing">
+          <div class="container">
+            <div class="landing-wrapper">
+              <div class="landing-description">
+                <h2 class="lg-text">일상의 모든 물건을</h2>
+                <h3 class="lg-text">거래해 보세요</h3>
+              </div>
+              <a class="items-anchor" href="./items.html">구경하러 가기</a>
             </div>
-            <div class="sns-box">
-              <!-- icon 파일 png -> svg 변경 및 a 태그 안에 img 태그 넣어서 
-               이미지 로딩 안될시에 alt 나올 수 있게 변경 -->
-              <a
-                class="facebook-anchor sns-anchor"
-                href="https://www.facebook.com/"
-                target="_blank"
-                ><img src="img/facebook.svg" alt="페이스북 아이콘"
-              /></a>
-              <a
-                class="twitter-anchor sns-anchor"
-                href="https://x.com/"
-                target="_blank"
-                ><img src="./img/twitter.svg" alt="트위터 아이콘"
-              /></a>
-              <a
-                class="youtube-anchor sns-anchor"
-                href="https://www.youtube.com/"
-                target="_blank"
-                ><img src="./img/youtube.svg" alt="유튜브 아이콘"
-              /></a>
-              <a
-                class="instagram-anchor sns-anchor"
-                href="https://www.instagram.com/"
-                target="_blank"
-                ><img src="./img/instagram.svg" alt="인스타그램 아이콘"
-              /></a>
+            <img src="./img/items.png" alt="장바구니 들고있는 판다 캐릭터" />
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="card-container">
+          <div class="card">
+            <img src="./img/favorite.png" alt="인기 상품 확인 이미지" />
+            <div class="content">
+              <h2 class="sm-text">Hot item</h2>
+              <h3 class="lg-text">인기 상품을</h3>
+              <h4 class="lg-text">확인해 보세요</h4>
+              <p class="md-text">가장 HOT한 중고거래 물품을</p>
+              <p class="md-text">판다 마켓에서 확인해 보세요</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="content left">
+              <h2 class="sm-text">Search</h2>
+              <h3 class="lg-text">구매를 원하는</h3>
+              <h4 class="lg-text">상품을 검색하세요</h4>
+              <p class="md-text">구매하고 싶은 물품은 검색해서</p>
+              <p class="md-text">쉽게 찾아보세요</p>
+            </div>
+            <img
+              class="card-img"
+              src="./img/search.png"
+              alt="검색하는 이미지"
+            />
+          </div>
+          <div class="card">
+            <img src="./img/register.png" alt="상품 등록 이미지" />
+            <div class="content">
+              <h2 class="sm-text">Register</h2>
+              <h3 class="lg-text">판매를 원하는</h3>
+              <h4 class="lg-text">상품을 등록하세요</h4>
+              <p class="md-text">어떤 물건이든 판매하고 싶은 상품을</p>
+              <p class="md-text">쉽게 등록하세요</p>
             </div>
           </div>
         </div>
-      </footer>
-    </div>
+      </section>
+      <section>
+        <div class="landing">
+          <div class="container">
+            <div class="landing-wrapper">
+              <div class="landing-description">
+                <h2 class="lg-text">믿을 수 있는</h2>
+                <h3 class="lg-text">판다마켓 중고 거래</h3>
+              </div>
+            </div>
+            <img
+              src="./img/bottom-img.png"
+              alt="장바구니 들고있는 판다 캐릭터"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-bg">
+        <div class="footer-wrapper">
+          <span class="copyright">&copy;codeit - 2024</span>
+          <div class="anchor-wrapper">
+            <a class="privacy-anchor" href="./privacy.html">Privacy Policy</a>
+            <a class="faq-anchor" href="./faq.html">FAQ</a>
+          </div>
+          <ul class="sns-anchor-list">
+            <li>
+              <a target="_blank" href="https://www.facebook.com/"
+                ><img src="./img/facebook.svg" alt="페이스북 아이콘"
+              /></a>
+            </li>
+            <li>
+              <a target="_blank" href="https://x.com/"
+                ><img src="./img/twitter.svg" alt="페이스북 아이콘"
+              /></a>
+            </li>
+            <li>
+              <a target="_blank" href="https://www.youtube.com/"
+                ><img src="./img/youtube.svg" alt="페이스북 아이콘"
+              /></a>
+            </li>
+            <li>
+              <a target="_blank" href="https://www.instagram.com/"
+                ><img src="./img/instagram.svg" alt="페이스북 아이콘"
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
