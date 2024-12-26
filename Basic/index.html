@@ -5,6 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>판다마켓</title>
         <link rel="icon" href="images/logo/favicon.ico" />
+        
+        <meta property="og:title" content="판다 마켓 ">
+        <meta property="og:url" content="https://www.google.co.kr/webhp?hl=ko&sa=X&ved=0ahUKEwii-ZKDksCKAxXuQPUHHXTlAxoQPAgJ">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Panda_Cub_from_Wolong%2C_Sichuan%2C_China.JPG/640px-Panda_Cub_from_Wolong%2C_Sichuan%2C_China.JPG">
+        <meta property="og:description" content="일상의 모든 물건을 거래해보세요">
+        
         <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
         <link rel="stylesheet" href="styles/global.css">
         <link rel="stylesheet" href="styles/home.css">
@@ -13,18 +20,19 @@
         <!-- id 이름은 camelCase를, class 이름은 kebab-case를 사용 -->
         <header>
             <a href="./">
-                <img src="./images/logo/panda-market-logo.svg" width="153" alt="판다마켓 홈">
+                <img src="./images/logo/panda-market-logo.svg" class="pc tablet" width="153" alt="판다마켓 홈">
+                <img src="./images/logo/panda-market-logo-only-word.svg" class="mobile" width="103" alt="판다마켓 홈">
             </a> 
-            <form action="./login.html">
+            <form action="./signin.html">
                 <button id="loginLinkButton">로그인</button>
             </form> 
         </header>
         <main>
-            <section class="banner">
+            <section class="banner top">
                 <div class="wrapper">
                     <div class="banner-container">
                         <div class="banner-left">
-                            <h1>일상의 모든 물건을<br>거래해 보세요</h1>
+                            <h1 class="title">일상의 모든 물건을<br class="mobile"> 거래해 보세요</h1>
                             <form action="./items.html">
                                 <button id="itemsLinkButton">구경하러 가기</button>
                             </form>
@@ -38,10 +46,10 @@
             <section id="features" class="wrapper">
                 <div class="feature">
                     <!-- 화면 크기에 따라 이미지 사이즈가 자동으로 조정되도록 이미지의 width를 고정된 px값이 아닌 부모 컨테이너의 너비의 50%로 설정 -->
-                    <img src="./images/home/Img_home_01.png" width=50% alt="인기 상품">
+                    <img src="./images/home/Img_home_01.png" width=68.5% alt="인기 상품">
                     <div class="feature-content">
                         <h2 class="feature-tag">Hot item</h2>
-                        <h1>인기 상품을<br>확인해 보세요</h1>
+                        <h3 class="bold">인기 상품을 확인해 보세요</h3>
                         <p class="feature-description">
                             가장 HOT한 중고거래 물품을<br>판다 마켓에서 확인해 보세요
                         </p>
@@ -49,31 +57,32 @@
                     </div>
                 </div>
                 <div class="feature">
+                    <img src="./images/home/Img_home_02.png" class="tablet mobile" width=68.5% alt="검색 기능">
                     <div class="feature-content">
                         <h2 class="feature-tag">Search</h2>
-                        <h1>구매를 원하는<br>상품을 검색하세요</h1>
+                        <h3 class="bold">구매를 원하는 상품을 검색하세요</h3>
                         <p class="feature-description">
                             구매하고 싶은 물품은 검색해서<br>쉽게 찾아보세요
                         </p>
                     </div>
-                    <img src="./images/home/Img_home_02.png" width=50% alt="검색 기능">
+                    <img src="./images/home/Img_home_02.png" width=68.5% class="pc" alt="검색 기능">
                 </div>
                 <div class="feature">
-                    <img src="./images/home/Img_home_03.png" width=50% alt="판매 상품 등록">
+                    <img src="./images/home/Img_home_03.png" width=68.5% alt="판매 상품 등록">
                     <div class="feature-content">
                         <h2 class="feature-tag">Register</h2>
-                        <h1>판매를 원하는<br>상품을 등록하세요</h1>
+                        <h3 class="bold">판매를 원하는 상품을 등록하세요</h3>
                         <p class="feature-description">
                             어떤 물건이든 판매하고 싶은 상품을<br>쉽게 등록하세요
                         </p>
                     </div>
                 </div>
             </section>
-            <section class="banner">
+            <section class="banner bottom">
                 <div class="wrapper">
                     <div class="banner-container">
                         <div class="banner-left">
-                            <h1>믿을 수 있는<br>판다마켓 중고 거래</h1>
+                            <h3 class="title">믿을 수 있는<br>판다마켓 중고 거래</h3>
                         </div>
                         <div class="banner-right">
                             <img src="./images/home/Img_home_bottom.svg" alt="하단 배너">

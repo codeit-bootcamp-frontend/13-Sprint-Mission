@@ -52,7 +52,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.9rem 40rem;
+    padding: 0.9rem 20rem;
     background-color: #ffffff;
     border-bottom: 1px solid #dfdfdf;
 }
@@ -88,7 +88,15 @@ footer {
     width: 100%;
 }
 
-h1 {
+.title {
+    font-weight: 700;
+    font-size: 4rem;
+    line-height: 5.6rem;
+    letter-spacing: 0.02em;
+    margin: 0;
+}
+
+.bold {
     font-weight: 700;
     font-size: 4rem;
     line-height: 5.6rem;
@@ -118,8 +126,44 @@ button:disabled {
     pointer-events: none;
 }
 
-@media (max-width: 192rem) {
+/* PC */
+@media (min-width: 1200px) {
+
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1199px) {
     header {
-        padding: 0.9rem 20rem;
+        padding: 0.9rem 2.4rem;
+    }
+
+    footer {
+        padding: 3.2rem 8rem 10.8rem 8rem;
+    }
+
+    .bold {
+        font-size: 3.2rem;
+        line-height: 4.2rem;
+    }
+}
+
+/* Mobile */
+@media (min-width: 375px) and (max-width: 767px) {
+    header {
+        padding: 0.9rem 1.6rem;
+    }
+    
+    footer {
+        padding: 3.2rem 1.6rem 10.8rem 1.6rem;
+    }
+
+    .title {
+        font-size: 3.2rem;
+        line-height: 4.5rem;
+    }
+
+    .bold {
+        font-size: 2.4rem;
+        line-height: 3.2rem;
     }
 }
