@@ -31,16 +31,21 @@
   <main class="sub_main">
     <!-- subpage에서만 sub_main class 추가 -->
     <div class="login_wrap">
-      <h1 class="blind">통합로그인</h1>
+      <h1 class="blind">회원가입</h1>
       <p class="login_logo"><a href="/" title="home"><img src="images/logo.svg" alt="판다마켓 로고"></a></p>
       <form>
         <fieldset>
-          <legend>통합로그인</legend>
-          <label for="login_email">이메일</label>
-          <input id="login_email" name="login_email" type="email" placeholder="이메일을 입력해주세요">
-          <label for="login_pw">비밀번호 <span class="toggle-password"></span></label>
-          <input id="login_pw" name="login_pw" type="password" placeholder="비밀번호를 입력해주세요">
-          <button class="btn_login" type=”submit”>로그인</button>
+          <legend>회원가입</legend>
+          <label for="signup_email">이메일</label>
+          <input id="signup_email" name="signup_email" type="email" placeholder="이메일을 입력해주세요">
+          <label for="signup_nickname">닉네임</label>
+          <input id="signup_nickname" name="signup_nickname" type="text" placeholder="닉네임을 입력해주세요">
+          <label for="signup_pw">비밀번호 <span class="toggle-password"></span></label>
+          <input id="signup_pw" name="signup_pw" type="password" placeholder="비밀번호를 입력해주세요">
+          <label for="signup_pw_confirm">비밀번호 확인 <span class="toggle-password on"></span></label>
+          <input id="signup_pw_confirm" name="signup_pw_confirm" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
+
+          <button class="btn_signup" type=”submit”>회원가입</button>
         </fieldset>
       </form>
       <div class="sns_login">
@@ -51,7 +56,7 @@
           </li>
         </ul>
       </div>
-      <p class="signup_txt">판다마켓이 처음이신가요? <a href="/signup.html">회원가입</a></p>
+      <p class="signup_txt">이미 회원이신가요? <a href="/login.html">로그인</a></p>
     </div>
   </main>
   <footer>

@@ -1,36 +1,44 @@
 @charset "UTF-8";
 
-html,body{ position:relative; font-family: 'Pretendard', sans-serif; font-size:1em; font-weight:400; padding: 0; margin: 0; caret-color: transparent;}
+/*color-palette*/
+:root {
+    --gray-900: #111827;
+    --gray-800: #1F2937;
+    --gray-700: #374151;
+    --gray-600: #4B5563;
+    --gray-500: #6B7280;
+    --gray-400: #9CA3AF;
+    --gray-200: #C9CDD2;
+    --gray-100: #E5E7EB;
+    --gray-50:  #F9FAFB;
+    --blue: #3692FF;
+}
+/*color-palette end*/
 
-/*reset*/
-ol, ul { list-style:none; padding:0; margin:0 }
-a { text-decoration:none; color:#666 }
-em,i{ font-style:normal }
-/*reset end*/
-
+header {position: sticky; top: 0; background-color: #fff; z-index: 100;}
 header .container {padding: 10px 16px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;}
 header .logo_wrap {}
 header .logo_wrap .m_logo {display:inline-block; width: 81px;}
 header .logo_wrap .logo {display: none;}
 header .gnb {display: none; /*display: flex;*/ flex-wrap: nowrap; flex-grow: 1; align-items: center; gap: 10px;}
 header .gnb li {}
-header .gnb li a {font-size: 16px; font-weight: 700; color: #4B5563;}
+header .gnb li a {font-size: 16px; font-weight: 700; color: var(--gray-600);}
 header .utilMenu {}
-header .utilMenu .btn_login {display: inline-flex; justify-content: center; align-items: center; padding: 12px 23px; width: 100%; height: 100%; min-width: 128px; min-height: 48px; box-sizing: border-box; text-align: center; background-color: #3692FF; color: #fff; font-size: 16px; font-weight: 600; border-radius: 8px;}
+header .utilMenu .btn_login {display: inline-flex; justify-content: center; align-items: center; padding: 12px 23px; width: 100%; height: 100%; min-width: 128px; min-height: 48px; box-sizing: border-box; text-align: center; background-color: var(--blue); color: #fff; font-size: 16px; font-weight: 600; border-radius: 8px;}
 header .utilMenu .btn_profile {display: none; /*display: inline-block;*/ width: 40px; height: 40px; border-radius: 20px;}
 header .utilMenu .btn_profile img {width: 100%;}
 
-footer {background-color: #111827;}
+footer {background-color: var(--gray-900);}
 footer .container {padding: 32px 16px; display: flex; gap: 24px;
     flex-flow: column;
     flex-direction: column-reverse;
     justify-content: flex-end;
 }
-footer .container > span {color: #9CA3AF; width: 100%;}
+footer .container > span {color: var(--gray-400); width: 100%;}
 footer .footerInfo {display: flex; width: 100%; flex-wrap: wrap; justify-content: space-between; align-items: center;}
 footer .footerInfo .footerMenu {display: flex; flex-wrap: wrap; gap: 0 30px; align-items: center;}
 footer .footerInfo .footerMenu li {}
-footer .footerInfo .footerMenu li a {color: #E5E7EB; font-size: 16px; font-weight: 400;}
+footer .footerInfo .footerMenu li a {color: var(--gray-100); font-size: 16px; font-weight: 400;}
 footer .footerInfo .snsWrap {display: flex; align-items: center; gap: 0 12px;}
 footer .footerInfo .snsWrap li {height: 20px;}
 footer .footerInfo .snsWrap li a {display: inline-block; width: 20px; height: 20px;}
@@ -40,9 +48,9 @@ main {background-color: #FCFCFC;}
 main .visual_wrap {background-color: #CFE5FF; height: 540px; position: relative;}
 main .visual_wrap .container {}
 main .visual_wrap .container .txtbox {display: flex; flex-wrap: wrap; gap:18px; justify-content: center; align-items: center; position: relative; top: 48px;}
-main .visual_wrap .container .txtbox span {width: 100%; color: #374151; font-weight: 700; font-size: 32px; line-height: 1.2; text-align: center;}
-/* main .visual_wrap .container .txtbox span br {display: none;} */
-main .visual_wrap .container .txtbox a {width: 100%; max-width: 240px; font-size: 18px; text-align: center; display: inline-block; border-radius: 40px; color: #fff; background-color: #3692FF; padding: 12px 0; font-weight: 600;}
+main .visual_wrap .container .txtbox h1 {width: 100%; color: var(--gray-700); font-weight: 700; font-size: 32px; line-height: 1.2; text-align: center;}
+/* main .visual_wrap .container .txtbox h1 br {display: none;} */
+main .visual_wrap .container .txtbox a {width: 100%; max-width: 240px; font-size: 18px; text-align: center; display: inline-block; border-radius: 40px; color: #fff; background-color: var(--blue); padding: 12px 0; font-weight: 600;}
 main .visual_wrap .container img {width: 100%; position: absolute; bottom: 0; left: 0; right: 0;}
 
 .content_wrap {background-color: #fff;}
@@ -50,9 +58,9 @@ main .visual_wrap .container img {width: 100%; position: absolute; bottom: 0; le
 .content_wrap .section {width: 100%; max-width: 344px; background-color: #FCFCFC; display: flex; flex-flow: column; flex-wrap: wrap; gap: 24px; margin: 24px;}
 .content_wrap .section img {width: 100%; border-radius: 7.2px;}
 .content_wrap .section .txtbox {font-size: 16px; line-height: 26px;}
-.content_wrap .section .txtbox em {display: block; color: #3692FF; font-weight: 700; margin-bottom: 8px;}
-.content_wrap .section .txtbox strong {color: #374151; font-size: 24px; margin-bottom: 16px; line-height: 32px; font-weight: 700;}
-.content_wrap .section .txtbox p {color: #374151; font-weight: 500; margin-bottom: 0;}
+.content_wrap .section .txtbox em {display: block; color: var(--blue); font-weight: 700; margin-bottom: 8px;}
+.content_wrap .section .txtbox strong {color: var(--gray-700); font-size: 24px; margin-bottom: 16px; line-height: 32px; font-weight: 700;}
+.content_wrap .section .txtbox p {color: var(--gray-700); font-weight: 500; margin-bottom: 0;}
 .content_wrap .container:nth-child(2) .section .txtbox {text-align: right;}
 
 /*==================
@@ -72,9 +80,9 @@ main .visual_wrap .container img {width: 100%; position: absolute; bottom: 0; le
 
     main .visual_wrap {height: 771px;}
     main .visual_wrap .container .txtbox {top: 84px;}
-    main .visual_wrap .container .txtbox span {font-size: 40px;}
-    main .visual_wrap .container .txtbox span br {display: none;}
-    main .visual_wrap .container .txtbox a {font-size: 20px; padding: 16px 124px; max-width: auto; margin: 24px 0;}
+    main .visual_wrap .container .txtbox h1 {font-size: 40px;}
+    main .visual_wrap .container .txtbox h1 br {display: none;}
+    main .visual_wrap .container .txtbox a {font-size: 20px; padding: 16px 124px; max-width: fit-content; margin: 24px 0;}
 
     .content_wrap .section {max-width: 696px;}
     .content_wrap .section img {border-radius: 14.2px;}
@@ -92,9 +100,9 @@ main .visual_wrap .container img {width: 100%; position: absolute; bottom: 0; le
     main .visual_wrap.visual02 {padding-top: 138px;}
     main .visual_wrap .container {display: flex; flex-wrap: nowrap; gap: 7px; justify-content: space-between; align-items: center;}
     main .visual_wrap .container .txtbox {text-align: left; top: 0;}
-    main .visual_wrap .container .txtbox span {font-size: 40px; line-height: 56px; text-align: left;}
-    main .visual_wrap .container .txtbox span br {display: block;}
-    main .visual_wrap .container .txtbox a {font-size: 20px; padding: 16px 124px; max-width: auto; margin: 32px 0;}
+    main .visual_wrap .container .txtbox h1 {font-size: 40px; line-height: 56px; text-align: left;}
+    main .visual_wrap .container .txtbox h1 br {display: block;}
+    main .visual_wrap .container .txtbox a {font-size: 20px; padding: 16px 124px; max-width: fit-content; margin: 32px 0;}
     main .visual_wrap .container img {position: relative; max-width: 746px;}
 
     footer {height: 160px;}
