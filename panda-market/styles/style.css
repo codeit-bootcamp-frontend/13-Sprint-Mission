@@ -161,6 +161,65 @@ li {
   nav {
     padding: 10px 24px;
   }
+  .landing {
+    height: 771px;
+  }
+  .landing-description {
+    display: flex;
+    gap: 10px;
+  }
+
+  .container {
+    flex-direction: column;
+    gap: 211px;
+  }
+  .items-anchor {
+    margin: 0;
+    width: 357px;
+    margin: 0 auto;
+  }
+  .card-container {
+    padding: 24px 0 56px;
+    gap: 52px;
+  }
+  .card {
+    flex-direction: column;
+    align-items: center;
+    width: 696px;
+    gap: 24px;
+  }
+  .card-img {
+    width: 100%;
+    height: 524px;
+  }
+  .content {
+    width: 100%;
+    align-self: flex-start;
+  }
+  .description {
+    display: flex;
+    gap: 10px;
+  }
+  .content.left {
+    order: 2;
+    text-align: left;
+  }
+  .landing.bottom {
+    height: 927px;
+  }
+  .landing-description.bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .landing-img {
+    width: 100%;
+    height: 397px;
+  }
+  .footer-wrapper {
+    gap: 72px;
+  }
 }
 
 @media screen and (min-width: 375px) and (max-width: 767px) {
