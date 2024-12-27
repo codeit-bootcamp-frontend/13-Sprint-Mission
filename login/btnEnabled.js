@@ -1,14 +1,78 @@
+import { validateEmail, validateEmpty, validatePassword, errorMessage } from "../utils/validate.js";
+
 function loginActive() {
-    const emailTarget = document.getElementById("email");
-    const passwordTarget = document.getElementById("password");
     const loginBtn = document.querySelector(".login-btn");
 
-    const inputValue = () => {
-        loginBtn.disabled = !(emailTarget.value.trim() && passwordTarget.value.trim());
+    const validateObject = {
+        email: {
+            target: document.getElementById("email"),
+            validators: [
+                { check: validateEmpty, error: errorMessage.email.empty },
+                { check: validateEmail, error: errorMessage.email.invalid },
+            ],
+        },
+        password: {
+            target: document.getElementById("password"),
+            validators: [
+                { check: validateEmpty, error: errorMessage.password.empty },
+                { check: validatePassword, error: errorMessage.password.invalid },
+            ],
+        },
     };
 
-    emailTarget.addEventListener("input", inputValue);
-    passwordTarget.addEventListener("input", inputValue);
+    const errMessage = (input, errorM) => {
+        const err = input.parentElement.parentElement.querySelector(".error-message");
+        if (errorM) {
+            input.classList.add("error");
+            err.textContent = errorM;
+        } else {
+            input.classList.remove("error");
+            err.textContent = "";
+        }
+    };
+
+    const clearErrMessage = (input) => {
+        input.addEventListener("input", () => {
+            if (input.value.trim() === "") return;
+            errMessage(input, "");
+        });
+    };
+
+    const validates = (key) => {
+        const { target, validators } = validateObject[key];
+        const value = target.value.trim();
+        for (const { check, error } of validators) {
+            if (!check(value)) {
+                errMessage(target, error);
+                return false;
+            }
+        }
+        return true;
+    };
+
+    const loginValidate = () => {
+        const allValidate = (key) => {
+            const { target, validators } = validateObject[key];
+            const value = target.value.trim();
+
+            return validators.every(({ check }) => check(value));
+        };
+        const isValid = Object.keys(validateObject).every(allValidate);
+        loginBtn.disabled = !isValid;
+    };
+
+    for (const [key, { target }] of Object.entries(validateObject)) {
+        target.addEventListener("blur", () => validates(key));
+        target.addEventListener("input", loginValidate);
+        clearErrMessage(target);
+    }
+
+    loginBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (!loginBtn.disabled) {
+            window.location.href = "../items.html";
+        }
+    });
 }
 
 loginActive();
