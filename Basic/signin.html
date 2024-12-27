@@ -20,7 +20,10 @@
                         <input type="email" class="email-input" placeholder="이메일을 입력해주세요" required>
                     </label>
                     <label>비밀번호
-                        <button class="toggle-password" type="button"><img src="./images/icon/visibility_off.svg" alt="비밀번호 숨김"></button>
+                        <button class="toggle-password" type="button">
+                            <img src="./images/icon/visibility_off.svg" class="visible" alt="비밀번호 숨김">
+                            <img src="./images/icon/visibility_on.svg" alt="비밀번호 보임">
+                        </button>
                         <input type="password" class="password-input" placeholder="비밀번호를 입력해주세요" required>
                     </label>
                     <button id="loginButton" type="submit" disabled>로그인</button>

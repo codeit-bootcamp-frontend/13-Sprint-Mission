@@ -76,6 +76,14 @@ input::placeholder {
     color: var(--gray400);
 }
 
+.toggle-password > img {
+    display: none;
+}
+
+.visible {
+    display: flex !important;
+}
+
 #loginButton {
     font-size: 2rem;
     font-weight: 600;
