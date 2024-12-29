@@ -13,3 +13,16 @@ body {
     background-color: #9CA3AF;
     opacity: 0.5;
 }
+
+.white-background {
+    background-color: white;
+}
+
+.kakao-background {
+    background-color: #FAE300;
+}
+
+/*정사각형 모양임이 확실할 때만 사용가능할 듯*/
+.circle {
+    border-radius: 50%;
+}
