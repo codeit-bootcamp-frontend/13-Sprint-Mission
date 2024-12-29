@@ -1,11 +1,11 @@
-main {
+body {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
 }
 
-.content-wrapper {
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,4 +19,37 @@ main {
         자동으로 height가 설정되지만 가독성을 위해 height를 작성해주었습니다.
     */
     height: 132px;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    align-items: stretch;
+}
+
+.form-struncture {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+}
+
+.form-label {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #1F2937;
+}
+
+.form-input {
+    border: none;
+    background-color: #F3F4F6;
+    padding: 16px 24px;
+    border-radius: 12px;
+}
+
+.from-input:focus {
+    border: 1px solid #3692FF;
 }
