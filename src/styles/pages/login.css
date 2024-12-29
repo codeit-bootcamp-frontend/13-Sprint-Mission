@@ -9,6 +9,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 640px;
     gap: 40px;
 }
 
@@ -48,8 +49,28 @@ main {
     background-color: #F3F4F6;
     padding: 16px 24px;
     border-radius: 12px;
+    width: 100%;
 }
 
 .from-input:focus {
     border: 1px solid #3692FF;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    top: 50%;
+    right: 24px;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.input-icon:hover {
+    opacity: 1;
 }
