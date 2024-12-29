@@ -6,4 +6,10 @@ body {
     cursor: pointer;
     color: #F3F4F6;
     background-color: #3692FF;
+    text-align: center;
+}
+
+.primary-button:disabled {
+    background-color: #9CA3AF;
+    opacity: 0.5;
 }
