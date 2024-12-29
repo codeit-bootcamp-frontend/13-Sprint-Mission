@@ -12,11 +12,13 @@ export function setVisibilityToggle(inputWrapperSelector) {
                 {
                     input.type = "text";
                     icon.src = "/src/assets/icons/visibility_off_btn.svg";
+                    icon.alt = "비밀번호 숨기기";
                 }
                 else
                 {
                     input.type = "password";
                     icon.src = "/src/assets/icons/visibility_on_btn.svg";
+                    icon.alt = "비밀번호 보기";
                 }
             }
         })
