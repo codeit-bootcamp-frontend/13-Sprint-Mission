@@ -30,7 +30,7 @@ main {
     align-items: stretch;
 }
 
-.form-struncture {
+.form-structure{
     display: flex;
     flex-direction: column;
     gap: 16px;
