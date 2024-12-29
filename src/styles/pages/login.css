@@ -1,0 +1,22 @@
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.logo {
+    width: 396px;
+    /*
+        svg라 그런지 width 설정 시
+        자동으로 height가 설정되지만 가독성을 위해 height를 작성해주었습니다.
+    */
+    height: 132px;
+}
