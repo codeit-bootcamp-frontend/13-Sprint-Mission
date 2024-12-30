@@ -86,15 +86,23 @@ input::placeholder {
   width: 100%;
   height: 74px;
   background-color: #e6f2ff;
-  text-align: left;
   align-items: center;
-  font-size: 16px;
-  font-weight: 500;
-  color: #1f2937;
 }
 
 .sns_login_content {
+  width: 594px;
+  height: 42px;
   display: flex;
+  text-align: center;
+  align-items: center;
+  color: #1f2937;
+  font-size: 16px;
+  font-weight: 500;
   justify-content: space-between;
+}
+
+.sns_login_icon {
+  width: 42px;
+  height: 42px;
   cursor: pointer;
 }
