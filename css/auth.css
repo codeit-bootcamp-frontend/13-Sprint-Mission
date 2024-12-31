@@ -84,16 +84,16 @@ main {
   color: var(--gray100);
   font-size: 1.25rem;
   font-weight: 600;
-  background-color: var(--gray400);
+  background-color: var(--blue100);
   border-radius: 2.5rem;
   width: 100%;
   padding: 1rem 0;
-  cursor: not-allowed;
+  cursor: pointer;
 }
 
-.form-button-submit.active {
-  background-color: var(--blue100);
-  cursor: pointer;
+button:disabled {
+  background-color: var(--gray400);
+  cursor: not-allowed;
 }
 
 .social-login-container {
