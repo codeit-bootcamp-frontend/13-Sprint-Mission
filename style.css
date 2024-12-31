@@ -10,7 +10,7 @@ header {
   padding: 0.5rem 0;
 }
 
-.header-footer-container {
+.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -80,6 +80,9 @@ header {
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.4;
+
+  text-align: center;
+  padding: 0 0.5rem;
 }
 
 /* features section */
@@ -156,6 +159,7 @@ header {
 }
 
 .feature-content-text-right {
+  font-size: 1.5rem;
   text-align: right;
 }
 
@@ -184,7 +188,27 @@ footer {
   padding-top: 40px;
 }
 
+.footer-container {
+  display: flex;
+  align-items: center;
+  max-width: 1980px; /* 최대 너비 설정 */
+  gap: 20px;
+  padding: 0 200px; /* 좌우 여백 200px 유지 */
+  margin: 0 auto;
+}
+
+.copyright {
+  flex-grow: 1;
+}
+
 .footer-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.footer-page {
   display: flex;
   gap: 0 30px;
   font-weight: 400;
@@ -197,7 +221,7 @@ footer {
 
 /* Tablet, Mobile 기기에 따라 폰트 크기 조정*/
 @media (768px <= width < 1200px) {
-  .header-footer-container {
+  .header-container {
     padding: 0 24px;
   }
 
@@ -228,11 +252,15 @@ footer {
   .feature-item-reverse {
     flex-direction: column;
   }
+
+  .footer-container {
+    padding: 0 24px;
+  }
 }
 
 @media (375px <= width < 768px) {
-  .header-footer-container {
-    padding: 0 16px;
+  .header-container {
+    padding: 0 24px;
   }
 
   .hero-last-section {
@@ -245,7 +273,7 @@ footer {
 
   .hero-last-content {
     width: 100%;
-    margin-top: 8rem;
+    margin-top: 5rem;
   }
 
   .feature-content {
@@ -262,5 +290,18 @@ footer {
 
   .feature-item-reverse {
     flex-direction: column;
+  }
+
+  .footer-container {
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: start;
+    gap: 5rem;
+    padding: 0 24px;
+  }
+
+  .footer-links {
+    justify-content: space-evenly;
+    width: 100%;
   }
 }
