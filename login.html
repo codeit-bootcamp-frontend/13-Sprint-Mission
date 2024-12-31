@@ -4,11 +4,11 @@
     <title>판다마켓-로그인</title>
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale, user-scalable=no"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1.0, user-scalable=no"
     />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="./signup_login.css" />
+    <link rel="stylesheet" href="./style/signup_login.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -27,23 +27,32 @@
       <form class="form_area">
         <label class="label_text" for="user_email"
           >이메일
+
           <input
             class="input_area"
             id="user_email"
             type="email"
             placeholder="이메일을 입력해주세요"
-            name="user_email"
-        /></label>
+            name="user_email" />
+
+          <div class="error_message"></div
+        ></label>
         <label class="label_text" for="password"
           >비밀번호
-          <input
-            class="input_area"
-            id="password"
-            type="password"
-            placeholder="비밀번호를 입력해주세요"
-            name="password" /><i class="fa-solid fa-eye"></i
+          <div class="i_tag_position">
+            <input
+              class="input_area"
+              id="login_password"
+              type="password"
+              placeholder="비밀번호를 입력해주세요"
+              name="password"
+            /><i class="fa-solid fa-eye-slash"></i>
+          </div>
+          <div class="error_message"></div
         ></label>
-        <button class="active_blue_button">로그인</button>
+        <button id="Btn" class="active_blue_button" type="button">
+          로그인
+        </button>
       </form>
       <div class="sns_login_area">
         <span class="sns_login_text">간편로그인하기</span>
@@ -61,6 +70,7 @@
         <a class="signup_or_login_link" href="./signup.html">회원가입</a>
       </div>
     </main>
-    <script type="module" src="./login.js"></script>
+    <!-- <script type="module" src="./src/test.js"></script> -->
+    <script type="module" src="./src/login.js"></script>
   </body>
 </html>

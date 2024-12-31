@@ -1,0 +1,13 @@
+{
+  "name": "13-sprint-mission",
+  "version": "1.0.0",
+  "description": "13기 프론트엔드 개인 스프린트 미션4 제출일 12월 3일",
+  "main": "",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

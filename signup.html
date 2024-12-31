@@ -4,12 +4,11 @@
     <title>판다마켓-회원가입</title>
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale, user-scalable=no"
+      content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="./signup_login.css" />
+    <link rel="stylesheet" href="./style/signup_login.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -33,8 +32,9 @@
             id="user_email"
             type="email"
             placeholder="이메일을 입력해주세요"
-            name="user_email"
-        /></label>
+            name="user_email" />
+          <div class="error_message"></div
+        ></label>
         <label class="label_text" for="user_nickname"
           >닉네임
           <input
@@ -42,39 +42,49 @@
             id="user_nickname"
             type="text"
             placeholder="닉네임을 입력해주세요"
-            name="nickname"
-        /></label>
-        <label class="label_text" for="password"
-          >비밀번호
-          <input
-            class="input_area"
-            id="password"
-            type="password"
-            placeholder="비밀번호를 입력해주세요"
-            name="password" />
-          <i class="fa-solid fa-eye"></i
+            name="nickname" />
+          <div class="error_message"></div
         ></label>
         <label class="label_text" for="password"
+          >비밀번호
+          <div class="i_tag_position">
+            <input
+              class="input_area"
+              id="password"
+              type="password"
+              placeholder="비밀번호를 입력해주세요"
+              name="password"
+            />
+            <i class="fa-solid fa-eye-slash"></i>
+          </div>
+          <div class="error_message"></div
+        ></label>
+        <label class="label_text" for="password_correct"
           >비밀번호 확인
-          <input
-            class="input_area"
-            id="password"
-            type="password"
-            placeholder="비밀번호를 다시 한 번 입력해주세요"
-            name="password"
-          />
-          <i class="fa-solid fa-eye"></i>
+          <div class="i_tag_position">
+            <input
+              class="input_area"
+              id="password_correct"
+              type="password"
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
+              name="password"
+            />
+            <i class="fa-solid fa-eye-slash"></i>
+          </div>
+          <div class="error_message"></div>
         </label>
-        <button class="active_blue_button">회원가입</button>
+        <button type="button" id="Btn" class="active_blue_button">
+          회원가입
+        </button>
       </form>
       <div class="sns_login_area">
         <span class="sns_login_text">간편로그인하기</span>
         <div class="sns_icons">
           <a target="_blank" href="https://www.google.co.kr/?hl=ko">
-            <img class="sns_icon" src="./img/Component 2@2x.svg"
+            <img class="sns_icon" src="./img/ic_google.svg"
           /></a>
           <a target="_blank" href="https://www.kakaocorp.com/page/">
-            <img class="sns_icon" src="./img/Component 3@2x.svg"
+            <img class="sns_icon" src="./img/ic_kakao.svg"
           /></a>
         </div>
       </div>
@@ -83,6 +93,7 @@
         <a class="signup_or_login_link" href="./login.html">로그인</a>
       </div>
     </main>
-    <script type="module" src="./signup.js"></script>
+    <!-- <script type="module" src="./src/test.js"></script> -->
+    <script type="module" src="./src/signup.js"></script>
   </body>
 </html>
