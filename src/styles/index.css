@@ -164,7 +164,9 @@ footer {
 .footer-content {
     display: flex;
     align-items: center;
+    flex-wrap: wrap-reverse;
     width: 1120px;
+    gap: 60px;
     justify-content: space-between;
 }
 
@@ -191,9 +193,8 @@ footer {
     gap: 12px;
 }
 
-.social-network-icons li {
+.social-network-icons img {
     width: 20px;
-    height: 20px;
 }
 
 @media (max-width: 1199px) {
@@ -294,6 +295,10 @@ footer {
         width: auto;
         height: auto;
     }
+
+    .footer-content {
+        width: 536px;
+    }
 }
 
 @media (max-width: 767px) {
@@ -388,4 +393,7 @@ footer {
         line-height: 44px;
     }
 
+    .codeit-logo {
+        flex: 1 1 100%;
+    }
 }
