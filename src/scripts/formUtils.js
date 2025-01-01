@@ -1,28 +1,35 @@
+const visibilityConfig = {
+    password: {
+        type: "text",
+        src: "/src/assets/icons/visibility_off_btn.svg",
+        alt: "비밀번호 숨기기",
+    },
+    text: {
+        type: "password",
+        src: "/src/assets/icons/visibility_on_btn.svg",
+        alt: "비밀번호 보기",
+    },
+};
+
 export function setVisibilityToggle(inputWrapperSelector) {
-    const inputWrapperList = document.querySelectorAll(inputWrapperSelector);
+    const inputWrappers = document.querySelectorAll(inputWrapperSelector);
 
-    inputWrapperList.forEach((wrapper) => {
-        wrapper.addEventListener("click", event => {
-            const target = event.target;
-            if(target.classList.contains("input-icon")) {
-                const input = wrapper.querySelector("input");
-                const icon = target;
+    inputWrappers.forEach((wrapper) => {
+        wrapper.addEventListener("click", (event) => {
+            const clickedElement = event.target;
 
-                if (input.type === "password")
-                {
-                    input.type = "text";
-                    icon.src = "/src/assets/icons/visibility_off_btn.svg";
-                    icon.alt = "비밀번호 숨기기";
-                }
-                else
-                {
-                    input.type = "password";
-                    icon.src = "/src/assets/icons/visibility_on_btn.svg";
-                    icon.alt = "비밀번호 보기";
-                }
+            if (clickedElement.classList.contains("input-icon")) {
+                const passwordInput = wrapper.querySelector("input");
+                const toggleButton = clickedElement;
+
+                const nextState = passwordInput.type === "password" ? visibilityConfig["password"] : visibilityConfig["text"];
+
+                passwordInput.type = nextState.type;
+                toggleButton.src = nextState.src;
+                toggleButton.alt = nextState.alt;
             }
-        })
-    })
+        });
+    });
 }
 
 export function setButtonDisable(parent, buttonClass) {
