@@ -2,7 +2,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 40px;
 }
 
 main {
@@ -133,4 +134,10 @@ main {
     line-height: 17px;
     text-decoration: underline;
     color: #3692FF;
+}
+
+@media (max-width: 767px) {
+   body {
+    padding: 40px 16px;
+   } 
 }
