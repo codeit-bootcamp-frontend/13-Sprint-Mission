@@ -1,8 +1,11 @@
 @import url(global.css);
 @import url(reset.css);
 
+html,
 body {
   font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 16px;
+  color: var(--gray-700);
 }
 
 /*
@@ -38,6 +41,7 @@ PC Large 1920px ~ : 하늘색 배경으로 너비 채우고 내부는 고정
 
 .wrap {
   max-width: 1920px;
+  position: relative;
 }
 
 /* ========== header ========== */
@@ -72,8 +76,8 @@ PC Large 1920px ~ : 하늘색 배경으로 너비 채우고 내부는 고정
   border-radius: var(--btn-small-border);
 }
 
-/* ========== main-top ========== */
-
+/* ========== main-top, bottom ========== */
+/* 공통 */
 .top {
   display: flex;
   justify-content: center;
@@ -81,21 +85,21 @@ PC Large 1920px ~ : 하늘색 배경으로 너비 채우고 내부는 고정
   height: 540px;
   background-color: #cfe5ff;
 }
-.top_left {
+.top .text_area {
   margin: 40px 0;
 }
-.top_left p {
+.top .text_area p {
   width: 357px;
   font-size: 40px;
   font-weight: var(--font-weight-bold);
   line-height: 140%;
 }
 
-.top_left .oneline {
+.top .text_area .oneline {
   display: none;
 }
 
-.top_left a {
+.top .text_area a {
   display: block;
   margin: 32px 0 60px;
   width: 357px;
@@ -110,9 +114,71 @@ PC Large 1920px ~ : 하늘색 배경으로 너비 채우고 내부는 고정
 }
 
 /* ========== main-content ========== */
-
-.section {
+/* 공통 */
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 720px;
+}
+.sec_wrap {
+  display: flex;
+  gap: 64px;
+  width: 988px;
+  height: 444px;
+  background-color: #fcfcfc;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.img_area {
+  margin: 0 0 0 23.5px;
+  width: 579px;
+  background-size: cover;
+}
+.text_area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.text_area .tag {
+  padding-bottom: 12px;
+  font-size: 18px;
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-100);
+  line-height: 26px;
+}
+.text_area .oneline {
+  display: none;
+}
+.text_area .title {
+  font-size: 40px;
+  font-weight: var(--font-weight-bold);
+  line-height: 140%;
+}
+.text_area .text {
+  padding-top: 24px;
+  font-size: 24px;
+  font-weight: var(--font-weight-medium);
+  line-height: 32px;
+}
+
+/* 개별 속성 */
+.sec1 .img_area {
+  background-image: url(./img/landing-page/Img_home_01.png);
+}
+
+.sec2 .sec_wrap {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+.sec2 .img_area {
+  margin: 0 14px 0 0;
+  background-image: url(./img/landing-page/Img_home_02.png);
+}
+
+.sec3 .img_area {
+  margin: 0;
+  background-image: url(./img/landing-page/Img_home_03.png);
 }
 
 /* ========== main-bottom ========== */
