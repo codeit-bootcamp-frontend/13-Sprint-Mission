@@ -90,19 +90,19 @@ header {
 .main-content-right-text {
     display: flex;
     flex-direction: column;
-    width: 350px;
     gap: 12px;
     align-items: flex-start;
     text-align: left;
+    padding-right: 72px;
 }
 
 .main-content-left-text {
     display: flex;
     flex-direction: column;
-    width: 350px;
     gap: 12px;
     align-items: flex-end;
     text-align: right;
+    padding-left: 72px;
 }
 
 .main-content-text-header {
@@ -195,6 +195,7 @@ footer {
     width: 20px;
     height: 20px;
 }
+
 @media (max-width: 1199px) {
     .header-content {
         margin: 0 24px;
@@ -223,6 +224,53 @@ footer {
     }
 
     .main-title-h1 br {
+        display: none;
+    }
+
+    .main-block {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        padding: 24px 24px;
+    }
+
+    .main-block:nth-of-type(2n) .main-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        height: auto;
+        padding: 0px 0px;
+        background-color: white;
+    }
+    
+    .main-block:nth-of-type(2n + 1) .main-content {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        gap: 24px;
+        height: auto;
+        padding: 0px 0px;
+        background-color: white;
+    }
+    
+    .main-content-picture {
+        width: auto;
+        height: auto;
+    }
+
+    .main-content-picture img {
+        border-radius: 14px;
+    }
+
+    .main-content-text-title {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 42px;
+    }
+
+    .main-content-text-title br {
         display: none;
     }
 
@@ -262,4 +310,52 @@ footer {
         font-size: 18px;
         line-height: 26px;
     }
+
+    .main-block {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 15px;
+        height: auto;
+    }
+
+    .main-block:nth-of-type(2n) .main-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        height: auto;
+        padding: 0px 0px;
+        background-color: white;
+    }
+    
+    .main-block:nth-of-type(2n + 1) .main-content {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        gap: 24px;
+        height: auto;
+        padding: 0px 0px;
+        background-color: white;
+    }
+    
+    .main-content-picture {
+        width: auto;
+        height: auto;
+    }
+
+    .main-content-picture img {
+        border-radius: 7px;
+    }
+
+    .main-content-text-title {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 32px;
+    }
+
+    .main-content-text-title br {
+        display: none;
+    }
+
 }
