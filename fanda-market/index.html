@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="wrap">
+    <div id="container">
       <header id="header">
         <div id="gnb">
           <h1>
@@ -24,15 +24,15 @@
           <a href="/login" class="btn_small login">로그인</a>
         </div>
       </header>
-      <main id="container">
-        <div class="top">
-          <div class="top_left text_area">
+      <main>
+        <div class="banner top">
+          <div class="text_box">
             <p class="oneline">일상의 모든 물건을 거래해 보세요</p>
             <p class="twolines">일상의 모든 물건을</p>
-            <p class="top_left_twolines">거래해 보세요</p>
+            <p class="twolines">거래해 보세요</p>
             <a href="/items">구경하러 가기</a>
           </div>
-          <div class="top_right img_area">
+          <div class="img_box">
             <img
               src="./img/landing-page/Img_home_top.png"
               alt="판다 캐릭터 이미지"
@@ -41,9 +41,9 @@
         </div>
         <div class="content">
           <section class="sec1">
-            <div class="sec_wrap">
-              <div class="img_area"></div>
-              <div class="text_area">
+            <div class="sec_wrapper">
+              <div class="img_box"></div>
+              <div class="text_box">
                 <p class="tag">Hot item</p>
                 <p class="title oneline">인기 상품을 확인해 보세요</p>
                 <p class="title twolines">인기 상품을</p>
@@ -56,9 +56,9 @@
             </div>
           </section>
           <section class="sec2">
-            <div class="sec_wrap">
-              <div class="img_area"></div>
-              <div class="text_area">
+            <div class="sec_wrapper">
+              <div class="img_box"></div>
+              <div class="text_box">
                 <p class="tag">Search</p>
                 <p class="title oneline">구매를 원하는 상품을 검색하세요</p>
                 <p class="title twolines">구매를 원하는</p>
@@ -70,9 +70,9 @@
             </div>
           </section>
           <section class="sec3">
-            <div class="sec_wrap">
-              <div class="img_area"></div>
-              <div class="text_area">
+            <div class="sec_wrapper">
+              <div class="img_box"></div>
+              <div class="text_box">
                 <p class="tag">Register</p>
                 <p class="title oneline">판매를 원하는 상품을 등록하세요</p>
                 <p class="title twolines">판매를 원하는</p>
@@ -84,9 +84,52 @@
             </div>
           </section>
         </div>
-        <div class="bottom"></div>
+        <div class="banner bottom">
+          <div class="text_box">
+            <p>믿을 수 있는</p>
+            <p>판타마켓 중고 거래</p>
+          </div>
+          <div class="img_box">
+            <img
+              src="./img/landing-page/Img_home_bottom.png"
+              alt="판다 캐릭터 이미지"
+            />
+          </div>
+        </div>
       </main>
-      <footer id="footer"></footer>
+      <footer id="footer">
+        <div class="footer_wrapper">
+          <div class="copyright">©codeit - 2024</div>
+          <div class="corp_list">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/faq">FAQ</a>
+          </div>
+          <div class="footer-sns">
+            <a target="_blank" href="/" class="icon facebook">
+            </a>
+            <a target="_blank" href="/" class="icon twitter">
+            </a>
+            <a target="_blank" href="/" class="icon youtube">
+            </a>
+            <a target="_blank" href="/" class="icon insta">
+            </a>
+          </div>
+          <!-- <div class="footer-sns">
+            <a target="_blank" href="/" class="icon facebook">
+              <span class="text">페이스북</span>
+            </a>
+            <a target="_blank" href="/" class="icon twitter">
+              <span class="text">트위터</span>
+            </a>
+            <a target="_blank" href="/" class="icon youtube">
+              <span class="text">유튜브</span>
+            </a>
+            <a target="_blank" href="/" class="icon insta">
+              <span class="text">인스타그램</span>
+            </a>
+          </div> -->
+        </div>
+      </footer>
     </div>
   </body>
 </html>
