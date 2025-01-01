@@ -1,0 +1,31 @@
+:root {
+  /* color */
+  --primary-100: #3692ff;
+  --primary-200: #1967d6;
+  --primary-300: #1251aa;
+
+  --error-color: #f74747;
+
+  --gray-900: #111827;
+  --gray-800: #1f2937;
+  --gray-700: #374151;
+  --gray-600: #4b5563;
+  --gray-500: #6b7280;
+  --gray-400: #9ca3af;
+  --gray-200: #e5e7eb;
+  --gray-100: #f3f4f6;
+  --gray-50: #f9fafb;
+
+  /* button */
+  --btn-large-border: 40px;
+  --btn-medium-border: 40px;
+  --btn-small-border: 8px;
+  --btn-herat-border: 35px;
+  --btn-font-weight: 600;
+
+  /* font */
+  --font-weight-bold: 700;
+  --font-weight-semibold: 600;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
+}

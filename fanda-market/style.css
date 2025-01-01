@@ -1,0 +1,131 @@
+@import url(global.css);
+@import url(reset.css);
+
+body {
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+}
+
+/*
+breakPoint
+PC ~ 1920px : 판다마켓 로고의 왼쪽 200px, 로그인 오른쪽 200px 여백 유지 + 화면의 너비가 작아질수록 두 요소가 가까워짐
+PC Large 1920px ~ : 하늘색 배경으로 너비 채우고 내부는 고정
+*/
+
+/* PC Large */
+@media screen and (min-width: 1921px) {
+  .wrap {
+    /* 하늘색 배경은 너비를 꽉 채우고 */
+    /* 내부 요소 위치는 고정 + 여백만 커지도록 */
+  }
+  #header {
+  }
+}
+
+/* PC 기본설정 */
+.wrap::before {
+  /* -- PC 시안 -- */
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(./img/desktop.png);
+  background-size: cover;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+.wrap {
+  max-width: 1920px;
+}
+
+/* ========== header ========== */
+
+#header {
+  height: 70px;
+  /* TODO: padding값 조건에 맞게 변경 */
+  padding: 0 400px;
+  vertical-align: middle;
+}
+
+#gnb {
+  display: flex;
+  justify-content: space-between;
+  padding: 11px 0;
+}
+
+.logo_img {
+  width: 153px;
+}
+
+.login {
+  display: block;
+  width: 128px;
+  height: 48px;
+  font-size: 16px;
+  font-weight: var(--btn-font-weight);
+  text-align: center;
+  line-height: 48px;
+  color: var(--gray-100);
+  background-color: var(--primary-100);
+  border-radius: var(--btn-small-border);
+}
+
+/* ========== main-top ========== */
+
+.top {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 540px;
+  background-color: #cfe5ff;
+}
+.top_left {
+  margin: 40px 0;
+}
+.top_left p {
+  width: 357px;
+  font-size: 40px;
+  font-weight: var(--font-weight-bold);
+  line-height: 140%;
+}
+
+.top_left .oneline {
+  display: none;
+}
+
+.top_left a {
+  display: block;
+  margin: 32px 0 60px;
+  width: 357px;
+  height: 56px;
+  font-size: 20;
+  font-weight: var(--btn-font-weight);
+  text-align: center;
+  line-height: 56px;
+  color: var(--gray-100);
+  background-color: var(--primary-100);
+  border-radius: var(--btn-large-border);
+}
+
+/* ========== main-content ========== */
+
+.section {
+  height: 720px;
+}
+
+/* ========== main-bottom ========== */
+
+.bottom {
+  height: 540px;
+  /* background-color: #cfe5ff; */
+}
+
+/* ========== footer ========== */
+
+#footer {
+  /* background-color: red; */
+  opacity: 0.2;
+  height: 160px;
+}
