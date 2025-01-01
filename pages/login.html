@@ -6,17 +6,19 @@
     <title>login</title>
     <link rel="stylesheet" href="../css/auth.css" />
   </head>
-  <body>
-    <main>
-      <a class="button-home" href="/">
+  <body class="body">
+    <main class="main">
+      <a class="main__button-top" href="/">
         <img src="../assets/logo_lg.svg" alt="판다마켓 로고" />
       </a>
-      <form action="submit" class="auth-form">
-        <div class="form-field">
-          <label for="email" class="form-field-label">이메일</label>
-          <div class="form-field-input-wrapper">
+      <form action="submit" class="form">
+        <div class="form__field">
+          <label for="email" class="form__field-label">이메일</label>
+          <div
+            class="form__field-input-wrapper form__field-input-wrapper--focused"
+          >
             <input
-              class="form-field-input"
+              class="form__field-input"
               id="email"
               type="email"
               placeholder="이메일을 입력해주세요"
@@ -24,17 +26,19 @@
             />
           </div>
         </div>
-        <div class="form-field">
-          <label for="password" class="form-field-label">비밀번호</label>
-          <div class="form-field-input-wrapper">
+        <div class="form__field">
+          <label for="password" class="form__field-label">비밀번호</label>
+          <div
+            class="form__field-input-wrapper form__field-input-wrapper--focused"
+          >
             <input
-              class="form-field-input"
+              class="form__field-input"
               id="password"
               type="password"
               placeholder="비밀번호를 입력해주세요"
               required
             />
-            <button class="input-visibility-button" type="button">
+            <button type="button" class="form__field-toggle-button">
               <img
                 src="../assets/ic_visibility_off.svg"
                 alt="비밀번호 가리기"
@@ -42,11 +46,16 @@
             </button>
           </div>
         </div>
-        <button class="form-button-submit" type="submit">로그인</button>
+        <button
+          class="form__submit-button form__submit-button--disabled"
+          type="submit"
+        >
+          로그인
+        </button>
       </form>
-      <div class="social-login-container">
+      <div class="social-login">
         간편 로그인하기
-        <ul>
+        <ul class="social-login__list">
           <li>
             <a href="https://www.google.com/">
               <img src="../assets/ic_google.svg" alt="구글 소셜로그인" />
@@ -61,7 +70,7 @@
       </div>
       <div class="helper-text">
         판다마켓이 처음이신가요?
-        <a href="/pages/signup.html" class="helper-text-link">회원가입</a>
+        <a href="/pages/signup.html" class="helper-text__link">회원가입</a>
       </div>
     </main>
   </body>

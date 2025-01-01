@@ -1,7 +1,7 @@
 import { isEmpty } from "./utils.js";
 
-const formInputs = document.querySelectorAll(".form-field-input");
-const submitButton = document.querySelector(".form-button-submit");
+const formInputs = document.querySelectorAll(".form__field-input");
+const submitButton = document.querySelector(".form__submit-button--disabled");
 
 const updateSubmitButton = () => {
   const isFormFilled = Array.from(formInputs)
