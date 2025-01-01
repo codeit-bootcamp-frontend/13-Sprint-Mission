@@ -197,3 +197,15 @@ footer {
     width: 20px;
     height: 20px;
 }
+
+@media (max-width: 1199px) {
+    .header-content {
+        margin: 0 24px;
+    }
+}
+
+@media (max-width: 767px) {
+    .header-content {
+        margin: 0 16px;
+    }
+}
