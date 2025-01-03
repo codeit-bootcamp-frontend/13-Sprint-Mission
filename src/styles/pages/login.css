@@ -134,3 +134,9 @@ main {
     text-decoration: underline;
     color: #3692FF;
 }
+
+@media (max-width: 767px) {
+   body {
+    padding: 16px;
+   } 
+}

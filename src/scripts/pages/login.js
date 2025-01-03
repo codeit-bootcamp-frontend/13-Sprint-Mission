@@ -1,4 +1,4 @@
-import { setVisibilityToggle, setButtonDisable } from "/src/scripts/global.js";
+import { setVisibilityToggle, setButtonDisable } from "/src/scripts/formUtils.js";
 
 setVisibilityToggle(".input-wrapper");
 
