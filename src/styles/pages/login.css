@@ -33,13 +33,14 @@ main {
 .form-structure{
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
     align-items: stretch;
 }
 
 .form-label {
     font-size: 18px;
     font-weight: 700;
+    margin-bottom: 8px;
     line-height: 24px;
     color: #1F2937;
 }
@@ -54,6 +55,18 @@ main {
 
 .form-input:focus {
     border: 1px solid #3692FF;
+}
+
+.input-error {
+    border: 1px solid #F74747;
+}
+
+.form-warning {
+    padding-left: 16px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #F74747;
+    font-weight: 600;
 }
 
 .input-wrapper {

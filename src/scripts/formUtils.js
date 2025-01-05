@@ -1,3 +1,7 @@
+const NOINPUT = 0;
+const WRONGINPUT = 1;
+const VALIDINPUT = 2;
+
 const visibilityConfig = {
     showPassword: {
         type: "text",
@@ -10,6 +14,25 @@ const visibilityConfig = {
         alt: "비밀번호 보기",
     },
 };
+
+const validators = {
+    email: (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        if (email.trim() === "")
+            return (NOINPUT);
+        else if (!emailRegex.test(email))
+            return (WRONGINPUT);
+        return (VALIDINPUT);
+    },
+    password: (password) => {
+        if (password.length === 0)
+            return (NOINPUT);
+        else if (password.length < 8)
+            return (WRONGINPUT);
+        return (VALIDINPUT);
+    }
+}
 
 export function setVisibilityToggle(inputWrapperSelector) {
     const inputWrappers = document.querySelectorAll(inputWrapperSelector);
@@ -30,6 +53,45 @@ export function setVisibilityToggle(inputWrapperSelector) {
             }
         });
     });
+}
+
+function setWarningMessage(warningDiv, checkValid, messages, inputField) {
+    if (checkValid === NOINPUT) {
+        warningDiv.textContent = messages.noInput;
+        inputField.classList.add("input-error");
+    } else if (checkValid === WRONGINPUT) {
+        warningDiv.textContent = messages.wrongInput;
+        inputField.classList.add("input-error");
+    }
+    else {
+        warningDiv.textContent = "";
+        inputField.classList.remove("input-error");
+    }
+}
+
+export function registerValidationEvents(parent) {
+    const forms = parent.querySelectorAll(".form-structure");
+
+    for (let form of forms) {
+        form.addEventListener("focusout", (event) => {
+            const target = event.target;
+            const warningDiv = form.querySelector(".form-warning");
+            if (target.classList.contains("email-input")) {
+                const checkValid = validators.email(target.value);
+                setWarningMessage(warningDiv, checkValid, {
+                    noInput: "이메일을 입력해주세요.",
+                    wrongInput: "잘못된 이메일 형식입니다."
+                }, target);
+            }
+            else if (target.classList.contains("password-input")) {
+                const checkValid = validators.password(target.value);
+                setWarningMessage(warningDiv, checkValid, {
+                    noInput: "비밀번호를 입력해주세요.",
+                    wrongInput: "비밀번호를 8자 이상 입력해주세요."
+                }, target);
+            }
+        })
+    }
 }
 
 export function setButtonDisable(parent, buttonClass) {
