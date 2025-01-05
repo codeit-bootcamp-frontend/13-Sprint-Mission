@@ -52,7 +52,7 @@ main {
     width: 100%;
 }
 
-.from-input:focus {
+.form-input:focus {
     border: 1px solid #3692FF;
 }
 
