@@ -1,10 +1,10 @@
 const visibilityConfig = {
-    password: {
+    showPassword: {
         type: "text",
         src: "/src/assets/icons/visibility_off_btn.svg",
         alt: "비밀번호 숨기기",
     },
-    text: {
+    hidePassword: {
         type: "password",
         src: "/src/assets/icons/visibility_on_btn.svg",
         alt: "비밀번호 보기",
@@ -22,7 +22,7 @@ export function setVisibilityToggle(inputWrapperSelector) {
                 const passwordInput = wrapper.querySelector("input");
                 const toggleButton = clickedElement;
 
-                const nextState = passwordInput.type === "password" ? visibilityConfig["password"] : visibilityConfig["text"];
+                const nextState = passwordInput.type === "password" ? visibilityConfig["showPassword"] : visibilityConfig["hidePassword"];
 
                 passwordInput.type = nextState.type;
                 toggleButton.src = nextState.src;
