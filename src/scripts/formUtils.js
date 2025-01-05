@@ -126,3 +126,23 @@ export function setButtonDisable(parent, buttonClass) {
       }
     });
 }
+
+export function handleFormSubmission(parent, buttonClass, redirectUrl) {
+    const button = parent.querySelector(buttonClass);
+
+    function validateInputs() {
+        const forms = parent.querySelectorAll(".form-structure");
+
+        return Array.from(forms).every(form => {
+            const input = form.querySelector("input");
+            const warning = form.querySelector(".form-warning");
+            return input.value !== "" && warning.textContent === "";
+        });
+    }
+
+    button.addEventListener("click", (event) => {
+        if (validateInputs()) {
+            location.href = redirectUrl;
+        } 
+    });
+}
