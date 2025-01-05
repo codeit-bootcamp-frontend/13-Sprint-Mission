@@ -34,24 +34,22 @@ const validators = {
     }
 }
 
-export function setVisibilityToggle(inputWrapperSelector) {
-    const inputWrappers = document.querySelectorAll(inputWrapperSelector);
+export function setVisibilityToggle(parent) {
 
-    inputWrappers.forEach((wrapper) => {
-        wrapper.addEventListener("click", (event) => {
-            const clickedElement = event.target;
+    parent.addEventListener("click", (event) => {
+        const target = event.target;
 
-            if (clickedElement.classList.contains("input-icon")) {
-                const passwordInput = wrapper.querySelector("input");
-                const toggleButton = clickedElement;
+        if (target.classList.contains("input-icon")) {
+            const wrapper = target.closest(".input-wrapper");
+            const passwordInput = wrapper.querySelector("input");
+            const toggleButton = target;
 
-                const nextState = passwordInput.type === "password" ? visibilityConfig["showPassword"] : visibilityConfig["hidePassword"];
+            const nextState = passwordInput.type === "password" ? visibilityConfig["showPassword"] : visibilityConfig["hidePassword"];
 
-                passwordInput.type = nextState.type;
-                toggleButton.src = nextState.src;
-                toggleButton.alt = nextState.alt;
-            }
-        });
+            passwordInput.type = nextState.type;
+            toggleButton.src = nextState.src;
+            toggleButton.alt = nextState.alt;
+        }
     });
 }
 
@@ -99,9 +97,15 @@ export function setButtonDisable(parent, buttonClass) {
   
     // 초기 상태 및 입력값 검증 함수
     function validateInputs() {
-      const inputs = parent.querySelectorAll("input");
-      const allFilled = Array.from(inputs).every(input => input.value.trim() !== "");
-      button.disabled = !allFilled;
+        const forms = parent.querySelectorAll(".form-structure");
+
+        const allValid = Array.from(forms).every(form => {
+            const input = form.querySelector("input");
+            const warning = form.querySelector(".form-warning");
+
+            return (input.value !== "" && warning.textContent === "");
+        });
+      button.disabled = !allValid;
     }
 
     /*
@@ -115,4 +119,10 @@ export function setButtonDisable(parent, buttonClass) {
         validateInputs();
       }
     });
-  }
+
+    parent.addEventListener("focusout", (event) => {
+      if (event.target.tagName === "INPUT") {
+        validateInputs();
+      }
+    });
+}
