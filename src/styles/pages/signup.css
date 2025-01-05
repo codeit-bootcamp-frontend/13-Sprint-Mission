@@ -57,6 +57,18 @@ main {
     border: 1px solid #3692FF;
 }
 
+.input-error {
+    border: 1px solid #F74747;
+}
+
+.form-warning {
+    padding-left: 16px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #F74747;
+    font-weight: 600;
+}
+
 .input-wrapper {
     position: relative;
 }
@@ -76,7 +88,7 @@ main {
     opacity: 1;
 }
 
-.login-button {
+.signup-button {
     padding: 16px 124px;
     font-size: 20px;
     font-weight: 600;

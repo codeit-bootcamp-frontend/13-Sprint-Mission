@@ -31,6 +31,16 @@ const validators = {
         else if (password.length < 8)
             return (WRONGINPUT);
         return (VALIDINPUT);
+    },
+    nickname: (nickname) => {
+        if (nickname.length === 0)
+            return (NOINPUT);
+        return (VALIDINPUT);
+    },
+    checkPassword: (password, checkPassword) => {
+        if (password !== checkPassword)
+            return (WRONGINPUT);
+        return (VALIDINPUT);
     }
 }
 
@@ -78,14 +88,27 @@ export function registerValidationEvents(parent) {
                 const checkValid = validators.email(target.value);
                 setWarningMessage(warningDiv, checkValid, {
                     noInput: "이메일을 입력해주세요.",
-                    wrongInput: "잘못된 이메일 형식입니다."
+                    wrongInput: "잘못된 이메일 형식입니다.",
                 }, target);
             }
             else if (target.classList.contains("password-input")) {
                 const checkValid = validators.password(target.value);
                 setWarningMessage(warningDiv, checkValid, {
                     noInput: "비밀번호를 입력해주세요.",
-                    wrongInput: "비밀번호를 8자 이상 입력해주세요."
+                    wrongInput: "비밀번호를 8자 이상 입력해주세요.",
+                }, target);
+            }
+            else if (target.classList.contains("nickname-input")) {
+                const checkValid = validators.nickname(target.value);
+                setWarningMessage(warningDiv, checkValid, {
+                    noInput: "닉네임을 입력해주세요.",
+                }, target);
+            }
+            else if (target.classList.contains("check-password-input")) {
+                const password = parent.querySelector(".password-input").value;
+                const checkValid = validators.checkPassword(password, target.value);
+                setWarningMessage(warningDiv, checkValid, {
+                    wrongInput: "비밀번호가 일치하지 않습니다.",
                 }, target);
             }
         })

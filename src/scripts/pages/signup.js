@@ -1,6 +1,8 @@
-import { setVisibilityToggle, setButtonDisable } from "/src/scripts/formUtils.js";
-
-setVisibilityToggle(".input-wrapper");
+import { setVisibilityToggle, registerValidationEvents, setButtonDisable, handleFormSubmission } from "/src/scripts/formUtils.js";
 
 const contentWrapper = document.querySelector(".content-wrapper");
-setButtonDisable(contentWrapper, ".primary-button");
+
+setVisibilityToggle(contentWrapper);
+registerValidationEvents(contentWrapper);
+setButtonDisable(contentWrapper, ".signup-button");
+handleFormSubmission(contentWrapper, ".signup-button", '/src/pages/signup.html');
