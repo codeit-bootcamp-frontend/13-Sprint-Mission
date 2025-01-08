@@ -15,7 +15,7 @@
       <form action="#" class="login-form">
         <div class="input-box">
           <label class="label-text" for="email">이메일 </label>
-          <div class="input-wrapper">
+          <div class="input-wrapper email">
             <input
               type="email"
               id="email"
@@ -24,10 +24,11 @@
               required
             />
           </div>
+          <div class="email error"></div>
         </div>
         <div class="input-box">
           <label class="label-text" for="password">비밀번호 </label>
-          <div class="input-wrapper">
+          <div class="input-wrapper password">
             <input
               type="password"
               id="password"
@@ -37,8 +38,14 @@
             />
             <img src="./img/closedEye.svg" alt="눈 감은 아이콘" />
           </div>
+          <div class="password error"></div>
         </div>
-        <button>
+        <button
+          type="button"
+          class="login-btn disabled"
+          onclick="location.href='./items.html'"
+          disabled
+        >
           <span class="btn-text">로그인</span>
         </button>
       </form>
@@ -58,5 +65,6 @@
         <a class="sign-up-anchor" href="sign-up.html">회원가입</a>
       </div>
     </div>
+    <script src="./scripts/login.js"></script>
   </body>
 </html>
