@@ -15,7 +15,7 @@
       <form action="#" class="sign-up-form">
         <div class="input-box">
           <label class="label-text" for="email">이메일 </label>
-          <div class="input-wrapper">
+          <div class="input-wrapper email">
             <input
               type="email"
               id="email"
@@ -24,10 +24,11 @@
               required
             />
           </div>
+          <div class="email error"></div>
         </div>
         <div class="input-box">
           <label class="label-text" for="nickname">닉네임 </label>
-          <div class="input-wrapper">
+          <div class="input-wrapper nickname">
             <input
               type="text"
               id="nickname"
@@ -36,10 +37,11 @@
               required
             />
           </div>
+          <div class="nickname error"></div>
         </div>
         <div class="input-box">
           <label class="label-text" for="password">비밀번호 </label>
-          <div class="input-wrapper">
+          <div class="input-wrapper password">
             <input
               type="password"
               id="password"
@@ -49,10 +51,11 @@
             />
             <img src="./img/closedEye.svg" alt="눈 감은 아이콘" />
           </div>
+          <div class="password error"></div>
         </div>
         <div class="input-box">
           <label class="label-text" for="checkPassword">비밀번호 확인 </label>
-          <div class="input-wrapper">
+          <div class="input-wrapper checkPassword">
             <input
               type="password"
               id="checkPassword"
@@ -62,8 +65,14 @@
             />
             <img src="./img/closedEye.svg" alt="눈 감은 아이콘" />
           </div>
+          <div class="checkPassword error"></div>
         </div>
-        <button disabled>
+        <button
+          type="button"
+          class="login-btn disabled"
+          onclick="location.href='./sign-in.html'"
+          disabled
+        >
           <span class="btn-text">회원가입</span>
         </button>
       </form>
@@ -83,5 +92,6 @@
         <a class="login-anchor" href="login.html">로그인</a>
       </div>
     </div>
+    <script src="./scripts/sign-up.js"></script>
   </body>
 </html>
