@@ -19,14 +19,14 @@ const Items = () => {
     <div>
       <ProductsWrapper>
         <BestProductsList>
-          <span>베스트 상품</span>
+          <Title>베스트 상품</Title>
           <Cards items={bestItems} />
         </BestProductsList>
         <AllProductsList>
-          <div>
-            <span>전체 상품</span>
+          <UtilsWrapper>
+            <Title>전체 상품</Title>
             <Utils />
-          </div>
+          </UtilsWrapper>
           <Cards items={items} />
         </AllProductsList>
       </ProductsWrapper>
@@ -43,6 +43,13 @@ const ProductsWrapper = styled.div`
   gap: 40px;
 `;
 
+const Title = styled.span`
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #111827;
+`;
+
 const BestProductsList = styled.div`
   display: flex;
   flex-direction: column;
@@ -53,4 +60,10 @@ const AllProductsList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+`;
+
+const UtilsWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
