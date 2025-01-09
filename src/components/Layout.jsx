@@ -1,18 +1,29 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
-import Footer from "./Footer";
 import styled from "styled-components";
 
 const Layout = () => {
   return (
-    <div>
+    <LayoutStyle>
       <Header />
-      <main>
+      <Main>
         <Outlet />
-      </main>
-    </div>
+      </Main>
+    </LayoutStyle>
   );
 };
 
 export default Layout;
+
+const LayoutStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Main = styled.main`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 24px;
+`;
