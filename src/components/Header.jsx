@@ -34,6 +34,8 @@ const Nav = styled.nav`
   align-items: center;
   padding: 10px 200px;
   border-bottom: 1px solid #dfdfdf;
+  z-index: 1;
+  background-color: #ffffff;
 `;
 
 const NavList = styled.div`
