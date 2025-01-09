@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import styled from "styled-components";
 import Cards from "../components/Cards";
 import Utils from "../components/Utils";
@@ -7,10 +7,13 @@ import { getItems } from "../apis/api";
 
 const Items = () => {
   const [items, setItems] = useState([]);
+  const [keyword, setKeyword] = useState("");
   const bestItems = [...items]
     .sort((a, b) => b["favoriteCount"] - a["favoriteCount"])
     .slice(0, 4);
-
+  const filterItems = useMemo(() => {
+    return items.filter((item) => item.name.includes(keyword));
+  }, [items, keyword]);
   useEffect(() => {
     getItems("/products").then((result) => setItems(result.list));
   }, []);
@@ -25,9 +28,9 @@ const Items = () => {
         <AllProductsList>
           <UtilsWrapper>
             <Title>전체 상품</Title>
-            <Utils />
+            <Utils onFilterItems={setKeyword} />
           </UtilsWrapper>
-          <Cards items={items} />
+          <Cards items={filterItems} />
         </AllProductsList>
       </ProductsWrapper>
       <Pagination />

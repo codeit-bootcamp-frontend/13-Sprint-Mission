@@ -2,11 +2,19 @@ import React from "react";
 import searchImg from "../assets/images/searchImg.svg";
 import styled from "styled-components";
 
-const SearchProducts = () => {
+const SearchProducts = ({ onFilterItems }) => {
+  const handleFilterItems = (e) => {
+    onFilterItems(e.target.value);
+  };
+
   return (
     <SearchInputWrapper>
       <img src={searchImg} alt="검색 이미지" />
-      <SearchInput type="text" placeholder="검색할 상품을 입력해주세요" />
+      <SearchInput
+        type="text"
+        placeholder="검색할 상품을 입력해주세요"
+        onChange={handleFilterItems}
+      />
     </SearchInputWrapper>
   );
 };
