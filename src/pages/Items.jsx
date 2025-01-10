@@ -1,14 +1,16 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import styled from "styled-components";
 import Cards from "../components/Cards";
 import Utils from "../components/Utils";
 import Pagination from "../components/Pagination";
 import { getItems } from "../apis/api";
+import { debounce } from "lodash";
 
 const Items = () => {
   const [items, setItems] = useState([]);
   const [keyword, setKeyword] = useState("");
   const [sortOrder, setSortOrder] = useState("orderByLatest");
+  const [browserWidth, setBrowserWidth] = useState(window.innerWidth);
 
   const bestItems = useMemo(() => {
     return [...items]
@@ -29,10 +31,21 @@ const Items = () => {
     return filtered;
   }, [items, keyword, sortOrder]);
 
-  useEffect(() => {
-    getItems("/products").then((result) => setItems(result.list));
-  }, []);
+  const handleResizeBrowserWidth = debounce(
+    useCallback(() => {
+      setBrowserWidth(window.innerWidth);
+      console.log(browserWidth);
+    }, [browserWidth]),
+    200
+  );
 
+  useEffect(() => {
+    window.addEventListener("resize", handleResizeBrowserWidth);
+    getItems("/products").then((result) => setItems(result.list));
+    return () => {
+      window.removeEventListener("resize", handleResizeBrowserWidth);
+    };
+  }, [handleResizeBrowserWidth]);
   return (
     <div>
       <ProductsWrapper>
