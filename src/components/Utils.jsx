@@ -2,20 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import SearchProducts from "./SearchProducts";
 import DropdownProduct from "./DropdownProduct";
-import { useNavigate } from "react-router-dom";
+import AddProductButton from "./AddProductButton";
 
-const Utils = ({ onFilterItems, onSortOrderChange }) => {
-  const navigate = useNavigate();
-  const handleMoveAddProduct = () => {
-    navigate("/additem");
-  };
-
+const Utils = ({ onFilterItems, onSortOrderChange, browserWidth }) => {
   return (
     <Wrapper>
-      <SearchProducts onFilterItems={onFilterItems} />
-      <AddProductButton onClick={handleMoveAddProduct}>
-        상품 등록하기
-      </AddProductButton>
+      <SearchProducts
+        onFilterItems={onFilterItems}
+        browserWidth={browserWidth}
+      />
+      <AddProductButton />
       <DropdownProduct onSortOrderChange={onSortOrderChange} />
     </Wrapper>
   );
@@ -27,15 +23,4 @@ const Wrapper = styled.div`
   display: flex;
   gap: 12px;
   align-items: center;
-`;
-
-const AddProductButton = styled.span`
-  padding: 8px 23px;
-  background-color: #3692ff;
-  border-radius: 8px;
-  color: #f3f4f6;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 26px;
-  cursor: pointer;
 `;

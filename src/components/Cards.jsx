@@ -2,13 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import heartImg from "../assets/images/heartImg.svg";
 
-const Cards = ({ items }) => {
+const Cards = ({ items, browserWidth, name }) => {
   return (
-    <ProductsListWrapper>
+    <ProductsListWrapper browserWidth={browserWidth}>
       {items.map((item) => {
         return (
           <ProductsList key={item.id}>
-            <ProductsImg src={item.images[0]} alt="상품 이미지" />
+            <ProductsImg
+              browserWidth={browserWidth}
+              name={name}
+              src={item.images[0]}
+              alt="상품 이미지"
+            />
             <ProductsInformationWrapper>
               <ProductInformation>{item.name}</ProductInformation>
               <ProductInformation>{item.price}</ProductInformation>
@@ -28,9 +33,26 @@ export default Cards;
 
 const ProductsListWrapper = styled.ul`
   display: flex;
-  width: 1200px;
+  width: ${({ browserWidth }) => {
+    if (767 < browserWidth && browserWidth < 1200) {
+      return "696px";
+    }
+    if (374 < browserWidth && browserWidth < 768) {
+      return "344px";
+    }
+    return "1200px";
+  }};
   flex-wrap: wrap;
-  gap: 24px;
+  gap: ${({ browserWidth }) => {
+    if (374 < browserWidth && browserWidth < 1200) {
+      if (browserWidth < 767) {
+        return "8px";
+      }
+      return "10px";
+    }
+
+    return "23px";
+  }};
 `;
 
 const ProductsList = styled.li`
@@ -40,8 +62,37 @@ const ProductsList = styled.li`
 `;
 
 const ProductsImg = styled.img`
-  width: 282px;
-  height: 282px;
+  width: ${({ browserWidth, name }) => {
+    if (browserWidth > 1200 && name === "all") {
+      return "221px";
+    }
+    if (374 < browserWidth && browserWidth < 1200) {
+      if (name === "all") {
+        if (browserWidth < 768) {
+          return "168px";
+        }
+        return "221px";
+      }
+      return "343px";
+    }
+
+    return "282px";
+  }};
+  height: ${({ browserWidth, name }) => {
+    if (browserWidth > 1200 && name === "all") {
+      return "221px";
+    }
+    if (374 < browserWidth && browserWidth < 1200) {
+      if (name === "all") {
+        if (browserWidth < 768) {
+          return "168px";
+        }
+        return "221px";
+      }
+      return "343px";
+    }
+    return "282px";
+  }};
   border-radius: 16px;
 `;
 

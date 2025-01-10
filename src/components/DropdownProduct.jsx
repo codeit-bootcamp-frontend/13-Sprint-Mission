@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import sortImg from "../assets/images/sortImg.svg";
 
-const DropdownProduct = ({ onSortOrderChange }) => {
+const DropdownProduct = ({ onSortOrderChange, browserWidth }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState("최신순");
 
@@ -13,8 +14,14 @@ const DropdownProduct = ({ onSortOrderChange }) => {
   };
 
   return (
-    <DropdownWrapper>
-      <DropdownButton onClick={handleToggle}>{selectedValue}</DropdownButton>
+    <DropdownWrapper browserWidth={browserWidth}>
+      <DropdownButton browserWidth={browserWidth} onClick={handleToggle}>
+        {browserWidth < 768 ? (
+          <SortImg src={sortImg} alt="분류 이미지" />
+        ) : (
+          selectedValue
+        )}
+      </DropdownButton>
       <DropdownMenu open={isOpen}>
         <DropdownItem onClick={() => handleSelect("orderByLatest", "최신순")}>
           최신순
@@ -34,12 +41,13 @@ export default DropdownProduct;
 const DropdownWrapper = styled.div`
   position: relative;
   display: inline-block;
-  width: 150px;
+  width: ${({ browserWidth }) => (browserWidth < 768 ? "42px" : "130px")};
+  height: 42px;
 `;
 
 const DropdownButton = styled.button`
   width: 100%;
-  padding: 10px;
+  height: 100%;
   border: 1px solid #e5e7eb;
   border-radius: 10px;
   background-color: #ffffff;
@@ -49,7 +57,7 @@ const DropdownButton = styled.button`
   text-align: left;
 
   &:after {
-    content: "▼";
+    content: ${({ browserWidth }) => (browserWidth < 768 ? "" : "▼")};
     float: right;
     font-size: 12px;
   }
@@ -58,8 +66,8 @@ const DropdownButton = styled.button`
 const DropdownMenu = styled.ul`
   position: absolute;
   top: 100%;
-  left: 0;
-  width: 100%;
+  right: 0;
+  width: 130px;
   border: 1px solid #e5e7eb;
   border-radius: 10px;
   background-color: #ffffff;
@@ -81,4 +89,9 @@ const DropdownItem = styled.li`
   &:hover {
     background-color: #f1f1f1;
   }
+`;
+
+const SortImg = styled.img`
+  width: 24px;
+  height: 24px;
 `;

@@ -2,13 +2,13 @@ import React from "react";
 import searchImg from "../assets/images/searchImg.svg";
 import styled from "styled-components";
 
-const SearchProducts = ({ onFilterItems }) => {
+const SearchProducts = ({ onFilterItems, browserWidth }) => {
   const handleFilterItems = (e) => {
     onFilterItems(e.target.value);
   };
 
   return (
-    <SearchInputWrapper>
+    <SearchInputWrapper browserWidth={browserWidth}>
       <img src={searchImg} alt="검색 이미지" />
       <SearchInput
         type="text"
@@ -23,7 +23,16 @@ export default SearchProducts;
 
 const SearchInputWrapper = styled.div`
   display: flex;
-  width: 325px;
+  width: ${({ browserWidth }) => {
+    if (767 < browserWidth && browserWidth < 1200) {
+      return "242px";
+    }
+    if (374 < browserWidth && browserWidth < 767) {
+      return "288px";
+    }
+
+    return "325px";
+  }};
   gap: 8px;
   align-items: center;
   background-color: #f3f4f6;

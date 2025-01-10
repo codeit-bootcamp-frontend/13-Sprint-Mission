@@ -2,10 +2,11 @@ import React from "react";
 import logoImg from "../assets/images/pandaLogo.svg";
 import userImg from "../assets/images/userImg.svg";
 import styled from "styled-components";
+import responsive from "../utils/responsive";
 
 const Header = () => {
   return (
-    <Nav>
+    <Nav responsive={responsive}>
       <NavList>
         <LogoWrapper>
           <img src={logoImg} alt="판다 얼굴 이미지" />
@@ -25,6 +26,14 @@ const Header = () => {
 export default Header;
 
 const Nav = styled.nav`
+  padding: 10px 200px;
+  @media ${({ responsive }) => responsive.device.tablet} {
+    padding: 10px 24px;
+  }
+  @media ${({ responsive }) => responsive.device.mobile} {
+    padding: 10px 16px;
+  }
+
   display: flex;
   position: sticky;
   top: 0;
@@ -32,7 +41,6 @@ const Nav = styled.nav`
   right: 0;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 200px;
   border-bottom: 1px solid #dfdfdf;
   z-index: 1;
   background-color: #ffffff;
