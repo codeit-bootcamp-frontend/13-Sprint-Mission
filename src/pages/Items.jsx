@@ -8,14 +8,27 @@ import { getItems } from "../apis/api";
 const Items = () => {
   const [items, setItems] = useState([]);
   const [keyword, setKeyword] = useState("");
+  const [sortOrder, setSortOrder] = useState("orderByLatest");
+
   const bestItems = useMemo(() => {
     return [...items]
       .sort((a, b) => b["favoriteCount"] - a["favoriteCount"])
       .slice(0, 4);
   }, [items]);
-  const filterItems = useMemo(() => {
-    return items.filter((item) => item.name.includes(keyword));
-  }, [items, keyword]);
+  const filteredAndSortedItems = useMemo(() => {
+    let filtered = items.filter((item) => item.name.includes(keyword));
+    if (sortOrder === "orderByFavoriteCount") {
+      filtered = filtered.sort(
+        (a, b) => b["favoriteCount"] - a["favoriteCount"]
+      );
+    } else {
+      filtered = filtered.sort(
+        (a, b) => new Date(b["createdAt"]) - new Date(a["createdAt"])
+      );
+    }
+    return filtered;
+  }, [items, keyword, sortOrder]);
+
   useEffect(() => {
     getItems("/products").then((result) => setItems(result.list));
   }, []);
@@ -30,9 +43,12 @@ const Items = () => {
         <AllProductsList>
           <UtilsWrapper>
             <Title>전체 상품</Title>
-            <Utils onFilterItems={setKeyword} />
+            <Utils
+              onFilterItems={setKeyword}
+              onSortOrderChange={setSortOrder}
+            />
           </UtilsWrapper>
-          <Cards items={filterItems} />
+          <Cards items={filteredAndSortedItems} />
         </AllProductsList>
       </ProductsWrapper>
       <Pagination />

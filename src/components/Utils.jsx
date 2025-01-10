@@ -4,7 +4,7 @@ import SearchProducts from "./SearchProducts";
 import DropdownProduct from "./DropdownProduct";
 import { useNavigate } from "react-router-dom";
 
-const Utils = ({ onFilterItems }) => {
+const Utils = ({ onFilterItems, onSortOrderChange }) => {
   const navigate = useNavigate();
   const handleMoveAddProduct = () => {
     navigate("/additem");
@@ -16,7 +16,7 @@ const Utils = ({ onFilterItems }) => {
       <AddProductButton onClick={handleMoveAddProduct}>
         상품 등록하기
       </AddProductButton>
-      <DropdownProduct />
+      <DropdownProduct onSortOrderChange={onSortOrderChange} />
     </Wrapper>
   );
 };
