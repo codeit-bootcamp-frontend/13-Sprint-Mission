@@ -8,9 +8,11 @@ import { getItems } from "../apis/api";
 const Items = () => {
   const [items, setItems] = useState([]);
   const [keyword, setKeyword] = useState("");
-  const bestItems = [...items]
-    .sort((a, b) => b["favoriteCount"] - a["favoriteCount"])
-    .slice(0, 4);
+  const bestItems = useMemo(() => {
+    return [...items]
+      .sort((a, b) => b["favoriteCount"] - a["favoriteCount"])
+      .slice(0, 4);
+  }, [items]);
   const filterItems = useMemo(() => {
     return items.filter((item) => item.name.includes(keyword));
   }, [items, keyword]);
