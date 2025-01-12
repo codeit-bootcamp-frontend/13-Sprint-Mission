@@ -15,22 +15,28 @@
                 <a href="./">
                     <img src="./images/logo/panda-market-logo.svg" width="396" id="logoBtn" alt="판다마켓 홈">
                 </a>
-                <form>
+                <form class="input" action="./signin.html">
                     <label>이메일
-                        <input type="email" placeholder="이메일을 입력해주세요" required>
+                        <input type="email" class="email-input" placeholder="이메일을 입력해주세요" required>
                     </label>
                     <label>닉네임
-                        <input type="text" placeholder="닉네임을 입력해주세요" required>
+                        <input type="text" class="name-input" placeholder="닉네임을 입력해주세요" required>
                     </label>
                     <label>비밀번호
-                        <input type="password" placeholder="비밀번호를 입력해주세요" required>
-                        <button class="toggle-password" type="button"><img src="./images/icon/visibility_off.svg" alt="비밀번호 보이기"></button>
+                        <button class="toggle-password" type="button">
+                            <img src="./images/icon/visibility_off.svg" class="visible" alt="비밀번호 숨김">
+                            <img src="./images/icon/visibility_on.svg" alt="비밀번호 보임">
+                        </button>
+                        <input type="password" class="password-input" placeholder="비밀번호를 입력해주세요" required>
                     </label>
                     <label>비밀번호 확인
-                        <input type="password" placeholder="비밀번호를 다시 한 번 입력해주세요" required>
-                        <button class="toggle-password" type="button"><img src="./images/icon/visibility_off.svg" alt="비밀번호 보이기"></button>
+                        <button class="toggle-password" type="button">
+                            <img src="./images/icon/visibility_off.svg" class="visible" alt="비밀번호 숨김">
+                            <img src="./images/icon/visibility_on.svg" alt="비밀번호 보임">
+                        </button>
+                        <input type="password" class="password-check-input" placeholder="비밀번호를 다시 한 번 입력해주세요" required>
                     </label>
-                    <button id="loginButton" type="submit">회원가입</button>
+                    <button id="loginButton" type="submit" disabled>회원가입</button>
                 </form>
                 <div class="social-login">
                     <div>간편 로그인하기</div>
@@ -52,6 +58,7 @@
                     <a href="./signin.html" id="signupLink">로그인</a>
                 </div>
             </div>
-        </main> 
+        </main>
+        <script src="auth.js"></script>
     </body>
 </html>

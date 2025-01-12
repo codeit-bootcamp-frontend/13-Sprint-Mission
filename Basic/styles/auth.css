@@ -60,8 +60,28 @@ input:focus {
     outline-color: var(--blue);
 }
 
+.input-empty {
+    border: 2px solid var(--red);
+}
+
+.caution-text {
+    color: var(--red);
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    padding: 1rem 0 0 1.6rem;
+}
+
 input::placeholder {
     color: var(--gray400);
+}
+
+.toggle-password > img {
+    display: none;
+}
+
+.visible {
+    display: flex !important;
 }
 
 #loginButton {
