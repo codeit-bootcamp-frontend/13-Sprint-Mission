@@ -25,7 +25,7 @@ function nameExist(name) {
   return !(name.length < 1);
 }
 
-/* 눈 모양 아이콘으로 비밀번호 값 확인 */
+/* 눈 모양 아이콘 클릭으로 비밀번호 값 확인 */
 function togglePassword(e) {
   const toggleButton = e.target;
   const passwordField = toggleButton.parentElement.nextElementSibling;
