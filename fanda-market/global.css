@@ -1,0 +1,107 @@
+/* ========================================
+   Global Styles
+   ======================================== */
+:root {
+  /* color */
+  --primary-100: #3692ff;
+  --primary-200: #1967d6;
+  --primary-300: #1251aa;
+
+  --error-color: #f74747;
+
+  --gray-900: #111827;
+  --gray-800: #1f2937;
+  --gray-700: #374151;
+  --gray-600: #4b5563;
+  --gray-500: #6b7280;
+  --gray-400: #9ca3af;
+  --gray-200: #e5e7eb;
+  --gray-100: #f3f4f6;
+  --gray-50: #f9fafb;
+
+  /* font */
+  --font-weight-bold: 700;
+  --font-weight-semibold: 600;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
+}
+
+/* setting */
+html,
+a {
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 16px;
+  font-weight: var(--font-weight-regular);
+  color: var(--gray-700);
+}
+.img_box {
+  line-height: 0;
+}
+
+/* ========================================
+   Components
+   ======================================== */
+/* button */
+.btn {
+  display: block;
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+  color: var(--gray-100);
+  background-color: var(--primary-100);
+}
+.btn--large {
+  width: 357px;
+  height: 56px;
+  line-height: 56px;
+  border-radius: 40px;
+}
+.btn--medium {
+  width: 240px;
+  height: 48px;
+  line-height: 48px;
+  border-radius: 40px;
+}
+.btn--small_40 {
+  width: 88x;
+  height: 42px;
+  line-height: 42px;
+  border-radius: 8px;
+}
+.btn--small_48 {
+  width: 88px;
+  height: 48px;
+  line-height: 48px;
+  border-radius: 8px;
+}
+.btn--white {
+  background-color: var(--gray-50);
+  border: 1px solid var(--primary-100);
+}
+
+/* button - heart */
+.btn-heart {
+  border-radius: 35px;
+  color: var(--gray-500);
+  background-color: #fff;
+}
+.btn-heart--large {
+  width: 87px;
+  height: 40px;
+  line-height: 40px;
+}
+.btn-heart--small {
+  width: 79px;
+  height: 32px;
+  line-height: 32px;
+}
+
+/* button - hover, click, inactive */
+.btn__hover {
+  background-color: var(--primary-200);
+}
+.btn__click {
+  background-color: var(--primary-300);
+}
+.btn__inactive {
+  background-color: var(--gray-400);
+}

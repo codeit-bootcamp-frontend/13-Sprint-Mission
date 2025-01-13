@@ -1,0 +1,211 @@
+@import url(reset.css);
+@import url(global.css);
+
+/* ========== Breakpoints ========== */
+/* Large (Desktop-large: 1921px ~) */
+/* Medium (Desktop: 745px ~ 1920px) */
+/* Small (tablet: 374px ~ 744px) */
+/* Extra small (mobile: ~ 375px) */
+/* ================================= */
+
+#container {
+  max-width: 1920px;
+  position: relative;
+}
+
+@media screen and (min-width: 1921px) {
+  #container {
+    max-width: 100vw;
+  }
+}
+
+/* ========== header, footer ========== */
+#header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  height: 70px;
+}
+#gnb {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1120px;
+}
+@media screen and (max-width: 1519px) {
+  #gnb {
+    width: 100%;
+    padding: 0 200px;
+  }
+}
+.logo_img {
+  width: 153px;
+}
+.login {
+  width: 128px;
+}
+
+/* ========== main - top, bottom ========== */
+/* 공통 (default: top) */
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 540px;
+  background-color: #cfe5ff;
+}
+.banner .text_box {
+  margin: 40px 0;
+  width: 357px;
+  font-size: 40px;
+  font-weight: var(--font-weight-bold);
+  line-height: 140%;
+}
+.banner .text_box .oneline {
+  display: none;
+}
+.banner .text_box a {
+  margin: 32px 0 60px;
+}
+
+/* 개별 */
+.banner.bottom {
+  margin-top: 138px;
+}
+.banner.bottom .text_box {
+  margin: 112.5px 0;
+}
+.banner.bottom .text_box p:nth-child(2) {
+  margin-bottom: 60px;
+}
+
+/* ========== main - content ========== */
+/* layout 공통 (default: sec1) */
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 720px;
+}
+.sec__wrapper {
+  display: flex;
+  gap: 64px;
+  width: 988px;
+  height: 444px;
+  background-color: #fcfcfc;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.sec__wrapper .img_box {
+  margin: 0 0 0 23.5px;
+  width: 579px;
+  background-size: cover;
+}
+.sec__wrapper .text_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.sec__wrapper .text_box .tag {
+  padding-bottom: 12px;
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-100);
+  line-height: 26px;
+}
+.sec__wrapper .text_box .oneline {
+  display: none;
+}
+.sec__wrapper .text_box .title {
+  font-size: 2.5rem;
+  font-weight: var(--font-weight-bold);
+  line-height: 140%;
+}
+.sec__wrapper .text_box .text {
+  padding-top: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 2rem;
+}
+
+/* 개별 */
+.sec1 .img_box {
+  background-image: url(./img/landing-page/Img_home_01.png);
+}
+
+.sec2 .sec__wrapper {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+.sec2 .img_box {
+  margin: 0 14px 0 0;
+  background-image: url(./img/landing-page/Img_home_02.png);
+}
+
+.sec3 .img_box {
+  margin: 0;
+  background-image: url(./img/landing-page/Img_home_03.png);
+}
+
+/* ========== footer ========== */
+#footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  height: 70px;
+  height: 160px;
+  color: var(--gray-200);
+  background-color: var(--gray-900);
+}
+.footer__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1120px;
+  padding: 32px 0;
+}
+@media screen and (max-width: 1519px) {
+  .footer__wrapper {
+    width: 100%;
+    padding: 0 200px;
+  }
+}
+
+.corp_list a {
+  color: var(--gray-200);
+}
+.corp_list a:first-child {
+  padding-right: 30px;
+}
+.footer-sns .icon {
+  display: inline-block;
+  padding-right: 12px;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.footer-sns .icon:last-child {
+  padding-right: 0;
+}
+.footer-sns .facebook {
+  background-image: url(./img/ic_facebook.png);
+}
+.footer-sns .twitter {
+  background-image: url(./img/ic_twitter.png);
+}
+.footer-sns .youtube {
+  background-image: url(./img/ic_youtube.png);
+}
+.footer-sns .insta {
+  background-image: url(./img/ic_instagram.png);
+}
+.footer-sns .text {
+  position: absolute;
+  clip-path: inset(0);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
