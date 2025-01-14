@@ -1,0 +1,67 @@
+@import-normalize;
+
+* {
+  box-sizing: border-box;
+  word-break: keep-all;
+}
+
+html {
+  overflow-y: scroll;
+  color: var(--gray700);
+}
+
+body {
+  font-size: 1.6rem;
+  margin: 0;
+  padding: 0;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  background-color: var(--blue);
+  color: var(--gray100);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover {
+  background-color: #1967d6;
+}
+
+button:focus {
+  background-color: #1251aa;
+}
+
+button:disabled {
+  background-color: var(--gray400);
+  cursor: default;
+  pointer-events: none;
+}
+
+img {
+  vertical-align: bottom;
+}
+
+:global(#root) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.body {
+  position: relative;
+  flex-grow: 1;
+}
