@@ -12,7 +12,7 @@ export const ALL_IMG = {
   Moblie: "168px",
 };
 
-const getImgSize = (list, screen) => {
+export const getImgSize = (list, screen) => {
   const item = list === "best" ? BEST_IMG : ALL_IMG;
   return item[screen];
 };
