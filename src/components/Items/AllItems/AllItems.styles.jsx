@@ -4,6 +4,14 @@ export const AllContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 24px;
+`;
+
+export const AllHeader = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const Title = styled.h2`
@@ -14,6 +22,11 @@ export const Title = styled.h2`
   color: var(--gray900);
   margin: 0;
   margin-bottom: 16px;
+`;
+
+export const Filter = styled.div`
+  display: flex;
+  gap: 12px;
 `;
 
 export const ItemCardContainer = styled.div`
