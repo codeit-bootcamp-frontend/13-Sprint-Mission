@@ -1,7 +1,6 @@
 import ItemCard from "./ItemCard";
 
 function ItemList() {
-  return <ItemCard></ItemCard>;
+  return <ItemCard />;
 }
-
 export default ItemList;

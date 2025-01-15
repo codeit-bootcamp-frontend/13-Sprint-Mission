@@ -2,11 +2,64 @@
   padding: 3rem 0;
 }
 
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .title {
   font-weight: 700;
   font-size: 2rem;
   color: var(--gray900);
-  padding-bottom: 2rem;
+}
+
+.menu {
+  display: flex;
+  gap: 1rem;
+}
+
+form {
+  position: relative;
+}
+
+.searchBar {
+  width: 32.5rem;
+  height: 4.2rem;
+  border: none;
+  background-color: var(--gray100);
+  padding: 0 5rem;
+  border-radius: 1.2rem;
+  font-size: 1.6rem;
+}
+
+.searchBar::placeholder {
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--gray400);
+}
+
+.searchIcon {
+  position: absolute;
+  top: 1.4rem;
+  left: 2rem;
+}
+
+.registerButton {
+  padding: 1.2rem 2.3rem;
+  border-radius: 0.8rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.orderSelect {
+  width: 13rem;
+  padding: 1.2rem 2rem;
+  border-radius: 1.2rem;
+  border-color: var(--gray200);
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--gray800);
 }
 
 /* Tablet */
