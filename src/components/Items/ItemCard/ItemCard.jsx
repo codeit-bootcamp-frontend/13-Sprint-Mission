@@ -2,10 +2,10 @@ import * as S from "./ItemCard.styles";
 import heart from "../../../assets/icons/heart.svg";
 import NoneImage from "../../NoneImage/NoneImage";
 
-export default function ItemCard({ list = "best", image, name, price, favoriteCount }) {
+export default function ItemCard({ list = "best", images, name, price, favoriteCount }) {
   return (
     <S.ItemContainer list={list}>
-      {image ? <S.ItemImg src={image} alt="productImage" list={list} /> : <NoneImage list={list} />}
+      {images[0] ? <S.ItemImg src={images[0]} alt="productImage" list={list} /> : <NoneImage list={list} />}
       <S.ContentContainer>
         <S.Title>{name}</S.Title>
         <S.Price>{price.toLocaleString()}원</S.Price>
