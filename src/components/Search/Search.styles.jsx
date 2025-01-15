@@ -3,11 +3,19 @@ import { styled } from "styled-components";
 export const SearchContainer = styled.div`
   width: 325px;
   height: 42px;
-  padding: 9px 20px;
+  padding: 9px 18px;
   background-color: var(--gray100);
   border-radius: 12px;
   display: flex;
   gap: 4px;
+
+  @media (max-width: 767px) {
+    width: 282px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    width: 242px;
+  }
 `;
 
 export const SearchImg = styled.img`

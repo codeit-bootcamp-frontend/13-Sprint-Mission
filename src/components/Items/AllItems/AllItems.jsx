@@ -14,7 +14,12 @@ export default function AllItems({ items, sortOption, setSortOption, setKeyword 
   return (
     <S.AllContainer>
       <S.AllHeader>
-        <S.Title>전체 상품</S.Title>
+        <S.Div>
+          <S.Title>전체 상품</S.Title>
+          <Link to="/addItem">
+            <S.AddBtnForMedia>상품 등록하기</S.AddBtnForMedia>
+          </Link>
+        </S.Div>
         <S.Filter>
           <Search onSearch={setKeyword} />
           <Link to="/addItem">
