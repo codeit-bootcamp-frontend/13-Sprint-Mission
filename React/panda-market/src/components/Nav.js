@@ -12,11 +12,11 @@ function getLinkStyle({ isActive }) {
 function Nav() {
   return (
     <div className={styles.nav}>
-      <div className={styles.menu}>
+      <div className={styles.leftSide}>
         <Link to="/">
           <img src={logoImg} alt="판다마켓 로고" />
         </Link>
-        <ul>
+        <ul className={styles.menu}>
           <li>
             <NavLink style={getLinkStyle} to="/community">
               자유게시판
