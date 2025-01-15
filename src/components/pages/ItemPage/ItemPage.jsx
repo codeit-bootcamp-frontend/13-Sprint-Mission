@@ -6,10 +6,9 @@ import { getProducts } from "../../../api/products";
 
 export default function ItemPage() {
   const [items, setItems] = useState([]);
+  const [bestItems, setBestItems] = useState([]);
   const [sortOption, setSortOption] = useState("최신순");
   const [keyword, setKeyword] = useState("");
-
-  const bestItems = [...items].sort((a, b) => b["favoriteCount"] - a["favoriteCount"]).slice(0, 4);
 
   const orderByValue = sortOption === "최신순" ? "recent" : "favorite";
 
@@ -17,8 +16,13 @@ export default function ItemPage() {
     getProducts({ page: 1, pageSize: 207, orderBy: orderByValue, keyword: keyword }).then((result) => {
       if (!result) return;
       setItems(result.list);
+
+      if (bestItems.length === 0) {
+        const sortedBestItems = [...result.list].sort((a, b) => b["favoriteCount"] - a["favoriteCount"]).slice(0, 4);
+        setBestItems(sortedBestItems);
+      }
     });
-  }, [orderByValue, keyword]);
+  }, [orderByValue, keyword, bestItems.length]);
 
   return (
     <S.Container>
