@@ -49,7 +49,8 @@ export const PresentValue = styled.div`
 export const Arrow = styled.img`
   width: 24px;
   height: 24px;
-  content: url(${({ isOpen }) => (isOpen ? up : down)});
+  user-select: none;
+  content: url(${({ $isOpen }) => ($isOpen ? up : down)});
 
   @media screen and (max-width: 767px) {
     content: url(${dropdown});

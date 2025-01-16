@@ -1,5 +1,4 @@
 import * as S from "./Dropdown.styles";
-
 import { useState } from "react";
 
 export default function Dropdown({ sortOption = "최신순", onChange, list = [] }) {
@@ -13,7 +12,7 @@ export default function Dropdown({ sortOption = "최신순", onChange, list = []
     <S.DropdownContainer>
       <S.Present onClick={handleOpenClick}>
         <S.PresentValue>{sortOption}</S.PresentValue>
-        <S.Arrow isOpen={isOpen} />
+        <S.Arrow $isOpen={isOpen} />
       </S.Present>
       {isOpen && (
         <S.List>
