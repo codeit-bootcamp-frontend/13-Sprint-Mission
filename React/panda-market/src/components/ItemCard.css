@@ -1,9 +1,14 @@
 .itemImg {
-  width: 28.2rem;
-  height: 28.2rem;
+  width: 22.1rem;
+  height: 22.1rem;
   border-radius: 1.6rem;
   object-fit: cover;
   margin-bottom: 2rem;
+}
+
+.bestImg {
+  width: 28.2rem;
+  height: 28.2rem;
 }
 
 .itemInfo {
@@ -34,4 +39,28 @@
   font-weight: 500;
   font-size: 1.2rem;
   color: var(--gray600);
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .best {
+    width: 34.3rem;
+    height: 34.3rem;
+  }
+}
+
+/* Mobile */
+@media (min-width: 375px) and (max-width: 767px) {
+  .itemImg {
+    width: 22.1rem;
+    height: 22.1rem;
+    border-radius: 1.6rem;
+    object-fit: cover;
+    margin-bottom: 2rem;
+  }
+
+  .best {
+    width: 28.2rem;
+    height: 28.2rem;
+  }
 }

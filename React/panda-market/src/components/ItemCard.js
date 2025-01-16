@@ -1,20 +1,23 @@
-import testImg from "../assets/home/Img_home_01.png";
 import heartIcon from "../assets/icon/ic_heart.svg";
-import style from "./ItemCard.module.css";
+import "./ItemCard.css";
 
-function ItemCard() {
+function ItemCard({ item, best }) {
+  const { images, name, price, favoriteCount } = item;
+
+  const imgClassNames = `${best ? "bestImg" : ""} itemImg`;
+
   return (
     <>
       <div>
-        <img src={testImg} className={style.itemImg} />
+        <img src={images} className={imgClassNames} alt={name} />
       </div>
       <div>
-        <ul className={style.itemInfo}>
-          <li className={style.itemName}>로봇 청소기</li>
-          <li className={style.itemPrice}>500,000원</li>
-          <li className={style.itemLike}>
-            <img src={heartIcon} />
-            240
+        <ul className="itemInfo">
+          <li className="itemName">{name}</li>
+          <li className="itemPrice">{price}원</li>
+          <li className="itemLike">
+            <img src={heartIcon} alt="좋아요" />
+            {favoriteCount}
           </li>
         </ul>
       </div>
