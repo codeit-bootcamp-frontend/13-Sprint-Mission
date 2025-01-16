@@ -12,6 +12,6 @@
 /* Mobile */
 @media (min-width: 375px) and (max-width: 767px) {
   .container {
-    padding: 3rem 1.6rem;
+    padding: 3rem 1.2rem;
   }
 }

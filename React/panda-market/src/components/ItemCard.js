@@ -8,7 +8,7 @@ function ItemCard({ item, best }) {
 
   return (
     <>
-      <div>
+      <div className="imgContainer">
         <img src={images} className={imgClassNames} alt={name} />
       </div>
       <div>

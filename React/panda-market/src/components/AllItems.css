@@ -81,3 +81,10 @@ form {
   background-color: #ffffff;
   border: 0.1rem solid var(--gray200);
 }
+
+/* Mobile */
+@media (min-width: 375px) and (max-width: 767px) {
+  .menu {
+    flex-wrap: wrap;
+  }
+}

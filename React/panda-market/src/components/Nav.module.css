@@ -50,4 +50,11 @@ ul a:active {
   .nav {
     padding: 0.9rem 1.6rem;
   }
+  ul.menu {
+    padding: 0;
+  }
+  ul.menu > li {
+    padding: 2.1rem 0.5rem;
+    font-size: 1.6rem;
+  }
 }
