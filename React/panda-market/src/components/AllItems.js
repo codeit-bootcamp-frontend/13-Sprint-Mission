@@ -1,27 +1,47 @@
 import { Link } from "react-router-dom";
 import ItemList from "../components/ItemList";
-import PageNav from "./PageNav";
 import "./AllItems.css";
 import SearchIcon from "../assets/icon/ic_search.svg";
+import BackIcon from "../assets/icon/ic_back.svg";
+import NextIcon from "../assets/icon/ic_next.svg";
 import { useEffect, useState } from "react";
 import { getItems } from "../api";
 
 function AllItems() {
   const [order, setOrder] = useState("recent");
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+  const [pageBound, setPageBound] = useState(0);
   const [items, setItems] = useState([]);
 
   const handleOrderChange = (event) => {
     setOrder(event.target.value);
   };
 
-  const handleLoad = async (orderQuery) => {
-    const { list } = await getItems(orderQuery);
+  const handleLoad = async (query) => {
+    const { list } = await getItems(query);
     setItems(list);
   };
 
+  const changePage = (e) => {
+    setPage(e.target.value);
+  };
+
+  const plusPageBound = () => {
+    setPageBound(pageBound + 1);
+    setPage(1 + 5 * (pageBound + 1));
+  };
+
+  const minusPageBound = () => {
+    pageBound < 1 ? setPageBound(0) : setPageBound(pageBound - 1);
+    pageBound < 1
+      ? setPage(1 + 5 * pageBound)
+      : setPage(1 + 5 * (pageBound - 1));
+  };
+
   useEffect(() => {
-    handleLoad(order);
-  }, [order]);
+    handleLoad({ page, pageSize, order });
+  }, [page, order]);
 
   return (
     <>
@@ -48,7 +68,49 @@ function AllItems() {
         </div>
       </div>
       <ItemList items={items} best={false} />
-      <PageNav />
+      <div className="pageButtons">
+        <button className="pageButton" onClick={minusPageBound}>
+          <img src={BackIcon} alt="이전 페이지" />
+        </button>
+        <button
+          className="pageButton"
+          value={1 + 5 * pageBound}
+          onClick={changePage}
+        >
+          {1 + 5 * pageBound}
+        </button>
+        <button
+          className="pageButton"
+          value={2 + 5 * pageBound}
+          onClick={changePage}
+        >
+          {2 + 5 * pageBound}
+        </button>
+        <button
+          className="pageButton"
+          value={3 + 5 * pageBound}
+          onClick={changePage}
+        >
+          {3 + 5 * pageBound}
+        </button>
+        <button
+          className="pageButton"
+          value={4 + 5 * pageBound}
+          onClick={changePage}
+        >
+          {4 + 5 * pageBound}
+        </button>
+        <button
+          className="pageButton"
+          value={5 + 5 * pageBound}
+          onClick={changePage}
+        >
+          {5 + 5 * pageBound}
+        </button>
+        <button className="pageButton" onClick={plusPageBound}>
+          <img src={NextIcon} alt="다음 페이지" />
+        </button>
+      </div>
     </>
   );
 }

@@ -57,3 +57,27 @@ form {
   font-size: 1.6rem;
   color: var(--gray800);
 }
+
+.pageButtons {
+  padding-left: 0;
+  padding-top: 2rem;
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+}
+
+.pageButton,
+.pageButton:hover,
+.pageButton:focus {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 4rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: var(--gray500);
+  background-color: #ffffff;
+  border: 0.1rem solid var(--gray200);
+}

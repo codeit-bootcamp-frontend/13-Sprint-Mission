@@ -2,7 +2,6 @@ import Container from "../components/Container";
 import styles from "./ItemListPage.module.css";
 import AllItems from "../components/AllItems";
 import BestItems from "../components/BestItems";
-import PageNav from "../components/PageNav";
 
 function ItemListPage() {
   return (
