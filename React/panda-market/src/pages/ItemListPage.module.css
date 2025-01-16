@@ -1,0 +1,17 @@
+.container {
+  padding: 3rem 0;
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .container {
+    padding: 3rem 2.4rem;
+  }
+}
+
+/* Mobile */
+@media (min-width: 375px) and (max-width: 767px) {
+  .container {
+    padding: 3rem 1.2rem;
+  }
+}
