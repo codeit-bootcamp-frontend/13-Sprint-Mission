@@ -6,11 +6,7 @@ import Search from "../../Search/Search";
 
 const list = ["최신순", "좋아요순"];
 
-export default function AllItems({ items, sortOption, setSortOption, setKeyword }) {
-  const handleChangeClick = (sortOption) => {
-    setSortOption(sortOption);
-  };
-
+export default function AllItems({ items, sortOption, onChange, setKeyword }) {
   return (
     <S.AllContainer>
       <S.AllHeader>
@@ -25,7 +21,7 @@ export default function AllItems({ items, sortOption, setSortOption, setKeyword 
           <Link to="/addItem">
             <S.AddBtn>상품 등록하기</S.AddBtn>
           </Link>
-          <Dropdown sortOption={sortOption} list={list} onChange={handleChangeClick} />
+          <Dropdown sortOption={sortOption} list={list} onChange={onChange} />
         </S.Filter>
       </S.AllHeader>
       <S.ItemCardContainer>

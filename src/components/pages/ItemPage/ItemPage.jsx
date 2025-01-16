@@ -8,10 +8,10 @@ import Paging from "../../Paging/Paging";
 export default function ItemPage() {
   const [items, setItems] = useState([]);
   const [bestItems, setBestItems] = useState([]);
-  const [sortOption, setSortOption] = useState("최신순");
-  const [keyword, setKeyword] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
+  const [sortOption, setSortOption] = useState("최신순");
+  const [keyword, setKeyword] = useState("");
   const [totalItems, setTotalItems] = useState(0);
 
   const orderByValue = sortOption === "최신순" ? "recent" : "favorite";
@@ -40,24 +40,35 @@ export default function ItemPage() {
   }, [totalItems]);
 
   useEffect(() => {
-    getProducts({ page: currentPage, pageSize: pageSize, orderBy: orderByValue, keyword: keyword }).then((result) => {
+    getProducts({
+      page: currentPage,
+      pageSize: pageSize,
+      orderBy: orderByValue,
+      keyword: encodeURIComponent(keyword),
+    }).then((result) => {
       if (!result) return;
       setItems(result.list);
       setTotalItems(result.totalCount);
-
-      updateItems();
-      window.addEventListener("resize", updateItems);
-
-      return () => {
-        window.removeEventListener("resize", updateItems);
-      };
     });
   }, [currentPage, pageSize, orderByValue, keyword]);
+
+  useEffect(() => {
+    updateItems();
+    window.addEventListener("resize", updateItems);
+
+    return () => {
+      window.removeEventListener("resize", updateItems);
+    };
+  }, []);
+
+  const handleChangeClick = (sortOption) => {
+    setSortOption(sortOption);
+  };
 
   return (
     <S.Container>
       <BestItems bestItems={bestItems} />
-      <AllItems items={items} sortOption={sortOption} setSortOption={setSortOption} setKeyword={setKeyword} />
+      <AllItems items={items} sortOption={sortOption} onChange={handleChangeClick} setKeyword={setKeyword} />
       <Paging currentPage={currentPage} pageSize={pageSize} totalItemsCount={totalItems} setPage={setCurrentPage} />
     </S.Container>
   );

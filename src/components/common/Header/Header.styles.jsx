@@ -8,6 +8,7 @@ export const HeaderContainer = styled.div`
   position: sticky;
   top: 0;
   border-bottom: 1px solid #dfdfdf;
+  width: 100%;
   height: 70px;
   z-index: 1;
   @media (min-width: 1200px) {
