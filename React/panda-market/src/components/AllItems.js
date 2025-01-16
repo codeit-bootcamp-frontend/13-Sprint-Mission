@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import ItemList from "../components/ItemList";
+import PageNav from "./PageNav";
 import "./AllItems.css";
 import SearchIcon from "../assets/icon/ic_search.svg";
 import { useEffect, useState } from "react";
@@ -47,6 +48,7 @@ function AllItems() {
         </div>
       </div>
       <ItemList items={items} best={false} />
+      <PageNav />
     </>
   );
 }
