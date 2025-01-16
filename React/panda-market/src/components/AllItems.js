@@ -13,6 +13,7 @@ function AllItems() {
   const [pageSize, setPageSize] = useState(10);
   const [pageBound, setPageBound] = useState(0);
   const [items, setItems] = useState([]);
+  const pageArr = [1, 2, 3, 4, 5];
 
   const handleOrderChange = (event) => {
     setOrder(event.target.value);
@@ -72,41 +73,16 @@ function AllItems() {
         <button className="pageButton" onClick={minusPageBound}>
           <img src={BackIcon} alt="이전 페이지" />
         </button>
-        <button
-          className="pageButton"
-          value={1 + 5 * pageBound}
-          onClick={changePage}
-        >
-          {1 + 5 * pageBound}
-        </button>
-        <button
-          className="pageButton"
-          value={2 + 5 * pageBound}
-          onClick={changePage}
-        >
-          {2 + 5 * pageBound}
-        </button>
-        <button
-          className="pageButton"
-          value={3 + 5 * pageBound}
-          onClick={changePage}
-        >
-          {3 + 5 * pageBound}
-        </button>
-        <button
-          className="pageButton"
-          value={4 + 5 * pageBound}
-          onClick={changePage}
-        >
-          {4 + 5 * pageBound}
-        </button>
-        <button
-          className="pageButton"
-          value={5 + 5 * pageBound}
-          onClick={changePage}
-        >
-          {5 + 5 * pageBound}
-        </button>
+        {pageArr.map((num) => (
+          <button
+            className="pageButton"
+            value={num + 5 * pageBound}
+            onClick={changePage}
+          >
+            {num + 5 * pageBound}
+          </button>
+        ))}
+
         <button className="pageButton" onClick={plusPageBound}>
           <img src={NextIcon} alt="다음 페이지" />
         </button>
