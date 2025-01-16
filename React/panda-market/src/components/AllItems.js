@@ -15,15 +15,24 @@ function AllItems() {
   const [items, setItems] = useState([]);
   const pageArr = [1, 2, 3, 4, 5];
 
-  const handleOrderChange = (event) => {
-    setOrder(event.target.value);
-  };
-
+  // 아이템 불러오기
   const handleLoad = async (query) => {
     const { list } = await getItems(query);
     setItems(list);
   };
 
+  useEffect(() => {
+    handleLoad({ page, pageSize, order });
+  }, [page, pageSize, order]);
+
+  // 아이템 정렬
+  const handleOrderChange = (event) => {
+    setOrder(event.target.value);
+    setPage(1);
+    setPageBound(0);
+  };
+
+  // 페이지네이션
   const changePage = (e) => {
     setPage(e.target.value);
   };
@@ -40,9 +49,23 @@ function AllItems() {
       : setPage(1 + 5 * (pageBound - 1));
   };
 
+  // 반응형
   useEffect(() => {
-    handleLoad({ page, pageSize, order });
-  }, [page, order]);
+    function handleResize() {
+      const newPageSize = getPageSize(window.innerWidth);
+      if (newPageSize !== pageSize) {
+        setPageSize(newPageSize);
+      }
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [pageSize]);
+
+  function getPageSize(width) {
+    if (width > 1200) return 10; // PC
+    else if (width > 768) return 6; // Tablet
+    else return 4; // Mobile
+  }
 
   return (
     <>
@@ -82,7 +105,6 @@ function AllItems() {
             {num + 5 * pageBound}
           </button>
         ))}
-
         <button className="pageButton" onClick={plusPageBound}>
           <img src={NextIcon} alt="다음 페이지" />
         </button>
