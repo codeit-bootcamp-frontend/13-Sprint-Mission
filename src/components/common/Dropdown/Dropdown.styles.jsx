@@ -46,6 +46,7 @@ export const PresentValue = styled.div`
   }
 `;
 
+// UI component에서 style 작업을 하고 싶지 않아 content를 이용해서 icon 변경했는데 content를 쓰는 게 맞는지 모르겠습니다.
 export const Arrow = styled.img`
   width: 24px;
   height: 24px;
