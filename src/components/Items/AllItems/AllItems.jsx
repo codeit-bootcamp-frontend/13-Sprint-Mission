@@ -3,6 +3,7 @@ import ItemCard from "../ItemCard/ItemCard";
 import Dropdown from "../../common/Dropdown/Dropdown";
 import { Link } from "react-router-dom";
 import Search from "../../Search/Search";
+import NoneItem from "../../NoneItem/NoneItem";
 
 const list = ["최신순", "좋아요순"];
 
@@ -24,11 +25,15 @@ export default function AllItems({ items, sortOption, onChange, setKeyword }) {
           <Dropdown sortOption={sortOption} list={list} onChange={onChange} />
         </S.Filter>
       </S.AllHeader>
-      <S.ItemCardContainer>
-        {items.map((items, idx) => (
-          <ItemCard key={idx} list="all" {...items} />
-        ))}
-      </S.ItemCardContainer>
+      {items.length !== 0 ? (
+        <S.ItemCardContainer>
+          {items.map((items, idx) => (
+            <ItemCard key={idx} list="all" {...items} />
+          ))}
+        </S.ItemCardContainer>
+      ) : (
+        <NoneItem />
+      )}
     </S.AllContainer>
   );
 }

@@ -13,23 +13,34 @@ export default function ItemPage() {
   const [sortOption, setSortOption] = useState("최신순");
   const [keyword, setKeyword] = useState("");
   const [totalItems, setTotalItems] = useState(0);
+  const [showItems, setShowItems] = useState(4);
 
   const orderByValue = sortOption === "최신순" ? "recent" : "favorite";
 
   const updateItems = () => {
-    if (window.innerWidth >= 768 && window.innerWidth <= 1199) {
-      setPageSize(6);
-    } else if (window.innerWidth <= 767) {
+    if (window.innerWidth <= 767) {
       setPageSize(4);
+    } else if (window.innerWidth >= 768 && window.innerWidth <= 1199) {
+      setPageSize(6);
     } else {
       setPageSize(10);
+    }
+  };
+
+  const updateBestItems = () => {
+    if (window.innerWidth <= 767) {
+      setShowItems(1);
+    } else if (window.innerWidth >= 768 && window.innerWidth <= 1199) {
+      setShowItems(2);
+    } else {
+      setShowItems(4);
     }
   };
 
   useEffect(() => {
     getProducts({
       page: 1,
-      pageSize: totalItems,
+      pageSize: showItems,
       orderBy: "favorite",
       keyword: "",
     }).then((result) => {
@@ -37,14 +48,14 @@ export default function ItemPage() {
       const sortedBestItems = [...result.list].slice(0, 4);
       setBestItems(sortedBestItems);
     });
-  }, [totalItems]);
+  }, [showItems]);
 
   useEffect(() => {
     getProducts({
       page: currentPage,
       pageSize: pageSize,
       orderBy: orderByValue,
-      keyword: encodeURIComponent(keyword),
+      keyword: keyword,
     }).then((result) => {
       if (!result) return;
       setItems(result.list);
@@ -65,11 +76,15 @@ export default function ItemPage() {
     setSortOption(sortOption);
   };
 
+  const responsiveItems = bestItems.slice(0, showItems);
+
   return (
     <S.Container>
-      <BestItems bestItems={bestItems} />
+      <BestItems bestItems={responsiveItems} updateBestItems={updateBestItems} />
       <AllItems items={items} sortOption={sortOption} onChange={handleChangeClick} setKeyword={setKeyword} />
-      <Paging currentPage={currentPage} pageSize={pageSize} totalItemsCount={totalItems} setPage={setCurrentPage} />
+      {items.length !== 0 && (
+        <Paging currentPage={currentPage} pageSize={pageSize} totalItemsCount={totalItems} setPage={setCurrentPage} />
+      )}
     </S.Container>
   );
 }

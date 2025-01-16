@@ -5,6 +5,15 @@ export const AllContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
+  width: 1200px;
+
+  @media (max-width: 767px) {
+    width: 343px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    width: 710px;
+  }
 `;
 
 export const AllHeader = styled.div`
@@ -62,6 +71,7 @@ export const AddBtn = styled.button`
   font-weight: 600;
   line-height: 26px;
   cursor: pointer;
+
   @media (max-width: 767px) {
     display: none;
   }
