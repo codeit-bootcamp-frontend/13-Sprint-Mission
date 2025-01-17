@@ -11,6 +11,10 @@ body {
     margin: 0;
 }
 
+button, input, textarea {
+  border:none;
+}
+
 :root {
     --primary: #3692ff;
     --primary-hover: #1967d6;
