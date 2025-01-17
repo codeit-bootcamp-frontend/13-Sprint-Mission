@@ -7,8 +7,13 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
 }
 
-body {
+body, ul, li {
     margin: 0;
+}
+
+ul, li{
+  margin:0;
+  padding:0;
 }
 
 button, input, textarea {
