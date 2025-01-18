@@ -54,27 +54,6 @@ export const AddImg = styled.div`
   gap: 24px;
 `;
 
-export const Preview = styled.div`
-  display: flex;
-  position: relative;
-`;
-
-export const PreviewImg = styled.img`
-  width: 282px;
-  height: 282px;
-  background-color: black;
-  border-radius: 12px;
-`;
-
-export const DeleteImg = styled.img`
-  width: 22px;
-  height: 24px;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  cursor: pointer;:
-`;
-
 export const TagList = styled.ul`
   width: 100%;
   display: flex;

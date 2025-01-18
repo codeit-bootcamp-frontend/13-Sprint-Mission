@@ -6,14 +6,14 @@ export const FileContainer = styled.div`
   gap: 16px;
 `;
 
-export const Label = styled.label`
+export const Label = styled.div`
   font-size: 18px;
   font-weight: 700;
   line-height: 26px;
   color: var(--gray800);
 `;
 
-export const File = styled.div`
+export const File = styled.label`
   width: 282px;
   height: 282px;
   display: flex;
@@ -43,4 +43,24 @@ export const AddImg = styled.div`
   font-weight: 400;
   line-height: 26px;
   color: var(--gray400);
+`;
+
+export const Preview = styled.div`
+  display: flex;
+  position: relative;
+`;
+
+export const PreviewImg = styled.img`
+  width: 282px;
+  height: 282px;
+  border-radius: 12px;
+`;
+
+export const DeleteImg = styled.img`
+  width: 22px;
+  height: 24px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;:
 `;

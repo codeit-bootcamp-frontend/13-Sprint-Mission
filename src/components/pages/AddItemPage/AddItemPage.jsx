@@ -1,18 +1,48 @@
 import * as S from "./AddItemPage.styles";
 import Input from "../../common/Input/Input";
 import FileInput from "../../FileInput/FileInput";
-import x from "../../../assets/icons/delete.svg";
 import Tag from "../../Tag/Tag";
+import { useState } from "react";
+
+const INITIAL_VALUE = {
+  images: null,
+  productName: "",
+  description: "",
+  price: 0,
+  tag: [],
+};
 
 export default function AddItemPage() {
+  const [values, setValues] = useState(INITIAL_VALUE);
+  const [tag, setTag] = useState("");
+
+  const handleTagChange = (e) => {
+    if (e.key === "Enter" && tag.trim() !== "") {
+      setValues((prevState) => ({
+        ...prevState,
+        tag: [...prevState.tag, tag],
+      }));
+      setTag("");
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+
+    setValues((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
   const INPUT = [
     {
       label: "상품명",
-      name: "name",
+      name: "productName",
       type: "text",
       placeholder: "상품명을 입력해주세요",
-      value: "",
-      isTextarea: false,
+      value: values.productName,
+      onChange: handleInputChange,
     },
     {
       label: "상품 소개",
@@ -20,28 +50,28 @@ export default function AddItemPage() {
       type: "text",
       placeholder: "상품 소개를 입력해주세요",
       style: { height: "282px" },
-      value: "",
+      value: values.description,
       isTextarea: true,
+      onChange: handleInputChange,
     },
     {
       label: "판매가격",
       name: "price",
       type: "number",
       placeholder: "판매 가격을 입력해주세요",
-      value: "",
-      isTextarea: false,
+      value: values.price ? values.price : "",
+      onChange: handleInputChange,
     },
     {
       label: "태그",
       name: "tag",
       type: "text",
       placeholder: "태그를 입력해주세요",
-      value: "",
-      isTextarea: false,
+      value: tag,
+      onChange: (e) => setTag(e.target.value),
+      onKeyDown: handleTagChange,
     },
   ];
-
-  const tag = ["티셔츠", "상의"];
 
   return (
     <S.AddItemContainer>
@@ -52,11 +82,7 @@ export default function AddItemPage() {
         </S.AddItemHeader>
         <S.InputContainer>
           <S.AddImg>
-            <FileInput lable="상품 이미지" name="file" onChange={() => console.log("")} />
-            <S.Preview>
-              <S.PreviewImg />
-              <S.DeleteImg src={x} />
-            </S.Preview>
+            <FileInput lable="상품 이미지" images={values.images} setValues={setValues} />
           </S.AddImg>
           {INPUT.map((i, idx) => (
             <Input
@@ -68,12 +94,13 @@ export default function AddItemPage() {
               value={i.value}
               style={i.style}
               isTextarea={i.isTextarea}
-              onChange={() => console.log("")}
+              onChange={i.onChange}
+              onKeyDown={i.onKeyDown}
             />
           ))}
         </S.InputContainer>
         <S.TagList>
-          {tag.map((t, idx) => (
+          {values.tag.map((t, idx) => (
             <Tag key={idx} tag={t} />
           ))}
         </S.TagList>
