@@ -123,6 +123,10 @@ input::placeholder {
   font-weight: 500;
 }
 
+.sns_link {
+  color: #e6f2ff;
+}
+
 .sns_login_icon {
   width: 42px;
   height: 42px;
