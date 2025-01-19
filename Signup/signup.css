@@ -1,0 +1,22 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  margin-top: 70px;
+  background-color: #ffffff;
+}
+
+.signup_main {
+  display: grid;
+  width: 640px;
+  height: 842px;
+  justify-content: center;
+  align-items: center;
+  grid-template-rows: 1fr 3fr;
+}
