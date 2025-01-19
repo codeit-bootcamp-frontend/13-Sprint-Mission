@@ -7,7 +7,7 @@ export const AddItemContainer = styled.div`
   align-items: center;
 `;
 
-export const AddItem = styled.div`
+export const AddItem = styled.form`
   width: 1200px;
   display: flex;
   flex-direction: column;
@@ -40,7 +40,7 @@ export const AddBtn = styled.button`
   cursor: pointer;
 `;
 
-export const InputContainer = styled.form`
+export const InputContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;

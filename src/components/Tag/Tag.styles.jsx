@@ -23,4 +23,5 @@ export const TagName = styled.div`
 export const DeleteTag = styled.img`
   width: 22px;
   height: 24px;
+  cursor: pointer;
 `;

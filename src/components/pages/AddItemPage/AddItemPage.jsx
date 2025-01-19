@@ -3,28 +3,20 @@ import Input from "../../common/Input/Input";
 import FileInput from "../../FileInput/FileInput";
 import Tag from "../../Tag/Tag";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const INITIAL_VALUE = {
   images: null,
-  productName: "",
+  name: "",
   description: "",
   price: 0,
-  tag: [],
+  tags: [],
 };
 
 export default function AddItemPage() {
+  const navigate = useNavigate();
   const [values, setValues] = useState(INITIAL_VALUE);
   const [tag, setTag] = useState("");
-
-  const handleTagChange = (e) => {
-    if (e.key === "Enter" && tag.trim() !== "") {
-      setValues((prevState) => ({
-        ...prevState,
-        tag: [...prevState.tag, tag],
-      }));
-      setTag("");
-    }
-  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -35,10 +27,44 @@ export default function AddItemPage() {
     }));
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("images", values.images);
+    formData.append("name", values.name);
+    formData.append("description", values.description);
+    formData.append("price", values.price);
+    formData.append("tags", values.tags);
+    navigate("/items");
+  };
+
+  const handleTagChange = (e) => {
+    if (e.key === "Enter" && tag.trim() !== "") {
+      setValues((prevState) => ({
+        ...prevState,
+        tags: [...prevState.tags, tag],
+      }));
+      setTag("");
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+    }
+  };
+
+  const handleTagDelete = (deleteTag) => {
+    setValues((prevState) => ({
+      ...prevState,
+      tags: prevState.tags.filter((tag) => tag !== deleteTag),
+    }));
+  };
+
   const INPUT = [
     {
       label: "상품명",
-      name: "productName",
+      name: "name",
       type: "text",
       placeholder: "상품명을 입력해주세요",
       value: values.productName,
@@ -64,7 +90,7 @@ export default function AddItemPage() {
     },
     {
       label: "태그",
-      name: "tag",
+      name: "tags",
       type: "text",
       placeholder: "태그를 입력해주세요",
       value: tag,
@@ -75,10 +101,10 @@ export default function AddItemPage() {
 
   return (
     <S.AddItemContainer>
-      <S.AddItem>
+      <S.AddItem onSubmit={handleSubmit} onKeyDown={handleKeyDown}>
         <S.AddItemHeader>
           <S.Add>상품 등록하기</S.Add>
-          <S.AddBtn>등록</S.AddBtn>
+          <S.AddBtn type="submit">등록</S.AddBtn>
         </S.AddItemHeader>
         <S.InputContainer>
           <S.AddImg>
@@ -100,8 +126,8 @@ export default function AddItemPage() {
           ))}
         </S.InputContainer>
         <S.TagList>
-          {values.tag.map((t, idx) => (
-            <Tag key={idx} tag={t} />
+          {values.tags.map((t, idx) => (
+            <Tag key={idx} tag={t} onClick={() => handleTagDelete(t)} />
           ))}
         </S.TagList>
       </S.AddItem>
