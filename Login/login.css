@@ -87,6 +87,7 @@ input::placeholder {
   height: 74px;
   background-color: #e6f2ff;
   align-items: center;
+  border-radius: 8px;
 }
 
 .sns_login_content {
@@ -97,12 +98,29 @@ input::placeholder {
   align-items: center;
   color: #1f2937;
   font-size: 16px;
-  font-weight: 500;
   justify-content: space-between;
+  font-weight: 500;
+}
+
+.sns_login_text {
+  font-size: 16px;
+  margin-left: 15px;
+  font-weight: bold;
 }
 
 .sns_login_icon {
   width: 42px;
   height: 42px;
   cursor: pointer;
+}
+
+.first_text {
+  font-size: 14px;
+  margin-top: 15px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.signup-link {
+  color: #3692ff;
 }
