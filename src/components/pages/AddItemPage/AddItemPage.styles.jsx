@@ -38,6 +38,10 @@ export const AddBtn = styled.button`
   background-color: var(--primary);
   color: var(--gray100);
   cursor: pointer;
+
+  &:disabled {
+    background-color: var(--gray400);
+  }
 `;
 
 export const InputContainer = styled.div`

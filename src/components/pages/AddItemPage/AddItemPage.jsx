@@ -4,6 +4,7 @@ import FileInput from "../../FileInput/FileInput";
 import Tag from "../../Tag/Tag";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { isValidAddItem } from "../../../utils/addValidate";
 
 const INITIAL_VALUE = {
   images: null,
@@ -27,30 +28,16 @@ export default function AddItemPage() {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("images", values.images);
-    formData.append("name", values.name);
-    formData.append("description", values.description);
-    formData.append("price", values.price);
-    formData.append("tags", values.tags);
-    navigate("/items");
-  };
-
   const handleTagChange = (e) => {
+    // IME composition
+    if (e.nativeEvent.isComposing) return;
+
     if (e.key === "Enter" && tag.trim() !== "") {
       setValues((prevState) => ({
         ...prevState,
         tags: [...prevState.tags, tag],
       }));
       setTag("");
-    }
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
     }
   };
 
@@ -61,13 +48,32 @@ export default function AddItemPage() {
     }));
   };
 
+  const handleSubmit = (e) => {
+    if (isValidAddItem(values)) {
+      e.preventDefault();
+      // const formData = new FormData();
+      // formData.append("images", values.images);
+      // formData.append("name", values.name);
+      // formData.append("description", values.description);
+      // formData.append("price", values.price);
+      // formData.append("tags", values.tags);
+      navigate("/items");
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+    }
+  };
+
   const INPUT = [
     {
       label: "상품명",
       name: "name",
       type: "text",
       placeholder: "상품명을 입력해주세요",
-      value: values.productName,
+      value: values.name,
       onChange: handleInputChange,
     },
     {
@@ -104,7 +110,9 @@ export default function AddItemPage() {
       <S.AddItem onSubmit={handleSubmit} onKeyDown={handleKeyDown}>
         <S.AddItemHeader>
           <S.Add>상품 등록하기</S.Add>
-          <S.AddBtn type="submit">등록</S.AddBtn>
+          <S.AddBtn type="submit" disabled={!isValidAddItem(values)}>
+            등록
+          </S.AddBtn>
         </S.AddItemHeader>
         <S.InputContainer>
           <S.AddImg>
