@@ -1,8 +1,7 @@
 @import "global.css";
 @import "reset.css";
 
-/* <header>와 그 하위 태그 스타일 속성 정의 */
-header {
+.header {
   background-color: #ffffff;
   border-bottom: solid 1px #dfdfdf;
   position: sticky;
@@ -10,17 +9,17 @@ header {
   padding: 0.5rem 0;
 }
 
-.header-container {
+.header__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1980px; /* 최대 너비 설정 */
+  max-width: 1980px;
   gap: 20px;
-  padding: 0 200px; /* 좌우 여백 200px 유지 */
+  padding: 0 200px;
   margin: 0 auto;
 }
 
-.button-login {
+.header__button--primary {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,13 +33,11 @@ header {
   cursor: pointer;
 }
 
-.button-login:visited {
+.header__button--primary:visited {
   color: var(--gray100);
 }
 
-/* <main> 하위 태그 스타일 속성 정의 */
-/* hero section과 last section */
-.hero-last-section {
+.hero {
   display: flex;
   justify-content: center;
   align-items: end;
@@ -48,7 +45,7 @@ header {
   height: 540px;
 }
 
-.hero-last-section-container {
+.hero__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,16 +53,25 @@ header {
   margin: 0 auto;
 }
 
-.button-items {
+.hero__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+
+  text-align: center;
+  padding: 0 0.5rem;
+}
+
+.hero__button {
   color: #ffffff;
   background-color: var(--blue100);
   border-radius: 40px;
-  padding: 1rem 7.5rem;
+  padding: 1.25rem 7.5rem;
   cursor: pointer;
   white-space: nowrap;
 }
 
-.hero-last-content {
+.hero__content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -76,17 +82,7 @@ header {
   width: 20rem;
 }
 
-.hero-last-content-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.4;
-
-  text-align: center;
-  padding: 0 0.5rem;
-}
-
-/* features section */
-.features-section {
+.feature-list {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -96,7 +92,7 @@ header {
   padding-bottom: 276px;
 }
 
-.feature-item {
+.feature {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -105,25 +101,11 @@ header {
   padding: 0 1rem;
 }
 
-.feature-item-reverse {
-  display: flex;
+.feature--reverse {
   flex-direction: row-reverse;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: #fcfcfc;
-  gap: 2.5rem;
-  padding: 0 1rem;
 }
 
-.last-section {
-  display: flex;
-  justify-content: center;
-  align-items: end;
-  background-color: #cfe5ff;
-  height: 540px;
-}
-
-.feature-content {
+.feature__content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -134,53 +116,39 @@ header {
   width: 20rem;
 }
 
-.feature-content-reverse {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.feature__content--reverse {
   align-items: end;
-  gap: 1.75rem;
-  margin: 1.75rem 0;
-  word-break: keep-all;
-  width: 20rem;
 }
 
-.feature-content-title {
+.feature__title {
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.4;
 }
 
-.feature-content-title-right {
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.4;
+.feature__title--reverse {
   text-align: right;
 }
 
-.feature-content-text-right {
-  font-size: 1.5rem;
-  text-align: right;
-}
-
-.feature-content-tag {
+.feature__tag {
   font-size: 1.125rem;
   font-weight: 700;
   color: var(--blue100);
 }
 
-.feature-content-tag-right {
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: var(--blue100);
+.feature__tag--reverse {
+  text-align: right;
 }
 
-.feature-content-text {
+.feature__text {
   font-size: 1.5rem;
 }
 
-/* <footer>와 그 하위 태그 스타일 속성 정의 */
-footer {
+.feature__text--reverse {
+  text-align: right;
+}
+
+.footer {
   font-weight: 400;
   color: var(--gray400);
   background-color: var(--gray900);
@@ -188,111 +156,112 @@ footer {
   padding-top: 40px;
 }
 
-.footer-container {
+.footer__container {
   display: flex;
   align-items: center;
-  max-width: 1980px; /* 최대 너비 설정 */
+  max-width: 1980px;
   gap: 20px;
-  padding: 0 200px; /* 좌우 여백 200px 유지 */
+  padding: 0 200px;
   margin: 0 auto;
 }
 
-.copyright {
+.foooter__text {
   flex-grow: 1;
 }
 
-.footer-links {
+.footer__links {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-grow: 1;
 }
 
-.footer-page {
+.footer__pages {
   display: flex;
   gap: 0 30px;
   font-weight: 400;
 }
 
-.footer-social {
+.footer__socials {
   display: flex;
   gap: 0 12px;
 }
 
-/* Tablet, Mobile 기기에 따라 폰트 크기 조정*/
+/* Tablet */
 @media (768px <= width < 1200px) {
-  .header-container {
+  .header__container {
     padding: 0 24px;
   }
 
-  .hero-last-section {
+  .hero {
     align-items: stretch;
   }
 
-  .hero-last-section-container {
+  .hero__container {
     flex-direction: column;
   }
 
-  .hero-last-content {
+  .hero__content {
     width: 100%;
   }
 
-  .feature-content {
+  .feature__content {
     width: 100%;
   }
 
-  .feature-content-reverse {
+  .feature__content-reverse {
     width: 100%;
   }
 
-  .feature-item {
+  .feature {
     flex-direction: column;
   }
 
-  .feature-item-reverse {
+  .feature__reverse {
     flex-direction: column;
   }
 
-  .footer-container {
+  .footer__container {
     padding: 0 24px;
   }
 }
 
+/* Mobile */
 @media (375px <= width < 768px) {
-  .header-container {
+  .header__container {
     padding: 0 24px;
   }
 
-  .hero-last-section {
+  .hero {
     align-items: stretch;
   }
 
-  .hero-last-section-container {
+  .hero__container {
     flex-direction: column;
   }
 
-  .hero-last-content {
+  .hero__content {
     width: 100%;
     margin-top: 5rem;
   }
 
-  .feature-content {
+  .feature__content {
     width: 100%;
   }
 
-  .feature-content-reverse {
+  .feature__content-reverse {
     width: 100%;
   }
 
-  .feature-item {
+  .feature {
     flex-direction: column;
   }
 
-  .feature-item-reverse {
+  .feature__reverse {
     flex-direction: column;
   }
 
-  .footer-container {
+  .footer__container {
     flex-direction: column-reverse;
     justify-content: space-between;
     align-items: start;
@@ -300,7 +269,7 @@ footer {
     padding: 0 24px;
   }
 
-  .footer-links {
+  .footer__links {
     justify-content: space-evenly;
     width: 100%;
   }

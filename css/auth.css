@@ -121,10 +121,7 @@
   text-decoration: underline;
 }
 
-/*
-@media (768px <= width < 1200px) {
-}
-*/
+/* Mobile */
 
 @media (375px <= width < 768px) {
   .main {
