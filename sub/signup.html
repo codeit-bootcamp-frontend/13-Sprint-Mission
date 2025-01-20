@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>판다마켓 로그인</title>
+    <title>판다마켓 회원가입</title>
     <link rel="icon" href="../images/판다 얼굴.svg" type="image/x-icon" />
     <link rel="stylesheet" href="../css/sub_css/auth.css" />
   </head>
@@ -18,19 +18,37 @@
         <main class="auth-main">
           <section class="auth-form">
             <article class="auth-form-group">
-              <label for="login-email">이메일</label>
-              <input class="auth-input" id="login-email" type="text" placeholder="이메일을 입력해주세요" />
+              <label for="signup-email">이메일</label>
+              <input class="auth-input" id="signup-email" type="text" placeholder="이메일을 입력해주세요" />
             </article>
             <article class="auth-form-group">
-              <label for="login-password">비밀번호</label>
+              <label for="signup-nickname">닉네임</label>
+              <input class="auth-input" id="signup-nickname" type="text" placeholder="닉네임을 입력해주세요" />
+            </article>
+            <article class="auth-form-group">
+              <label for="signup-password">비밀번호</label>
               <div class="auth-input-wrapper">
-                <input class="auth-input" id="login-password" type="password" placeholder="비밀번호를 입력해주세요" />
+                <input class="auth-input" id="signup-password" type="password" placeholder="비밀번호를 입력해주세요" />
                 <a href="#" class="auth-visibility-toggle">
                   <img src="../images/sub/login/btn_visibility_off.svg" alt="눈에 빗금이 한줄 그어진 아이콘" />
                 </a>
               </div>
             </article>
-            <button class="auth-submit">로그인</button>
+            <article class="auth-form-group">
+              <label for="signup-password-confirm">비밀번호 확인</label>
+              <div class="auth-input-wrapper">
+                <input
+                  class="auth-input"
+                  id="signup-password-confirm"
+                  type="password"
+                  placeholder="비밀번호를 다시 한 번 입력해주세요"
+                />
+                <a href="#" class="auth-visibility-toggle">
+                  <img src="../images/sub/login/btn_visibility_off.svg" alt="눈에 빗금이 한줄 그어진 아이콘" />
+                </a>
+              </div>
+            </article>
+            <button class="auth-submit">회원가입</button>
           </section>
           <section class="auth-social-login">
             <article>
@@ -50,7 +68,7 @@
             </article>
           </section>
           <section class="auth-footer">
-            <p>판다 마켓이 처음이신가요? <a href="../sub/signup.html">회원가입</a></p>
+            <p>이미 회원이신가요? <a href="../sub/login.html">로그인</a></p>
           </section>
         </main>
       </div>
