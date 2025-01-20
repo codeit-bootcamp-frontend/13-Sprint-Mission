@@ -32,12 +32,19 @@ export default function AddItemPage() {
     // IME composition
     if (e.nativeEvent.isComposing) return;
 
-    if (e.key === "Enter" && tag.trim() !== "") {
-      setValues((prevState) => ({
-        ...prevState,
-        tags: [...prevState.tags, tag],
-      }));
-      setTag("");
+    const eqaulTag = values.tags.some((existing) => existing === tag);
+
+    if (!eqaulTag) {
+      if (e.key === "Enter" && tag.trim() !== "") {
+        setValues((prevState) => ({
+          ...prevState,
+          tags: [...prevState.tags, tag],
+        }));
+        setTag("");
+      }
+    } else {
+      e.preventDefault();
+      alert("이미 존재하는 태그입니다!");
     }
   };
 
