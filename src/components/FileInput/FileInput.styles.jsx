@@ -22,6 +22,11 @@ export const File = styled.label`
   background-color: var(--gray100);
   border-radius: 12px;
   cursor: pointer;
+
+  @media (max-width: 1199px) {
+    width: 168px;
+    height: 168px;
+  }
 `;
 
 export const Div = styled.div`
@@ -54,6 +59,11 @@ export const PreviewImg = styled.img`
   width: 282px;
   height: 282px;
   border-radius: 12px;
+
+  @media (max-width: 1199px) {
+    width: 168px;
+    height: 168px;
+  }
 `;
 
 export const DeleteImg = styled.img`

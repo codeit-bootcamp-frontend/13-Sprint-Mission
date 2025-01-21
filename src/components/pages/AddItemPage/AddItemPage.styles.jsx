@@ -8,10 +8,21 @@ export const AddItemContainer = styled.div`
 `;
 
 export const AddItem = styled.form`
-  width: 1200px;
+  max-width: 1200px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding: 10px 0;
+
+  @media (max-width: 767px) {
+    min-width: 346px;
+    padding: 0 16px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    min-width: 696px;
+    padding: 0 24px;
+  }
 `;
 
 export const AddItemHeader = styled.div`
