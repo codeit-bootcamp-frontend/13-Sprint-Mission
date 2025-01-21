@@ -71,6 +71,7 @@ export const AddImg = styled.div`
 
 export const TagList = styled.ul`
   width: 100%;
+  flex-wrap: wrap;
   display: flex;
   align-items: flex-start;
   gap: 12px;

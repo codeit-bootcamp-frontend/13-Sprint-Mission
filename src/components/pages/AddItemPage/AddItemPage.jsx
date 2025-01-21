@@ -33,16 +33,17 @@ export default function AddItemPage() {
     if (e.nativeEvent.isComposing) return;
 
     const eqaulTag = values.tags.some((existing) => existing === tag);
+    const enterEvent = e.key === "Enter";
 
     if (!eqaulTag) {
-      if (e.key === "Enter" && tag.trim() !== "") {
+      if (enterEvent && tag.trim() !== "") {
         setValues((prevState) => ({
           ...prevState,
           tags: [...prevState.tags, tag],
         }));
         setTag("");
       }
-    } else {
+    } else if (enterEvent) {
       e.preventDefault();
       alert("이미 존재하는 태그입니다!");
     }
