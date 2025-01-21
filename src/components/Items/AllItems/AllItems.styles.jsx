@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const AllItems = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+`;
+
 export const AllContainer = styled.div`
   display: flex;
   flex-direction: column;

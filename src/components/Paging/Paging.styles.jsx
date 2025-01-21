@@ -3,7 +3,6 @@ import { styled } from "styled-components";
 export const PagingContainer = styled.div`
   width: 100%;
   display: flex;
-  margin-bottom: 40px;
 
   .pagination {
     display: flex;
