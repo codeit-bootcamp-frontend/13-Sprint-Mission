@@ -11,11 +11,11 @@
       <a class="main__button-top" href="/">
         <img src="../assets/logo_lg.svg" alt="판다마켓 로고" />
       </a>
-      <form action="submit" class="form">
+      <form action="/pages/items.html" class="form">
         <div class="form__field">
           <label for="email" class="form__field-label">이메일</label>
           <div
-            class="form__field-input-wrapper form__field-input-wrapper--focused"
+            class="form__field-input-wrapper form__field-input-wrapper--focused form__field-input-wrapper--email"
           >
             <input
               class="form__field-input"
@@ -25,11 +25,12 @@
               required
             />
           </div>
+          <div class="form__msg-container form__msg-container--email"></div>
         </div>
         <div class="form__field">
           <label for="password" class="form__field-label">비밀번호</label>
           <div
-            class="form__field-input-wrapper form__field-input-wrapper--focused"
+            class="form__field-input-wrapper form__field-input-wrapper--focused form__field-input-wrapper--password"
           >
             <input
               class="form__field-input"
@@ -38,17 +39,23 @@
               placeholder="비밀번호를 입력해주세요"
               required
             />
-            <button type="button" class="form__field-toggle-button">
+            <button
+              type="button"
+              class="form__field-button form__field-button--password"
+            >
               <img
                 src="../assets/ic_visibility_off.svg"
-                alt="비밀번호 가리기"
+                alt="비밀번호 표시"
+                class="form__field-image form__field-image--password"
               />
             </button>
           </div>
+          <div class="form__msg-container form__msg-container--password"></div>
         </div>
         <button
           class="form__submit-button form__submit-button--disabled"
           type="submit"
+          disabled
         >
           로그인
         </button>
