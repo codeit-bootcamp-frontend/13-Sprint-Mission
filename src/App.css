@@ -1,38 +1,228 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "ROKAF Sans";
+  src: url("./fonts/ROKAF\ Sans\ Medium.otf") format(".otf");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: pretendard, sans-serif;
+  font-style: normal;
+  font-weight: 100;
+  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+:root {
+  --blue: #3692ff;
+  --lightblue: #cfe5ff;
+  --gray50: #f9fafb;
+  --gray100: #f3f4f6;
+  --gray200: #e5e7eb;
+  --gray400: #9ca3af;
+  --gray500: #6b7280;
+  --gray600: #4b5563;
+  --gray700: #374151;
+  --gray800: #1f2937;
+  --gray900: #111827;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+* {
+  box-sizing: border-box;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  font-family: Pretendard;
+  min-width: 375px;
+  overflow-x: hidden;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 1;
+  letter-spacing: -2px;
+}
+
+.header-nav {
+  max-width: 1120px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  height: 70px;
 }
 
-.App-link {
-  color: #61dafb;
+.header-left {
+  width: 386px;
+  display: flex;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.header-logo-shopname {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  width: 40px;
+}
+
+.header-shopname {
+  font-family: ROKAF Sans;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--blue);
+  display: inline-block;
+  margin-left: 8.59px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.header-btn {
+  padding: 12px 23px;
+  color: var(--gray100);
+  border-radius: 8px;
+  border: none;
+  background-color: var(--blue);
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.profileBtn {
+  width: 40px;
+  height: 40px;
+  background-image: url("./images/defaultProfileImg.svg");
+  background-color: #d1d5db;
+  border-radius: 20px;
+}
+
+main {
+  width: 100%;
+  margin-top: 70px;
+}
+
+footer {
+  background-color: var(--gray900);
+  height: 160px;
+}
+
+.footer-wrap {
+  max-width: 1120px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.copyright {
+  color: var(--gray400);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 40px;
+}
+
+.footer-nav-a {
+  color: var(--gray200);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.footer-sns {
+  display: inline-block;
+  list-style: none;
+}
+
+.footer-sns-li {
+  float: left;
+  margin-left: 12px;
+}
+
+.footer-sns-ico {
+  height: 20px;
+}
+
+@media (1199px > width >= 768px) {
+  .header-nav {
+    padding-left: 24px;
+    padding-right: 24px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (767px > width) {
+  .header-nav {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .header-logo-shopname {
+    justify-content: left;
+  }
+
+  .header-logo {
+    display: none;
+  }
+
+  .itemsNav > li {
+    font-size: 16px;
+  }
+
+  .footer-wrap {
+    max-width: initial;
+    height: 96px;
+    position: relative;
+    top: 32px;
+    padding: initial;
+  }
+
+  .copyright {
+    position: absolute;
+    left: 16px;
+    bottom: 0;
+    margin: 0;
+  }
+
+  .footer-nav {
+    gap: 0;
+    position: absolute;
+    top: 0;
+    left: 16px;
+    margin: 0;
+  }
+
+  .footer-nav-a,
+  .footer-sns {
+    white-space: nowrap;
+  }
+
+  .footer-nav-a:first-of-type {
+    margin-right: 30px;
+  }
+
+  .footer-sns {
+    position: absolute;
+    top: 0;
+    right: 16px;
+    margin: 0;
   }
 }
