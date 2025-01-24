@@ -48,7 +48,7 @@ body {
     text-align: center;
 }
 
-@media (min-width: 701px) and (max-width: 1920px) {
+@media (min-width: 769px) and (max-width: 1920px) {
 
     .header-wrap {
         width: 100%;
@@ -56,12 +56,8 @@ body {
     }
 }
 
-@media (max-width: 700px) {
-
-    .header-wrap {
-        width: 283px;
-        padding: 0;
-    }
+main {
+    margin-top: 70px;
 }
 
 .head-section {
@@ -79,11 +75,12 @@ body {
 
 .head-section .section-wrap {
     margin: 0 auto;
-    width: 1110px;
+    width: 100%;
     height: 340px;
     gap: 7px;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .footer-section .section-wrap {
@@ -114,8 +111,10 @@ body {
     width: 357px;
     height: 260px;
     padding-bottom: 60px;
+    text-align: center;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 32px;
 }
 
@@ -208,6 +207,36 @@ body {
     flex-direction: column;
 }
 
+.context1 h2 {
+    width: 222px;
+    height: 112px;
+}
+
+.context1 p {
+    width: 274px;
+    height: 64px;
+}
+
+.context2 h2 {
+    width: 293px;
+    height: 112px;
+}
+
+.context2 p {
+    width: 288px;
+    height: 64px;
+}
+
+.context3 h2 {
+    width: 293px;
+    height: 112px;
+}
+
+.context3 p {
+    width: 335px;
+    height: 64px;
+}
+
 .area1 {
     width: 298px;
     height: 238px;
@@ -253,6 +282,21 @@ body {
     font-weight: 500;
     line-height: 32px;
     color: #374151;
+}
+
+.reverse-section {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.reverse-section .discribe {
+    padding-left: 24px;
+    padding-right: 0;
+    text-align: right;
+}
+
+.discribe .context2 {
+    align-items: flex-end;
 }
 
 footer {
@@ -412,6 +456,25 @@ footer {
 }
 
 /* signup.html css  +  login.html css */
+
+.password-wrap, .password-check-wrap {
+    position: relative;
+}
+
+.password-visbility{
+    width: 24px;
+    height: 24px;
+    background-image: url('images/btn_visibility_on.svg');
+    background-size: cover;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 16px;
+}
+
+.password-visbility:hover {
+    cursor: pointer;
+}
 
 .social-login-wrap {
     width: 100%;
@@ -582,4 +645,346 @@ footer {
 .signUp-form .login-link {
     display: flex;
     gap: 4px;
+}
+
+/* 타블렛 사이즈 */
+@media (max-width: 1199px) {
+
+    /* index.html css */
+
+    .header-wrap {
+        width: 100%;
+        padding: 0 24px;
+    }
+
+    .section-wrap {
+        flex-direction: column;
+    }
+
+    .head-section{
+        height: 771px;
+        padding-top: 84px;
+        position: relative;
+        z-index: -1;
+    }
+
+    .head-section .section-wrap {
+        width: 744px;
+        height: auto;
+    }
+
+    .head-section .intro {
+        width: auto;
+        height: auto;
+    }
+
+    .head-section .img {
+        width: 744px;
+        height: 340px;
+        position: absolute;
+        bottom: 0;
+    }
+
+    .footer-section {
+        margin-top: 0;
+        padding-top: 201px;
+        height: 927px;
+        position: relative;
+        z-index: -1;
+    }
+
+    .footer-section .intro {
+        text-align: center;
+    }
+
+    .footer-section .img {
+        width: 744px;
+        height: 397px;
+        position: absolute;
+        bottom: 0;
+    }
+
+    .footer-section .section-wrap {
+        width: 744px;
+        height: auto;
+    }
+
+    .info-section-wrap {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .info-section, .info-section .section-wrap {
+        width: 696px;
+        height: 708px;
+        padding: 0;        
+    }
+
+    .info-section .section-wrap {
+        gap: 24px;
+        align-items: flex-start;
+    }
+
+    .info-section .reverse-section {
+        align-items: flex-end;
+    }
+
+    .info-section .img1, .info-section .img2, .info-section .img3 {
+        width: 696px;
+        height: 524px;
+    }
+
+    .area1 {
+        width: 328px;
+        height: auto;
+    }
+    
+    .area2 {
+        width: 410px;
+        height: auto;
+    }
+    
+    .area3 {
+        width: 410px;
+        height: auto;
+    }
+
+    .info-section .discribe {
+        padding: 0;
+    }
+    
+    .info-section h2 {
+        font-size: 32px;
+        line-height: 42px;
+    }
+    
+    .info-section p {
+        font-size: 18px;
+        line-height: 26px;
+    }
+
+    .context1 h2 {
+        width: 100%;
+        height: 42px;
+    }
+
+    .context1 p {
+        width: 206px;
+        height: 52px;
+    }
+
+    .context2 h2 {
+        width: 100%;
+        height: 42px;
+    }
+
+    .context2 p {
+        width: 216px;
+        height: 52px;
+    }
+
+    .context3 h2 {
+        width: 100%;
+        height: 42px;
+    }
+
+    .context3 p {
+        width: 251px;
+        height: 52px;
+    }
+
+    .footer-wrap {
+        width: 536px;
+    }
+
+
+    /* login.html css */
+
+    .login-form-wrap {
+        margin-top: 190px;
+    }
+
+    /* signup.html css */
+
+    .signUp-form-wrap {
+        margin-top: 48px;
+    }
+
+}
+
+/* 모바일일 사이즈 */
+@media (min-width: 375px) and (max-width: 767px) {
+
+    /* index.html css */
+
+    .header-wrap {
+        width: 100%;
+        padding: 0 16px;
+    }
+
+    .header .logo-icon {
+        width: 103px;
+        height: 51px;
+        background-image: url('images/panda_mobile_logo.png');
+    }
+
+    .head-section .section-wrap {
+        width: 375px;
+    }
+
+    .head-section{
+        height: 540px;
+        padding-top: 48px;
+    }
+
+    .head-section .intro {
+        width: 240px;
+        height: 156px;
+        gap: 18px;
+    }
+
+    .head-section .intro h2 {
+        font-size: 32px;
+        line-height: 44px;
+    }
+    
+    .head-section .intro a {
+        width: 240px;
+        height: 48px;
+        font-size: 18px;
+        line-height: 26px;
+        border-radius: 40px;
+        padding: 12px 71px;
+    }
+
+    .head-section .img {
+        width: 448px;
+        height: 204px;
+    }
+
+    .footer-section .section-wrap {
+        width: 375px;
+    }
+
+    .footer-section {
+        height: 540px;
+        padding-top: 121px;
+    }
+
+    .footer-section .img {
+        width: 375px;
+        height: 198px;
+    }
+
+    .footer-section .intro h2 {
+        font-size: 32px;
+        line-height: 44px;
+    }
+
+    .info-section-wrap {
+        padding: 83px 15px;
+        gap: 40px;
+    }
+
+    .info-section, .info-section .section-wrap {
+        width: 344px;
+        height: auto;      
+    }
+
+    .info-section .img1, .info-section .img2, .info-section .img3 {
+        width: 344px;
+        height: 259px;
+    }
+
+    .discribe div {
+        gap: 16px;
+    }
+
+    .info-section h2 {
+        font-size: 24px;
+        line-height: 32px;
+    }
+    
+    .info-section p {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    .context1 h2 {
+        height: 32px;
+    }
+
+    .context1 p {
+        width: 183px;
+        height: 52px;
+    }
+
+    .context2 h2 {
+        height: 34px;
+    }
+
+    .context2 p {
+        width: 238px;
+        height: 50px;
+    }
+
+    .context3 h2 {
+        height: 34px;
+    }
+
+    .context3 p {
+        width: 247px;
+        height: 38px;
+    }
+
+    .footer-wrap {
+        width: 311px;
+        height: 96px;
+        flex-wrap: wrap;
+        position: relative;
+    }
+
+    .footer-wrap span {
+        order: 1;
+        position: absolute;
+        bottom: 0;
+    }
+
+    /* login.html css */
+
+    .login-form-wrap {
+        margin-top: 80px;
+        gap: 24px;
+        width: 400px;
+    }
+
+    .login-form-wrap .logo {
+        width: 198px;
+        height: 66px;
+    }
+
+    /* signup.html css */
+
+    .signUp-form-wrap {
+        margin-top: 24px;
+        gap: 24px;
+        width: 400px;
+    }
+
+    .signUp-form-wrap .logo {
+        width: 198px;
+        height: 66px;
+    }
+
+    @media (max-width: 416px) {
+
+        .login-form-wrap, .signUp-form-wrap {
+            margin-left: 16px;
+            margin-right: 16px;
+            width: 100%;
+        }
+    }
 }
