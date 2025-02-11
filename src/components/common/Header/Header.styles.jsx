@@ -15,10 +15,10 @@ export const HeaderContainer = styled.div`
   @media (min-width: 1200px) {
     padding: 9px 200px;
   }
-  @media screen and (min-width: 768px) and (max-width: 1199px) {
+  @media (min-width: 769px) and (max-width: 1199px) {
     padding: 9px 24px;
   }
-  @media screen and (max-width: 767px) {
+  @media (max-width: 768px) {
     padding: 9px 16px;
   }
 `;
@@ -45,6 +45,10 @@ export const Title = styled.div`
   font-size: 25px;
   font-weight: 700;
   color: ${theme.color.blue};
+
+  @media (max-width: 375px) {
+    display: none;
+  }
 `;
 
 export const NavList = styled.div`
@@ -61,6 +65,9 @@ export const NavItems = styled.div`
   padding: 15px 21px;
   color: ${theme.color.gray00};
   cursor: pointer;
+  @media (max-width: 768px) {
+    padding: 15px 0;
+  }
 `;
 
 export const User = styled(Logo)``;

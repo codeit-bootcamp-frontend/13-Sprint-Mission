@@ -93,11 +93,11 @@ export const ItemCardContainer = styled.div`
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 1fr 1fr;
   gap: 24px;
-  margin: auto;
 
   @media (max-width: 767px) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    gap: 8px;
   }
 
   @media (min-width: 768px) and (max-width: 1199px) {
