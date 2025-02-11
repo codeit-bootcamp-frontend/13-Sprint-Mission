@@ -3,13 +3,25 @@ import heart from "../../../assets/icons/heart.svg";
 import NoneImage from "../../NoneImage/NoneImage";
 import { useState } from "react";
 
-export default function ItemCard({ list = "best", images, name, price, favoriteCount }) {
+export default function ItemCard({
+  list = "best",
+  images,
+  name,
+  price,
+  favoriteCount,
+}) {
   const [isImgError, setIsImgError] = useState(false);
 
   return (
     <S.ItemContainer list={list}>
       {images[0] && !isImgError ? (
-        <S.ItemImg src={images[0]} alt="productImage" list={list} onError={() => setIsImgError(true)} />
+        <S.ItemImg
+          src={images[0]}
+          alt="productImage"
+          list={list}
+          onLoad={() => setIsImgError(false)}
+          onError={() => setIsImgError(true)}
+        />
       ) : (
         <NoneImage list={list} />
       )}
