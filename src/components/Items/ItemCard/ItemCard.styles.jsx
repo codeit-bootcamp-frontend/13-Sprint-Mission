@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import theme from "../../../styles/theme";
 
 export const BEST_IMG = {
   PC: "282px",
@@ -65,19 +66,13 @@ export const ContentContainer = styled.div`
 `;
 
 export const Title = styled.div`
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 24px;
-  text-align: left;
-  color: var(--gray800);
+  font: ${theme.font.H7Regular};
+  color: ${theme.color.gray800};
 `;
 
 export const Price = styled.div`
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 26px;
-  text-align: left;
-  color: var(--gray800);
+  font: ${theme.font.H5Bold};
+  color: ${theme.color.gray800};
 `;
 
 export const HeartContainer = styled.div`
@@ -91,9 +86,6 @@ export const Heart = styled.img`
 `;
 
 export const HeartCount = styled.div`
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 18px;
-  text-align: left;
-  color: var(--gray600);
+  font: ${theme.font.H8};
+  color: ${theme.color.gray600};
 `;

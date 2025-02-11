@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { getImgSize } from "../Items/ItemCard/ItemCard.styles";
+import theme from "../../styles/theme";
 
 export const NoneImgContainer = styled.div`
   width: ${({ list }) => getImgSize(list, "PC")};
   height: ${({ list }) => getImgSize(list, "PC")};
   border-radius: 16px;
-  background-color: var(--gray200);
+  background-color: ${theme.color.gray200};
   display: flex;
   justify-content: center;
   align-items: center;

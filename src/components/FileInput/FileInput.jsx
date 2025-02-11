@@ -3,7 +3,7 @@ import x from "../../assets/icons/delete.svg";
 import plus from "../../assets/icons/plus.svg";
 import { useState, useRef } from "react";
 
-export default function FileInput({ lable, images, setValues }) {
+export default function FileInput({ label, images, setValues }) {
   const [preview, setPreview] = useState(null);
   const inputRef = useRef();
 
@@ -34,7 +34,7 @@ export default function FileInput({ lable, images, setValues }) {
   return (
     <>
       <S.FileContainer>
-        <S.Label>{lable}</S.Label>
+        <S.Label>{label}</S.Label>
         <S.File htmlFor="images">
           <S.Div>
             <S.PlusIcon src={plus} />

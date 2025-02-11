@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import theme from "../../../styles/theme";
 
 export const HeaderContainer = styled.div`
-  background: var(--white);
+  background: ${theme.color.white};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -43,7 +44,7 @@ export const Title = styled.div`
   font-family: ROKAF Sans;
   font-size: 25px;
   font-weight: 700;
-  color: var(--primary);
+  color: ${theme.color.blue};
 `;
 
 export const NavList = styled.div`
@@ -52,12 +53,13 @@ export const NavList = styled.div`
 `;
 
 export const NavItems = styled.div`
+  font: ${theme.font.H4Bold};
   font-size: 18px;
   font-weight: 700;
   line-height: 26px;
   text-align: center;
   padding: 15px 21px;
-  color: var(--gray600);
+  color: ${theme.color.gray00};
   cursor: pointer;
 `;
 

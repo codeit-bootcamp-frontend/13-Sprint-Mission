@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import theme from "../../../styles/theme";
 
 export const BestContainer = styled.div`
   display: flex;
@@ -7,11 +8,9 @@ export const BestContainer = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 32px;
+  font: ${theme.font.H3Bold};
   text-align: left;
-  color: var(--gray900);
+  color: ${theme.color.gray900};
   margin: 0;
   margin-bottom: 16px;
 `;

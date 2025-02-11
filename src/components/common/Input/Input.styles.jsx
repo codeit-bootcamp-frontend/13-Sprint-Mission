@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import theme from "../../../styles/theme";
 
 export const InputContainer = styled.div`
   width: 100%;
@@ -12,12 +13,12 @@ export const Label = styled.label`
   font-size: 18px;
   font-weight: 700;
   line-height: 26px;
-  color: var(--gray800);
+  color: ${theme.color.gray800};
 `;
 
 export const StyledInput = styled.input`
   width: 100%;
-  background-color: var(--gray100);
+  background-color: ${theme.color.gray100};
   padding: 16px 24px;
   border-radius: 12px;
   resize: none;
@@ -27,9 +28,7 @@ export const StyledInput = styled.input`
   }
 
   &::placeholder {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 26px;
-    color: var(--gray400);
+    font: ${theme.font.H5Regular};
+    color: ${theme.color.gray400};
   }
 `;
