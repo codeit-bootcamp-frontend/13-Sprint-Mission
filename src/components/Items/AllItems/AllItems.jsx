@@ -29,7 +29,6 @@ export default function AllItems() {
       keyword: keyword,
     }).then((result) => {
       if (!result) return;
-      console.log(result);
       setItems(result.list);
       setTotalItems(result.totalCount);
     });
