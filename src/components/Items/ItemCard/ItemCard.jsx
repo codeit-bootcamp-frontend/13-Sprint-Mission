@@ -2,18 +2,21 @@ import * as S from "./ItemCard.styles";
 import heart from "../../../assets/icons/heart.svg";
 import NoneImage from "../../NoneImage/NoneImage";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function ItemCard({
   list = "best",
+  id,
   images,
   name,
   price,
   favoriteCount,
 }) {
   const [isImgError, setIsImgError] = useState(false);
+  const navigate = useNavigate();
 
   return (
-    <S.ItemContainer list={list}>
+    <S.ItemContainer list={list} onClick={() => navigate(`/items/${id}`)}>
       {images[0] && !isImgError ? (
         <S.ItemImg
           src={images[0]}
