@@ -23,4 +23,6 @@ export const DeleteTag = styled.img`
   width: 22px;
   height: 24px;
   cursor: pointer;
+
+  display: ${({ readOnly }) => (readOnly ? "none" : "block")};
 `;
