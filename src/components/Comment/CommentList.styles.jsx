@@ -62,3 +62,36 @@ export const SelectItem = styled.li`
     color: ${theme.color.gray800};
   }
 `;
+
+export const UserWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const EditBtn = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+
+  span {
+    padding: 0 20px;
+    font: ${theme.font.H5Bold};
+    color: ${theme.color.gray500};
+    cursor: pointer;
+  }
+
+  button {
+    padding: 12px 23px;
+    background-color: ${theme.color.blue};
+    border-radius: 8px;
+    font: ${theme.font.H5Bold};
+    color: ${theme.color.gray100};
+    cursor: pointer;
+
+    &:hover {
+      background-color: ${theme.color.blueHover};
+    }
+  }
+`;
