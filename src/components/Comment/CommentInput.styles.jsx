@@ -17,9 +17,14 @@ export const RegisterBtn = styled.div`
     color: ${theme.color.gray100};
     background-color: ${theme.color.blue};
     margin-top: 24px;
+    cursor: pointer;
 
     &:disabled {
       background-color: ${theme.color.gray400};
+
+      &:hover {
+        background-color: ${theme.color.gray400};
+      }
     }
 
     &:hover {
