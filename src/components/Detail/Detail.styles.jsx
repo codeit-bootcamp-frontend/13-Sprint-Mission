@@ -4,7 +4,7 @@ import theme from "../../styles/theme";
 export const DetailContainer = styled.div`
   width: 1200px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 24px;
   padding-bottom: 40px;
@@ -18,6 +18,7 @@ export const Image = styled.img`
 `;
 
 export const Detail = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 62px;
