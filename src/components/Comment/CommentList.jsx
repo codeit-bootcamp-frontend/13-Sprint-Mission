@@ -5,6 +5,7 @@ import { getComments } from "../../api/comment";
 import { useParams } from "react-router-dom";
 import User from "../User/User";
 import Input from "../common/Input/Input";
+import NoneComment from "../NoneComment/NoneComment";
 
 export default function CommentList() {
   const [comments, setComments] = useState([]);
@@ -50,6 +51,8 @@ export default function CommentList() {
   const handleOpenClick = (commentId) => {
     setCommentId((prevId) => (prevId === commentId ? null : commentId));
   };
+
+  if (comments.length === 0) return <NoneComment />;
 
   return (
     <S.ListContainer>
