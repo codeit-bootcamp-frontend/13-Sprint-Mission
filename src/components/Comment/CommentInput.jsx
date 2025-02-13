@@ -16,7 +16,9 @@ export default function CommentInput() {
         onChange={(e) => setComment(e.target.value)}
       />
       <S.RegisterBtn>
-        <button disabled={!comment.trim()}>등록</button>
+        <button disabled={!comment.trim()} onClick={() => setComment("")}>
+          등록
+        </button>
       </S.RegisterBtn>
     </S.CommentContainer>
   );
