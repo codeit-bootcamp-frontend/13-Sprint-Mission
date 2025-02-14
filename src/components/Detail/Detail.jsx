@@ -7,6 +7,7 @@ import User from "../User/User";
 import emptyHeart from "../../assets/icons/emptyHeart.svg";
 import fullHeart from "../../assets/icons/fullHeart.svg";
 import dots from "../../assets/icons/dots.svg";
+import NoneImage from "../NoneImage/NoneImage";
 
 export default function Detail() {
   const [product, setProduct] = useState({
@@ -21,6 +22,7 @@ export default function Detail() {
     ownerNickname: "",
   });
   const [isFull, setIsFull] = useState(false);
+  const [isImgError, setIsImgError] = useState(false);
   const { productId } = useParams();
 
   const handleGetProduct = () => {
@@ -39,7 +41,15 @@ export default function Detail() {
 
   return (
     <S.DetailContainer>
-      <S.Image src={product.images} />
+      {product.images && !isImgError ? (
+        <S.Image
+          src={product.images}
+          onLoad={() => setIsImgError(false)}
+          onError={() => setIsImgError(true)}
+        />
+      ) : (
+        <NoneImage detail={true} />
+      )}
       <S.Detail>
         <div>
           <S.Header>
