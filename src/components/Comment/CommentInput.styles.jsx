@@ -11,7 +11,8 @@ export const RegisterBtn = styled.div`
   justify-content: flex-end;
 
   button {
-    padding: 12px 23px;
+    width: 74px;
+    height: 42px;
     border-radius: 8px;
     font: ${theme.font.H5Bold};
     color: ${theme.color.gray100};

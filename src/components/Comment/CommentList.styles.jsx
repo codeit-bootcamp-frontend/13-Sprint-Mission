@@ -5,6 +5,10 @@ export const ListContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
+
+  @media (max-width: 375px) {
+    gap: 16px;
+  }
 `;
 
 export const Comment = styled.div`
@@ -83,7 +87,11 @@ export const EditBtn = styled.div`
   }
 
   button {
-    padding: 12px 23px;
+    width: 106px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: ${theme.color.blue};
     border-radius: 8px;
     font: ${theme.font.H5Bold};

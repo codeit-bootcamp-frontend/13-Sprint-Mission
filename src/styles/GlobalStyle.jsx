@@ -21,9 +21,12 @@ button, input, textarea {
 }
 
 @font-face {
-    font-family: ROKAF Sans;
-    src: url("font/ROKAF\ Slab\ Serif\ Bold.ttf");
+  font-family: 'ROKAF Sans';
+  src: url("/font/ROKAF.Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
 }
+
 
 @font-face {
     font-family: 'Pretendard';

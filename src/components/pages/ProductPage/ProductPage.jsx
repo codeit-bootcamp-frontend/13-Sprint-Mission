@@ -9,8 +9,10 @@ export default function ProductPage() {
 
   return (
     <S.Product>
-      <Detail />
-      <Comment />
+      <S.Container>
+        <Detail />
+        <Comment />
+      </S.Container>
       <S.GoBackToList onClick={() => navigate("/items")}>
         목록으로 돌아가기
         <img src={goBack} alt="" />

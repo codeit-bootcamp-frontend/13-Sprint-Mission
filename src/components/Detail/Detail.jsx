@@ -7,7 +7,7 @@ import User from "../User/User";
 import emptyHeart from "../../assets/icons/emptyHeart.svg";
 import fullHeart from "../../assets/icons/fullHeart.svg";
 import dots from "../../assets/icons/dots.svg";
-import NoneImage from "../NoneImage/NoneImage";
+import noneImg from "../../assets/icons/image.svg";
 
 export default function Detail() {
   const [product, setProduct] = useState({
@@ -25,14 +25,10 @@ export default function Detail() {
   const [isImgError, setIsImgError] = useState(false);
   const { productId } = useParams();
 
-  const handleGetProduct = () => {
+  useEffect(() => {
     getProductInfo(productId)
       .then((result) => setProduct(result))
       .catch((error) => console.error(error));
-  };
-
-  useEffect(() => {
-    handleGetProduct();
   }, []);
 
   const handleHeartChange = () => {
@@ -48,8 +44,11 @@ export default function Detail() {
           onError={() => setIsImgError(true)}
         />
       ) : (
-        <NoneImage detail={true} />
+        <S.NoneImageContainer>
+          <S.NoneImage src={noneImg} />
+        </S.NoneImageContainer>
       )}
+
       <S.Detail>
         <div>
           <S.Header>
@@ -60,14 +59,18 @@ export default function Detail() {
             <S.Price>{product.price.toLocaleString()}원</S.Price>
           </S.Header>
           <S.ProductInfo>
-            <S.Label>상품 소개</S.Label>
-            <S.Content>{product.description}</S.Content>
-            <S.Label>상품 태그</S.Label>
-            <S.TagWrapper>
-              {product.tags.map((tag) => (
-                <Tag key={tag} tag={tag} readOnly />
-              ))}
-            </S.TagWrapper>
+            <div>
+              <S.Label>상품 소개</S.Label>
+              <S.Content>{product.description}</S.Content>
+            </div>
+            <div>
+              <S.Label>상품 태그</S.Label>
+              <S.TagWrapper>
+                {product.tags.map((tag) => (
+                  <Tag key={tag} tag={tag} readOnly />
+                ))}
+              </S.TagWrapper>
+            </div>
           </S.ProductInfo>
         </div>
         <S.UserWrapper>

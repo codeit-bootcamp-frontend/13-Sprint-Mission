@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
 import theme from "../../../styles/theme";
 
 export const InputContainer = styled.div`
@@ -18,6 +18,7 @@ export const Label = styled.label`
 
 export const StyledInput = styled.input`
   width: 100%;
+  height: ${({ height }) => height || "100%"};
   background-color: ${theme.color.gray100};
   padding: 16px 24px;
   border-radius: 12px;
@@ -30,5 +31,15 @@ export const StyledInput = styled.input`
   &::placeholder {
     font: ${theme.font.H5Regular};
     color: ${theme.color.gray400};
+  }
+  @media (max-width: 375px) {
+    height: ${({ $largeHeight }) => $largeHeight};
+    &::placeholder {
+      font: ${theme.font.H7Regular};
+    }
+  }
+
+  @media (min-width: 376px) and (max-width: 768px) {
+    height: ${({ $largeHeight }) => $largeHeight};
   }
 `;

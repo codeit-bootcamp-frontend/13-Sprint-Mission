@@ -2,20 +2,19 @@ import styled from "styled-components";
 import theme from "../../../styles/theme";
 
 export const HeaderContainer = styled.div`
-  background: ${theme.color.white};
+  width: 100%;
+  height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 9px 200px;
+  background: ${theme.color.white};
+  border-bottom: 1px solid #dfdfdf;
   position: sticky;
   top: 0;
-  border-bottom: 1px solid #dfdfdf;
-  width: 100%;
-  height: 70px;
   z-index: 1;
-  @media (min-width: 1200px) {
-    padding: 9px 200px;
-  }
-  @media (min-width: 769px) and (max-width: 1199px) {
+
+  @media (min-width: 769px) and (max-width: 1280px) {
     padding: 9px 24px;
   }
   @media (max-width: 768px) {
@@ -41,12 +40,12 @@ export const Logo = styled.img`
 `;
 
 export const Title = styled.div`
-  font-family: ROKAF Sans;
+  font-family: "ROKAF Sans", sans-serif;
   font-size: 25px;
   font-weight: 700;
   color: ${theme.color.blue};
 
-  @media (max-width: 375px) {
+  @media (max-width: 386px) {
     display: none;
   }
 `;

@@ -3,10 +3,8 @@ import { getImgSize } from "../Items/ItemCard/ItemCard.styles";
 import theme from "../../styles/theme";
 
 export const NoneImgContainer = styled.div`
-  width: ${({ list, $detail }) =>
-    $detail ? "486px !important" : getImgSize(list, "PC")};
-  height: ${({ list, $detail }) =>
-    $detail ? "486px !important" : getImgSize(list, "PC")};
+  width: ${({ list }) => getImgSize(list, "PC")};
+  height: ${({ list }) => getImgSize(list, "PC")};
   border-radius: 16px;
   background-color: ${theme.color.gray200};
   display: flex;
@@ -22,11 +20,6 @@ export const NoneImgContainer = styled.div`
   @media (min-width: 768px) and (max-width: 1199px) {
     width: ${({ list }) => getImgSize(list, "Tablet")};
     height: ${({ list }) => getImgSize(list, "Tablet")};
-  }
-
-  @media (min-width: 1200px) {
-    width: ${({ list }) => getImgSize(list, "PC")};
-    height: ${({ list }) => getImgSize(list, "PC")};
   }
 `;
 

@@ -2,19 +2,61 @@ import styled from "styled-components";
 import theme from "../../styles/theme";
 
 export const DetailContainer = styled.div`
-  width: 1200px;
+  max-width: 1200px;
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 24px;
   padding-bottom: 40px;
   border-bottom: 1px solid ${theme.color.gray200};
+
+  @media (max-width: 375px) {
+    flex-direction: column;
+    padding-bottom: 16px;
+  }
+
+  @media (min-width: 376px) and (max-width: 768px) {
+    flex-direction: column;
+    padding-bottom: 32px;
+  }
+
+  @media (min-width: 769px) and (max-width: 1280px) {
+    justify-content: center;
+    align-items: flex-start;
+  }
 `;
 
 export const Image = styled.img`
-  width: 496px;
-  height: 496px;
+  max-width: 486px;
+  min-width: 343px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
   border-radius: 16px;
+  background-color: ${theme.color.gray200};
+`;
+
+export const NoneImageContainer = styled.div`
+  max-width: 486px;
+  min-width: 343px;
+  width: 100%;
+  flex-shrink: 0;
+  aspect-ratio: 1/1;
+  border-radius: 16px;
+  background-color: ${theme.color.gray200};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* @media (max-width: 767px) {
+    min-width: 343px;
+  } */
+`;
+
+export const NoneImage = styled.img`
+  width: 60px;
+  height: 60px;
 `;
 
 export const Detail = styled.div`
@@ -22,6 +64,14 @@ export const Detail = styled.div`
   display: flex;
   flex-direction: column;
   gap: 62px;
+
+  @media (max-width: 375px) {
+    gap: 24px;
+  }
+
+  @media (min-width: 376px) and (max-width: 768px) {
+    gap: 40px;
+  }
 `;
 
 export const Header = styled.div`
@@ -31,6 +81,11 @@ export const Header = styled.div`
   padding-bottom: 16px;
   margin-bottom: 24px;
   border-bottom: 1px solid ${theme.color.gray200};
+
+  @media (max-width: 768px) {
+    gap: 8px;
+    padding-bottom: 8px;
+  }
 `;
 
 export const TitleWrapper = styled.div`
@@ -42,6 +97,14 @@ export const TitleWrapper = styled.div`
 export const Title = styled.div`
   font: ${theme.font.H2Regular};
   color: ${theme.color.gray800};
+
+  @media (max-width: 375px) {
+    font: ${theme.font.H5Regular};
+  }
+
+  @media (min-width: 376px) and (max-width: 768px) {
+    font: ${theme.font.H3Regular};
+  }
 `;
 
 export const Dots = styled.img`
@@ -53,17 +116,36 @@ export const Dots = styled.img`
 export const Price = styled.div`
   font: ${theme.font.H0};
   color: ${theme.color.gray800};
+
+  @media (max-width: 375px) {
+    font: ${theme.font.H2Bold};
+  }
+
+  @media (min-width: 376px) and (max-width: 768px) {
+    font: ${theme.font.H1};
+    font-size: 32px;
+  }
 `;
 
 export const ProductInfo = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  @media (max-width: 768px) {
+    gap: 16px;
+  }
 `;
 
 export const Label = styled.div`
   font: ${theme.font.H5Bold};
   color: ${theme.color.gray600};
+  padding-bottom: 16px;
+
+  @media (max-width: 768px) {
+    padding-bottom: 8px;
+    font: ${theme.font.H7Bold};
+  }
 `;
 
 export const Content = styled.div`
@@ -74,6 +156,7 @@ export const Content = styled.div`
 export const TagWrapper = styled.div`
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
 `;
 
 export const UserWrapper = styled.div`
