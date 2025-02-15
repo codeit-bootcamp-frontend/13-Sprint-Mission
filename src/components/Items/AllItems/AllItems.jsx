@@ -7,33 +7,24 @@ import Search from "../../Search/Search";
 import NoneItem from "../../NoneItem/NoneItem";
 import { getProducts } from "../../../api/products";
 import Paging from "../../Paging/Paging";
+import useResize from "../../../hooks/useResize";
 
 const LIST = ["최신순", "좋아요순"];
 
 export default function AllItems() {
   const [items, setItems] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
   const [sortOption, setSortOption] = useState("최신순");
   const [keyword, setKeyword] = useState("");
   const [totalItems, setTotalItems] = useState(0);
+  const { showItems } = useResize(4, 6, 10);
 
   const orderByValue = sortOption === "최신순" ? "recent" : "favorite";
-
-  const updateItems = () => {
-    if (window.innerWidth <= 767) {
-      setPageSize(4);
-    } else if (window.innerWidth >= 768 && window.innerWidth <= 1199) {
-      setPageSize(6);
-    } else {
-      setPageSize(10);
-    }
-  };
 
   useEffect(() => {
     getProducts({
       page: currentPage,
-      pageSize: pageSize,
+      pageSize: showItems,
       orderBy: orderByValue,
       keyword: keyword,
     }).then((result) => {
@@ -41,19 +32,11 @@ export default function AllItems() {
       setItems(result.list);
       setTotalItems(result.totalCount);
     });
-  }, [currentPage, pageSize, orderByValue, keyword]);
-
-  useEffect(() => {
-    updateItems();
-    window.addEventListener("resize", updateItems);
-
-    return () => {
-      window.removeEventListener("resize", updateItems);
-    };
-  }, []);
+  }, [currentPage, showItems, orderByValue, keyword]);
 
   const handleChangeClick = (sortOption) => {
     setSortOption(sortOption);
+    setCurrentPage(1);
   };
 
   return (
@@ -71,13 +54,17 @@ export default function AllItems() {
             <Link to="/addItem">
               <S.AddBtn>상품 등록하기</S.AddBtn>
             </Link>
-            <Dropdown sortOption={sortOption} list={LIST} onChange={handleChangeClick} />
+            <Dropdown
+              sortOption={sortOption}
+              list={LIST}
+              onChange={handleChangeClick}
+            />
           </S.Filter>
         </S.AllHeader>
         {items.length !== 0 ? (
           <S.ItemCardContainer>
             {items.map((items, idx) => (
-              <ItemCard key={idx} list="all" {...items} />
+              <ItemCard key={items.id} list="all" {...items} />
             ))}
           </S.ItemCardContainer>
         ) : (
@@ -85,7 +72,12 @@ export default function AllItems() {
         )}
       </S.AllContainer>
       {items.length !== 0 && (
-        <Paging currentPage={currentPage} pageSize={pageSize} totalItemsCount={totalItems} setPage={setCurrentPage} />
+        <Paging
+          currentPage={currentPage}
+          pageSize={showItems}
+          totalItemsCount={totalItems}
+          setPage={setCurrentPage}
+        />
       )}
     </S.AllItems>
   );

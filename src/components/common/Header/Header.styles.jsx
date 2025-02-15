@@ -1,23 +1,23 @@
 import styled from "styled-components";
+import theme from "../../../styles/theme";
 
 export const HeaderContainer = styled.div`
-  background: var(--white);
+  width: 100%;
+  height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 9px 200px;
+  background: ${theme.color.white};
+  border-bottom: 1px solid #dfdfdf;
   position: sticky;
   top: 0;
-  border-bottom: 1px solid #dfdfdf;
-  width: 100%;
-  height: 70px;
   z-index: 1;
-  @media (min-width: 1200px) {
-    padding: 9px 200px;
-  }
-  @media screen and (min-width: 768px) and (max-width: 1199px) {
+
+  @media (min-width: 769px) and (max-width: 1280px) {
     padding: 9px 24px;
   }
-  @media screen and (max-width: 767px) {
+  @media (max-width: 768px) {
     padding: 9px 16px;
   }
 `;
@@ -40,10 +40,14 @@ export const Logo = styled.img`
 `;
 
 export const Title = styled.div`
-  font-family: ROKAF Sans;
+  font-family: "ROKAF Sans", sans-serif;
   font-size: 25px;
   font-weight: 700;
-  color: var(--primary);
+  color: ${theme.color.blue};
+
+  @media (max-width: 386px) {
+    display: none;
+  }
 `;
 
 export const NavList = styled.div`
@@ -52,13 +56,17 @@ export const NavList = styled.div`
 `;
 
 export const NavItems = styled.div`
+  font: ${theme.font.H4Bold};
   font-size: 18px;
   font-weight: 700;
   line-height: 26px;
   text-align: center;
   padding: 15px 21px;
-  color: var(--gray600);
+  color: ${theme.color.gray00};
   cursor: pointer;
+  @media (max-width: 768px) {
+    padding: 15px 0;
+  }
 `;
 
 export const User = styled(Logo)``;

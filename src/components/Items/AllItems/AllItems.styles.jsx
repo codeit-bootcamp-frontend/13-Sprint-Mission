@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import theme from "../../../styles/theme";
 
 export const AllItems = styled.div`
   display: flex;
@@ -41,10 +42,8 @@ export const Div = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 32px;
-  color: var(--gray900);
+  font: ${theme.font.H3Bold};
+  color: ${theme.color.gray900};
   margin: 0;
 
   @media (max-width: 767px) {
@@ -68,14 +67,12 @@ export const Filter = styled.div`
 export const AddBtn = styled.button`
   width: 133px;
   height: 42px;
-  background-color: var(--primary);
-  color: var(--gray100);
+  background-color: ${theme.color.blue};
+  color: ${theme.color.gray100};
   border-radius: 8px;
   border: none;
   text-align: center;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 26px;
+  font: ${theme.font.H5Bold};
   cursor: pointer;
 
   @media (max-width: 767px) {
@@ -96,11 +93,11 @@ export const ItemCardContainer = styled.div`
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 1fr 1fr;
   gap: 24px;
-  margin: auto;
 
   @media (max-width: 767px) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    gap: 8px;
   }
 
   @media (min-width: 768px) and (max-width: 1199px) {

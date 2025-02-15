@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import theme from "../../styles/theme";
 
 export const PagingContainer = styled.div`
   width: 100%;
@@ -15,11 +16,9 @@ export const PagingContainer = styled.div`
     li {
       width: 40px;
       height: 40px;
-      border: 1px solid var(--gray200);
+      border: 1px solid ${theme.color.gray200};
       border-radius: 40px;
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 26px;
+      font: ${theme.font.H5Regular};
       display: flex;
       justify-content: center;
       align-items: center;
@@ -36,14 +35,14 @@ export const PagingContainer = styled.div`
     }
 
     li.active a {
-      color: var(--gray50);
+      color: ${theme.color.gray50};
     }
 
     a {
       display: flex;
       justify-content: center;
       align-items: center;
-      color: var(--gray500);
+      color: ${theme.color.gray500};
     }
   }
 `;

@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import theme from "../../../styles/theme";
 
 export const AddItemContainer = styled.div`
   display: flex;
@@ -36,7 +37,7 @@ export const Add = styled.h1`
   font-size: 20px;
   font-weight: 700;
   line-height: 32px;
-  color: var(--gray800);
+  color: ${theme.color.gray800};
 `;
 
 export const AddBtn = styled.button`
@@ -46,12 +47,12 @@ export const AddBtn = styled.button`
   font-size: 16px;
   font-weight: 600;
   line-height: 26px;
-  background-color: var(--primary);
-  color: var(--gray100);
+  background-color: ${theme.color.blue};
+  color: ${theme.color.gray100};
   cursor: pointer;
 
   &:disabled {
-    background-color: var(--gray400);
+    background-color: ${theme.color.gray400};
   }
 `;
 

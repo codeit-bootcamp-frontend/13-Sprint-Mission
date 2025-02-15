@@ -3,6 +3,7 @@ import Layout from "../styles/Layout";
 import ItemPage from "./pages/ItemPage/ItemPage";
 import FreeBoardPage from "./pages/FreeBoardPage/FreeBoardPage";
 import AddItemPage from "./pages/AddItemPage/AddItemPage";
+import ProductPage from "./pages/ProductPage/ProductPage";
 
 export default function Router() {
   return (
@@ -10,6 +11,7 @@ export default function Router() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/items" element={<ItemPage />} />
+          <Route path="/items/:productId" element={<ProductPage />} />
           <Route path="/freeBoard" element={<FreeBoardPage />} />
           <Route path="/addItem" element={<AddItemPage />} />
         </Route>

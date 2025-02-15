@@ -10,3 +10,9 @@ export async function getProducts(params) {
 
   return response.data;
 }
+
+export async function getProductInfo(productId) {
+  const response = await axios.get(`${BASE_URL}/products/${productId}`);
+
+  return response.data;
+}

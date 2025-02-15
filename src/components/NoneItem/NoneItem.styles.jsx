@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import theme from "../../styles/theme";
 
 export const NoneItemContainer = styled.div`
   width: 100%;
@@ -13,5 +14,5 @@ export const Text = styled.div`
   font-size: 20px;
   font-weight: 700;
   line-height: 32px;
-  color: var(--gray900);
+  color: ${theme.color.gray900};
 `;

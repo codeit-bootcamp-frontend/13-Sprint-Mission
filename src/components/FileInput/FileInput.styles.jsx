@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import theme from "../../styles/theme";
 
 export const FileContainer = styled.div`
   display: flex;
@@ -10,7 +11,7 @@ export const Label = styled.div`
   font-size: 18px;
   font-weight: 700;
   line-height: 26px;
-  color: var(--gray800);
+  color: ${theme.color.gray800};
 `;
 
 export const File = styled.label`
@@ -19,7 +20,7 @@ export const File = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--gray100);
+  background-color: ${theme.color.gray100};
   border-radius: 12px;
   cursor: pointer;
 
@@ -44,10 +45,8 @@ export const PlusIcon = styled.img`
 `;
 
 export const AddImg = styled.div`
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 26px;
-  color: var(--gray400);
+  font:${theme.font.H5Regular}
+  color: ${theme.color.gray400};
 `;
 
 export const Preview = styled.div`

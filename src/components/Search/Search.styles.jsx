@@ -1,10 +1,11 @@
 import { styled } from "styled-components";
+import theme from "../../styles/theme";
 
 export const SearchContainer = styled.div`
   width: 325px;
   height: 42px;
   padding: 9px 18px;
-  background-color: var(--gray100);
+  background-color: ${theme.color.gray100};
   border-radius: 12px;
   display: flex;
   gap: 4px;
@@ -36,6 +37,6 @@ export const Input = styled.input`
   }
 
   &::placeholder {
-    color: var(--gray400);
+    color: ${theme.color.gray400};
   }
 `;

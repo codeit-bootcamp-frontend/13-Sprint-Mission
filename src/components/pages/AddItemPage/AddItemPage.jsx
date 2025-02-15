@@ -124,7 +124,11 @@ export default function AddItemPage() {
         </S.AddItemHeader>
         <S.InputContainer>
           <S.AddImg>
-            <FileInput lable="상품 이미지" images={values.images} setValues={setValues} />
+            <FileInput
+              label="상품 이미지"
+              images={values.images}
+              setValues={setValues}
+            />
           </S.AddImg>
           {INPUT.map((i, idx) => (
             <Input
@@ -142,8 +146,8 @@ export default function AddItemPage() {
           ))}
         </S.InputContainer>
         <S.TagList>
-          {values.tags.map((t, idx) => (
-            <Tag key={idx} tag={t} onClick={() => handleTagDelete(t)} />
+          {values.tags.map((t) => (
+            <Tag key={t} tag={t} onClick={() => handleTagDelete(t)} />
           ))}
         </S.TagList>
       </S.AddItem>
