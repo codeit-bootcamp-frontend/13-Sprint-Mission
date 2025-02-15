@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import React from "react";
-import Nav from "./components/Nav";
+import Nav from "./components/common/Layout/Nav";
 import styled from "styled-components";
 
 const Contents = styled.div`
@@ -10,7 +10,7 @@ const Contents = styled.div`
 function App() {
   return (
     <div>
-      <Nav></Nav>
+      <Nav />
       <Contents>
         <Outlet />
       </Contents>

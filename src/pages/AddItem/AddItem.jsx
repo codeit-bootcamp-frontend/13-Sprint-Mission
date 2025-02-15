@@ -1,0 +1,124 @@
+import Button from "../../components/common/Button/Button";
+import { placeholder, button } from "../../constants/globalConstant";
+import * as I from "../../components/common/Input/Input";
+import * as S from "./AddItem.style";
+import Tag from "../../components/Tag/Tag";
+import { useState } from "react";
+//
+const INITIAL_DATA = {
+  img: "",
+  name: "",
+  content: "",
+  price: 0,
+  tags: [],
+};
+function AddItem() {
+  const [tag, setTag] = useState("");
+  const [formData, setFormData] = useState(INITIAL_DATA);
+  //
+  const handleChange = (target) => {
+    setFormData({ ...formData, [target.name]: target.value });
+    //ToDo: img 프로퍼티에는 imgInput에서 넘겨준 file 객체가 담기고 있음 추후 백엔드 확인해야함
+  };
+
+  const CreateTag = (e) => {
+    if (e.key === "Enter" && tag.trim() !== "") {
+      const notDuplicate = formData.tags.includes(tag.trim());
+      if (!notDuplicate) {
+        setFormData((prev) => ({
+          ...prev,
+          tags: [...prev.tags, tag.trim()],
+        }));
+      }
+      setTag("");
+      e.target.value = "";
+    }
+  };
+
+  const handleClickTagDelete = (tag) => {
+    const filterTags = formData.tags.filter((prev) => prev !== tag);
+    setFormData((prev) => ({ ...prev, tags: filterTags }));
+  };
+
+  const requiredInput = ["name", "content", "tags", "price"];
+  const isInputValid = requiredInput.every((field) => {
+    const value = formData[field];
+    switch (typeof value) {
+      case "object":
+        if (Array.isArray(value) && value.length === 0) {
+          return false;
+        }
+        return true;
+      case "string":
+        return value.trim() !== "";
+
+      case "number":
+        return value > 0;
+      default:
+        return false;
+    }
+  });
+  return (
+    <S.Background>
+      <S.Container>
+        <S.FlexDiv>
+          <S.Title>상품 등록하기</S.Title>
+          <S.ButtonContainer>
+            <Button disabled={!isInputValid}>{button.send}</Button>
+          </S.ButtonContainer>
+        </S.FlexDiv>
+        <S.InputsContainer>
+          <I.ImgInput
+            type="file"
+            name="img"
+            placeholder={placeholder.img}
+            onChange={handleChange}
+          />
+
+          <I.Input
+            label="상품명"
+            placeholder={placeholder.productName}
+            name="name"
+            onChange={handleChange}
+          />
+          <I.Input
+            textArea
+            label="상품 소개"
+            placeholder={placeholder.content}
+            name="content"
+            onChange={handleChange}
+          />
+          <I.Input
+            label="판매가격"
+            type="number"
+            placeholder={placeholder.price}
+            name="price"
+            onChange={handleChange}
+          />
+          <S.TagInputContainer>
+            <I.Input
+              tag
+              label="태그"
+              placeholder={placeholder.tag}
+              name="tags"
+              value={tag}
+              onKeyUp={CreateTag}
+              onChange={setTag}
+            />
+            <S.TagsContainer>
+              {formData.tags &&
+                formData.tags.map((tag) => {
+                  return (
+                    <div key={tag}>
+                      <Tag value={tag} onClick={handleClickTagDelete} />
+                    </div>
+                  );
+                })}
+            </S.TagsContainer>
+          </S.TagInputContainer>
+        </S.InputsContainer>
+      </S.Container>
+    </S.Background>
+  );
+}
+export default AddItem;

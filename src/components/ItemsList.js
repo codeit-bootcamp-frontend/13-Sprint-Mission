@@ -1,6 +1,6 @@
 import favoriteImg from "../assets/favoriteLogo.svg";
 import styled from "styled-components";
-import useWindowSize from "../Hooks/useWindowSize";
+import useWindowSize from "../hooks/useWindowSize";
 //
 
 const ByDevice = {
@@ -68,12 +68,11 @@ const Price = styled.div`
 `;
 
 const FavoriteCount = styled.span`
-  color: #4b5563;'
+  color: #4b5563;
   font-size: 12px;
   font-weight: 500;
   line-height: 18px;
   text-align: left;
-
 `;
 
 const ProductImg = styled.img`

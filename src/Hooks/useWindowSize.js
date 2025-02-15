@@ -1,18 +1,20 @@
 import { useState, useEffect } from "react";
-
-const useWindowSize = () => {
+import throttle from "lodash.throttle";
+export default function useWindowSize() {
   const [deviceType, setDeviceType] = useState("desktop");
-  const handleResize = () => {
-    if (window.matchMedia("(max-width: 767px)").matches) {
-      setDeviceType("mobile");
-    } else if (window.matchMedia("(max-width: 1199px)").matches) {
-      setDeviceType("tablet");
-    } else {
-      setDeviceType("desktop");
-    }
-  };
-
+  //
   useEffect(() => {
+    const handleResize = throttle(() => {
+      if (window.matchMedia("(max-width: 375px)").matches) {
+        setDeviceType("mobile");
+        return;
+      }
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        setDeviceType("tablet");
+        return;
+      }
+      setDeviceType("desktop");
+    }, 2000);
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => {
@@ -20,6 +22,4 @@ const useWindowSize = () => {
     };
   }, []);
   return deviceType;
-};
-
-export default useWindowSize;
+}

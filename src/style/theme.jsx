@@ -1,0 +1,19 @@
+const theme = {
+  color: {
+    gray900: "#111827",
+    gray800: "#1f2937",
+    gray700: "#374151",
+    gray600: "#4b5563",
+    gray500: "#6b7280",
+    gray400: "#9ca3af",
+    gray200: "#e5e7eb",
+    gray100: "#f3f4f6",
+    gray50: "#f9fafb",
+    blue: "#3692ff",
+    white: "#ffffff",
+    backgroundLightBlue: "#cfe5ff",
+    backgroundLightGray: "#fcfcfc",
+    inputRed: "#f74747",
+  },
+};
+export default theme;

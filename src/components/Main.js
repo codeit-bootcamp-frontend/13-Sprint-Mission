@@ -1,29 +1,32 @@
-import useWindowSize from "../Hooks/useWindowSize";
+import { Route, BrowserRouter, Routes } from "react-router-dom";
+import { createGlobalStyle } from "styled-components";
+//
+import LandingPage from "../pages/LandingPage/LandingPage.jsx";
 import App from "../App";
 import HomePage from "../pages/HomePage";
-import AddItem from "../pages/AddItem";
+import AddItem from "../pages/AddItem/AddItem.jsx";
 //
-import { Route, BrowserRouter, Routes } from "react-router-dom";
-import { createGlobalStyle } from "styled-components"; //import
-
+import useWindowSize from "../hooks/useWindowSize";
+//
 const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
-
   body {
     font-family: 'Pretendard', sans-serif;
     font-display: swap;
+    margin: 0; 
+    padding: 0;
   }
-  img {
-  border-radius: 16px;
+  html {
+  margin: 0; 
+  padding: 0;
   }
-    a {
+  a {
     text-decoration: none; 
     color: #ffffff;
   }
 `;
-
 //
 function Main() {
   const deviceType = useWindowSize();
@@ -32,7 +35,8 @@ function Main() {
       <GlobalStyle />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<App />}>
+          <Route path="/" element={<LandingPage />} />
+          <Route element={<App />}>
             <Route path="/items" element={<HomePage device={deviceType} />} />
             <Route path="/additem" element={<AddItem />} />
           </Route>

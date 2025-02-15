@@ -4,7 +4,7 @@ import { getProducts, bestProducts } from "../api";
 import { Link } from "react-router-dom";
 import PageCount from "../components/pageCount";
 import styled from "styled-components";
-import useWindowSize from "../Hooks/useWindowSize";
+import useWindowSize from "../hooks/useWindowSize";
 import SelectBox from "../components/SelectBox";
 
 //

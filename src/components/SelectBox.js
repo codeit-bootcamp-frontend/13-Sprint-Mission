@@ -1,6 +1,6 @@
 import Select from "react-select";
 import SelectImg from "../assets/btn_sort.svg";
-import useWindowSize from "../Hooks/useWindowSize";
+import useWindowSize from "../hooks/useWindowSize";
 import styled from "styled-components";
 
 //
