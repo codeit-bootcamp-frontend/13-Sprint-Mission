@@ -1,11 +1,14 @@
+//itemApi.js
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+console.log("BASE_URL 확인:", BASE_URL);
+
 export async function getProducts(params = {}) {
   // URLSearchParams을 이용하면 파라미터 값을 자동으로 쉽게 인코딩할 수 있어요.
   const query = new URLSearchParams(params).toString();
 
   try {
-    const response = await fetch(
-      `https://panda-market-api.vercel.app/products?${query}`
-    );
+    const response = await fetch(`${BASE_URL}/products?${query}`);
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
     }
