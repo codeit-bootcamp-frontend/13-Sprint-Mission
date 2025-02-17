@@ -38,7 +38,6 @@ function BestItems() {
   return (
     <div className={styles.container}>
       <div className={styles.title}>베스트 상품</div>
-      {/* 상품 목록 */}
       <ul className={styles.itemList}>
         {items.map((item) => (
           <li key={item.id}>

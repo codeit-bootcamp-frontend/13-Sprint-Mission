@@ -76,6 +76,7 @@ function AllItems() {
             <img src={SearchIcon} className={styles.searchIcon} alt="검색" />
             <input
               name="search"
+              type="search"
               className={styles.searchBar}
               placeholder="검색할 상품을 입력해주세요"
             />
@@ -91,7 +92,6 @@ function AllItems() {
           </select>
         </div>
       </div>
-      {/* 상품 목록 */}
       <ul className={styles.itemList}>
         {items.map((item) => (
           <li key={item.id}>
