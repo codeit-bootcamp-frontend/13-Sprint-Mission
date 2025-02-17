@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getItems } from "../../../apis/itemApi";
-import ItemList from "./ItemList";
+import ItemCard from "./ItemCard";
 import styles from "./BestItems.module.css";
 
 function BestItems() {
@@ -38,7 +38,14 @@ function BestItems() {
   return (
     <>
       <div className={styles.title}>베스트 상품</div>
-      <ItemList items={items} best={true} />
+      {/* 상품 목록 */}
+      <ul className={styles.itemList}>
+        {items.map((item) => (
+          <li key={item.id}>
+            <ItemCard item={item} />
+          </li>
+        ))}
+      </ul>
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getItems } from "../../../apis/itemApi";
-import ItemList from "./ItemList";
+import ItemCard from "./ItemCard";
 import SearchIcon from "../../../assets/icon/ic_search.svg";
 import BackIcon from "../../../assets/icon/ic_back.svg";
 import NextIcon from "../../../assets/icon/ic_next.svg";
@@ -91,7 +91,14 @@ function AllItems() {
           </select>
         </div>
       </div>
-      <ItemList items={items} best={false} />
+      {/* 상품 목록 */}
+      <ul className={styles.itemList}>
+        {items.map((item) => (
+          <li key={item.id}>
+            <ItemCard item={item} />
+          </li>
+        ))}
+      </ul>
       <div className={styles.pageButtons}>
         <button className={styles.pageButton} onClick={minusPageBound}>
           <img src={BackIcon} alt="이전 페이지" />
