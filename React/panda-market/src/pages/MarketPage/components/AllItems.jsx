@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import ItemList from "../components/ItemList";
-import "./AllItems.css";
-import SearchIcon from "../assets/icon/ic_search.svg";
-import BackIcon from "../assets/icon/ic_back.svg";
-import NextIcon from "../assets/icon/ic_next.svg";
+import ItemList from "./ItemList";
+import styles from "./AllItems.module.css";
+import SearchIcon from "../../../assets/icon/ic_search.svg";
+import BackIcon from "../../../assets/icon/ic_back.svg";
+import NextIcon from "../../../assets/icon/ic_next.svg";
 import { useEffect, useState } from "react";
-import { getItems } from "../api";
+import { getItems } from "../../../apis/itemApi";
 
 function AllItems() {
   const [order, setOrder] = useState("recent");
@@ -69,43 +69,43 @@ function AllItems() {
 
   return (
     <>
-      <div className="top">
-        <div className="title">전체 상품</div>
-        <div className="menu">
+      <div className={styles.top}>
+        <div className={styles.title}>전체 상품</div>
+        <div className={styles.menu}>
           <form>
-            <img src={SearchIcon} className="searchIcon" alt="검색" />
+            <img src={SearchIcon} className={styles.searchIcon} alt="검색" />
             <input
               name="search"
-              className="searchBar"
+              className={styles.searchBar}
               placeholder="검색할 상품을 입력해주세요"
             />
           </form>
           <Link to="/additem">
-            <button type="button" className="registerButton">
+            <button type="button" className={styles.registerButton}>
               상품 등록하기
             </button>
           </Link>
-          <select className="orderSelect" onChange={handleOrderChange}>
+          <select className={styles.orderSelect} onChange={handleOrderChange}>
             <option value="recent">최신순</option>
             <option value="favorite">좋아요순</option>
           </select>
         </div>
       </div>
       <ItemList items={items} best={false} />
-      <div className="pageButtons">
-        <button className="pageButton" onClick={minusPageBound}>
+      <div className={styles.pageButtons}>
+        <button className={styles.pageButton} onClick={minusPageBound}>
           <img src={BackIcon} alt="이전 페이지" />
         </button>
         {pageArr.map((num) => (
           <button
-            className="pageButton"
+            className={styles.pageButton}
             value={num + 5 * pageBound}
             onClick={changePage}
           >
             {num + 5 * pageBound}
           </button>
         ))}
-        <button className="pageButton" onClick={plusPageBound}>
+        <button className={styles.pageButton} onClick={plusPageBound}>
           <img src={NextIcon} alt="다음 페이지" />
         </button>
       </div>

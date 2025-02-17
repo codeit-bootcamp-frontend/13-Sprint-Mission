@@ -1,7 +1,7 @@
-import ItemList from "../components/ItemList";
-import "./BestItems.css";
+import ItemList from "./ItemList";
+import styles from "./BestItems.module.css";
 import { useEffect, useState } from "react";
-import { getItems } from "../api";
+import { getItems } from "../../../apis/itemApi";
 
 function BestItems() {
   const [items, setItems] = useState([]);
@@ -37,7 +37,7 @@ function BestItems() {
 
   return (
     <>
-      <div className="title">베스트 상품</div>
+      <div className={styles.title}>베스트 상품</div>
       <ItemList items={items} best={true} />
     </>
   );

@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import logoImg from "../assets/logo/panda-market-logo.svg";
 import UserIcon from "../assets/user/default-profile.png";
-import styles from "./Nav.module.css";
+import styles from "./Header.module.css";
 
 function getLinkStyle({ isActive }) {
   return {
