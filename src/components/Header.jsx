@@ -8,7 +8,7 @@ function Header() {
   };
 
   return (
-    <header className="flex h-17.5 w-full items-center justify-center border-b border-[#DFDFDF]">
+    <header className="sticky top-0 flex h-17.5 w-full items-center justify-center border-b border-[#DFDFDF] bg-[#FFFFFF]">
       <div className="flex w-480 items-center justify-between px-50">
         <Link to="/" className="header__button">
           <img src={logoImage} alt="홈으로 이동" />
