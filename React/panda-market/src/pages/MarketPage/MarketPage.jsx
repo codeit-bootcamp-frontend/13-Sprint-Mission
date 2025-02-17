@@ -1,4 +1,4 @@
-import Container from "../../components/Container";
+import Container from "../../components/Layout/Container";
 import AllItems from "./components/AllItems";
 import BestItems from "./components/BestItems";
 import styles from "./MarketPage.module.css";

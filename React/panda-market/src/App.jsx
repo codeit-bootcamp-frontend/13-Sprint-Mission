@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
-import Header from "./Header";
-import Footer from "./Footer";
-import styles from "./App.module.css";
-import "./App.font.css";
-import "./App.color.css";
+import Header from "./components/Layout/Header";
+import Footer from "./components/Layout/Footer";
+import styles from "./styles/App.module.css";
+import "./styles/App.font.css";
+import "./styles/App.color.css";
 
 function App() {
   return (
