@@ -1,15 +1,13 @@
 import heartIcon from "../../../assets/icon/ic_heart.svg";
 import styles from "./ItemCard.module.css";
 
-function ItemCard({ item, best }) {
+function ItemCard({ item }) {
   const { images, name, price, favoriteCount } = item;
-
-  const imgClassNames = `${best ? styles.bestImg : ""} ${styles.itemImg}`;
 
   return (
     <>
       <div className="imgContainer">
-        <img src={images} className={imgClassNames} alt={name} />
+        <img src={images} className={styles.itemImg} alt={name} />
       </div>
       <div>
         <ul className={styles.itemInfo}>
