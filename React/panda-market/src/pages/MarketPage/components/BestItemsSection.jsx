@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getItems } from "../../../apis/itemApi";
 import ItemCard from "./ItemCard";
-import styles from "./BestItems.module.css";
+import styles from "./BestItemsSection.module.css";
 
 function BestItems() {
   const [items, setItems] = useState([]);
@@ -36,7 +36,7 @@ function BestItems() {
   }
 
   return (
-    <>
+    <div className={styles.container}>
       <div className={styles.title}>베스트 상품</div>
       {/* 상품 목록 */}
       <ul className={styles.itemList}>
@@ -46,7 +46,7 @@ function BestItems() {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
 

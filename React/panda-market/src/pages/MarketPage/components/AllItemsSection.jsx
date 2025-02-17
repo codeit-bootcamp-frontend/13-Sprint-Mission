@@ -5,7 +5,7 @@ import ItemCard from "./ItemCard";
 import SearchIcon from "../../../assets/icon/ic_search.svg";
 import BackIcon from "../../../assets/icon/ic_back.svg";
 import NextIcon from "../../../assets/icon/ic_next.svg";
-import styles from "./AllItems.module.css";
+import styles from "./AllItemsSection.module.css";
 
 function AllItems() {
   const [order, setOrder] = useState("recent");
@@ -68,7 +68,7 @@ function AllItems() {
   }
 
   return (
-    <>
+    <div className={styles.container}>
       <div className={styles.top}>
         <div className={styles.title}>전체 상품</div>
         <div className={styles.menu}>
@@ -116,7 +116,7 @@ function AllItems() {
           <img src={NextIcon} alt="다음 페이지" />
         </button>
       </div>
-    </>
+    </div>
   );
 }
 

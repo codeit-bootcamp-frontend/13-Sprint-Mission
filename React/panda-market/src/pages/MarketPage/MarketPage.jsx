@@ -1,18 +1,13 @@
-import Container from "../../components/Layout/Container";
-import AllItems from "./components/AllItems";
-import BestItems from "./components/BestItems";
+import AllItemsSection from "./components/AllItemsSection";
+import BestItemsSection from "./components/BestItemsSection";
 import styles from "./MarketPage.module.css";
 
 function ItemListPage() {
   return (
-    <Container>
-      <div className={styles.container}>
-        <BestItems />
-      </div>
-      <div className={styles.container}>
-        <AllItems />
-      </div>
-    </Container>
+    <div className={styles.container}>
+      <BestItemsSection />
+      <AllItemsSection />
+    </div>
   );
 }
 
