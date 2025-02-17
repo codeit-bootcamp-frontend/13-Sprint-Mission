@@ -1,10 +1,10 @@
 // import facebookIcon from "../assets/facebook.svg";
-import styles from "./Footer.module.css";
+import { Link } from "react-router-dom";
 import facebookIcon from "../assets/icon/ic_facebook.svg";
 import twitterIcon from "../assets/icon/ic_twitter.svg";
 import youtubeIcon from "../assets/icon/ic_youtube.svg";
 import instagramIcon from "../assets/icon/ic_instagram.svg";
-import { Link } from "react-router-dom";
+import styles from "./Footer.module.css";
 
 function Footer() {
   return (

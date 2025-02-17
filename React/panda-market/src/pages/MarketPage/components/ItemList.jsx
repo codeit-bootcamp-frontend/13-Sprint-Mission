@@ -1,6 +1,6 @@
-import styles from "./ItemList.module.css";
-import ItemCard from "./ItemCard";
 import Container from "../../../components/Container";
+import ItemCard from "./ItemCard";
+import styles from "./ItemList.module.css";
 
 function ItemList({ items, best }) {
   const ClassNames = `${best ? styles.bestList : ""} ${styles.itemList}`;

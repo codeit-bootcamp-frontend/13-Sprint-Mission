@@ -9,7 +9,7 @@ function getLinkStyle({ isActive }) {
   };
 }
 
-function Nav() {
+function Header() {
   return (
     <div className={styles.nav}>
       <div className={styles.leftSide}>
@@ -34,4 +34,4 @@ function Nav() {
   );
 }
 
-export default Nav;
+export default Header;

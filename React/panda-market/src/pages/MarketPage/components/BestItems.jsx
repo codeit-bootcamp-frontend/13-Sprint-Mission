@@ -1,7 +1,7 @@
-import ItemList from "./ItemList";
-import styles from "./BestItems.module.css";
 import { useEffect, useState } from "react";
 import { getItems } from "../../../apis/itemApi";
+import ItemList from "./ItemList";
+import styles from "./BestItems.module.css";
 
 function BestItems() {
   const [items, setItems] = useState([]);

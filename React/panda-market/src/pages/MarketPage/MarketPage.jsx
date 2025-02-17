@@ -1,7 +1,7 @@
 import Container from "../../components/Container";
-import styles from "./MarketPage.module.css";
 import AllItems from "./components/AllItems";
 import BestItems from "./components/BestItems";
+import styles from "./MarketPage.module.css";
 
 function ItemListPage() {
   return (

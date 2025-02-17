@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./components/App";
 import HomePage from "./pages/HomePage/HomePage";
-import ItemPage from "./pages/ItemPage/ItemPage";
-import MarketPage from "./pages/MarketPage/MarketPage";
-import RegisterItemPage from "./pages/RegisterItemPage/RegisterItemPage";
-import CommunityPage from "./pages/CommunityPage/CommunityPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import CommunityPage from "./pages/CommunityPage/CommunityPage";
+import MarketPage from "./pages/MarketPage/MarketPage";
+import ItemPage from "./pages/ItemPage/ItemPage";
+import RegisterItemPage from "./pages/RegisterItemPage/RegisterItemPage";
 
 function Main() {
   return (
