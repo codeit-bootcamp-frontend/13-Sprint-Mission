@@ -11,14 +11,17 @@ function AllItems() {
   const [order, setOrder] = useState("recent");
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
+  const [totalItemCount, setTotalItemCount] = useState(0);
   const [pageBound, setPageBound] = useState(0);
   const [items, setItems] = useState([]);
+  const MaxPageBound = Math.floor(totalItemCount / pageSize / 5);
   const pageArr = [1, 2, 3, 4, 5];
 
   // 아이템 불러오기
   const handleLoad = async (query) => {
-    const { list } = await getItems(query);
+    const { list, totalCount } = await getItems(query);
     setItems(list);
+    setTotalItemCount(totalCount);
   };
 
   useEffect(() => {
@@ -34,7 +37,7 @@ function AllItems() {
 
   // 페이지네이션
   const changePage = (e) => {
-    setPage(e.target.value);
+    setPage(Number(e.target.value));
   };
 
   const plusPageBound = () => {
@@ -100,19 +103,29 @@ function AllItems() {
         ))}
       </ul>
       <div className={styles.pageButtons}>
-        <button className={styles.pageButton} onClick={minusPageBound}>
+        <button
+          className={styles.pageButton}
+          onClick={minusPageBound}
+          disabled={pageBound < 1 ? true : false}
+        >
           <img src={BackIcon} alt="이전 페이지" />
         </button>
         {pageArr.map((num) => (
           <button
-            className={styles.pageButton}
+            className={`${styles.pageButton} ${
+              num === page ? styles.activePage : ""
+            }`}
             value={num + 5 * pageBound}
             onClick={changePage}
           >
             {num + 5 * pageBound}
           </button>
         ))}
-        <button className={styles.pageButton} onClick={plusPageBound}>
+        <button
+          className={styles.pageButton}
+          onClick={plusPageBound}
+          disabled={pageBound === MaxPageBound ? true : false}
+        >
           <img src={NextIcon} alt="다음 페이지" />
         </button>
       </div>

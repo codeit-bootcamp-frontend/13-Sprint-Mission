@@ -96,6 +96,17 @@ form {
   border: 0.1rem solid var(--gray200);
 }
 
+.pageButton:disabled {
+  background-color: var(--gray200);
+}
+
+.activePage,
+.activePage:hover,
+.activePage:focus {
+  background-color: var(--blue);
+  color: #ffffff;
+}
+
 /* Tablet */
 @media (min-width: 768px) and (max-width: 1199px) {
   .container {
