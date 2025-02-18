@@ -1,11 +1,16 @@
-const BASE_URL = "https://panda-market-api.vercel.app";
+import axios from "axios";
+
+const instance = axios.create({
+  baseURL: "https://panda-market-api.vercel.app",
+});
 
 export async function getItems({ page = "", pageSize = "", order = "" }) {
   const query = `page=${page}&pageSize=${pageSize}&orderBy=${order}`;
-  const response = await fetch(`${BASE_URL}/products?${query}`);
-  if (!response.ok) {
-    throw new Error("데이터를 불러오는데 실패했습니다");
+  try {
+    const res = await instance.get(`/products?${query}`);
+    return res.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
   }
-  const body = await response.json();
-  return body;
 }

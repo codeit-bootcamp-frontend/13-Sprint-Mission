@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "ajv": "^7.2.4",
+    "axios": "^1.7.9",
     "classnames": "^2.5.1",
     "lodash.debounce": "^4.0.8",
     "react-router-dom": "^6.28.1"
