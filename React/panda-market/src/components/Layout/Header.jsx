@@ -5,15 +5,25 @@ import logoWordImg from "../../assets/logo/panda-market-logo-only-word.svg";
 import UserIcon from "../../assets/user/default-profile.png";
 import styles from "./Header.module.css";
 
-function getLinkStyle({ isActive }) {
-  return {
-    color: isActive ? "var(--blue)" : "",
-  };
-}
-
 function Header() {
   const { width } = useWindowSize();
   const location = useLocation();
+
+  function communityLinkStyle({ isActive }) {
+    return {
+      color: isActive ? "var(--blue)" : "",
+    };
+  }
+
+  function marketLinkStyle({ isActive }) {
+    const isMarketRelatedPage = ["/items", "/additem"].includes(
+      location.pathname
+    );
+
+    return {
+      color: isActive || isMarketRelatedPage ? "var(--blue)" : "",
+    };
+  }
 
   return (
     <div className={styles.header}>
@@ -28,12 +38,12 @@ function Header() {
         {!["/"].includes(location.pathname) && (
           <ul className={styles.menu}>
             <li>
-              <NavLink style={getLinkStyle} to="/community">
+              <NavLink style={communityLinkStyle} to="/community">
                 자유게시판
               </NavLink>
             </li>
             <li>
-              <NavLink style={getLinkStyle} to="/items">
+              <NavLink style={marketLinkStyle} to="/items">
                 중고마켓
               </NavLink>
             </li>
