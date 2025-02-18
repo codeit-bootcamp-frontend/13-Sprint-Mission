@@ -6,10 +6,10 @@ import instagram from "@/assets/ic_instagram.svg";
 
 function Footer() {
   return (
-    <footer className="flex h-40 w-full items-start justify-center bg-[#111827] pt-8">
-      <div className="flex w-480 items-center justify-between px-50 text-[#9CA3AF]">
+    <footer className="flex h-40 w-full items-start justify-center bg-gray-900 pt-8">
+      <div className="flex w-480 items-center justify-between px-50 text-gray-400">
         <span>©codeit - 2024</span>
-        <div className="flex items-center justify-between gap-7.5 text-[#E5E7EB]">
+        <div className="flex items-center justify-between gap-7.5 text-gray-200">
           <Link to="/privacy">Privacy Policy</Link> <Link to="/faq">FAQ</Link>
         </div>
         <div className="flex items-center justify-between gap-3">

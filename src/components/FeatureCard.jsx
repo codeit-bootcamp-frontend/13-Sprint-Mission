@@ -9,9 +9,9 @@ function FeatureCard({ image, tag, title, content, isReversed }) {
       <div
         className={`flex flex-col ${isReversed ? "items-end text-right" : "items-start"}`}
       >
-        <div className="text-[#3692FF]">{tag}</div>
-        <div className="pt-3 text-5xl font-bold text-[#374151]">{title}</div>
-        <div className="pt-6 text-[#374151]">{content}</div>
+        <div className="text-blue-500">{tag}</div>
+        <div className="pt-3 text-5xl font-bold text-gray-700">{title}</div>
+        <div className="pt-6 text-gray-700">{content}</div>
       </div>
     </div>
   );

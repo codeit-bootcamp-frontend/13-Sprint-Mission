@@ -21,12 +21,12 @@ function Auth() {
           {isSignUp && <InputField name="passwordConfirm" />}
           <button
             type="submit"
-            className="h-14 rounded-[40px] bg-[#9CA3AF] px-31 py-4 text-[#F3F4F6]"
+            className="h-14 rounded-[40px] bg-gray-400 px-31 py-4 text-gray-100"
           >
             {isSignUp ? "회원가입" : "로그인"}
           </button>
         </form>
-        <div className="flex items-center justify-between rounded-lg bg-[#E6F2FF] px-6 py-4">
+        <div className="flex items-center justify-between rounded-lg bg-blue-50 px-6 py-4">
           간편 로그인하기
           <div className="flex gap-4">
             <a

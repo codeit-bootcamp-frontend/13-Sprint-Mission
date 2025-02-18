@@ -52,7 +52,7 @@ function Home() {
   return (
     <>
       <Header />
-      <div className="flex h-135 w-full items-end justify-center bg-[#CFE5FF]">
+      <div className="flex h-135 w-full items-end justify-center bg-blue-100">
         <PrimaryCard {...PRIMARY_CARDS[0]} />
       </div>
       <div className="flex flex-col items-center pb-34.5">
@@ -62,7 +62,7 @@ function Home() {
           </div>
         ))}
       </div>
-      <div className="flex h-135 w-full items-end justify-center bg-[#CFE5FF]">
+      <div className="flex h-135 w-full items-end justify-center bg-blue-100">
         <PrimaryCard {...PRIMARY_CARDS[1]} />
       </div>
       <Footer />

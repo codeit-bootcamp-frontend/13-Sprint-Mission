@@ -12,7 +12,7 @@ function PrimaryCard({ image, title, isButtonVisible }) {
         {title}
         {isButtonVisible && (
           <button
-            className="mt-8 h-14 rounded-[40px] bg-[#3692FF] px-31 py-3 text-[#F9FAFB]"
+            className="mt-8 h-14 rounded-[40px] bg-blue-500 px-31 py-3 text-gray-50"
             onClick={navigateToItems}
           >
             구경하러 가기

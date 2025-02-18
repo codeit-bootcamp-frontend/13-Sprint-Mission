@@ -32,16 +32,16 @@ function InputField({ name }) {
 
   return (
     <div>
-      <label htmlFor={id} className="text-[#1F2937]">
+      <label htmlFor={id} className="text-gray-800">
         {label}
       </label>
-      <div className="mt-4 flex h-14 w-full items-center justify-stretch gap-3 rounded-xl bg-[#F3F4F6] px-6">
+      <div className="mt-4 flex h-14 w-full items-center justify-stretch gap-3 rounded-xl bg-gray-100 px-6">
         <input
           id={id}
           name={name}
           type={type}
           placeholder={placeholder}
-          className="w-full text-[#1F2937] placeholder:text-[#9CA3AF]"
+          className="w-full text-gray-800 placeholder:text-gray-400"
         />
         {name.includes("password") ? (
           <button type="button">
