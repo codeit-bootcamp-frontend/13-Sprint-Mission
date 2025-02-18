@@ -12,7 +12,18 @@
   --color-gray-800: #1f2937;
   --color-gray-900: #111827;
 
-  --color-blue: #3692ff;
+  --color-blue-50: #e3f2ff;
+  --color-blue-100: #b3d9ff;
+  --color-blue-200: #80bfff;
+  --color-blue-300: #4da6ff;
+  --color-blue-400: #1a8cff;
+  --color-blue-500: #3692ff;
+  --color-blue-600: #2e7cd1;
+  --color-blue-700: #2663a3;
+  --color-blue-800: #1f4b75;
+  --color-blue-900: #173347;
+
+  --color-red: #f74747;
 
   --color-white: #ffffff;
 
