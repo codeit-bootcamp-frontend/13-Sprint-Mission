@@ -1,11 +1,20 @@
 //Card.jsx
 import styled from "styled-components";
 import ic_heart from "../../assets/images/icons/ic_heart.svg";
+import placeholder from "../../assets/images/placeholder.jpg";
 
 export default function Card({ item, size }) {
+  const imageURL =
+    item.images && item.images.length > 0 ? item.images[0] : placeholder;
+
   return (
     <CardWrapper size={size}>
-      <Image src={item.images[0]} alt={item.name} size={size} />
+      <Image
+        src={imageURL}
+        alt={item.name}
+        size={size}
+        onError={(e) => (e.target.src = placeholder)}
+      />
       <Title>{item.name}</Title>
       <Price>{item.price.toLocaleString()}원</Price>
       <Likes>

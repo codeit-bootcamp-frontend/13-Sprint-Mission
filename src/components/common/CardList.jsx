@@ -18,7 +18,8 @@ const CardListWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 24px;
-  width: 1200px;
+  width: 100%;
+  /* width: 1200px; */
   /* grid-auto-rows: 1fr; // */
 `;
 

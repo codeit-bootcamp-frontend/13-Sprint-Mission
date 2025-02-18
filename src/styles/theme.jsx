@@ -1,5 +1,6 @@
+// theme.jsx
 const theme = {
-  font: {
+  fonts: {
     //weight , size , height , fontfamily
     H1: "700 28px/42px 'Pretendard', sans-serif",
     H2Bold: "700 24px/36px 'Pretendard', sans-serif",
@@ -18,7 +19,7 @@ const theme = {
   },
   // $font={`${theme.font.H4Regular}`}
 
-  color: {
+  colors: {
     Primary200: "#3692FF",
     Primary300: "#1967D6",
     Primary400: "#1251AA",
@@ -36,3 +37,5 @@ const theme = {
     Gray900: "#111827",
   },
 };
+
+export default theme;
