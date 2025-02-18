@@ -24,9 +24,13 @@ function AllItems() {
 
   // 아이템 불러오기
   const handleLoad = async (query) => {
-    const { list, totalCount } = await getItems(query);
-    setItems(list);
-    setTotalItemCount(totalCount);
+    try {
+      const { list, totalCount } = await getItems(query);
+      setItems(list);
+      setTotalItemCount(totalCount);
+    } catch (error) {
+      return;
+    }
   };
 
   useEffect(() => {
