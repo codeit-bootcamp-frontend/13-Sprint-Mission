@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { getItems } from "../../../apis/itemApi";
+import useWindowSize from "../../../hooks/useWindowSize";
 import ItemCard from "./ItemCard";
 import styles from "./BestItemsSection.module.css";
 
 function BestItems() {
   const [items, setItems] = useState([]);
   const [pageSize, setPageSize] = useState(4);
+  const { width } = useWindowSize();
 
   // 아이템 불러오기
   const handleLoad = async (query) => {
@@ -19,21 +21,20 @@ function BestItems() {
 
   // 반응형
   useEffect(() => {
-    function handleResize() {
-      const newPageSize = getPageSize(window.innerWidth);
-      if (newPageSize !== pageSize) {
-        setPageSize(newPageSize);
-      }
-    }
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [pageSize]);
+    let newPageSize;
 
-  function getPageSize(width) {
-    if (width > 1200) return 4; // PC
-    else if (width > 768) return 2; // Tablet
-    else return 1; // Mobile
-  }
+    if (width > 1200) {
+      newPageSize = 4; // PC
+    } else if (width > 768) {
+      newPageSize = 2; // Tablet
+    } else {
+      newPageSize = 1; // Mobile
+    }
+
+    if (newPageSize !== pageSize) {
+      setPageSize(newPageSize);
+    }
+  }, [width, pageSize]);
 
   return (
     <div className={styles.container}>

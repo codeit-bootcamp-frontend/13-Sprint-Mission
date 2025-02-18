@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getItems } from "../../../apis/itemApi";
+import useWindowSize from "../../../hooks/useWindowSize";
 import ItemCard from "./ItemCard";
 import SearchIcon from "../../../assets/icon/ic_search.svg";
+import DownIcon from "../../../assets/icon/ic_arrow_down.svg";
+import DropdownIcon from "../../../assets/icon/ic_sort.svg";
 import BackIcon from "../../../assets/icon/ic_back.svg";
 import NextIcon from "../../../assets/icon/ic_next.svg";
 import styles from "./AllItemsSection.module.css";
@@ -11,11 +14,13 @@ function AllItems() {
   const [order, setOrder] = useState("recent");
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
+  const [isOpen, setIsOpen] = useState(false);
   const [totalItemCount, setTotalItemCount] = useState(0);
   const [pageBound, setPageBound] = useState(0);
   const [items, setItems] = useState([]);
   const MaxPageBound = Math.floor(totalItemCount / pageSize / 5);
   const pageArr = [1, 2, 3, 4, 5];
+  const { width } = useWindowSize();
 
   // 아이템 불러오기
   const handleLoad = async (query) => {
@@ -54,21 +59,20 @@ function AllItems() {
 
   // 반응형
   useEffect(() => {
-    function handleResize() {
-      const newPageSize = getPageSize(window.innerWidth);
-      if (newPageSize !== pageSize) {
-        setPageSize(newPageSize);
-      }
-    }
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [pageSize]);
+    let newPageSize;
 
-  function getPageSize(width) {
-    if (width > 1200) return 10; // PC
-    else if (width > 768) return 6; // Tablet
-    else return 4; // Mobile
-  }
+    if (width > 1200) {
+      newPageSize = 10; // PC
+    } else if (width > 768) {
+      newPageSize = 6; // Tablet
+    } else {
+      newPageSize = 4; // Mobile
+    }
+
+    if (newPageSize !== pageSize) {
+      setPageSize(newPageSize);
+    }
+  }, [width, pageSize]);
 
   return (
     <div className={styles.container}>
@@ -89,12 +93,31 @@ function AllItems() {
               상품 등록하기
             </button>
           </Link>
+          {/* 아이템 정렬 */}
+          {pageSize === 4 ? (
+            <button
+              className={`${styles.orderSelect} ${styles.imgButton}`}
+              onClick={() => setIsOpen((prev) => !prev)}
+            >
+              <img src={DropdownIcon} alt="아이템 정렬" />
+            </button>
+          ) : (
+            <button
+              className={styles.orderSelect}
+              onClick={() => setIsOpen((prev) => !prev)}
+            >
+              {order === "recent" ? "최신순" : "좋아요순"}
+              <img src={DownIcon} alt="아이템 정렬" />
+            </button>
+          )}
+          {isOpen && <div className={styles.orderSelectList}>hi</div>}
           <select className={styles.orderSelect} onChange={handleOrderChange}>
             <option value="recent">최신순</option>
             <option value="favorite">좋아요순</option>
           </select>
         </div>
       </div>
+      {/* 아이템 목록 */}
       <ul className={styles.itemList}>
         {items.map((item) => (
           <li key={item.id}>
@@ -102,6 +125,7 @@ function AllItems() {
           </li>
         ))}
       </ul>
+      {/* 페이지네이션 */}
       <div className={styles.pageButtons}>
         <button
           className={styles.pageButton}

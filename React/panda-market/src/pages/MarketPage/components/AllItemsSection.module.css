@@ -47,19 +47,38 @@ form {
 
 .registerButton {
   padding: 1.2rem 2.3rem;
+  height: 4.2rem;
   border-radius: 0.8rem;
   font-weight: 600;
   font-size: 1.6rem;
 }
 
-.orderSelect {
-  width: 13rem;
-  padding: 1.2rem 2rem;
+.orderSelect,
+.orderSelect:hover,
+.orderSelect:focus {
+  display: flex;
+  gap: 2.4rem;
+  padding: 1.4rem;
+  height: 4.2rem;
+  background-color: #ffffff;
   border-radius: 1.2rem;
-  border-color: var(--gray200);
+  border: 0.1rem solid var(--gray200);
   font-weight: 400;
   font-size: 1.6rem;
   color: var(--gray800);
+}
+
+.imgButton,
+.imgButton:hover,
+.imgButton:focus {
+  width: 4.2rem;
+  height: 4.2rem;
+}
+
+.orderSelectList {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .itemList {
