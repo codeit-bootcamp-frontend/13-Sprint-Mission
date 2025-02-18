@@ -28,6 +28,7 @@ const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  width: ${({ size }) => (size === "large" ? "282px" : "221px")};
 
   ${({ size }) =>
     size === "large" &&
@@ -43,7 +44,9 @@ const CardWrapper = styled.div`
 
 const Image = styled.img`
   border-radius: 16px;
+  width: 100%;
   aspect-ratio: 1/1;
+  object-fit: cover;
 
   ${({ size }) =>
     size === "large" &&

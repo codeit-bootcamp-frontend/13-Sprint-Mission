@@ -2,6 +2,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import theme from "../../styles/theme";
+import ic_sort from "../../assets/images/icons/ic_sort.svg";
 
 export default function Dropdown({ sortOption, setSortOption }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,6 +49,17 @@ const DropdownButton = styled.button`
   display: flex;
   align-items: center;
   gap: 8px;
+
+  @media (max-width: 480px) {
+    background-image: url(${ic_sort});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px;
+    width: 42px;
+    padding: 0;
+    justify-content: center;
+    font-size: 0;
+  }
 `;
 
 const Arrow = styled.span`

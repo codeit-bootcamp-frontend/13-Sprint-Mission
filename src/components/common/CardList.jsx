@@ -3,12 +3,22 @@ import styled from "styled-components";
 import Card from "./Card";
 
 export default function CardList({ items, size }) {
+  const displayItems =
+    size === "large"
+      ? items.slice(
+          0,
+          window.innerWidth <= 480 ? 1 : window.innerWidth <= 768 ? 2 : 4
+        )
+      : items;
+
   return (
-    <CardListWrapper>
+    <CardListWrapper size={size}>
       {items.length === 0 ? (
         <EmptyMessage>상품이 없습니다.</EmptyMessage>
       ) : (
-        items.map((item) => <Card key={item.id} item={item} size={size} />)
+        displayItems.map((item) => (
+          <Card key={item.id} item={item} size={size} />
+        ))
       )}
     </CardListWrapper>
   );
@@ -16,11 +26,29 @@ export default function CardList({ items, size }) {
 
 const CardListWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
   gap: 24px;
   width: 100%;
-  /* width: 1200px; */
-  /* grid-auto-rows: 1fr; // */
+
+  ${({ size }) =>
+    size === "large"
+      ? `
+    grid-template-columns: repeat(4, 1fr); // 베스트 상품 (기본)
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr); // 태블릿
+    }
+    @media (max-width: 480px) {
+      grid-template-columns: repeat(1, 1fr); // 모바일
+    }
+  `
+      : `
+    grid-template-columns: repeat(5, 1fr); // 전체 상품 (기본)
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(3, 1fr); // 태블릿
+    }
+    @media (max-width: 480px) {
+      grid-template-columns: repeat(2, 1fr); // 모바일
+    }
+  `}
 `;
 
 const EmptyMessage = styled.p`

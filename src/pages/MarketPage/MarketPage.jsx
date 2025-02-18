@@ -88,6 +88,20 @@ const PageWrapper = styled.div`
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 24px;
+
+  @media (max-width: 1280px) {
+    max-width: 100%;
+    padding: 0 24px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 16px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 12px;
+  }
 `;
 
 const Section = styled.div`
