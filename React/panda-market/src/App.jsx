@@ -16,7 +16,7 @@ function App() {
       <div className={styles.body}>
         <Outlet />
       </div>
-      {!["/signin", "/signup"].includes(location.pathname) && (
+      {["/"].includes(location.pathname) && (
         <Footer className={styles.footer} />
       )}
     </>
