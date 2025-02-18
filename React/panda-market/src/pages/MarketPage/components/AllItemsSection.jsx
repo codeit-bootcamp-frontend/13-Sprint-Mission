@@ -35,9 +35,16 @@ function AllItems() {
 
   // 아이템 정렬
   const handleOrderChange = (event) => {
-    setOrder(event.target.value);
+    event.stopPropagation();
+    let selectedOrder = event.target.textContent;
+    if (selectedOrder === "최신순") {
+      setOrder("recent");
+    } else if (selectedOrder === "좋아요순") {
+      setOrder("favorite");
+    }
     setPage(1);
     setPageBound(0);
+    setIsOpen(false);
   };
 
   // 페이지네이션
@@ -93,28 +100,36 @@ function AllItems() {
               상품 등록하기
             </button>
           </Link>
-          {/* 아이템 정렬 */}
-          {pageSize === 4 ? (
-            <button
-              className={`${styles.orderSelect} ${styles.imgButton}`}
-              onClick={() => setIsOpen((prev) => !prev)}
-            >
+          {/* 아이템 정렬 드롭다운*/}
+          <button
+            className={styles.orderSelect}
+            onClick={() => setIsOpen((prev) => !prev)}
+          >
+            {width >= 768 ? (
+              <>
+                {order === "recent" ? "최신순" : "좋아요순"}
+                <img src={DownIcon} alt="아이템 정렬" />
+              </>
+            ) : (
               <img src={DropdownIcon} alt="아이템 정렬" />
-            </button>
-          ) : (
-            <button
-              className={styles.orderSelect}
-              onClick={() => setIsOpen((prev) => !prev)}
-            >
-              {order === "recent" ? "최신순" : "좋아요순"}
-              <img src={DownIcon} alt="아이템 정렬" />
-            </button>
-          )}
-          {isOpen && <div className={styles.orderSelectList}>hi</div>}
-          <select className={styles.orderSelect} onChange={handleOrderChange}>
-            <option value="recent">최신순</option>
-            <option value="favorite">좋아요순</option>
-          </select>
+            )}
+            {isOpen && (
+              <div className={styles.orderSelectList}>
+                <div
+                  className={styles.orderSelectOption}
+                  onClick={handleOrderChange}
+                >
+                  최신순
+                </div>
+                <div
+                  className={styles.orderSelectOption}
+                  onClick={handleOrderChange}
+                >
+                  좋아요순
+                </div>
+              </div>
+            )}
+          </button>
         </div>
       </div>
       {/* 아이템 목록 */}
