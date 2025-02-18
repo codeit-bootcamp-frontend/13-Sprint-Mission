@@ -13,7 +13,7 @@ function Main() {
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<HomePage />} />
-          <Route path="login" element={<LoginPage />} />
+          <Route path="signin" element={<LoginPage />} />
           <Route path="community" element={<CommunityPage />} />
           <Route path="items">
             <Route index element={<MarketPage />} />
