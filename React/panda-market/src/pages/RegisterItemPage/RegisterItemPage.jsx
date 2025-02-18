@@ -34,6 +34,10 @@ function RegisterItemPage() {
     }
   };
 
+  const handleDeleteTag = (index) => {
+    setTagValues((prev) => prev.filter((_, i) => i !== index));
+  };
+
   useEffect(() => {
     const { name, description, price, tag } = formData;
     if (name && description && price && tag) {
@@ -105,7 +109,7 @@ function RegisterItemPage() {
             {tagValues.map((value, index) => (
               <div key={index} className={styles.tag}>
                 #{value}
-                <button type="button">
+                <button type="button" onClick={() => handleDeleteTag(index)}>
                   <img
                     src={DeleteIcon}
                     alt="삭제"
