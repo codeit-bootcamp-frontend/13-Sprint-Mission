@@ -39,13 +39,13 @@ function RegisterItemPage() {
   };
 
   useEffect(() => {
-    const { name, description, price, tag } = formData;
-    if (name && description && price && tag) {
+    const { name, description, price } = formData;
+    if (name && description && price && tagValues.length !== 0) {
       setRegisterAvailable(true);
     } else {
       setRegisterAvailable(false);
     }
-  }, [formData]);
+  }, [formData, tagValues]);
 
   return (
     <form className={styles.container} onSubmit={handleRegister}>
