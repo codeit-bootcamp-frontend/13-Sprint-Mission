@@ -31,13 +31,20 @@ const INPUT_FIELDS = {
 function InputField({ name, isError }) {
   const { id, type, label, placeholder } = INPUT_FIELDS[name];
   const [isFocused, setIsFocused] = useState(false);
+  const [currrentInputType, setCurrrentInputType] = useState(type);
 
-  const handleFocus = () => {
+  const handleInputFocus = () => {
     setIsFocused(true);
   };
 
-  const handleBlur = () => {
+  const handleInputBlur = () => {
     setIsFocused(false);
+  };
+
+  const togglePasswordVisibility = () => {
+    setCurrrentInputType((prevInputType) =>
+      prevInputType === "password" ? "text" : "password",
+    );
   };
 
   return (
@@ -51,15 +58,19 @@ function InputField({ name, isError }) {
         <input
           id={id}
           name={name}
-          type={type}
+          type={type === "password" ? currrentInputType : type}
           placeholder={placeholder}
           className="w-full text-gray-800 placeholder:font-normal placeholder:text-gray-400 focus:outline-none"
-          onFocus={handleFocus}
-          onBlur={handleBlur}
+          onFocus={handleInputFocus}
+          onBlur={handleInputBlur}
         />
-        {name.includes("password") ? (
+        {type === "password" ? (
           <button type="button" className="cursor-pointer">
-            <img src={ic_visibility_off} alt="비밀번호 표시하기" />
+            <img
+              src={ic_visibility_off}
+              alt="비밀번호 표시하기"
+              onClick={togglePasswordVisibility}
+            />
           </button>
         ) : null}
       </div>
