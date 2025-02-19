@@ -41,6 +41,12 @@ function RegisterItemPage() {
     setItemImg(URL.createObjectURL(files[0]));
   };
 
+  const handleDeleteFile = () => {
+    setItemImg(null);
+    setFileError("");
+    fileInputRef.current.value = "";
+  };
+
   const handleChange = (event) => {
     const { id, value } = event.target;
     setFormData((prev) => ({
@@ -111,6 +117,14 @@ function RegisterItemPage() {
             {itemImg && (
               <div className={styles.imgPreview}>
                 <img src={itemImg} alt="상품 이미지 미리보기" />
+                <button type="button">
+                  <img
+                    src={DeleteIcon}
+                    alt="삭제"
+                    className={styles.deleteButton}
+                    onClick={handleDeleteFile}
+                  />
+                </button>
               </div>
             )}
           </div>
