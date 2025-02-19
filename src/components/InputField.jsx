@@ -1,4 +1,5 @@
 import ic_visibility_off from "@/assets/ic_visibility_off.svg";
+import { useState } from "react";
 
 const INPUT_FIELDS = {
   email: {
@@ -27,25 +28,38 @@ const INPUT_FIELDS = {
   },
 };
 
-function InputField({ name }) {
+function InputField({ name, isError }) {
   const { id, type, label, placeholder } = INPUT_FIELDS[name];
+  const [isFocused, setIsFocused] = useState(false);
+
+  const handleFocus = () => {
+    setIsFocused(true);
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
+  };
 
   return (
     <div>
       <label htmlFor={id} className="text-gray-800">
         {label}
       </label>
-      <div className="mt-4 flex h-14 w-full items-center justify-stretch gap-3 rounded-xl bg-gray-100 px-6">
+      <div
+        className={`mt-4 flex h-14 w-full items-center justify-stretch gap-3 rounded-xl bg-gray-100 px-6 ${isFocused ? "outline-2 outline-blue-500" : ""} ${isError ? "outline-red outline-2" : ""}`}
+      >
         <input
           id={id}
           name={name}
           type={type}
           placeholder={placeholder}
           className="w-full text-gray-800 placeholder:font-normal placeholder:text-gray-400 focus:outline-none"
+          onFocus={handleFocus}
+          onBlur={handleBlur}
         />
         {name.includes("password") ? (
           <button type="button" className="cursor-pointer">
-            <img src={ic_visibility_off} alt="비밀번호 표시" />
+            <img src={ic_visibility_off} alt="비밀번호 표시하기" />
           </button>
         ) : null}
       </div>
