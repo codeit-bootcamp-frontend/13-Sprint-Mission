@@ -1,19 +1,29 @@
 import InputField from "@/components/InputField";
+import logo_md from "@/assets/logo_md.svg";
 import logo_lg from "@/assets/logo_lg.svg";
 import { useLocation, Link } from "react-router";
 import ic_google from "@/assets/ic_google.svg";
 import ic_kakaoTalk from "@/assets/ic_kakaoTalk.svg";
+
+function LogoImage() {
+  return (
+    <>
+      <img src={logo_md} alt="홈으로 이동" className="block md:hidden" />
+      <img src={logo_lg} alt="홈으로 이동" className="hidden md:block" />
+    </>
+  );
+}
 
 function Auth() {
   const location = useLocation();
   const isSignUp = location.pathname === "/signup";
 
   return (
-    <main className="my-15 flex flex-col items-center">
-      <Link to="/" className="mb-10">
-        <img src={logo_lg} alt="" />
+    <main className="my-15 flex flex-col items-center px-4">
+      <Link to="/" className="mb-6 md:mb-10">
+        <LogoImage />
       </Link>
-      <div className="flex w-160 flex-col gap-6">
+      <div className="flex w-full max-w-160 flex-col gap-6">
         <form className="flex flex-col gap-6">
           <InputField name="email" />
           {isSignUp && <InputField name="nickname" />}
