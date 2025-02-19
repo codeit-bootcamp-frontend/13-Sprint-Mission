@@ -7,7 +7,7 @@ function PrimaryCard({ image, title, isButtonVisible }) {
   };
 
   return (
-    <div className="flex w-277.5 flex-col items-center justify-between xl:flex-row">
+    <div className="flex flex-col items-center justify-between xl:flex-row">
       <div className="mt-12 flex flex-col items-center justify-center xl:mt-0 xl:items-start">
         <div className="w-60 text-center text-[32px]/11 font-bold break-keep text-gray-700 md:w-full md:text-[40px]/14 xl:w-74 xl:text-left">
           {title}
