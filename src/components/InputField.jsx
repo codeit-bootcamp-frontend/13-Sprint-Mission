@@ -41,10 +41,10 @@ function InputField({ name }) {
           name={name}
           type={type}
           placeholder={placeholder}
-          className="w-full text-gray-800 placeholder:text-gray-400"
+          className="w-full text-gray-800 placeholder:font-normal placeholder:text-gray-400 focus:outline-none"
         />
         {name.includes("password") ? (
-          <button type="button">
+          <button type="button" className="cursor-pointer">
             <img src={ic_visibility_off} alt="비밀번호 표시" />
           </button>
         ) : null}

@@ -31,13 +31,13 @@ function Auth() {
           {isSignUp && <InputField name="passwordConfirm" />}
           <button
             type="submit"
-            className="h-14 rounded-[40px] bg-gray-400 px-31 py-4 text-gray-100"
+            className="h-14 cursor-pointer rounded-[40px] bg-gray-400 px-31 py-4 text-xl font-semibold text-gray-100"
           >
             {isSignUp ? "회원가입" : "로그인"}
           </button>
         </form>
         <div className="flex items-center justify-between rounded-lg bg-blue-50 px-6 py-4">
-          간편 로그인하기
+          <div className="select-none">간편 로그인하기</div>
           <div className="flex gap-4">
             <a
               href="https://google.com"
@@ -56,12 +56,18 @@ function Auth() {
           </div>
         </div>
         {isSignUp ? (
-          <div className="m-auto">
-            이미 회원이신가요? <Link to="/login">로그인</Link>
+          <div className="m-auto text-sm select-none">
+            이미 회원이신가요?{" "}
+            <Link to="/login" className="text-blue-400 underline">
+              로그인
+            </Link>
           </div>
         ) : (
-          <div className="m-auto">
-            판다마켓이 처음이신가요? <Link to="/signup">회원가입</Link>
+          <div className="m-auto select-none">
+            판다마켓이 처음이신가요?{" "}
+            <Link to="/signup" className="text-blue-400 underline">
+              회원가입
+            </Link>
           </div>
         )}
       </div>
