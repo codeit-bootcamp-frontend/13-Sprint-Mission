@@ -48,6 +48,51 @@ h2.title {
   color: var(--gray800);
 }
 
+.imgSectionContainer {
+  display: flex;
+  gap: 2.4rem;
+}
+
+.imgAddButton,
+.imgAddButton:hover,
+.imgAddButton:focus,
+.imgAddButton:disabled {
+  width: 28.2rem;
+  height: 28.2rem;
+  border-radius: 1.2rem;
+  background-color: var(--gray100);
+}
+
+.imgAddButtonContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.imgAddButtonText {
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--gray400);
+}
+
+.imgPreview {
+  width: 28.2rem;
+  height: 28.2rem;
+}
+
+.imgPreview > img {
+  width: 100%;
+  border-radius: 1.2rem;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.errorMessage {
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--red);
+}
+
 input,
 input:focus {
   height: 5.6rem;
@@ -121,11 +166,29 @@ textarea::placeholder {
   .container {
     padding: 1.6rem 2.4rem;
   }
+
+  .imgSectionContainer {
+    gap: 1rem;
+  }
+
+  .imgAddButton {
+    width: 16.8rem;
+    height: 16.8rem;
+  }
 }
 
 /* Mobile */
 @media (max-width: 767px) {
   .container {
     padding: 2.4rem 1.5rem;
+  }
+
+  .imgSectionContainer {
+    gap: 1rem;
+  }
+
+  .imgAddButton {
+    width: 16.8rem;
+    height: 16.8rem;
   }
 }
