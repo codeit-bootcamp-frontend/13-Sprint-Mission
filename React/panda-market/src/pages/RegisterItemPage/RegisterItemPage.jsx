@@ -109,7 +109,7 @@ function RegisterItemPage() {
               />
               <div className={styles.imgAddButtonContent}>
                 <div>
-                  <img src={PrusIcon} alt="이미지 등록" />
+                  <img src={PrusIcon} alt="" />
                 </div>
                 <div className={styles.imgAddButtonText}>이미지 등록</div>
               </div>
@@ -120,7 +120,7 @@ function RegisterItemPage() {
                 <button type="button">
                   <img
                     src={DeleteIcon}
-                    alt="삭제"
+                    alt=""
                     className={styles.deleteButton}
                     onClick={handleDeleteFile}
                   />
@@ -179,7 +179,7 @@ function RegisterItemPage() {
                 <button type="button" onClick={() => handleDeleteTag(index)}>
                   <img
                     src={DeleteIcon}
-                    alt="삭제"
+                    alt=""
                     className={styles.deleteButton}
                   />
                 </button>

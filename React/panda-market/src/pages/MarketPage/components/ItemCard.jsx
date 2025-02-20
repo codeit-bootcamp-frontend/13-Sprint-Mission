@@ -14,7 +14,7 @@ function ItemCard({ item }) {
           <li className={styles.itemName}>{name}</li>
           <li className={styles.itemPrice}>{price}원</li>
           <li className={styles.itemLike}>
-            <img src={heartIcon} alt="좋아요" />
+            <img src={heartIcon} alt="" />
             {favoriteCount}
           </li>
         </ul>

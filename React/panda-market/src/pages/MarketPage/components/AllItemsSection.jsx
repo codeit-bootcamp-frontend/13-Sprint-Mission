@@ -105,7 +105,7 @@ function AllItems() {
         <div className={styles.title}>전체 상품</div>
         <div className={styles.menu}>
           <form>
-            <img src={SearchIcon} className={styles.searchIcon} alt="검색" />
+            <img src={SearchIcon} className={styles.searchIcon} alt="" />
             <input
               name="search"
               type="search"
@@ -126,10 +126,10 @@ function AllItems() {
             {width >= 768 ? (
               <>
                 {order === "recent" ? "최신순" : "좋아요순"}
-                <img src={DownIcon} alt="아이템 정렬" />
+                <img src={DownIcon} alt="" />
               </>
             ) : (
-              <img src={DropdownIcon} alt="아이템 정렬" />
+              <img src={DropdownIcon} alt="" />
             )}
             {isOpen && (
               <div className={styles.orderSelectList}>
@@ -165,7 +165,7 @@ function AllItems() {
           onClick={minusPageBound}
           disabled={pageBound < 1 ? true : false}
         >
-          <img src={BackIcon} alt="이전 페이지" />
+          <img src={BackIcon} alt="" />
         </button>
         {PAGE_ARRAY.map((num) => (
           <button
@@ -183,7 +183,7 @@ function AllItems() {
           onClick={plusPageBound}
           disabled={pageBound === MaxPageBound ? true : false}
         >
-          <img src={NextIcon} alt="다음 페이지" />
+          <img src={NextIcon} alt="" />
         </button>
       </div>
     </div>
