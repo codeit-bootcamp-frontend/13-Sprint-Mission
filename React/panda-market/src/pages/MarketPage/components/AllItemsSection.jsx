@@ -23,18 +23,18 @@ function AllItems() {
   const { width } = useWindowSize();
 
   // 아이템 불러오기
-  const handleLoad = async (query) => {
-    try {
-      const { list, totalCount } = await getItems(query);
-      setItems(list);
-      setTotalItemCount(totalCount);
-    } catch (error) {
-      return;
-    }
-  };
-
   useEffect(() => {
-    handleLoad({ page, pageSize, order });
+    const handleLoad = async () => {
+      try {
+        const { list, totalCount } = await getItems({ page, pageSize, order });
+        setItems(list);
+        setTotalItemCount(totalCount);
+      } catch (error) {
+        alert(error.message);
+        console.error("ERROR: ", error);
+      }
+    };
+    handleLoad();
   }, [page, pageSize, order]);
 
   // 아이템 정렬

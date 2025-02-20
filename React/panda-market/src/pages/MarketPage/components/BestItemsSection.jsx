@@ -10,13 +10,21 @@ function BestItems() {
   const { width } = useWindowSize();
 
   // 아이템 불러오기
-  const handleLoad = async (query) => {
-    const { list } = await getItems(query);
-    setItems(list);
-  };
-
   useEffect(() => {
-    handleLoad({ page: 1, pageSize, order: "favorite" });
+    const handleLoad = async () => {
+      try {
+        const { list } = await getItems({
+          page: 1,
+          pageSize,
+          order: "favorite",
+        });
+        setItems(list);
+      } catch (error) {
+        alert(error.message);
+        console.error("ERROR: ", error);
+      }
+    };
+    handleLoad();
   }, [pageSize]);
 
   // 반응형
