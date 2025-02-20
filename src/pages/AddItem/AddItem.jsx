@@ -12,13 +12,15 @@ const INITIAL_DATA = {
   price: 0,
   tags: [],
 };
+const REQUIRED_INPUT = ["name", "content", "tags", "price"];
+//
 function AddItem() {
   const [tag, setTag] = useState("");
   const [formData, setFormData] = useState(INITIAL_DATA);
   //
-  const handleChange = (target) => {
-    setFormData({ ...formData, [target.name]: target.value });
-    //ToDo: img 프로퍼티에는 imgInput에서 넘겨준 file 객체가 담기고 있음 추후 백엔드 확인해야함
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    //ToDo: img 프로퍼티에는 imgInput에서 넘겨준 file 객체가 담기고 있음
   };
 
   const CreateTag = (e) => {
@@ -40,8 +42,7 @@ function AddItem() {
     setFormData((prev) => ({ ...prev, tags: filterTags }));
   };
 
-  const requiredInput = ["name", "content", "tags", "price"];
-  const isInputValid = requiredInput.every((field) => {
+  const isInputValid = REQUIRED_INPUT.every((field) => {
     const value = formData[field];
     switch (typeof value) {
       case "object":
@@ -69,7 +70,6 @@ function AddItem() {
         </S.FlexDiv>
         <S.InputsContainer>
           <I.ImgInput
-            type="file"
             name="img"
             placeholder={placeholder.img}
             onChange={handleChange}
@@ -82,7 +82,7 @@ function AddItem() {
             onChange={handleChange}
           />
           <I.Input
-            textArea
+            $textArea
             label="상품 소개"
             placeholder={placeholder.content}
             name="content"
@@ -103,18 +103,9 @@ function AddItem() {
               name="tags"
               value={tag}
               onKeyUp={CreateTag}
-              onChange={setTag}
+              onChange={(e) => setTag(e.target.value)}
             />
-            <S.TagsContainer>
-              {formData.tags &&
-                formData.tags.map((tag) => {
-                  return (
-                    <div key={tag}>
-                      <Tag value={tag} onClick={handleClickTagDelete} />
-                    </div>
-                  );
-                })}
-            </S.TagsContainer>
+            <Tag tags={formData.tags} onClick={handleClickTagDelete} />
           </S.TagInputContainer>
         </S.InputsContainer>
       </S.Container>

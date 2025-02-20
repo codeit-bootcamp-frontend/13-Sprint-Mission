@@ -3,36 +3,22 @@ import DeleteIcon from "../../../assets/icons/DeleteIcon.svg";
 import * as S from "./Input.style";
 import { useRef, useState } from "react";
 //
-export function Input({ label, placeholder, name, onChange, ...props }) {
-  const { tag, onKeyUp, value, type, textArea, ...rest } = props;
-  const handleChange = (e) => {
-    onChange(e.target);
-  };
-  const handleOnKeyUp = (e) => {
-    onKeyUp(e);
-  };
-  const handleChangeTag = (e) => {
-    onChange(e.target.value);
-  };
+export function Input({ onChange, ...props }) {
+  const { label, tag, onKeyUp, ...rest } = props;
+
   return (
     <S.InputWrapper>
-      <S.Label>{label}</S.Label>
+      {!label && <S.Label {...props}>{label}</S.Label>}
       <S.Input
-        type={type ? type : "text"}
-        value={value}
-        name={name}
-        $textArea={textArea}
-        placeholder={placeholder}
-        onChange={tag ? handleChangeTag : handleChange}
-        onKeyUp={tag ? handleOnKeyUp : undefined}
+        onChange={onChange}
+        onKeyUp={onKeyUp && onKeyUp}
         {...rest}
       ></S.Input>
     </S.InputWrapper>
   );
 }
 //
-export function ImgInput({ placeholder, type, name, onChange, ...props }) {
-  const { ...rest } = props;
+export function ImgInput({ onChange, ...props }) {
   const imgRef = useRef();
   const [imgPreview, setImgPreview] = useState("");
 
@@ -55,16 +41,15 @@ export function ImgInput({ placeholder, type, name, onChange, ...props }) {
       <S.ImgInputContainer>
         <S.ImgInput
           onChange={handlePreviewImg}
-          type={type}
-          name={name}
+          type="file"
           id="fileUpload"
           accept="image/*"
           ref={imgRef}
-          {...rest}
+          {...props}
         />
         <S.PlusLabelContainer htmlFor="fileUpload">
           <S.PlusIcon src={PlusIcon} />
-          <p>{placeholder}</p>
+          <p>{props.placeholder}</p>
         </S.PlusLabelContainer>
       </S.ImgInputContainer>
       <div>

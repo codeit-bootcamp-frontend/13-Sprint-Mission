@@ -4,7 +4,7 @@ const theme = {
     gray800: "#1f2937",
     gray700: "#374151",
     gray600: "#4b5563",
-    gray500: "#6b7280",
+    gray500: "#737373",
     gray400: "#9ca3af",
     gray200: "#e5e7eb",
     gray100: "#f3f4f6",
@@ -14,6 +14,24 @@ const theme = {
     backgroundLightBlue: "#cfe5ff",
     backgroundLightGray: "#fcfcfc",
     inputRed: "#f74747",
+  },
+  font: {
+    //weight , size , height , fontfamily
+    H1: "600 40px/47px 'Pretendard', sans-serif",
+    H2Bold: "600 24px/32px 'Pretendard', sans-serif",
+    H2Regular: "400 24px/36px 'Pretendard', sans-serif",
+    H3Bold: "600 20px/30px 'Pretendard', sans-serif",
+    H3Regular: "400 20px/30px 'Pretendard', sans-serif",
+    H4Bold: "600 18px/28px 'Pretendard', sans-serif",
+    H4Regular: "400 18px/28px 'Pretendard', sans-serif",
+    H5Bold: "600 16px/26px 'Pretendard', sans-serif",
+    H5Regular: "400 16px/26px 'Pretendard', sans-serif",
+    H6Bold: "600 15px/22px 'Pretendard', sans-serif",
+    H6Regular: "400 15px/22px 'Pretendard', sans-serif",
+    H7Bold: "600 14px/20px 'Pretendard', sans-serif",
+    H7Medium: "500 14px/24px 'Pretendard', sans-serif",
+    H7Regular: "400 14px/24px 'Pretendard', sans-serif",
+    H8: "400 12px/18px 'Pretendard', sans-serif",
   },
 };
 export default theme;

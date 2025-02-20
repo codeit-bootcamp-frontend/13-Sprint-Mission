@@ -1,7 +1,8 @@
-import favoriteImg from "../assets/favoriteLogo.svg";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import useWindowSize from "../hooks/useWindowSize";
+import useWindowSize from "../../hooks/useWindowSize";
 //
+import BtnHeart from "../../components/common/BtnHeart/BtnHeart";
 
 const ByDevice = {
   best: {
@@ -102,9 +103,10 @@ const Item = styled.div`
 //
 
 function ListItem({ value, items }) {
+  const navigate = useNavigate();
   const device = useWindowSize();
   return (
-    <Item>
+    <Item onClick={() => navigate(`./${items.id}`)}>
       <ProductImg
         value={value}
         device={device}
@@ -116,8 +118,7 @@ function ListItem({ value, items }) {
         <Title>{items.name}</Title>
         <Price>{items.price} 원</Price>
         <div>
-          <img src={favoriteImg} alt="좋아요하트"></img>
-          <FavoriteCount>{items.favoriteCount}</FavoriteCount>
+          <BtnHeart small value={items.favoriteCount} />
         </div>
       </div>
     </Item>

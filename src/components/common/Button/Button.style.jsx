@@ -1,6 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import theme from "../../../style/theme";
 //
+
 export const Button = styled.button`
   display: flex;
   justify-content: center;
@@ -18,4 +19,16 @@ export const Button = styled.button`
   &:disabled {
     background-color: ${theme.color.gray400};
   }
+
+  ${(props) =>
+    props.$medium &&
+    css`
+      width: 240px;
+      height: 48px;
+    `};
+  ${(props) =>
+    props.$circle &&
+    css`
+      border-radius: 40px;
+    `};
 `;

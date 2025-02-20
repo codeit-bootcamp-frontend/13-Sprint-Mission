@@ -17,6 +17,12 @@ export const Label = styled.label`
   color: ${theme.color.gray800};
   font-weight: 700;
   line-height: 26px;
+  ${(props) =>
+    props.$comment &&
+    css`
+      font-weight: 600;
+      font-size: 16px;
+    `}
 `;
 
 export const Input = styled.input`
@@ -37,6 +43,9 @@ export const Input = styled.input`
     font-size: 16px;
     text-align: left;
     position: absolute;
+    white-space: normal;
+    word-break: break-word;
+
     top: 16px;
     left: 24px;
   }
@@ -47,6 +56,22 @@ export const Input = styled.input`
     props.$textArea &&
     css`
       height: 282px;
+    `}
+  ${(props) =>
+    props.$comment &&
+    css`
+      font: ${theme.font.H7Regular};
+      height: 104px;
+      @media (max-width: 375px) {
+        height: 129px;
+      }
+    `}
+
+    ${(props) =>
+    props.$edit &&
+    css`
+      font: ${theme.font.H7Regular};
+      height: 80px;
     `}
 `;
 

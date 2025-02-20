@@ -54,9 +54,3 @@ export const TagInputContainer = styled.div`
   flex-direction: column;
   gap: 14px;
 `;
-
-export const TagsContainer = styled.div`
-  width: 100%;
-  display: flex;
-  gap: 12px;
-`;

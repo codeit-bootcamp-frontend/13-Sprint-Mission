@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import pandaLogo from "../../../assets/Logo/pandaLogo.svg";
 import textLogo from "../../../assets/Logo/textLogo.svg";
-import myLogo from "../../../assets/icons/myLogo.svg";
+import myLogo from "../../../assets/icons/default.profile.icon.svg";
 import * as S from "./Nav.style.jsx";
 import useWindowSize from "../../../hooks/useWindowSize";
 
