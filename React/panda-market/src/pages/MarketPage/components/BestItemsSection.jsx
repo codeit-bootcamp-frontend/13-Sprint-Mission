@@ -4,6 +4,11 @@ import useWindowSize from "../../../hooks/useWindowSize";
 import ItemCard from "./ItemCard";
 import styles from "./BestItemsSection.module.css";
 
+const BREAKPOINTS = {
+  DESKTOP: 1200,
+  TABLET: 768,
+};
+
 function BestItems() {
   const [items, setItems] = useState([]);
   const [pageSize, setPageSize] = useState(4);
@@ -31,9 +36,9 @@ function BestItems() {
   useEffect(() => {
     let newPageSize;
 
-    if (width > 1200) {
+    if (width > BREAKPOINTS.DESKTOP) {
       newPageSize = 4; // PC
-    } else if (width > 768) {
+    } else if (width > BREAKPOINTS.TABLET) {
       newPageSize = 2; // Tablet
     } else {
       newPageSize = 1; // Mobile

@@ -10,23 +10,37 @@ import BackIcon from "../../../assets/icon/ic_back.svg";
 import NextIcon from "../../../assets/icon/ic_next.svg";
 import styles from "./AllItemsSection.module.css";
 
+const BREAKPOINTS = {
+  DESKTOP: 1200,
+  TABLET: 768,
+};
+
+const PAGE_ARRAY = [1, 2, 3, 4, 5];
+const PAGE_CHUNK_SIZE = 5;
+
 function AllItems() {
   const [order, setOrder] = useState("recent");
   const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
   const [isOpen, setIsOpen] = useState(false);
   const [totalItemCount, setTotalItemCount] = useState(0);
   const [pageBound, setPageBound] = useState(0);
   const [items, setItems] = useState([]);
-  const MaxPageBound = Math.floor(totalItemCount / pageSize / 5);
-  const pageArr = [1, 2, 3, 4, 5];
+
+  const MaxPageBound = Math.floor(
+    totalItemCount / itemsPerPage / PAGE_CHUNK_SIZE
+  );
   const { width } = useWindowSize();
 
   // 아이템 불러오기
   useEffect(() => {
     const handleLoad = async () => {
       try {
-        const { list, totalCount } = await getItems({ page, pageSize, order });
+        const { list, totalCount } = await getItems({
+          page,
+          pageSize: itemsPerPage,
+          order,
+        });
         setItems(list);
         setTotalItemCount(totalCount);
       } catch (error) {
@@ -35,7 +49,7 @@ function AllItems() {
       }
     };
     handleLoad();
-  }, [page, pageSize, order]);
+  }, [page, itemsPerPage, order]);
 
   // 아이템 정렬
   const handleOrderChange = (event) => {
@@ -58,32 +72,32 @@ function AllItems() {
 
   const plusPageBound = () => {
     setPageBound(pageBound + 1);
-    setPage(1 + 5 * (pageBound + 1));
+    setPage(1 + PAGE_CHUNK_SIZE * (pageBound + 1));
   };
 
   const minusPageBound = () => {
     pageBound < 1 ? setPageBound(0) : setPageBound(pageBound - 1);
     pageBound < 1
-      ? setPage(1 + 5 * pageBound)
-      : setPage(1 + 5 * (pageBound - 1));
+      ? setPage(1 + PAGE_CHUNK_SIZE * pageBound)
+      : setPage(1 + PAGE_CHUNK_SIZE * (pageBound - 1));
   };
 
   // 반응형
   useEffect(() => {
     let newPageSize;
 
-    if (width > 1200) {
+    if (width > BREAKPOINTS.DESKTOP) {
       newPageSize = 10; // PC
-    } else if (width > 768) {
+    } else if (width > BREAKPOINTS.TABLET) {
       newPageSize = 6; // Tablet
     } else {
       newPageSize = 4; // Mobile
     }
 
-    if (newPageSize !== pageSize) {
-      setPageSize(newPageSize);
+    if (newPageSize !== itemsPerPage) {
+      setItemsPerPage(newPageSize);
     }
-  }, [width, pageSize]);
+  }, [width, itemsPerPage]);
 
   return (
     <div className={styles.container}>
@@ -153,15 +167,15 @@ function AllItems() {
         >
           <img src={BackIcon} alt="이전 페이지" />
         </button>
-        {pageArr.map((num) => (
+        {PAGE_ARRAY.map((num) => (
           <button
             className={`${styles.pageButton} ${
               num === page ? styles.activePage : ""
             }`}
-            value={num + 5 * pageBound}
+            value={num + PAGE_CHUNK_SIZE * pageBound}
             onClick={changePage}
           >
-            {num + 5 * pageBound}
+            {num + PAGE_CHUNK_SIZE * pageBound}
           </button>
         ))}
         <button
