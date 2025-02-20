@@ -1,9 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import App from "./components/App";
-import HomePage from "./pages/HomePage";
-import ItemPage from "./pages/ItemPage";
-import ItemListPage from "./pages/ItemListPage";
-import RegisterItemPage from "./pages/RegisterItemPage";
+import App from "./App";
+import HomePage from "./pages/HomePage/HomePage";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import CommunityPage from "./pages/CommunityPage/CommunityPage";
+import MarketPage from "./pages/MarketPage/MarketPage";
+import ItemPage from "./pages/ItemPage/ItemPage";
+import RegisterItemPage from "./pages/RegisterItemPage/RegisterItemPage";
 
 function Main() {
   return (
@@ -11,8 +13,10 @@ function Main() {
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<HomePage />} />
+          <Route path="signin" element={<LoginPage />} />
+          <Route path="community" element={<CommunityPage />} />
           <Route path="items">
-            <Route index element={<ItemListPage />} />
+            <Route index element={<MarketPage />} />
             <Route path=":productId" element={<ItemPage />} />
           </Route>
           <Route path="additem" element={<RegisterItemPage />} />

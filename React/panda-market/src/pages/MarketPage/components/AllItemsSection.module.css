@@ -1,0 +1,173 @@
+.container {
+  padding: 3rem 0;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--gray900);
+}
+
+.menu {
+  display: flex;
+  gap: 1rem;
+}
+
+form {
+  position: relative;
+}
+
+.searchBar {
+  width: 32.5rem;
+  height: 4.2rem;
+  border: none;
+  background-color: var(--gray100);
+  padding: 0 5rem;
+  border-radius: 1.2rem;
+  font-size: 1.6rem;
+}
+
+.searchBar::placeholder {
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--gray400);
+}
+
+.searchIcon {
+  position: absolute;
+  top: 1.4rem;
+  left: 2rem;
+}
+
+.registerButton {
+  padding: 1.2rem 2.3rem;
+  height: 4.2rem;
+  border-radius: 0.8rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.orderSelect,
+.orderSelect:hover,
+.orderSelect:focus {
+  display: flex;
+  gap: 1.2rem;
+  padding-left: 1.2rem;
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--gray800);
+  position: relative;
+  height: 4.2rem;
+  width: 13rem;
+  background-color: #ffffff;
+  border-radius: 1.2rem;
+  border: 0.1rem solid var(--gray200);
+}
+
+.orderSelectList {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 5rem;
+  right: 0;
+  width: 13rem;
+  background-color: #ffffff;
+  border-radius: 1.2rem;
+  border: 0.1rem solid var(--gray200);
+}
+
+.orderSelectOption {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4.2rem;
+}
+
+.orderSelectOption:first-child {
+  border-bottom: 0.1rem solid var(--gray200);
+}
+
+.itemList {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+  padding-left: 0;
+  padding-top: 2rem;
+  margin: 0;
+  list-style: none;
+}
+
+.pageButtons {
+  padding-left: 0;
+  padding-top: 2rem;
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+}
+
+.pageButton,
+.pageButton:hover,
+.pageButton:focus {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 4rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: var(--gray500);
+  background-color: #ffffff;
+  border: 0.1rem solid var(--gray200);
+}
+
+.pageButton:disabled {
+  background-color: var(--gray200);
+}
+
+.activePage,
+.activePage:hover,
+.activePage:focus {
+  background-color: var(--blue);
+  color: #ffffff;
+}
+
+/* Tablet */
+@media (max-width: 1199px) {
+  .container {
+    padding: 3rem 2.4rem;
+  }
+
+  .itemList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .container {
+    padding: 3rem 1.2rem;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+  }
+
+  .itemList {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .orderSelect,
+  .orderSelect:hover,
+  .orderSelect:focus {
+    width: 4.2rem;
+    height: 4.2rem;
+  }
+}
