@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ImageUploader from "./components/ImageUploader";
-import DeleteIcon from "../../assets/icon/ic_delete.svg";
+import DeleteButton from "../../components/UI/DeleteButton";
 import styles from "./RegisterItemPage.module.css";
 
 function RegisterItemPage() {
@@ -111,13 +111,7 @@ function RegisterItemPage() {
             {tagValues.map((value, index) => (
               <div key={index} className={styles.tag}>
                 #{value}
-                <button type="button" onClick={() => handleDeleteTag(index)}>
-                  <img
-                    src={DeleteIcon}
-                    alt=""
-                    className={styles.deleteButton}
-                  />
-                </button>
+                <DeleteButton onClick={() => handleDeleteTag(index)} />
               </div>
             ))}
           </div>

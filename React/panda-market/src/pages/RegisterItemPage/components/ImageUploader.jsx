@@ -1,8 +1,9 @@
 import { useState, useRef } from "react";
+import DeleteButton from "../../../components/UI/DeleteButton";
 import PrusIcon from "../../../assets/icon/ic_plus.svg";
-import DeleteIcon from "../../../assets/icon/ic_delete.svg";
 import styles from "./ImageUploader.module.css";
 
+// 나중에 등록 기능 구현 시 업로드한 이미지 파일 주소를 RegisterItemPage로 lifting 해줄 필요가 있어 보임
 function ImageUpload() {
   const [itemImg, setItemImg] = useState(null);
   const [fileError, setFileError] = useState("");
@@ -61,14 +62,9 @@ function ImageUpload() {
         {itemImg && (
           <div className={styles.imgPreview}>
             <img src={itemImg} alt="상품 이미지 미리보기" />
-            <button type="button">
-              <img
-                src={DeleteIcon}
-                alt=""
-                className={styles.deleteButton}
-                onClick={handleDeleteFile}
-              />
-            </button>
+            <div className={styles.deleteButton}>
+              <DeleteButton onClick={handleDeleteFile} />
+            </div>
           </div>
         )}
       </div>

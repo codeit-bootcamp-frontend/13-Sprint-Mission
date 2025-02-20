@@ -44,9 +44,7 @@
   object-fit: cover;
 }
 
-.imgPreview > button {
-  all: unset;
-  cursor: pointer;
+.deleteButton {
   position: absolute;
   top: 1.2rem;
   right: 1.2rem;

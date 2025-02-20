@@ -105,17 +105,6 @@ textarea::placeholder {
   color: var(--gray800);
 }
 
-.deleteButton {
-  padding: 0.5rem;
-  border-radius: 100%;
-  background-color: var(--gray400);
-}
-
-.tag > button {
-  all: unset;
-  cursor: pointer;
-}
-
 /* Tablet */
 @media (max-width: 1199px) {
   .container {
