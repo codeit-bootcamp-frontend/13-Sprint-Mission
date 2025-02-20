@@ -8,17 +8,16 @@ import "./styles/App.color.css";
 function App() {
   const location = useLocation();
 
+  const isAuthPage = ["/signin", "/signup"].includes(location.pathname);
+  const isHomePage = location.pathname === "/";
+
   return (
     <>
-      {!["/signin", "/signup"].includes(location.pathname) && (
-        <Header className={styles.nav} />
-      )}
+      {!isAuthPage && <Header className={styles.nav} />}
       <div className={styles.body}>
         <Outlet />
       </div>
-      {["/"].includes(location.pathname) && (
-        <Footer className={styles.footer} />
-      )}
+      {isHomePage && <Footer className={styles.footer} />}
     </>
   );
 }
