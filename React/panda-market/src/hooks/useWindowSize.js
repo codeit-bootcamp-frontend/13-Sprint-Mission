@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import debounce from "lodash.debounce";
 
-function useWindowSize() {
+function useWindowSize(delay = 300) {
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -13,7 +13,7 @@ function useWindowSize() {
         width: window.innerWidth,
         height: window.innerHeight,
       });
-    }, 300);
+    }, delay);
 
     window.addEventListener("resize", handleResize);
     return () => {
