@@ -14,3 +14,13 @@ export async function getItems({ page = "", pageSize = "", order = "" }) {
     throw error;
   }
 }
+
+export async function getItemById(productId = "") {
+  try {
+    const res = await instance.get(`/products/${productId}`);
+    return res.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}

@@ -1,11 +1,17 @@
+import { useNavigate } from "react-router-dom";
 import heartIcon from "../../../assets/icon/ic_heart.svg";
 import styles from "./ItemCard.module.css";
 
 function ItemCard({ item }) {
-  const { images, name, price, favoriteCount } = item;
+  const { id, images, name, price, favoriteCount } = item;
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/items/${id}`);
+  };
 
   return (
-    <>
+    <button onClick={handleClick}>
       <div className="imgContainer">
         <img src={images} className={styles.itemImg} alt={name} />
       </div>
@@ -19,7 +25,7 @@ function ItemCard({ item }) {
           </li>
         </ul>
       </div>
-    </>
+    </button>
   );
 }
 
