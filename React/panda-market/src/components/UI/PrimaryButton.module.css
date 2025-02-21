@@ -1,0 +1,16 @@
+.button {
+  background-color: var(--blue);
+  color: var(--gray100);
+}
+
+.button:hover {
+  background-color: #1967d6;
+}
+
+.button:focus {
+  background-color: #1251aa;
+}
+
+.button:disabled {
+  background-color: var(--gray400);
+}

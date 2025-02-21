@@ -61,9 +61,10 @@ function ImageUpload({ itemImg, setItemImg }) {
         {itemImg && (
           <div className={styles.imgPreview}>
             <img src={itemImg} alt="상품 이미지 미리보기" />
-            <div className={styles.deleteButton}>
-              <DeleteButton onClick={handleDeleteFile} />
-            </div>
+            <DeleteButton
+              onClick={() => handleDeleteFile()}
+              className={styles.deleteButton}
+            />
           </div>
         )}
       </div>

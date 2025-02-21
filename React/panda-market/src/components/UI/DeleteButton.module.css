@@ -1,8 +1,3 @@
-button.deleteButton {
-  all: unset;
-  cursor: pointer;
-}
-
 .deleteIcon {
   padding: 0.5rem;
   border-radius: 100%;

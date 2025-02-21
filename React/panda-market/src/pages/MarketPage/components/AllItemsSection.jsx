@@ -9,6 +9,7 @@ import DropdownIcon from "../../../assets/icon/ic_sort.svg";
 import BackIcon from "../../../assets/icon/ic_back.svg";
 import NextIcon from "../../../assets/icon/ic_next.svg";
 import styles from "./AllItemsSection.module.css";
+import PrimaryButton from "../../../components/UI/PrimaryButton";
 
 const BREAKPOINTS = {
   DESKTOP: 1200,
@@ -101,6 +102,7 @@ function AllItems() {
 
   return (
     <div className={styles.container}>
+      <PrimaryButton></PrimaryButton>
       <div className={styles.top}>
         <div className={styles.title}>전체 상품</div>
         <div className={styles.menu}>
@@ -114,9 +116,9 @@ function AllItems() {
             />
           </form>
           <Link to="/additem">
-            <button type="button" className={styles.registerButton}>
+            <PrimaryButton type="button" className={styles.registerButton}>
               상품 등록하기
-            </button>
+            </PrimaryButton>
           </Link>
           {/* 아이템 정렬 드롭다운*/}
           <button

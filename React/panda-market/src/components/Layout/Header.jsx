@@ -1,5 +1,6 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import useWindowSize from "../..//hooks/useWindowSize";
+import PrimaryButton from "../UI/PrimaryButton";
 import logoImg from "../../assets/logo/panda-market-logo.svg";
 import logoWordImg from "../../assets/logo/panda-market-logo-only-word.svg";
 import UserIcon from "../../assets/user/default-profile.png";
@@ -55,9 +56,9 @@ function Header() {
       )}
       {["/"].includes(location.pathname) && (
         <Link to="/signin">
-          <button type="button" className={styles.loginButton}>
+          <PrimaryButton type="button" className={styles.loginButton}>
             로그인
-          </button>
+          </PrimaryButton>
         </Link>
       )}
     </div>

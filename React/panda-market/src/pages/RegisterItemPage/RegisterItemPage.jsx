@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import PrimaryButton from "../../components/UI/PrimaryButton";
 import ImageUploader from "./components/ImageUploader";
 import DeleteButton from "../../components/UI/DeleteButton";
 import styles from "./RegisterItemPage.module.css";
@@ -59,13 +60,13 @@ function RegisterItemPage() {
     <form className={styles.container} onSubmit={handleRegister}>
       <div className={styles.topSection}>
         <h1 className={styles.title}>상품 등록하기</h1>
-        <button
+        <PrimaryButton
           type="submit"
           className={styles.registerButton}
           disabled={!registerAvailable}
         >
           등록
-        </button>
+        </PrimaryButton>
       </div>
       <div className={styles.itemFormSection}>
         <div className={styles.infoInputSection}>
@@ -117,7 +118,7 @@ function RegisterItemPage() {
           <div className={styles.tags}>
             {tagValues.map((value, index) => (
               <div key={index} className={styles.tag}>
-                #{value}
+                <div className={styles.tagName}>#{value}</div>
                 <DeleteButton onClick={() => handleDeleteTag(index)} />
               </div>
             ))}
