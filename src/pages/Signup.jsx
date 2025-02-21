@@ -5,6 +5,7 @@ import { useLocation, Link } from "react-router";
 import ic_google from "@/assets/ic_google.svg";
 import ic_kakaoTalk from "@/assets/ic_kakaoTalk.svg";
 import { useState } from "react";
+import { isEmptyString } from "@/utils/stringUtils";
 
 const INPUT_FIELD_CONFIG = {
   email: {
@@ -44,10 +45,6 @@ const INPUT_FIELD_CONFIG = {
     pattern: null,
   },
 };
-
-export function isEmptyString(value) {
-  return typeof value === "string" && value.trim() === "";
-}
 
 function LogoImage() {
   return (

@@ -5,6 +5,7 @@ import { useLocation, Link } from "react-router";
 import ic_google from "@/assets/ic_google.svg";
 import ic_kakaoTalk from "@/assets/ic_kakaoTalk.svg";
 import { useState } from "react";
+import { isEmptyString } from "@/utils/stringUtils";
 
 const INPUT_FIELD_CONFIG = {
   email: {
@@ -45,10 +46,6 @@ const INPUT_FIELD_CONFIG = {
   },
 };
 
-export function isEmptyString(value) {
-  return typeof value === "string" && value.trim() === "";
-}
-
 function LogoImage() {
   return (
     <>
@@ -66,12 +63,16 @@ const LOGIN_FORM = [
 function Login() {
   const [formData, setFormData] = useState({
     email: "",
-    nickname: "",
     password: "",
-    passwordConfirm: "",
   });
-  const [isInputEmpty, setIsInputEmpty] = useState({});
-  const [isInputInvalid, setIsInputInvalid] = useState({});
+  const [isInputEmpty, setIsInputEmpty] = useState({
+    email: false,
+    password: false,
+  });
+  const [isInputInvalid, setIsInputInvalid] = useState({
+    email: false,
+    password: false,
+  });
   const [canSubmit, setCanSubmit] = useState(false);
 
   const handleInputChange = (name, event) => {
