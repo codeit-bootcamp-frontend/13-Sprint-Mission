@@ -6,6 +6,49 @@ import ic_google from "@/assets/ic_google.svg";
 import ic_kakaoTalk from "@/assets/ic_kakaoTalk.svg";
 import { useState } from "react";
 
+const INPUT_FIELD_CONFIG = {
+  email: {
+    id: "email",
+    type: "email",
+    label: "이메일",
+    placeholder: "이메일을 입력해주세요",
+    emptyMessage: "이메일을 입력해주세요.",
+    invalidMessage: "잘못된 이메일 형식입니다.",
+    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+  },
+  nickname: {
+    id: "nickname",
+    type: "text",
+    label: "닉네임",
+    placeholder: "닉네임을 입력해주세요",
+    emptyMessage: "닉네임을 입력해주세요.",
+    invalidMessage: "닉네임을 입력해주세요.",
+    pattern: /^[a-zA-Z0-9가-힣]{2,10}$/,
+  },
+  password: {
+    id: "password",
+    type: "password",
+    label: "비밀번호",
+    placeholder: "비밀번호를 입력해주세요",
+    emptyMessage: "비밀번호를 입력해주세요.",
+    invalidMessage: "비밀번호를 8자 이상 입력해주세요.",
+    pattern: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+  },
+  passwordConfirm: {
+    id: "passwordConfirm",
+    type: "password",
+    label: "비밀번호 확인",
+    placeholder: "비밀번호를 다시 한 번 입력해주세요",
+    emptyMessage: "비밀번호가 일치하지 않습니다.",
+    invalidMessage: "비밀번호가 일치하지 않습니다.",
+    pattern: null,
+  },
+};
+
+export function isEmptyString(value) {
+  return typeof value === "string" && value.trim() === "";
+}
+
 function LogoImage() {
   return (
     <>
@@ -30,13 +73,38 @@ const LOGIN_FORM = [
 function Auth() {
   const location = useLocation();
   const isSignUp = location.pathname === "/signup";
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    email: "",
+    nickname: "",
+    password: "",
+    passwordConfirm: "",
+  });
+  const [isInputEmpty, setIsInputEmpty] = useState({});
+  const [isInputInvalid, setIsInputInvalid] = useState({});
 
   const handleInputChange = (name, event) => {
     setFormData((prev) => ({
       ...prev,
       [name]: event.target.value,
     }));
+  };
+
+  const handleEmptyCheck = (name) => {
+    setIsInputEmpty((prev) => ({
+      ...prev,
+      [name]: isEmptyString(formData[name]),
+    }));
+  };
+
+  const handleInvalidCheck = (name) => {
+    setIsInputInvalid((prev) => ({
+      ...prev,
+      [name]:
+        INPUT_FIELD_CONFIG[name].pattern !== null
+          ? !INPUT_FIELD_CONFIG[name].pattern.test(formData[name])
+          : formData[name] !== formData["password"],
+    }));
+    console.log(isInputInvalid);
   };
 
   return (
@@ -52,6 +120,10 @@ function Auth() {
                   key={key}
                   name={name}
                   onChange={handleInputChange}
+                  onBlurCheckEmpty={handleEmptyCheck}
+                  onBlurCheckInvalid={handleInvalidCheck}
+                  isEmpty={isInputEmpty[name]}
+                  isInvalid={isInputInvalid[name]}
                   value={formData[name]}
                 />
               ))
@@ -60,6 +132,10 @@ function Auth() {
                   key={key}
                   name={name}
                   onChange={handleInputChange}
+                  onBlurCheckEmpty={handleEmptyCheck}
+                  onBlurCheckInvalid={handleInvalidCheck}
+                  isEmpty={isInputEmpty[name]}
+                  isInvalid={isInputInvalid[name]}
                   value={formData[name]}
                 />
               ))}
