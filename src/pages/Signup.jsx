@@ -70,7 +70,7 @@ const LOGIN_FORM = [
   { key: "password-login", name: "password" },
 ];
 
-function Auth() {
+function Signup() {
   const location = useLocation();
   const isSignUp = location.pathname === "/signup";
   const [formData, setFormData] = useState({
@@ -199,4 +199,4 @@ function Auth() {
   );
 }
 
-export default Auth;
+export default Signup;
