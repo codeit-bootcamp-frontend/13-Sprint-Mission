@@ -1,37 +1,50 @@
 import ic_visibility_off from "@/assets/ic_visibility_off.svg";
 import { useState } from "react";
 
-const INPUT_FIELDS = {
+const INPUT_FIELD_CONFIG = {
   email: {
     id: "email",
     type: "email",
     label: "이메일",
     placeholder: "이메일을 입력해주세요",
+    emptyMessage: "이메일을 입력해주세요.",
+    invalidMessage: "잘못된 이메일 형식입니다.",
+    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
   },
   nickname: {
     id: "nickname",
     type: "text",
     label: "닉네임",
     placeholder: "닉네임을 입력해주세요",
+    emptyMessage: "닉네임을 입력해주세요.",
+    invalidMessage: "닉네임을 입력해주세요.",
+    pattern: /^[a-zA-Z0-9가-힣]{2,10}$/,
   },
   password: {
     id: "password",
     type: "password",
     label: "비밀번호",
     placeholder: "비밀번호를 입력해주세요",
+    emptyMessage: "비밀번호를 입력해주세요.",
+    invalidMessage: "비밀번호를 8자 이상 입력해주세요.",
+    pattern: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
   },
   passwordConfirm: {
     id: "passwordConfirm",
     type: "password",
     label: "비밀번호 확인",
     placeholder: "비밀번호를 다시 한 번 입력해주세요",
+    emptyMessage: "비밀번호를 다시 한 번 입력해주세요.",
+    invalidMessage: "비밀번호가 일치하지 않습니다.",
+    pattern: null,
   },
 };
 
-function InputField({ name, isError }) {
-  const { id, type, label, placeholder } = INPUT_FIELDS[name];
+function InputField({ name, value, onChange }) {
+  const { id, type, label, placeholder } = INPUT_FIELD_CONFIG[name];
   const [isFocused, setIsFocused] = useState(false);
-  const [currrentInputType, setCurrrentInputType] = useState(type);
+  const [currentInputType, setCurrentInputType] = useState(type);
+  const hasError = false;
 
   const handleInputFocus = () => {
     setIsFocused(true);
@@ -41,10 +54,14 @@ function InputField({ name, isError }) {
     setIsFocused(false);
   };
 
-  const togglePasswordVisibility = () => {
-    setCurrrentInputType((prevInputType) =>
+  const handleTogglePasswordVisibility = () => {
+    setCurrentInputType((prevInputType) =>
       prevInputType === "password" ? "text" : "password",
     );
+  };
+
+  const handleInputChange = (event) => {
+    onChange(name, event);
   };
 
   return (
@@ -53,14 +70,16 @@ function InputField({ name, isError }) {
         {label}
       </label>
       <div
-        className={`mt-4 flex h-14 w-full items-center justify-stretch gap-3 rounded-xl bg-gray-100 px-6 ${isFocused ? "outline-2 outline-blue-500" : ""} ${isError ? "outline-red outline-2" : ""}`}
+        className={`mt-4 flex h-14 w-full items-center justify-stretch gap-3 rounded-xl bg-gray-100 px-6 ${isFocused ? "outline-2 outline-blue-500" : ""} ${hasError ? "outline-red outline-2" : ""}`}
       >
         <input
           id={id}
           name={name}
-          type={type === "password" ? currrentInputType : type}
+          type={type === "password" ? currentInputType : type}
           placeholder={placeholder}
+          value={value}
           className="w-full text-gray-800 placeholder:font-normal placeholder:text-gray-400 focus:outline-none"
+          onChange={handleInputChange}
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
         />
@@ -69,7 +88,7 @@ function InputField({ name, isError }) {
             <img
               src={ic_visibility_off}
               alt="비밀번호 표시하기"
-              onClick={togglePasswordVisibility}
+              onClick={handleTogglePasswordVisibility}
             />
           </button>
         ) : null}

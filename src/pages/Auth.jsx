@@ -4,6 +4,7 @@ import logo_lg from "@/assets/logo_lg.svg";
 import { useLocation, Link } from "react-router";
 import ic_google from "@/assets/ic_google.svg";
 import ic_kakaoTalk from "@/assets/ic_kakaoTalk.svg";
+import { useState } from "react";
 
 function LogoImage() {
   return (
@@ -14,9 +15,29 @@ function LogoImage() {
   );
 }
 
+const SIGNUP_FORM = [
+  { key: "email-signup", name: "email" },
+  { key: "nickname-signup", name: "nickname" },
+  { key: "password-signup", name: "password" },
+  { key: "passwordConfirm-signup", name: "passwordConfirm" },
+];
+
+const LOGIN_FORM = [
+  { key: "email-login", name: "email" },
+  { key: "password-login", name: "password" },
+];
+
 function Auth() {
   const location = useLocation();
   const isSignUp = location.pathname === "/signup";
+  const [formData, setFormData] = useState({});
+
+  const handleInputChange = (name, event) => {
+    setFormData((prev) => ({
+      ...prev,
+      [name]: event.target.value,
+    }));
+  };
 
   return (
     <main className="my-15 flex flex-col items-center px-4">
@@ -25,10 +46,23 @@ function Auth() {
       </Link>
       <div className="flex w-full max-w-160 flex-col gap-6">
         <form className="flex flex-col gap-6">
-          <InputField name="email" />
-          {isSignUp && <InputField name="nickname" />}
-          <InputField name="password" />
-          {isSignUp && <InputField name="passwordConfirm" />}
+          {isSignUp
+            ? SIGNUP_FORM.map(({ key, name }) => (
+                <InputField
+                  key={key}
+                  name={name}
+                  onChange={handleInputChange}
+                  value={formData[name]}
+                />
+              ))
+            : LOGIN_FORM.map(({ key, name }) => (
+                <InputField
+                  key={key}
+                  name={name}
+                  onChange={handleInputChange}
+                  value={formData[name]}
+                />
+              ))}
           <button
             type="submit"
             className="h-14 cursor-pointer rounded-[40px] bg-gray-400 px-31 py-4 text-xl font-semibold text-gray-100"
@@ -57,14 +91,14 @@ function Auth() {
         </div>
         {isSignUp ? (
           <div className="m-auto text-sm select-none">
-            이미 회원이신가요?{" "}
+            {"이미 회원이신가요? "}
             <Link to="/login" className="text-blue-400 underline">
               로그인
             </Link>
           </div>
         ) : (
-          <div className="m-auto select-none">
-            판다마켓이 처음이신가요?{" "}
+          <div className="m-auto text-sm select-none">
+            {"판다마켓이 처음이신가요? "}
             <Link to="/signup" className="text-blue-400 underline">
               회원가입
             </Link>
