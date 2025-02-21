@@ -58,21 +58,12 @@ function LogoImage() {
   );
 }
 
-const SIGNUP_FORM = [
-  { key: "email-signup", name: "email" },
-  { key: "nickname-signup", name: "nickname" },
-  { key: "password-signup", name: "password" },
-  { key: "passwordConfirm-signup", name: "passwordConfirm" },
-];
-
 const LOGIN_FORM = [
   { key: "email-login", name: "email" },
   { key: "password-login", name: "password" },
 ];
 
 function Login() {
-  const location = useLocation();
-  const isSignUp = location.pathname === "/signup";
   const [formData, setFormData] = useState({
     email: "",
     nickname: "",
@@ -125,39 +116,25 @@ function Login() {
       </Link>
       <div className="flex w-full max-w-160 flex-col gap-6">
         <form className="flex flex-col gap-6">
-          {isSignUp
-            ? SIGNUP_FORM.map(({ key, name }) => (
-                <InputField
-                  key={key}
-                  name={name}
-                  onChange={handleInputChange}
-                  onBlurCheckEmpty={handleEmptyCheck}
-                  onBlurCheckInvalid={handleInvalidCheck}
-                  onBlurCheckForm={handleCheckForm}
-                  isEmpty={isInputEmpty[name]}
-                  isInvalid={isInputInvalid[name]}
-                  value={formData[name]}
-                />
-              ))
-            : LOGIN_FORM.map(({ key, name }) => (
-                <InputField
-                  key={key}
-                  name={name}
-                  onChange={handleInputChange}
-                  onBlurCheckEmpty={handleEmptyCheck}
-                  onBlurCheckInvalid={handleInvalidCheck}
-                  onBlurCheckForm={handleCheckForm}
-                  isEmpty={isInputEmpty[name]}
-                  isInvalid={isInputInvalid[name]}
-                  value={formData[name]}
-                />
-              ))}
+          {LOGIN_FORM.map(({ key, name }) => (
+            <InputField
+              key={key}
+              name={name}
+              onChange={handleInputChange}
+              onBlurCheckEmpty={handleEmptyCheck}
+              onBlurCheckInvalid={handleInvalidCheck}
+              onBlurCheckForm={handleCheckForm}
+              isEmpty={isInputEmpty[name]}
+              isInvalid={isInputInvalid[name]}
+              value={formData[name]}
+            />
+          ))}
           <button
             type="submit"
             className={`h-14 rounded-[40px] px-31 py-4 text-xl font-semibold text-gray-100 ${canSubmit ? "cursor-pointer bg-blue-500" : "cursor-not-allowed bg-gray-400"} `}
             disabled={!canSubmit}
           >
-            {isSignUp ? "회원가입" : "로그인"}
+            로그인
           </button>
         </form>
         <div className="flex items-center justify-between rounded-lg bg-blue-50 px-6 py-4">
@@ -179,21 +156,14 @@ function Login() {
             </a>
           </div>
         </div>
-        {isSignUp ? (
-          <div className="m-auto text-sm select-none">
-            {"이미 회원이신가요? "}
-            <Link to="/login" className="text-blue-400 underline">
-              로그인
-            </Link>
-          </div>
-        ) : (
+        {
           <div className="m-auto text-sm select-none">
             {"판다마켓이 처음이신가요? "}
             <Link to="/signup" className="text-blue-400 underline">
               회원가입
             </Link>
           </div>
-        )}
+        }
       </div>
     </main>
   );
