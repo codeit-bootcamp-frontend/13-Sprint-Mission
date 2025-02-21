@@ -5,13 +5,14 @@ import styles from "./RegisterItemPage.module.css";
 
 function RegisterItemPage() {
   const [registerAvailable, setRegisterAvailable] = useState(false);
+  const [itemImg, setItemImg] = useState(null);
+  const [tagValues, setTagValues] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
     description: "",
     price: "",
     tag: "",
   });
-  const [tagValues, setTagValues] = useState([]);
 
   const handleRegister = async (event) => {
     event.preventDefault();
@@ -41,12 +42,18 @@ function RegisterItemPage() {
 
   useEffect(() => {
     const { name, description, price } = formData;
-    if (name && description && price && tagValues.length !== 0) {
+    if (
+      itemImg !== null &&
+      name &&
+      description &&
+      price &&
+      tagValues.length !== 0
+    ) {
       setRegisterAvailable(true);
     } else {
       setRegisterAvailable(false);
     }
-  }, [formData, tagValues]);
+  }, [itemImg, tagValues, formData]);
 
   return (
     <form className={styles.container} onSubmit={handleRegister}>
@@ -63,7 +70,7 @@ function RegisterItemPage() {
       <div className={styles.itemFormSection}>
         <div className={styles.infoInputSection}>
           <h2 className={styles.title}>상품 이미지</h2>
-          <ImageUploader />
+          <ImageUploader itemImg={itemImg} setItemImg={setItemImg} />
         </div>
         <div className={styles.infoInputSection}>
           <h2 className={styles.title}>상품명</h2>

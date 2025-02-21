@@ -4,8 +4,7 @@ import PrusIcon from "../../../assets/icon/ic_plus.svg";
 import styles from "./ImageUploader.module.css";
 
 // 나중에 등록 기능 구현 시 업로드한 이미지 파일 주소를 RegisterItemPage로 lifting 해줄 필요가 있어 보임
-function ImageUpload() {
-  const [itemImg, setItemImg] = useState(null);
+function ImageUpload({ itemImg, setItemImg }) {
   const [fileError, setFileError] = useState("");
   const fileInputRef = useRef(null);
 
