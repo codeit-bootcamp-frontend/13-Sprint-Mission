@@ -1,0 +1,41 @@
+.container {
+  max-width: 120rem;
+  margin: 2.4rem auto;
+  width: 100%;
+}
+
+.itemInfoContainer {
+  padding-bottom: 4rem;
+  border-bottom: 0.1rem solid var(--gray200);
+}
+
+.commentContainer {
+  padding-top: 4rem;
+}
+
+/* Tablet */
+@media (max-width: 1199px) {
+  .container {
+    padding: 0 2.4rem;
+  }
+
+  .itemInfoContainer {
+    padding-bottom: 3.2rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .container {
+    padding: 0 1.6rem;
+    margin: 1.6rem auto;
+  }
+
+  .itemInfoContainer {
+    padding-bottom: 2.4rem;
+  }
+
+  .commentContainer {
+    padding-top: 2.4rem;
+  }
+}

@@ -98,7 +98,6 @@ function AllItems() {
 
   return (
     <div className={styles.container}>
-      <PrimaryButton></PrimaryButton>
       <div className={styles.top}>
         <div className={styles.title}>전체 상품</div>
         <div className={styles.menu}>
