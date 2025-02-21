@@ -56,6 +56,12 @@ function Signup() {
     }
   };
 
+  const handleFieldBlur = (name) => {
+    handleEmptyCheck(name);
+    handleInvalidCheck(name);
+    handleCheckForm();
+  };
+
   return (
     <main className="my-15 flex flex-col items-center px-4">
       <Link to="/" className="mb-6 md:mb-10" title="홈으로 이동">
@@ -67,13 +73,12 @@ function Signup() {
             <InputField
               key={index}
               name={name}
-              onChange={handleInputChange}
-              onBlurCheckEmpty={handleEmptyCheck}
-              onBlurCheckInvalid={handleInvalidCheck}
-              onBlurCheckForm={handleCheckForm}
+              onInputChange={handleInputChange}
+              onInputBlur={handleFieldBlur}
               isEmpty={isInputEmpty[name]}
               isInvalid={isInputInvalid[name]}
               value={formData[name]}
+              {...FORM_FIELDS[name]}
             />
           ))}
           <button
