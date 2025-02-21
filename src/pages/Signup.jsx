@@ -1,38 +1,26 @@
 import InputField from "@/components/InputField";
+import LogoImage from "@/components/LogoImage";
 import logo_md from "@/assets/logo_md.svg";
 import logo_lg from "@/assets/logo_lg.svg";
-import { useLocation, Link } from "react-router";
 import ic_google from "@/assets/ic_google.svg";
 import ic_kakaoTalk from "@/assets/ic_kakaoTalk.svg";
 import { useState } from "react";
+import { Link } from "react-router";
 import { isEmptyString } from "@/utils/stringUtils";
 import { FORM_FIELDS } from "@/constants/formFields";
 
-function LogoImage() {
-  return (
-    <>
-      <img src={logo_md} alt="홈으로 이동" className="block md:hidden" />
-      <img src={logo_lg} alt="홈으로 이동" className="hidden md:block" />
-    </>
-  );
-}
-
-const SIGNUP_FORM = [
-  { key: "email-signup", name: "email" },
-  { key: "nickname-signup", name: "nickname" },
-  { key: "password-signup", name: "password" },
-  { key: "passwordConfirm-signup", name: "passwordConfirm" },
-];
+const SIGNUP_FORM = ["email", "nickname", "password", "passwordConfirm"];
 
 function Signup() {
-  const [formData, setFormData] = useState({
-    email: "",
-    nickname: "",
-    password: "",
-    passwordConfirm: "",
-  });
-  const [isInputEmpty, setIsInputEmpty] = useState({});
-  const [isInputInvalid, setIsInputInvalid] = useState({});
+  const [formData, setFormData] = useState(
+    Object.fromEntries(SIGNUP_FORM.map((name) => [name, ""])),
+  );
+  const [isInputEmpty, setIsInputEmpty] = useState(
+    Object.fromEntries(SIGNUP_FORM.map((name) => [name, false])),
+  );
+  const [isInputInvalid, setIsInputInvalid] = useState(
+    Object.fromEntries(SIGNUP_FORM.map((name) => [name, false])),
+  );
   const [canSubmit, setCanSubmit] = useState(false);
 
   const handleInputChange = (name, event) => {
@@ -57,11 +45,9 @@ function Signup() {
           ? !FORM_FIELDS[name].pattern.test(formData[name])
           : formData[name] !== formData["password"],
     }));
-    console.log(isInputInvalid);
   };
 
   const handleCheckForm = () => {
-    console.log(Object.values(formData));
     if (
       Object.values(formData).every((value) => !isEmptyString(value)) &&
       Object.values(isInputInvalid).every((isInvalid) => !isInvalid)
@@ -72,14 +58,14 @@ function Signup() {
 
   return (
     <main className="my-15 flex flex-col items-center px-4">
-      <Link to="/" className="mb-6 md:mb-10">
-        <LogoImage />
+      <Link to="/" className="mb-6 md:mb-10" title="홈으로 이동">
+        <LogoImage small={logo_md} large={logo_lg} />
       </Link>
       <div className="flex w-full max-w-160 flex-col gap-6">
         <form className="flex flex-col gap-6">
-          {SIGNUP_FORM.map(({ key, name }) => (
+          {SIGNUP_FORM.map((name, index) => (
             <InputField
-              key={key}
+              key={index}
               name={name}
               onChange={handleInputChange}
               onBlurCheckEmpty={handleEmptyCheck}
@@ -94,6 +80,7 @@ function Signup() {
             type="submit"
             className={`h-14 rounded-[40px] px-31 py-4 text-xl font-semibold text-gray-100 ${canSubmit ? "cursor-pointer bg-blue-500" : "cursor-not-allowed bg-gray-400"} `}
             disabled={!canSubmit}
+            title="회원가입"
           >
             회원가입
           </button>
@@ -120,7 +107,11 @@ function Signup() {
         {
           <div className="m-auto text-sm select-none">
             {"이미 회원이신가요? "}
-            <Link to="/login" className="text-blue-400 underline">
+            <Link
+              to="/login"
+              className="text-blue-400 underline"
+              title="로그인 페이지로 이동"
+            >
               로그인
             </Link>
           </div>

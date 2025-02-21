@@ -1,40 +1,26 @@
 import InputField from "@/components/InputField";
+import LogoImage from "@/components/LogoImage";
 import logo_md from "@/assets/logo_md.svg";
 import logo_lg from "@/assets/logo_lg.svg";
-import { useLocation, Link } from "react-router";
 import ic_google from "@/assets/ic_google.svg";
 import ic_kakaoTalk from "@/assets/ic_kakaoTalk.svg";
 import { useState } from "react";
+import { Link } from "react-router";
 import { isEmptyString } from "@/utils/stringUtils";
 import { FORM_FIELDS } from "@/constants/formFields";
 
-function LogoImage() {
-  return (
-    <>
-      <img src={logo_md} alt="홈으로 이동" className="block md:hidden" />
-      <img src={logo_lg} alt="홈으로 이동" className="hidden md:block" />
-    </>
-  );
-}
-
-const LOGIN_FORM = [
-  { key: "email-login", name: "email" },
-  { key: "password-login", name: "password" },
-];
+const LOGIN_FORM = ["email", "password"];
 
 function Login() {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-  const [isInputEmpty, setIsInputEmpty] = useState({
-    email: false,
-    password: false,
-  });
-  const [isInputInvalid, setIsInputInvalid] = useState({
-    email: false,
-    password: false,
-  });
+  const [formData, setFormData] = useState(
+    Object.fromEntries(LOGIN_FORM.map((name) => [name, ""])),
+  );
+  const [isInputEmpty, setIsInputEmpty] = useState(
+    Object.fromEntries(LOGIN_FORM.map((name) => [name, false])),
+  );
+  const [isInputInvalid, setIsInputInvalid] = useState(
+    Object.fromEntries(LOGIN_FORM.map((name) => [name, false])),
+  );
   const [canSubmit, setCanSubmit] = useState(false);
 
   const handleInputChange = (name, event) => {
@@ -59,11 +45,9 @@ function Login() {
           ? !FORM_FIELDS[name].pattern.test(formData[name])
           : formData[name] !== formData["password"],
     }));
-    console.log(isInputInvalid);
   };
 
   const handleCheckForm = () => {
-    console.log(Object.values(formData));
     if (
       Object.values(formData).every((value) => !isEmptyString(value)) &&
       Object.values(isInputInvalid).every((isInvalid) => !isInvalid)
@@ -74,14 +58,14 @@ function Login() {
 
   return (
     <main className="my-15 flex flex-col items-center px-4">
-      <Link to="/" className="mb-6 md:mb-10">
-        <LogoImage />
+      <Link to="/" className="mb-6 md:mb-10" title="홈으로 이동">
+        <LogoImage small={logo_md} large={logo_lg} />
       </Link>
       <div className="flex w-full max-w-160 flex-col gap-6">
         <form className="flex flex-col gap-6">
-          {LOGIN_FORM.map(({ key, name }) => (
+          {LOGIN_FORM.map((name, index) => (
             <InputField
-              key={key}
+              key={index}
               name={name}
               onChange={handleInputChange}
               onBlurCheckEmpty={handleEmptyCheck}
@@ -96,6 +80,7 @@ function Login() {
             type="submit"
             className={`h-14 rounded-[40px] px-31 py-4 text-xl font-semibold text-gray-100 ${canSubmit ? "cursor-pointer bg-blue-500" : "cursor-not-allowed bg-gray-400"} `}
             disabled={!canSubmit}
+            title="로그인"
           >
             로그인
           </button>
@@ -122,7 +107,11 @@ function Login() {
         {
           <div className="m-auto text-sm select-none">
             {"판다마켓이 처음이신가요? "}
-            <Link to="/signup" className="text-blue-400 underline">
+            <Link
+              to="/signup"
+              className="text-blue-400 underline"
+              title="회원가입 페이지로 이동"
+            >
               회원가입
             </Link>
           </div>
