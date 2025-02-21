@@ -1,5 +1,6 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import useWindowSize from "../..//hooks/useWindowSize";
+import BREAKPOINTS from "../../utils/breakpoints";
 import PrimaryButton from "../UI/PrimaryButton";
 import logoImg from "../../assets/logo/panda-market-logo.svg";
 import logoWordImg from "../../assets/logo/panda-market-logo-only-word.svg";
@@ -30,7 +31,7 @@ function Header() {
     <div className={styles.header}>
       <div className={styles.leftSide}>
         <Link to="/">
-          {width >= 768 ? (
+          {width >= BREAKPOINTS.TABLET ? (
             <img src={logoImg} alt="판다마켓 로고" />
           ) : (
             <img src={logoWordImg} alt="판다마켓 로고" />

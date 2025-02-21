@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react";
 import { getItems } from "../../../apis/itemApi";
 import useWindowSize from "../../../hooks/useWindowSize";
+import BREAKPOINTS from "../../../utils/breakpoints";
 import ItemCard from "./ItemCard";
 import styles from "./BestItemsSection.module.css";
-
-const BREAKPOINTS = {
-  DESKTOP: 1200,
-  TABLET: 768,
-};
 
 function BestItems() {
   const [items, setItems] = useState([]);
