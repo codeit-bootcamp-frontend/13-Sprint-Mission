@@ -46,6 +46,7 @@ function InputField({
   onChange,
   onBlurCheckEmpty,
   onBlurCheckInvalid,
+  onBlurCheckForm,
   isEmpty,
   isInvalid,
 }) {
@@ -62,6 +63,7 @@ function InputField({
     setIsFocused(false);
     onBlurCheckEmpty(name);
     onBlurCheckInvalid(name);
+    onBlurCheckForm();
   };
 
   const handleTogglePasswordVisibility = () => {

@@ -81,6 +81,7 @@ function Auth() {
   });
   const [isInputEmpty, setIsInputEmpty] = useState({});
   const [isInputInvalid, setIsInputInvalid] = useState({});
+  const [canSubmit, setCanSubmit] = useState(false);
 
   const handleInputChange = (name, event) => {
     setFormData((prev) => ({
@@ -107,6 +108,16 @@ function Auth() {
     console.log(isInputInvalid);
   };
 
+  const handleCheckForm = () => {
+    console.log(Object.values(formData));
+    if (
+      Object.values(formData).every((value) => !isEmptyString(value)) &&
+      Object.values(isInputInvalid).every((isInvalid) => !isInvalid)
+    ) {
+      setCanSubmit(true);
+    }
+  };
+
   return (
     <main className="my-15 flex flex-col items-center px-4">
       <Link to="/" className="mb-6 md:mb-10">
@@ -122,6 +133,7 @@ function Auth() {
                   onChange={handleInputChange}
                   onBlurCheckEmpty={handleEmptyCheck}
                   onBlurCheckInvalid={handleInvalidCheck}
+                  onBlurCheckForm={handleCheckForm}
                   isEmpty={isInputEmpty[name]}
                   isInvalid={isInputInvalid[name]}
                   value={formData[name]}
@@ -134,6 +146,7 @@ function Auth() {
                   onChange={handleInputChange}
                   onBlurCheckEmpty={handleEmptyCheck}
                   onBlurCheckInvalid={handleInvalidCheck}
+                  onBlurCheckForm={handleCheckForm}
                   isEmpty={isInputEmpty[name]}
                   isInvalid={isInputInvalid[name]}
                   value={formData[name]}
@@ -141,7 +154,8 @@ function Auth() {
               ))}
           <button
             type="submit"
-            className="h-14 cursor-pointer rounded-[40px] bg-gray-400 px-31 py-4 text-xl font-semibold text-gray-100"
+            className={`h-14 rounded-[40px] px-31 py-4 text-xl font-semibold text-gray-100 ${canSubmit ? "cursor-pointer bg-blue-500" : "cursor-not-allowed bg-gray-400"} `}
+            disabled={!canSubmit}
           >
             {isSignUp ? "회원가입" : "로그인"}
           </button>
