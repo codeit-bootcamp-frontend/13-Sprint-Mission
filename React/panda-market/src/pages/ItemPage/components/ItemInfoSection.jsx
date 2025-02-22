@@ -5,6 +5,7 @@ import MenuIcon from "../../../assets/icon/ic_menu.svg";
 import SellerIcon from "../../../assets/user/default-profile.png";
 import HeartIcon from "../../../assets/icon/ic_heart.svg";
 import styles from "./ItemInfoSection.module.css";
+import MenuButton from "../../../components/UI/MenuButton";
 
 function ItemInfoSection({ productId }) {
   const [item, setItem] = useState();
@@ -49,9 +50,7 @@ function ItemInfoSection({ productId }) {
           <div className={styles.infoTitle}>
             <h2 className={styles.itemName}>{name}</h2>
             <h1 className={styles.infoPrice}>{price.toLocaleString()}원</h1>
-            <button type="button" className={styles.menuButton}>
-              <img src={MenuIcon} alt={name} />
-            </button>
+            <MenuButton className={styles.menuButton} />
           </div>
           <div className={styles.infoDetailContainer}>
             <div className={styles.infoDetail}>

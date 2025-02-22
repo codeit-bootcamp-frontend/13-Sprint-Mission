@@ -1,0 +1,7 @@
+.menuButton {
+  border-radius: 100%;
+}
+
+.menuButton:hover {
+  background-color: var(--gray100);
+}

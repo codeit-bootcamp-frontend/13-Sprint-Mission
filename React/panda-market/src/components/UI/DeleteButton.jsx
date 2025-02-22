@@ -3,11 +3,7 @@ import styles from "./DeleteButton.module.css";
 
 function DeleteButton({ className = "", onClick = () => {} }) {
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`${className} ${styles.deleteButton}`}
-    >
+    <button type="button" onClick={onClick} className={className}>
       <img src={DeleteIcon} alt="" className={styles.deleteIcon} />
     </button>
   );
