@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { getItemById } from "../../../apis/itemApi";
 import { getFormattedDate } from "../../../utils/date";
-import MenuIcon from "../../../assets/icon/ic_menu.svg";
+import MenuButton from "../../../components/UI/MenuButton";
 import SellerIcon from "../../../assets/user/default-profile.png";
 import HeartIcon from "../../../assets/icon/ic_heart.svg";
 import styles from "./ItemInfoSection.module.css";
-import MenuButton from "../../../components/UI/MenuButton";
 
 function ItemInfoSection({ productId }) {
   const [item, setItem] = useState();

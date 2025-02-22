@@ -73,8 +73,8 @@ function RegisterItemPage() {
           <h2 className={styles.title}>상품 이미지</h2>
           <ImageUploader itemImg={itemImg} setItemImg={setItemImg} />
         </div>
-        <div className={styles.infoInputSection}>
-          <h2 className={styles.title}>상품명</h2>
+        <label>
+          상품명
           <input
             type="text"
             id="name"
@@ -82,18 +82,18 @@ function RegisterItemPage() {
             onChange={handleChange}
             placeholder="상품명을 입력해주세요"
           />
-        </div>
-        <div className={styles.infoInputSection}>
-          <h2 className={styles.title}>상품 소개</h2>
+        </label>
+        <label>
+          상품 소개
           <textarea
             id="description"
             value={formData.description}
             onChange={handleChange}
             placeholder="상품 소개를 입력해주세요"
           />
-        </div>
-        <div className={styles.infoInputSection}>
-          <h2 className={styles.title}>판매가격</h2>
+        </label>
+        <label>
+          판매가격
           <input
             type="text"
             id="price"
@@ -104,9 +104,9 @@ function RegisterItemPage() {
             } // 입력된 값이 숫자가 아닐 시 제거
             placeholder="판매 가격을 입력해주세요"
           />
-        </div>
-        <div className={styles.infoInputSection}>
-          <h2 className={styles.title}>태그</h2>
+        </label>
+        <label>
+          태그
           <input
             type="text"
             id="tag"
@@ -123,7 +123,7 @@ function RegisterItemPage() {
               </div>
             ))}
           </div>
-        </div>
+        </label>
       </div>
     </form>
   );

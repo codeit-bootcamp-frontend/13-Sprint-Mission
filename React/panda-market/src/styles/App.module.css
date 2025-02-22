@@ -51,6 +51,49 @@ img {
   vertical-align: bottom;
 }
 
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--gray800);
+}
+
+input,
+input:focus {
+  height: 5.6rem;
+  padding: 1.6rem 2.4rem;
+  border-radius: 1.2rem;
+  border: none;
+  background-color: var(--gray100);
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  outline: none;
+}
+
+textarea,
+textarea:focus {
+  height: 28.2rem;
+  padding: 1.6rem 2.4rem;
+  border-radius: 1.2rem;
+  border: none;
+  background-color: var(--gray100);
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  resize: none;
+  outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--gray400);
+}
+
 :global(#root) {
   display: flex;
   flex-direction: column;
