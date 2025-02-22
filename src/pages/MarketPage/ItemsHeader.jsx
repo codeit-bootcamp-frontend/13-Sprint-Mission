@@ -59,8 +59,7 @@ const SearchInput = styled.input`
   border-radius: 12px;
   width: 325px;
   height: 42px;
-  /* position: fixed; */
-  /* flex-grow: 1; */
+
   color: ${theme.colors.Gray400};
   font: ${theme.fonts.H5Bold};
 

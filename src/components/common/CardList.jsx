@@ -1,22 +1,45 @@
 // CardList.jsx
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Card from "./Card";
+import { BREAKPOINTS } from "../../constants/constants";
 
 export default function CardList({ items, size }) {
-  const displayItems =
-    size === "large"
-      ? items.slice(
-          0,
-          window.innerWidth <= 480 ? 1 : window.innerWidth <= 768 ? 2 : 4
-        )
-      : items;
+  const [visibleItems, setVisibleItems] = useState([]);
+
+  useEffect(() => {
+    const updateVisibleItems = () => {
+      const maxItems =
+        window.innerWidth <= BREAKPOINTS.MOBILE
+          ? size === "large "
+            ? 1
+            : 4
+          : window.innerWidth <= BREAKPOINTS.TABLET
+          ? size === "large"
+            ? 2
+            : 6
+          : window.innerWidth <= BREAKPOINTS.LAPTOP
+          ? size === "large"
+            ? 3
+            : 8
+          : size === "large"
+          ? 4
+          : 10;
+
+      setVisibleItems(items.slice(0, maxItems));
+    };
+
+    updateVisibleItems();
+    window.addEventListener("resize", updateVisibleItems);
+    return () => window.removeEventListener("resize", updateVisibleItems);
+  }, [items, size]);
 
   return (
     <CardListWrapper size={size}>
-      {items.length === 0 ? (
+      {visibleItems.length === 0 ? (
         <EmptyMessage>상품이 없습니다.</EmptyMessage>
       ) : (
-        displayItems.map((item) => (
+        visibleItems.map((item) => (
           <Card key={item.id} item={item} size={size} />
         ))
       )}
@@ -33,20 +56,26 @@ const CardListWrapper = styled.div`
     size === "large"
       ? `
     grid-template-columns: repeat(4, 1fr); // 베스트 상품 (기본)
-    @media (max-width: 768px) {
-      grid-template-columns: repeat(2, 1fr); // 태블릿
+    @media (max-width: ${BREAKPOINTS.LAPTOP}) {
+    grid-template-columns: repeat(3, 1fr);
     }
-    @media (max-width: 480px) {
-      grid-template-columns: repeat(1, 1fr); // 모바일
+    @media (max-width: ${BREAKPOINTS.TABLET}px) {
+      grid-template-columns: repeat(2, 1fr); 
+    }
+    @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+      grid-template-columns: repeat(1, 1fr); 
     }
   `
       : `
     grid-template-columns: repeat(5, 1fr); // 전체 상품 (기본)
-    @media (max-width: 768px) {
-      grid-template-columns: repeat(3, 1fr); // 태블릿
+        @media (max-width: ${BREAKPOINTS.LAPTOP}px) {
+      grid-template-columns: repeat(4, 1fr); 
     }
-    @media (max-width: 480px) {
-      grid-template-columns: repeat(2, 1fr); // 모바일
+    @media (max-width: ${BREAKPOINTS.TABLET}px) {
+      grid-template-columns: repeat(3, 1fr); 
+    }
+    @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+      grid-template-columns: repeat(2, 1fr); 
     }
   `}
 `;
