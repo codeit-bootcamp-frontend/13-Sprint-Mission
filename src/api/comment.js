@@ -1,10 +1,8 @@
-import axios from "axios";
+import api from "./index";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
-
-export async function getComments(productId) {
-  const response = await axios.get(
-    `${BASE_URL}/products/${productId}/comments?limit=3`
+export async function getComments(productId, limit = 3) {
+  const response = await api.get(
+    `/products/${productId}/comments?limit=${limit}`
   );
 
   return response.data.list;

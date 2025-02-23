@@ -1,10 +1,8 @@
-import axios from "axios";
-
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+import api from "./index";
 
 export async function getProducts(params) {
   const { page, pageSize, orderBy, keyword } = params;
-  const response = await axios.get(`${BASE_URL}/products`, {
+  const response = await api.get(`/products`, {
     params: { page, pageSize, orderBy, keyword },
   });
 
@@ -12,7 +10,7 @@ export async function getProducts(params) {
 }
 
 export async function getProductInfo(productId) {
-  const response = await axios.get(`${BASE_URL}/products/${productId}`);
+  const response = await api.get(`/products/${productId}`);
 
   return response.data;
 }
