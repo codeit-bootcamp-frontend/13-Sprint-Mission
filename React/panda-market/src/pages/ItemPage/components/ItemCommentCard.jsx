@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getFormattedDate, getPassedTime } from "../../../utils/dateTimeUtils";
 import MenuButton from "../../../components/UI/MenuButton";
 import PrimaryButton from "../../../components/UI/PrimaryButton";
-import UserDefaultImg from "../../../assets/user/default-profile.png";
+import UserDefaultImg from "../../../assets/image/default-profile.png";
 import styles from "./ItemCommentCard.module.css";
 
 function ItemCommentCard({

@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { getItemComments } from "../../../apis/itemApi";
 import PrimaryButton from "../../../components/UI/PrimaryButton";
 import ItemCommentCard from "./ItemCommentCard";
+import EmptyCommentImg from "../../../assets/image/Img_inquiry_empty.svg";
 import styles from "./ItemCommentSection.module.css";
 
 function ItemCommentSection({ productId }) {
@@ -77,16 +78,29 @@ function ItemCommentSection({ productId }) {
           </PrimaryButton>
         </div>
       </div>
-      <div className={styles.CommentListSection}>
-        {comments.map((comment, index) => (
-          <div
-            key={comment.id}
-            ref={index === comments.length - 1 ? observerRef : null}
-          >
-            <ItemCommentCard comment={comment} />
+      {comments.length === 0 ? (
+        <div className={styles.emptyComment}>
+          <div>
+            <img
+              src={EmptyCommentImg}
+              className={styles.emptyCommentImg}
+              alt=""
+            />
           </div>
-        ))}
-      </div>
+          <div className={styles.emptyCommentText}>아직 문의가 없어요</div>
+        </div>
+      ) : (
+        <div className={styles.commentListSection}>
+          {comments.map((comment, index) => (
+            <div
+              key={comment.id}
+              ref={index === comments.length - 1 ? observerRef : null}
+            >
+              <ItemCommentCard comment={comment} />
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

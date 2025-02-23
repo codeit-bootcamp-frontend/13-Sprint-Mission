@@ -4,7 +4,7 @@ import BREAKPOINTS from "../../utils/breakpoints";
 import PrimaryButton from "../UI/PrimaryButton";
 import logoImg from "../../assets/logo/panda-market-logo.svg";
 import logoWordImg from "../../assets/logo/panda-market-logo-only-word.svg";
-import UserIcon from "../../assets/user/default-profile.png";
+import UserIcon from "../../assets/image/default-profile.png";
 import styles from "./Header.module.css";
 
 function Header() {
