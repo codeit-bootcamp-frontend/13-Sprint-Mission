@@ -37,6 +37,7 @@ function ItemCommentCard({
   const handleEditComplete = (event) => {
     event.stopPropagation();
     setIsEditMode(false);
+    // 나중에 수정한 코멘트 patch 함수 동작하도록 추가
     setModifiedComment(content);
   };
 
