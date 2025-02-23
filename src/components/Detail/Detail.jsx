@@ -29,7 +29,7 @@ export default function Detail() {
     getProductInfo(productId)
       .then((result) => setProduct(result))
       .catch((error) => console.error(error));
-  }, []);
+  }, [productId]);
 
   const handleHeartChange = () => {
     setIsFull((prev) => !prev);
