@@ -13,11 +13,78 @@
   right: 0;
 }
 
+.commentMenuList {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 3rem;
+  right: 0;
+  width: 13.9rem;
+  background-color: #ffffff;
+  border-radius: 1.2rem;
+  border: 0.1rem solid var(--gray200);
+}
+
+.commentMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4.6rem;
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--gray500);
+}
+
+.commentMenu:hover:first-child,
+.commentMenu:focus:first-child {
+  border-top-left-radius: 1.2rem;
+  border-top-right-radius: 1.2rem;
+  background-color: var(--gray100);
+}
+
+.commentMenu:hover:nth-child(2),
+.commentMenu:focus:nth-child(2) {
+  border-bottom-left-radius: 1.2rem;
+  border-bottom-right-radius: 1.2rem;
+  background-color: var(--gray100);
+}
+
+.modifiedComment,
+.modifiedComment:focus {
+  height: 8rem;
+}
+
 .contentSection {
   font-weight: 400;
   font-size: 1.4rem;
   line-height: 2.4rem;
   color: var(--gray800);
+}
+
+.bottomSection {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonContainer {
+  padding-bottom: 1.2rem;
+}
+
+.cancelButton,
+.editCompleteButton {
+  padding: 1.2rem 2.3rem;
+  border-radius: 0.8rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.cancelButton {
+  color: #737373;
+}
+
+.cancelButton:hover,
+.cancelButton:focus {
+  color: var(--blue);
 }
 
 .infoSection {
@@ -49,4 +116,20 @@
   font-size: 1.2rem;
   line-height: 1.8rem;
   color: var(--gray400);
+}
+
+/* Tablet */
+@media (max-width: 1199px) {
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .commentMenuList {
+    width: 10.2rem;
+  }
+
+  .commentMenu {
+    height: 4.5rem;
+    font-size: 1.4rem;
+  }
 }

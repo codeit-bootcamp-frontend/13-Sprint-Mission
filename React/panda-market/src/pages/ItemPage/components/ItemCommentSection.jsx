@@ -5,21 +5,14 @@ import ItemCommentCard from "./ItemCommentCard";
 import styles from "./ItemCommentSection.module.css";
 
 function ItemCommentSection({ productId }) {
-  const [formData, setFormData] = useState({
-    newComment: "",
-    modifiedComment: "",
-  });
+  const [newComment, setNewComment] = useState("");
   const [registerAvailable, setRegisterAvailable] = useState(false);
   const [comments, setComments] = useState([]);
   const [cursor, setCursor] = useState(0);
   const observerRef = useRef(null);
 
   const handleChange = (event) => {
-    const { id, value } = event.target;
-    setFormData((prev) => ({
-      ...prev,
-      [id]: value,
-    }));
+    setNewComment(event.target.value);
   };
 
   const handleLoad = async () => {
@@ -54,12 +47,12 @@ function ItemCommentSection({ productId }) {
   }, [cursor]);
 
   useEffect(() => {
-    if (formData.newComment) {
+    if (newComment) {
       setRegisterAvailable(true);
     } else {
       setRegisterAvailable(false);
     }
-  }, [formData.newComment]);
+  }, [newComment]);
 
   return (
     <div className={styles.container}>
@@ -68,7 +61,7 @@ function ItemCommentSection({ productId }) {
           문의하기
           <textarea
             id="newComment"
-            value={formData.newComment}
+            value={newComment.newComment}
             onChange={handleChange}
             placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
             className={styles.newComment}
