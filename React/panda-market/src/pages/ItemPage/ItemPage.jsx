@@ -1,7 +1,9 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ItemInfoSection from "./components/ItemInfoSection";
-import styles from "./ItemPage.module.css";
 import ItemCommentSection from "./components/ItemCommentSection";
+import PrimaryButton from "../../components/UI/PrimaryButton";
+import BackIcon from "../../assets/icon/ic_back.svg";
+import styles from "./ItemPage.module.css";
 
 function ItemPage() {
   const { productId } = useParams(null);
@@ -14,6 +16,12 @@ function ItemPage() {
       <div className={styles.commentContainer}>
         <ItemCommentSection productId={productId} />
       </div>
+      <Link to="/items" className={styles.buttonContainer}>
+        <PrimaryButton className={styles.backButton}>
+          목록으로 돌아가기
+          <img src={BackIcon} alt="" />
+        </PrimaryButton>
+      </Link>
     </div>
   );
 }

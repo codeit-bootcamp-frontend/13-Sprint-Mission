@@ -7,7 +7,7 @@ import ItemCard from "./ItemCard";
 import SearchIcon from "../../../assets/icon/ic_search.svg";
 import DownIcon from "../../../assets/icon/ic_arrow_down.svg";
 import DropdownIcon from "../../../assets/icon/ic_sort.svg";
-import BackIcon from "../../../assets/icon/ic_back.svg";
+import BackIcon from "../../../assets/icon/ic_prev.svg";
 import NextIcon from "../../../assets/icon/ic_next.svg";
 import styles from "./AllItemsSection.module.css";
 import PrimaryButton from "../../../components/UI/PrimaryButton";
