@@ -9,3 +9,12 @@ export const getFormattedDate = (dateString) => {
 
   return formattedDate;
 };
+
+export const getPassedTime = (dateString) => {
+  const updatedTime = new Date(dateString);
+  const now = new Date();
+  const diffTime = now - updatedTime;
+  const passedTime = Math.floor(diffTime / (1000 * 60 * 60));
+
+  return passedTime;
+};

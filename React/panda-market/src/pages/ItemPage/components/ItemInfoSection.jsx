@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getItemById } from "../../../apis/itemApi";
-import { getFormattedDate } from "../../../utils/date";
+import { getFormattedDate } from "../../../utils/dateTimeUtils";
 import MenuButton from "../../../components/UI/MenuButton";
 import SellerIcon from "../../../assets/user/default-profile.png";
 import HeartIcon from "../../../assets/icon/ic_heart.svg";

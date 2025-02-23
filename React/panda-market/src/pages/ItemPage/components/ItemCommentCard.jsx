@@ -1,3 +1,4 @@
+import { getFormattedDate, getPassedTime } from "../../../utils/dateTimeUtils";
 import MenuButton from "../../../components/UI/MenuButton";
 import UserDefaultImg from "../../../assets/user/default-profile.png";
 import styles from "./ItemCommentCard.module.css";
@@ -9,6 +10,9 @@ function ItemCommentCard({
     writer: { nickname, image },
   },
 }) {
+  const passedTime = getPassedTime(updatedAt);
+  const updatedDate = getFormattedDate(updatedAt);
+
   return (
     <div className={styles.container}>
       <MenuButton className={styles.menuButton} />
@@ -21,7 +25,9 @@ function ItemCommentCard({
         )}
         <div className={styles.userInfo}>
           <div className={styles.userNickname}>{nickname}</div>
-          <div className={styles.updatedAt}>{updatedAt}</div>
+          <div className={styles.updatedAt}>
+            {passedTime > 24 ? updatedDate : `${passedTime}시간 전`}
+          </div>
         </div>
       </div>
     </div>
