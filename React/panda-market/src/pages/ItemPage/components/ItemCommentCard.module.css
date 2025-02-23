@@ -1,0 +1,52 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--gray200);
+}
+
+.menuButton {
+  position: absolute;
+  top: 0rem;
+  right: 0;
+}
+
+.contentSection {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  color: var(--gray800);
+}
+
+.infoSection {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.userImg {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 100%;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.userNickname {
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  color: var(--gray600);
+}
+
+.updatedAt {
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  color: var(--gray400);
+}

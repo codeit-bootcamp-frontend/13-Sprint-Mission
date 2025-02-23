@@ -1,11 +1,26 @@
 import { useEffect, useState, useRef } from "react";
 import { getItemComments } from "../../../apis/itemApi";
+import PrimaryButton from "../../../components/UI/PrimaryButton";
 import ItemCommentCard from "./ItemCommentCard";
+import styles from "./ItemCommentSection.module.css";
 
 function ItemCommentSection({ productId }) {
+  const [formData, setFormData] = useState({
+    newComment: "",
+    modifiedComment: "",
+  });
+  const [registerAvailable, setRegisterAvailable] = useState(false);
   const [comments, setComments] = useState([]);
   const [cursor, setCursor] = useState(0);
   const observerRef = useRef(null);
+
+  const handleChange = (event) => {
+    const { id, value } = event.target;
+    setFormData((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+  };
 
   const handleLoad = async () => {
     try {
@@ -22,6 +37,7 @@ function ItemCommentSection({ productId }) {
 
   useEffect(() => {
     handleLoad();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -34,11 +50,41 @@ function ItemCommentSection({ productId }) {
     );
     if (observerRef.current) observer.observe(observerRef.current);
     return () => observer.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cursor]);
 
+  useEffect(() => {
+    if (formData.newComment) {
+      setRegisterAvailable(true);
+    } else {
+      setRegisterAvailable(false);
+    }
+  }, [formData.newComment]);
+
   return (
-    <>
-      <div>
+    <div className={styles.container}>
+      <div className={styles.newCommentSection}>
+        <label>
+          문의하기
+          <textarea
+            id="newComment"
+            value={formData.newComment}
+            onChange={handleChange}
+            placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
+            className={styles.newComment}
+          />
+        </label>
+        <div className={styles.registerButtonContainer}>
+          <PrimaryButton
+            type="submit"
+            className={styles.registerButton}
+            disabled={!registerAvailable}
+          >
+            등록
+          </PrimaryButton>
+        </div>
+      </div>
+      <div className={styles.CommentListSection}>
         {comments.map((comment, index) => (
           <div
             key={comment.id}
@@ -48,7 +94,7 @@ function ItemCommentSection({ productId }) {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

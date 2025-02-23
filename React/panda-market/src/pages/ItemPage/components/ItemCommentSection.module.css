@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.newCommentSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.newComment,
+.newComment:focus {
+  height: 10.4rem;
+}
+
+.registerButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.registerButton {
+  padding: 1.2rem 2.3rem;
+  border-radius: 0.8rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.CommentListSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+/* Tablet */
+@media (max-width: 1199px) {
+  .container {
+    gap: 4rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .newComment,
+  .newComment:focus {
+    height: 12.9rem;
+  }
+
+  .CommentListSection {
+    gap: 1.6rem;
+  }
+}
