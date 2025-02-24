@@ -4,7 +4,7 @@ import logo_md from "@/assets/logo_md.svg";
 import logo_lg from "@/assets/logo_lg.svg";
 import ic_google from "@/assets/ic_google.svg";
 import ic_kakaoTalk from "@/assets/ic_kakaoTalk.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router";
 import { isEmptyString } from "@/utils/stringUtils";
 import { FORM_FIELDS } from "@/constants/formFields";
@@ -15,52 +15,62 @@ function Signup() {
   const [formData, setFormData] = useState(
     Object.fromEntries(SIGNUP_FORM.map((name) => [name, ""])),
   );
-  const [isInputEmpty, setIsInputEmpty] = useState(
+  const [isFieldFilled, setIsFieldFilled] = useState(
     Object.fromEntries(SIGNUP_FORM.map((name) => [name, false])),
   );
-  const [isInputInvalid, setIsInputInvalid] = useState(
+  const [isFieldValidated, setIsFieldValidated] = useState(
     Object.fromEntries(SIGNUP_FORM.map((name) => [name, false])),
   );
   const [canSubmit, setCanSubmit] = useState(false);
 
-  const handleInputChange = (name, event) => {
+  const handleFieldChange = (name, event) => {
     setFormData((prev) => ({
       ...prev,
       [name]: event.target.value,
     }));
   };
 
-  const handleEmptyCheck = (name) => {
-    setIsInputEmpty((prev) => ({
-      ...prev,
-      [name]: isEmptyString(formData[name]),
-    }));
-  };
-
-  const handleInvalidCheck = (name) => {
-    setIsInputInvalid((prev) => ({
-      ...prev,
-      [name]:
-        FORM_FIELDS[name].pattern !== null
-          ? !FORM_FIELDS[name].pattern.test(formData[name])
-          : formData[name] !== formData["password"],
-    }));
-  };
-
-  const handleCheckForm = () => {
-    if (
-      Object.values(formData).every((value) => !isEmptyString(value)) &&
-      Object.values(isInputInvalid).every((isInvalid) => !isInvalid)
-    ) {
-      setCanSubmit(true);
-    }
-  };
-
   const handleFieldBlur = (name) => {
-    handleEmptyCheck(name);
-    handleInvalidCheck(name);
-    handleCheckForm();
+    updateFieldFilled(name);
+    validateField(name);
   };
+
+  const updateFieldFilled = (name) => {
+    setIsFieldFilled((prev) => ({
+      ...prev,
+      [name]: !isEmptyString(formData[name]),
+    }));
+  };
+
+  const validateField = (name) => {
+    setIsFieldValidated((prev) => {
+      const updatedValidation = {
+        ...prev,
+        [name]:
+          name === "passwordConfirm"
+            ? formData[name] === formData["password"]
+            : FORM_FIELDS[name].pattern.test(formData[name]),
+      };
+
+      // '비밀번호' 필드 수정 시 '비밀번호 확인' 필드 재검증
+      if (name === "password" && prev.hasOwnProperty("passwordConfirm")) {
+        updatedValidation.passwordConfirm =
+          formData["passwordConfirm"] === formData["password"];
+      }
+
+      return updatedValidation;
+    });
+  };
+
+  const validateForm = () => {
+    const isAllFieldsFilled = Object.values(isFieldFilled).every(Boolean);
+    const isAllFieldsValidated = Object.values(isFieldValidated).every(Boolean);
+    setCanSubmit(isAllFieldsFilled && isAllFieldsValidated);
+  };
+
+  useEffect(() => {
+    validateForm();
+  }, [isFieldFilled, isFieldValidated]);
 
   return (
     <main className="my-15 flex flex-col items-center px-4">
@@ -73,10 +83,10 @@ function Signup() {
             <InputField
               key={index}
               name={name}
-              onInputChange={handleInputChange}
-              onInputBlur={handleFieldBlur}
-              isEmpty={isInputEmpty[name]}
-              isInvalid={isInputInvalid[name]}
+              onChange={handleFieldChange}
+              onBlur={handleFieldBlur}
+              hasValue={isFieldFilled[name]}
+              isValidated={isFieldValidated[name]}
               value={formData[name]}
               {...FORM_FIELDS[name]}
             />

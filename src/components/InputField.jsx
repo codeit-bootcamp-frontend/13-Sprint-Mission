@@ -13,11 +13,12 @@ function InputField({
   value,
   onChange,
   onBlur,
-  isEmpty,
-  isInvalid,
+  hasValue,
+  isValidated,
 }) {
   const [isFocused, setIsFocused] = useState(false);
   const [currentInputType, setCurrentInputType] = useState(type);
+  const [hasBeenTouched, setHasBeenTouched] = useState(false);
 
   const handleInputChange = (event) => {
     onChange(name, event);
@@ -29,6 +30,7 @@ function InputField({
 
   const handleInputBlur = () => {
     setIsFocused(false);
+    setHasBeenTouched(true); // 한 번이라도 블러되면 true로 설정
     onBlur(name);
   };
 
@@ -44,7 +46,7 @@ function InputField({
         {label}
       </label>
       <div
-        className={`mt-4 flex h-14 w-full items-center justify-stretch gap-3 rounded-xl bg-gray-100 px-6 ${isFocused ? "outline-2 outline-blue-500" : ""} ${isEmpty || isInvalid ? "outline-red outline-2" : ""}`}
+        className={`mt-4 flex h-14 w-full items-center justify-stretch gap-3 rounded-xl bg-gray-100 px-6 ${isFocused ? "outline-2 outline-blue-500" : ""} ${hasBeenTouched && !(hasValue && isValidated) ? "outline-red outline-2" : ""}`}
       >
         <input
           id={id}
@@ -72,9 +74,9 @@ function InputField({
           </button>
         ) : null}
       </div>
-      {(isEmpty || isInvalid) && (
+      {hasBeenTouched && !(hasValue && isValidated) && (
         <div className="text-red mt-2 ml-4 text-sm font-semibold">
-          {isEmpty ? emptyMessage : invalidMessage}
+          {!hasValue ? emptyMessage : invalidMessage}
         </div>
       )}
     </div>
