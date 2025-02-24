@@ -145,3 +145,18 @@ input::placeholder {
 .signup-link {
   color: var(--primary-100);
 }
+
+/*모바일 */
+@media (max-width: 480px) {
+  .login_content,
+  .btn_login2,
+  .sns_login_content {
+    width: calc(100% - 32px);
+    max-width: 400px;
+  }
+
+  .sns_login {
+    width: calc(100% - 32px);
+    max-width: 400px;
+  }
+}
