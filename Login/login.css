@@ -57,7 +57,7 @@ main {
   border-color: #3692ff; /* 포커스 상태 테두리 색상 */
 }
 
-input {
+.input_main {
   border: none;
   background-color: transparent; /* 투명 배경 */
   outline: none;
