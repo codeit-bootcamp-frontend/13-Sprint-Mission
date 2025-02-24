@@ -6,6 +6,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { isValidAddItem } from "../../../utils/addValidate";
 
+interface AddItem {
+  images: string | null;
+  name: string;
+  description: string;
+  price: number;
+  tags: string[];
+}
+
 const INITIAL_VALUE = {
   images: null,
   name: "",
@@ -16,10 +24,10 @@ const INITIAL_VALUE = {
 
 export default function AddItemPage() {
   const navigate = useNavigate();
-  const [values, setValues] = useState(INITIAL_VALUE);
-  const [tag, setTag] = useState("");
+  const [values, setValues] = useState<AddItem>(INITIAL_VALUE);
+  const [tag, setTag] = useState<string>("");
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
     setValues((prevState) => ({
@@ -28,7 +36,7 @@ export default function AddItemPage() {
     }));
   };
 
-  const handleTagChange = (e) => {
+  const handleTagChange = (e: React.KeyboardEvent<HTMLInputElement>) => {
     // IME composition
     if (e.nativeEvent.isComposing) return;
 
@@ -49,14 +57,14 @@ export default function AddItemPage() {
     }
   };
 
-  const handleTagDelete = (deleteTag) => {
+  const handleTagDelete = (deleteTag: string) => {
     setValues((prevState) => ({
       ...prevState,
       tags: prevState.tags.filter((tag) => tag !== deleteTag),
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     if (isValidAddItem(values)) {
       e.preventDefault();
       // const formData = new FormData();
@@ -69,7 +77,7 @@ export default function AddItemPage() {
     }
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLFormElement>) => {
     if (e.key === "Enter") {
       e.preventDefault();
     }
@@ -108,7 +116,8 @@ export default function AddItemPage() {
       type: "text",
       placeholder: "태그를 입력해주세요",
       value: tag,
-      onChange: (e) => setTag(e.target.value),
+      onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
+        setTag(e.target.value),
       onKeyDown: handleTagChange,
     },
   ];
@@ -130,9 +139,9 @@ export default function AddItemPage() {
               setValues={setValues}
             />
           </S.AddImg>
-          {INPUT.map((i, idx) => (
+          {INPUT.map((i) => (
             <Input
-              key={idx}
+              key={i.name}
               label={i.label}
               name={i.name}
               type={i.type}
