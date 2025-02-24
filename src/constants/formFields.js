@@ -15,7 +15,7 @@ export const FORM_FIELDS = {
     placeholder: "닉네임을 입력해주세요",
     emptyMessage: "닉네임을 입력해주세요.",
     invalidMessage: "닉네임을 입력해주세요.",
-    pattern: /^[a-zA-Z0-9가-힣]{2,10}$/,
+    pattern: /^[a-zA-Z0-9가-힣]{1,10}$/,
   },
   password: {
     id: "password",
@@ -24,7 +24,7 @@ export const FORM_FIELDS = {
     placeholder: "비밀번호를 입력해주세요",
     emptyMessage: "비밀번호를 입력해주세요.",
     invalidMessage: "비밀번호를 8자 이상 입력해주세요.",
-    pattern: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+    pattern: /^.{8,}$/,
   },
   passwordConfirm: {
     id: "passwordConfirm",
