@@ -8,7 +8,7 @@ import "./styles/App.color.css";
 function App() {
   const location = useLocation();
 
-  const isAuthPage = ["/signin", "/signup"].includes(location.pathname);
+  const isAuthPage = ["/login", "/signup"].includes(location.pathname);
   const isHomePage = location.pathname === "/";
 
   return (

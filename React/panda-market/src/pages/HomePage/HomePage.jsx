@@ -1,12 +1,12 @@
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import PrimaryButton from "../../components/UI/PrimaryButton";
 import BannerTopImg from "../../assets/image/Img_home_top.svg";
 import BannerBottomImg from "../../assets/image/Img_home_bottom.svg";
 import HomeImg1 from "../../assets/image/Img_home_01.png";
 import HomeImg2 from "../../assets/image/Img_home_02.png";
 import HomeImg3 from "../../assets/image/Img_home_03.png";
 import styles from "./HomePage.module.css";
-import PrimaryButton from "../../components/UI/PrimaryButton";
-import { Link } from "react-router-dom";
 
 function HomePage() {
   return (

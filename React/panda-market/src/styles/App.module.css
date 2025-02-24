@@ -52,10 +52,13 @@ img {
 label {
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
   font-weight: 700;
   font-size: 1.8rem;
   color: var(--gray800);
+}
+
+label > :first-child {
+  margin-top: 1.6rem;
 }
 
 input,
@@ -68,7 +71,7 @@ input:focus {
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 2.6rem;
-  outline: none;
+  outline-color: var(--blue);
 }
 
 textarea,
@@ -82,7 +85,7 @@ textarea:focus {
   font-size: 1.6rem;
   line-height: 2.6rem;
   resize: none;
-  outline: none;
+  outline-color: var(--blue);
 }
 
 input::placeholder,

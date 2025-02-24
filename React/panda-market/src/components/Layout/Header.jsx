@@ -56,7 +56,7 @@ function Header() {
         <img src={UserIcon} className={styles.user} alt="유저 메뉴" />
       )}
       {["/"].includes(location.pathname) && (
-        <Link to="/signin">
+        <Link to="/login">
           <PrimaryButton type="button" className={styles.loginButton}>
             로그인
           </PrimaryButton>
