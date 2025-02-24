@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { validEmail, validPassword } from "../../utils/validation";
 import PrimaryButton from "../../components/UI/PrimaryButton";
 import LogoImg from "../../assets/logo/panda-market-logo.svg";
@@ -22,8 +22,11 @@ function LoginPage() {
     email: true,
     password: true,
   });
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState({
+    password: false,
+  });
   const [isLoginAvailable, setIsLoginAvailable] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { id, value } = event.target;
@@ -31,10 +34,6 @@ function LoginPage() {
       ...prev,
       [id]: value,
     }));
-  };
-
-  const handleBlur = (event) => {
-    const { id, value } = event.target;
 
     const updateValidationState = (id, value, validFunc) => {
       setIsFilled((prev) => ({
@@ -56,21 +55,28 @@ function LoginPage() {
     }
   };
 
-  const handlePasswordVisible = () => {
-    setIsVisible(!isVisible);
+  const handlePasswordVisible = (event) => {
+    const { name } = event.currentTarget;
+
+    setIsVisible((prev) => ({
+      ...prev,
+      [name]: !prev[name],
+    }));
+  };
+
+  const handleLogin = (e) => {
+    if (!isLoginAvailable) {
+      e.preventDefault();
+      return;
+    }
+    navigate("/items");
   };
 
   useEffect(() => {
-    const isAllValid = isValid.email && isValid.password;
-    const isAllFilled = isFilled.email && isFilled.password;
-
     setIsLoginAvailable(
-      isAllValid &&
-        isAllFilled &&
-        formData.email.length > 0 &&
-        formData.password.length > 0
+      validEmail(formData.email) && validPassword(formData.password)
     );
-  }, [isValid, isFilled, formData]);
+  }, [formData]);
 
   return (
     <div className={styles.container}>
@@ -85,7 +91,6 @@ function LoginPage() {
             id="email"
             value={formData.email}
             onChange={handleChange}
-            onBlur={handleBlur}
             className={
               !(isFilled.email && isValid.email) ? styles.cautionInput : ""
             }
@@ -105,11 +110,10 @@ function LoginPage() {
         <label className={styles.passwordInput}>
           비밀번호
           <input
-            type={isVisible ? "text" : "password"}
+            type={isVisible.password ? "text" : "password"}
             id="password"
             value={formData.password}
             onChange={handleChange}
-            onBlur={handleBlur}
             className={
               !(isFilled.password && isValid.password)
                 ? styles.cautionInput
@@ -117,11 +121,10 @@ function LoginPage() {
             }
             placeholder="비밀번호를 입력해주세요"
           />
-          <button type="button">
+          <button type="button" name="password" onClick={handlePasswordVisible}>
             <img
-              src={isVisible ? VisibilityOn : VisibilityOff}
+              src={isVisible.password ? VisibilityOn : VisibilityOff}
               className={styles.visibleIcon}
-              onClick={handlePasswordVisible}
               alt=""
             />
           </button>
@@ -138,15 +141,14 @@ function LoginPage() {
             </div>
           )}
         </label>
-        <Link to="/items">
-          <PrimaryButton
-            type="submit"
-            className={styles.loginButton}
-            disabled={!isLoginAvailable}
-          >
-            로그인
-          </PrimaryButton>
-        </Link>
+        <PrimaryButton
+          type="submit"
+          onClick={handleLogin}
+          className={styles.loginButton}
+          disabled={!isLoginAvailable}
+        >
+          로그인
+        </PrimaryButton>
         <div className={styles.socialLoginSection}>
           <div className={styles.socialLoginText}>간편 로그인하기</div>
           <ul className={styles.socialLoginList}>
@@ -164,7 +166,7 @@ function LoginPage() {
         </div>
         <div className={styles.signupSection}>
           판다마켓이 처음이신가요?
-          <Link to="signup" className={styles.signupLink}>
+          <Link to="/signup" className={styles.signupLink}>
             회원가입
           </Link>
         </div>

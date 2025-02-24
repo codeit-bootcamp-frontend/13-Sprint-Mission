@@ -1,0 +1,122 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  min-height: 100vh;
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.logoImg {
+  width: 39.6rem;
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  width: 100%;
+}
+
+.passwordInput {
+  position: relative;
+}
+
+.visibleIcon {
+  position: absolute;
+  top: 5.7rem;
+  right: 2rem;
+}
+
+.cautionInput {
+  border: 2px solid var(--red);
+}
+
+.cautionText {
+  color: var(--red);
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  padding: 1rem 0 0 1.6rem;
+}
+
+.loginButton {
+  font-size: 2rem;
+  font-weight: 600;
+  width: 100%;
+  border-radius: 4rem;
+  padding: 1.6rem 12.4rem;
+}
+
+.socialLoginSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.6rem 2.3rem;
+  border-radius: 0.8rem;
+  background-color: #e6f2ff;
+  color: var(--gray800);
+  font-weight: 500;
+}
+
+.socialLoginText {
+  font-weight: 500;
+  font-size: 1.6rem;
+  color: var(--gray800);
+}
+
+.socialLoginList {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.6rem;
+}
+
+.googleIcon {
+  background-color: #ffffff;
+  outline: 0.1rem solid var(--gray50);
+  padding: 0.8rem;
+  border-radius: 999rem;
+}
+
+.kakaoIcon {
+  background-color: #f5e14b;
+  outline: 0.1rem solid var(--gray50);
+  padding: 0.8rem;
+  border-radius: 999rem;
+}
+
+.loginSection {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--gray900);
+}
+
+.loginLink,
+.loginLink:visited {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+/* Tablet */
+@media (max-width: 1199px) {
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .container {
+    padding: 1.6rem;
+    max-width: 40rem;
+  }
+  .logoImg {
+    width: 19.8rem;
+  }
+}

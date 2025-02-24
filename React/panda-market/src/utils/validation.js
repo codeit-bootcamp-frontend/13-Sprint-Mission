@@ -7,9 +7,6 @@ export const validPassword = (password) => {
   return !(password.length < 8);
 };
 
-export const matchPassword = (password) => {
-  return !(
-    password.value !==
-    password.parentElement.previousElementSibling.children[1].value
-  );
+export const matchPassword = (password, passwordCheck) => {
+  return password === passwordCheck;
 };
