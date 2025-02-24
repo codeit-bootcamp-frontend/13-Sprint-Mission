@@ -1,6 +1,10 @@
 import { styled } from "styled-components";
 import theme from "../../styles/theme";
 
+interface Readonly {
+  readonly?: boolean;
+}
+
 export const TagContainer = styled.li`
   height: 36px;
   background-color: ${theme.color.gray100};
@@ -19,10 +23,10 @@ export const TagName = styled.div`
   color: ${theme.color.gray800};
 `;
 
-export const DeleteTag = styled.img`
+export const DeleteTag = styled.img<Readonly>`
   width: 22px;
   height: 24px;
   cursor: pointer;
 
-  display: ${({ readOnly }) => (readOnly ? "none" : "block")};
+  display: ${({ readonly }) => (readonly ? "none" : "block")};
 `;
