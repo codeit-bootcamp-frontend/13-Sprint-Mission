@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import theme from "../../../styles/theme";
 
+interface LargeHeight {
+  $largeHeight?: string;
+}
+
 export const InputContainer = styled.div`
   width: 100%;
   height: 100%;
@@ -16,7 +20,7 @@ export const Label = styled.label`
   color: ${theme.color.gray800};
 `;
 
-export const StyledInput = styled.input`
+export const StyledInput = styled.input<LargeHeight>`
   width: 100%;
   height: ${({ height }) => height || "100%"};
   background-color: ${theme.color.gray100};
