@@ -5,13 +5,14 @@ import logo_lg from "@/assets/logo_lg.svg";
 import ic_google from "@/assets/ic_google.svg";
 import ic_kakaoTalk from "@/assets/ic_kakaoTalk.svg";
 import { useState, useEffect } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { isEmptyString } from "@/utils/stringUtils";
 import { FORM_FIELDS } from "@/constants/formFields";
 
 const SIGNUP_FORM = ["email", "nickname", "password", "passwordConfirm"];
 
 function Signup() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState(
     Object.fromEntries(SIGNUP_FORM.map((name) => [name, ""])),
   );
@@ -33,6 +34,11 @@ function Signup() {
   const handleFieldBlur = (name) => {
     updateFieldFilled(name);
     validateField(name);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    navigate("/");
   };
 
   const updateFieldFilled = (name) => {
@@ -78,7 +84,7 @@ function Signup() {
         <LogoImage small={logo_md} large={logo_lg} />
       </Link>
       <div className="flex w-full max-w-160 flex-col gap-6">
-        <form className="flex flex-col gap-6">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           {SIGNUP_FORM.map((name, index) => (
             <InputField
               key={index}
