@@ -5,8 +5,8 @@ import Home from "@/pages/Home.jsx";
 import Login from "@/pages/Login.jsx";
 import Signup from "@/pages/Signup.jsx";
 import Items from "@/pages/Items.jsx";
-import PrivacyPage from "@/pages/PrivacyPage.jsx";
-import FAQ from "@/pages/FAQ.jsx";
+import Policy from "@/pages/Policy.jsx";
+import Faq from "@/pages/Faq.jsx";
 
 function App() {
   return (
@@ -17,8 +17,8 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/items" element={<Items />}></Route>
-          <Route path="/privacy" element={<PrivacyPage />}></Route>
-          <Route path="/faq" element={<FAQ />}></Route>
+          <Route path="/privacy" element={<Policy />}></Route>
+          <Route path="/faq" element={<Faq />}></Route>
         </Routes>
       </BrowserRouter>
     </StrictMode>
