@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { isValidAddItem } from "../../../utils/addValidate";
 
-interface AddItem {
+export interface AddItem {
   images: string | null;
   name: string;
   description: string;
@@ -40,10 +40,10 @@ export default function AddItemPage() {
     // IME composition
     if (e.nativeEvent.isComposing) return;
 
-    const eqaulTag = values.tags.some((existing) => existing === tag);
+    const equalTag = values.tags.some((existing) => existing === tag);
     const enterEvent = e.key === "Enter";
 
-    if (!eqaulTag) {
+    if (!equalTag) {
       if (enterEvent && tag.trim() !== "") {
         setValues((prevState) => ({
           ...prevState,

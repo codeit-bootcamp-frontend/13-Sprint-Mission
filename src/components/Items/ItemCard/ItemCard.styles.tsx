@@ -1,32 +1,38 @@
 import styled from "styled-components";
 import theme from "../../../styles/theme";
 
+export interface List {
+  list: string;
+}
+
+type ScreenSize = keyof typeof BEST_IMG;
+
 export const BEST_IMG = {
   PC: "282px",
   Tablet: "343px",
-  Moblie: "343px",
-};
+  Mobile: "343px",
+} as const;
 
 export const ALL_IMG = {
   PC: "221px",
   Tablet: "221px",
-  Moblie: "168px",
-};
+  Mobile: "168px",
+} as const;
 
-export const getImgSize = (list, screen) => {
+export const getImgSize = (list: string, screen: ScreenSize) => {
   const item = list === "best" ? BEST_IMG : ALL_IMG;
   return item[screen];
 };
 
-export const ItemImg = styled.img`
+export const ItemImg = styled.img<List>`
   width: ${({ list }) => getImgSize(list, "PC")};
   height: ${({ list }) => getImgSize(list, "PC")};
   border-radius: 16px;
   object-fit: cover;
 
   @media (max-width: 767px) {
-    width: ${({ list }) => getImgSize(list, "Moblie")};
-    height: ${({ list }) => getImgSize(list, "Moblie")};
+    width: ${({ list }) => getImgSize(list, "Mobile")};
+    height: ${({ list }) => getImgSize(list, "Mobile")};
   }
 
   @media (min-width: 768px) and (max-width: 1199px) {
@@ -40,14 +46,14 @@ export const ItemImg = styled.img`
   }
 `;
 
-export const ItemContainer = styled.div`
+export const ItemContainer = styled.div<List>`
   width: ${({ list }) => getImgSize(list, "PC")};
   display: flex;
   flex-direction: column;
   gap: 16px;
 
   @media (max-width: 767px) {
-    width: ${({ list }) => getImgSize(list, "Moblie")};
+    width: ${({ list }) => getImgSize(list, "Mobile")};
   }
 
   @media (min-width: 768px) and (max-width: 1199px) {

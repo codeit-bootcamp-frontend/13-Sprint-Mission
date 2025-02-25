@@ -1,9 +1,9 @@
 import * as S from "./NoneImage.styles";
 import noneImg from "../../assets/icons/image.svg";
 
-export default function NoneImage({ list, detail }) {
+export default function NoneImage({ list }: { list: string }) {
   return (
-    <S.NoneImgContainer list={list} $detail={detail}>
+    <S.NoneImgContainer list={list}>
       <S.NoneImg src={noneImg} />
     </S.NoneImgContainer>
   );

@@ -4,6 +4,15 @@ import NoneImage from "../../NoneImage/NoneImage";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+interface Card {
+  list: string;
+  id: string;
+  images: string;
+  name: string;
+  price: number;
+  favoriteCount: number;
+}
+
 export default function ItemCard({
   list = "best",
   id,
@@ -11,7 +20,7 @@ export default function ItemCard({
   name,
   price,
   favoriteCount,
-}) {
+}: Card) {
   const [isImgError, setIsImgError] = useState(false);
   const navigate = useNavigate();
 

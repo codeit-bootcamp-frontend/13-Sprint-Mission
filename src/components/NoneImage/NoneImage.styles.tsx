@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { getImgSize } from "../Items/ItemCard/ItemCard.styles";
+import { getImgSize, List } from "../Items/ItemCard/ItemCard.styles";
 import theme from "../../styles/theme";
 
-export const NoneImgContainer = styled.div`
+export const NoneImgContainer = styled.div<List>`
   width: ${({ list }) => getImgSize(list, "PC")};
   height: ${({ list }) => getImgSize(list, "PC")};
   border-radius: 16px;
@@ -13,8 +13,8 @@ export const NoneImgContainer = styled.div`
   flex-shrink: 0;
 
   @media (max-width: 767px) {
-    width: ${({ list }) => getImgSize(list, "Moblie")};
-    height: ${({ list }) => getImgSize(list, "Moblie")};
+    width: ${({ list }) => getImgSize(list, "Mobile")};
+    height: ${({ list }) => getImgSize(list, "Mobile")};
   }
 
   @media (min-width: 768px) and (max-width: 1199px) {

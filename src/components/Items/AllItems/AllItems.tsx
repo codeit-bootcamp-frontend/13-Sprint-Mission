@@ -11,7 +11,7 @@ import useResize from "../../../hooks/useResize";
 
 const LIST = ["최신순", "좋아요순"];
 
-export interface AddItem {
+export interface AllItem {
   list: Items[];
   totalCount: number;
 }
@@ -32,7 +32,7 @@ export default function AllItems() {
       pageSize: showItems,
       orderBy: orderByValue,
       keyword: keyword,
-    }).then((result: AddItem) => {
+    }).then((result: AllItem) => {
       if (!result) return;
       setItems(result.list);
       setTotalItems(result.totalCount);
