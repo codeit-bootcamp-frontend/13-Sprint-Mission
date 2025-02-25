@@ -45,7 +45,7 @@ export const PlusIcon = styled.img`
 `;
 
 export const AddImg = styled.div`
-  font:${theme.font.H5Regular}
+  font: ${theme.font.H5Regular};
   color: ${theme.color.gray400};
 `;
 
@@ -71,5 +71,5 @@ export const DeleteImg = styled.img`
   position: absolute;
   right: 10px;
   top: 10px;
-  cursor: pointer;:
+  cursor: pointer;
 `;

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { isValidAddItem } from "../../../utils/addValidate";
 
 export interface AddItem {
-  images: string | null;
+  images: File | null;
   name: string;
   description: string;
   price: number;

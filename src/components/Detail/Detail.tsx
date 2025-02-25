@@ -10,7 +10,8 @@ import fullHeart from "../../assets/icons/fullHeart.svg";
 import dots from "../../assets/icons/dots.svg";
 import noneImg from "../../assets/icons/image.svg";
 
-interface DetailItem extends AddItem {
+interface DetailItem extends Omit<AddItem, "images"> {
+  images: string | null;
   favoriteCount: number;
   createdAt: string;
   updatedAt: string;
@@ -21,18 +22,20 @@ export interface ProductParams extends Record<string, string | undefined> {
   productId: string;
 }
 
+const INITIAL_VALUE = {
+  name: "",
+  description: "",
+  price: 0,
+  tags: [],
+  images: null,
+  favoriteCount: 0,
+  createdAt: "",
+  updatedAt: "",
+  ownerNickname: "",
+};
+
 export default function Detail() {
-  const [product, setProduct] = useState<DetailItem>({
-    name: "",
-    description: "",
-    price: 0,
-    tags: [],
-    images: null,
-    favoriteCount: 0,
-    createdAt: "",
-    updatedAt: "",
-    ownerNickname: "",
-  });
+  const [product, setProduct] = useState<DetailItem>(INITIAL_VALUE);
   const [isFull, setIsFull] = useState<boolean>(false);
   const [isImgError, setIsImgError] = useState<boolean>(false);
   const { productId } = useParams<ProductParams>();

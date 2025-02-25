@@ -1,14 +1,21 @@
 import * as S from "./FileInput.styles";
 import x from "../../assets/icons/delete.svg";
 import plus from "../../assets/icons/plus.svg";
-import { useState, useRef } from "react";
+import { useState, useRef, SetStateAction } from "react";
+import { AddItem } from "../pages/AddItemPage/AddItemPage";
 
-export default function FileInput({ label, images, setValues }) {
-  const [preview, setPreview] = useState(null);
-  const inputRef = useRef();
+interface FileProps {
+  label: string;
+  images: File | null;
+  setValues: React.Dispatch<SetStateAction<AddItem>>;
+}
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
+export default function FileInput({ label, images, setValues }: FileProps) {
+  const [preview, setPreview] = useState<string | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
 
     if (file) {
       setValues((prevState) => ({
@@ -53,7 +60,7 @@ export default function FileInput({ label, images, setValues }) {
       </S.FileContainer>
       {images && (
         <S.Preview>
-          <S.PreviewImg src={preview} />
+          <S.PreviewImg src={preview ?? undefined} />
           <S.DeleteImg src={x} onClick={handleImageDelete} />
         </S.Preview>
       )}
