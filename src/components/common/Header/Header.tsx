@@ -7,7 +7,7 @@ import theme from "../../../styles/theme";
 export default function Header() {
   const location = useLocation().pathname;
 
-  const activeLink = ({ isActive }) => {
+  const activeLink = ({ isActive }: { isActive: boolean }) => {
     const isItemsOrAddItem = isActive || location.startsWith("/addItem");
 
     return {
@@ -20,7 +20,7 @@ export default function Header() {
   const navLink = [
     {
       to: "/freeBoard",
-      style: ({ isActive }) => ({
+      style: ({ isActive }: { isActive: boolean }) => ({
         color: isActive ? `${theme.color.blue}` : `${theme.color.gray600}`,
       }),
       name: "자유게시판",

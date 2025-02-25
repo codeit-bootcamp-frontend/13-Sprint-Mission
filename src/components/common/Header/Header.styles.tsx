@@ -62,7 +62,7 @@ export const NavItems = styled.div`
   line-height: 26px;
   text-align: center;
   padding: 15px 21px;
-  color: ${theme.color.gray00};
+  color: ${theme.color.gray100};
   cursor: pointer;
   @media (max-width: 768px) {
     padding: 15px 0;
