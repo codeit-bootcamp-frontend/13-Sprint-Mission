@@ -7,7 +7,6 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   isTextarea?: boolean;
   height?: string;
   largeHeight?: string;
-  $largeHeight?: string;
 }
 
 export default function Input({

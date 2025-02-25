@@ -4,6 +4,10 @@ import up from "../../../assets/icons/arrowUp.svg";
 import dropdown from "../../../assets/icons/dropdown.svg";
 import theme from "../../../styles/theme";
 
+interface IsOpen {
+  $isOpen: boolean;
+}
+
 export const DropdownContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -45,7 +49,7 @@ export const PresentValue = styled.div`
   }
 `;
 
-export const Arrow = styled.img`
+export const Arrow = styled.img<IsOpen>`
   width: 24px;
   height: 24px;
   user-select: none;

@@ -1,8 +1,18 @@
 import * as S from "./Dropdown.styles";
 import { useState } from "react";
 
-export default function Dropdown({ sortOption = "최신순", onChange, list = [] }) {
-  const [isOpen, setIsOpen] = useState(false);
+interface DropDownProps {
+  sortOption: string;
+  onChange: (option: string) => void;
+  list: string[];
+}
+
+export default function Dropdown({
+  sortOption,
+  onChange,
+  list = [],
+}: DropDownProps) {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleOpenClick = () => {
     setIsOpen(!isOpen);
