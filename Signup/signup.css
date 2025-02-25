@@ -1,6 +1,8 @@
+@import url("color.css");
+
 main {
   margin-top: 70px;
-  background-color: #ffffff;
+  background-color: var(--white);
 }
 
 .signup_main {
