@@ -51,6 +51,7 @@ export const ItemContainer = styled.div<List>`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  cursor: pointer;
 
   @media (max-width: 767px) {
     width: ${({ list }) => getImgSize(list, "Mobile")};
