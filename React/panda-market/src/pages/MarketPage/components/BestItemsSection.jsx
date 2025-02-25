@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getItems } from "../../../apis/itemApi";
 import useWindowSize from "../../../hooks/useWindowSize";
+import BREAKPOINTS from "../../../utils/breakpoints";
 import ItemCard from "./ItemCard";
 import styles from "./BestItemsSection.module.css";
 
@@ -10,22 +11,30 @@ function BestItems() {
   const { width } = useWindowSize();
 
   // 아이템 불러오기
-  const handleLoad = async (query) => {
-    const { list } = await getItems(query);
-    setItems(list);
-  };
-
   useEffect(() => {
-    handleLoad({ page: 1, pageSize, order: "favorite" });
+    const handleLoad = async () => {
+      try {
+        const { list } = await getItems({
+          page: 1,
+          pageSize,
+          order: "favorite",
+        });
+        setItems(list);
+      } catch (error) {
+        alert(error.message);
+        console.error("ERROR: ", error);
+      }
+    };
+    handleLoad();
   }, [pageSize]);
 
   // 반응형
   useEffect(() => {
     let newPageSize;
 
-    if (width > 1200) {
+    if (width > BREAKPOINTS.DESKTOP) {
       newPageSize = 4; // PC
-    } else if (width > 768) {
+    } else if (width > BREAKPOINTS.TABLET) {
       newPageSize = 2; // Tablet
     } else {
       newPageSize = 1; // Mobile

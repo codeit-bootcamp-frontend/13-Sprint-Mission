@@ -42,98 +42,9 @@ h1.title {
 }
 
 h2.title {
-  margin: 0;
   font-weight: 700;
   font-size: 1.8rem;
   color: var(--gray800);
-}
-
-.imgSectionContainer {
-  display: flex;
-  gap: 2.4rem;
-}
-
-.imgAddButton,
-.imgAddButton:hover,
-.imgAddButton:focus,
-.imgAddButton:disabled {
-  width: 28.2rem;
-  height: 28.2rem;
-  border-radius: 1.2rem;
-  background-color: var(--gray100);
-}
-
-.imgAddButtonContent {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.imgAddButtonText {
-  font-weight: 400;
-  font-size: 1.6rem;
-  color: var(--gray400);
-}
-
-.imgPreview {
-  position: relative;
-  width: 28.2rem;
-  height: 28.2rem;
-}
-
-.imgPreview > img {
-  width: 100%;
-  border-radius: 1.2rem;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-}
-
-.imgPreview > button {
-  all: unset;
-  cursor: pointer;
-  position: absolute;
-  top: 1.2rem;
-  right: 1.2rem;
-}
-
-.errorMessage {
-  font-weight: 400;
-  font-size: 1.6rem;
-  color: var(--red);
-}
-
-input,
-input:focus {
-  height: 5.6rem;
-  padding: 1.6rem 2.4rem;
-  border-radius: 1.2rem;
-  border: none;
-  background-color: var(--gray100);
-  font-weight: 400;
-  font-size: 1.6rem;
-  line-height: 2.6rem;
-  outline: none;
-}
-
-textarea,
-textarea:focus {
-  height: 28.2rem;
-  padding: 1.6rem 2.4rem;
-  border-radius: 1.2rem;
-  border: none;
-  background-color: var(--gray100);
-  font-weight: 400;
-  font-size: 1.6rem;
-  line-height: 2.6rem;
-  resize: none;
-  outline: none;
-}
-
-input::placeholder,
-textarea::placeholder {
-  font-weight: 400;
-  font-size: 1.6rem;
-  color: var(--gray400);
 }
 
 .tags {
@@ -149,7 +60,6 @@ textarea::placeholder {
 
 .tag {
   display: inline-flex;
-  align-items: center;
   gap: 0.8rem;
   padding: 0.6rem 1.2rem;
   border-radius: 2.6rem;
@@ -159,15 +69,10 @@ textarea::placeholder {
   color: var(--gray800);
 }
 
-.deleteButton {
-  padding: 0.5rem;
-  border-radius: 100%;
-  background-color: var(--gray400);
-}
-
-.tag > button {
-  all: unset;
-  cursor: pointer;
+.tagName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Tablet */
@@ -175,39 +80,11 @@ textarea::placeholder {
   .container {
     padding: 1.6rem 2.4rem;
   }
-
-  .imgSectionContainer {
-    gap: 1rem;
-  }
-
-  .imgAddButton {
-    width: 16.8rem;
-    height: 16.8rem;
-  }
-
-  .imgPreview {
-    width: 16.8rem;
-    height: 16.8rem;
-  }
 }
 
 /* Mobile */
 @media (max-width: 767px) {
   .container {
     padding: 2.4rem 1.5rem;
-  }
-
-  .imgSectionContainer {
-    gap: 1rem;
-  }
-
-  .imgAddButton {
-    width: 16.8rem;
-    height: 16.8rem;
-  }
-
-  .imgPreview {
-    width: 16.8rem;
-    height: 16.8rem;
   }
 }

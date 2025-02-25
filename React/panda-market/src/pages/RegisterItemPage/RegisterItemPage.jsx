@@ -1,50 +1,22 @@
-import { useState, useEffect, useRef } from "react";
-import PrusIcon from "../../assets/icon/ic_plus.svg";
-import DeleteIcon from "../../assets/icon/ic_delete.svg";
+import { useState, useEffect } from "react";
+import PrimaryButton from "../../components/UI/PrimaryButton";
+import ImageUploader from "./components/ImageUploader";
+import DeleteButton from "../../components/UI/DeleteButton";
 import styles from "./RegisterItemPage.module.css";
 
 function RegisterItemPage() {
   const [registerAvailable, setRegisterAvailable] = useState(false);
+  const [itemImg, setItemImg] = useState(null);
+  const [tagValues, setTagValues] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
     description: "",
     price: "",
     tag: "",
   });
-  const [tagValues, setTagValues] = useState([]);
-  const [itemImg, setItemImg] = useState(null);
-  const [fileError, setFileError] = useState("");
-  const fileInputRef = useRef(null);
 
   const handleRegister = async (event) => {
     event.preventDefault();
-  };
-
-  const handleFileButtonClick = () => {
-    if (!fileInputRef.current) return;
-    fileInputRef.current.click();
-  };
-
-  const handleFileChange = (event) => {
-    const files = event.target.files;
-
-    if (!files) {
-      return;
-    }
-
-    if (files.length > 1) {
-      setFileError("*이미지 등록은 최대 1개까지 가능합니다.");
-      return;
-    }
-
-    setFileError("");
-    setItemImg(URL.createObjectURL(files[0]));
-  };
-
-  const handleDeleteFile = () => {
-    setItemImg(null);
-    setFileError("");
-    fileInputRef.current.value = "";
   };
 
   const handleChange = (event) => {
@@ -71,67 +43,38 @@ function RegisterItemPage() {
 
   useEffect(() => {
     const { name, description, price } = formData;
-    if (name && description && price && tagValues.length !== 0) {
+    if (
+      itemImg !== null &&
+      name &&
+      description &&
+      price &&
+      tagValues.length !== 0
+    ) {
       setRegisterAvailable(true);
     } else {
       setRegisterAvailable(false);
     }
-  }, [formData, tagValues]);
+  }, [itemImg, tagValues, formData]);
 
   return (
     <form className={styles.container} onSubmit={handleRegister}>
       <div className={styles.topSection}>
         <h1 className={styles.title}>상품 등록하기</h1>
-        <button
+        <PrimaryButton
           type="submit"
           className={styles.registerButton}
           disabled={!registerAvailable}
         >
           등록
-        </button>
+        </PrimaryButton>
       </div>
       <div className={styles.itemFormSection}>
         <div className={styles.infoInputSection}>
           <h2 className={styles.title}>상품 이미지</h2>
-          <div className={styles.imgSectionContainer}>
-            <button
-              type="button"
-              className={styles.imgAddButton}
-              onClick={handleFileButtonClick}
-            >
-              <input
-                type="file"
-                ref={fileInputRef}
-                style={{ display: "none" }}
-                onChange={handleFileChange}
-                accept=".jpeg, .jpg, .png"
-                multiple
-              />
-              <div className={styles.imgAddButtonContent}>
-                <div>
-                  <img src={PrusIcon} alt="이미지 등록" />
-                </div>
-                <div className={styles.imgAddButtonText}>이미지 등록</div>
-              </div>
-            </button>
-            {itemImg && (
-              <div className={styles.imgPreview}>
-                <img src={itemImg} alt="상품 이미지 미리보기" />
-                <button type="button">
-                  <img
-                    src={DeleteIcon}
-                    alt="삭제"
-                    className={styles.deleteButton}
-                    onClick={handleDeleteFile}
-                  />
-                </button>
-              </div>
-            )}
-          </div>
-          {fileError && <div className={styles.errorMessage}>{fileError}</div>}
+          <ImageUploader itemImg={itemImg} setItemImg={setItemImg} />
         </div>
-        <div className={styles.infoInputSection}>
-          <h2 className={styles.title}>상품명</h2>
+        <label>
+          상품명
           <input
             type="text"
             id="name"
@@ -139,18 +82,18 @@ function RegisterItemPage() {
             onChange={handleChange}
             placeholder="상품명을 입력해주세요"
           />
-        </div>
-        <div className={styles.infoInputSection}>
-          <h2 className={styles.title}>상품 소개</h2>
+        </label>
+        <label>
+          상품 소개
           <textarea
             id="description"
             value={formData.description}
             onChange={handleChange}
             placeholder="상품 소개를 입력해주세요"
           />
-        </div>
-        <div className={styles.infoInputSection}>
-          <h2 className={styles.title}>판매가격</h2>
+        </label>
+        <label>
+          판매가격
           <input
             type="text"
             id="price"
@@ -161,9 +104,9 @@ function RegisterItemPage() {
             } // 입력된 값이 숫자가 아닐 시 제거
             placeholder="판매 가격을 입력해주세요"
           />
-        </div>
-        <div className={styles.infoInputSection}>
-          <h2 className={styles.title}>태그</h2>
+        </label>
+        <label>
+          태그
           <input
             type="text"
             id="tag"
@@ -175,18 +118,12 @@ function RegisterItemPage() {
           <div className={styles.tags}>
             {tagValues.map((value, index) => (
               <div key={index} className={styles.tag}>
-                #{value}
-                <button type="button" onClick={() => handleDeleteTag(index)}>
-                  <img
-                    src={DeleteIcon}
-                    alt="삭제"
-                    className={styles.deleteButton}
-                  />
-                </button>
+                <div className={styles.tagName}>#{value}</div>
+                <DeleteButton onClick={() => handleDeleteTag(index)} />
               </div>
             ))}
           </div>
-        </div>
+        </label>
       </div>
     </form>
   );

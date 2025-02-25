@@ -91,7 +91,7 @@
   border-radius: 999rem;
 }
 
-.signupSection {
+.loginSection {
   display: flex;
   justify-content: center;
   gap: 0.4rem;
@@ -100,8 +100,8 @@
   color: var(--gray900);
 }
 
-.signupLink,
-.signupLink:visited {
+.loginLink,
+.loginLink:visited {
   color: var(--blue);
   text-decoration: underline;
 }

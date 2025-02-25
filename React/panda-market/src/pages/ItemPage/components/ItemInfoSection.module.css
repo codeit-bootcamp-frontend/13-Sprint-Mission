@@ -1,0 +1,239 @@
+.container {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 2.4rem;
+}
+
+.itemImgSection {
+  padding: 0.5rem 0;
+}
+
+.itemImg {
+  width: 100%;
+  border-radius: 1.6rem;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.itemInfoSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4rem;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.itemInfoTopSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.infoTitle {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid var(--gray200);
+}
+
+.menuButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.itemName {
+  font-weight: 600;
+  font-size: 2.4rem;
+  color: var(--gray800);
+}
+
+.infoPrice {
+  font-weight: 600;
+  font-size: 4rem;
+  color: var(--gray800);
+}
+
+.subtitle {
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: var(--gray600);
+}
+
+.infoDetailContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.infoDetail {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.itemDescription {
+  min-height: 10.4rem;
+  max-height: 10.4rem;
+  overflow-y: auto;
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--gray600);
+}
+
+.itemTags {
+  display: flex;
+  gap: 0.8rem;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.itemDescription::-webkit-scrollbar,
+.itemTags::-webkit-scrollbar {
+  display: none;
+}
+
+.itemTag {
+  padding: 0.6rem 1.6rem;
+  border-radius: 2.6rem;
+  background-color: var(--gray100);
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--gray800);
+}
+
+.itemInfoBottomSection {
+  display: flex;
+  justify-content: space-between;
+}
+
+.AdditionalInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.sellerIconContainer {
+  padding: 0.5rem 0;
+}
+
+.sellerIcon {
+  width: 4rem;
+  height: 4rem;
+}
+
+.sellerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.sellerName {
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--gray600);
+}
+
+.registerDate {
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: var(--gray400);
+}
+
+.itemLikeInfo {
+  display: flex;
+  align-items: center;
+}
+
+.LikeButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 10.3rem;
+  border-left: 0.1rem solid var(--gray200);
+}
+
+.likeButton {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.4rem 1.2rem;
+  border-radius: 3.5rem;
+  border: 0.1rem solid var(--gray200);
+}
+
+.likeButton:hover {
+  background-color: var(--gray100);
+}
+
+.likeIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.4rem;
+}
+
+.likeCount {
+  font-weight: 500;
+  font-size: 1.6rem;
+  color: var(--gray500);
+}
+
+/* Tablet */
+@media (max-width: 1199px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+  }
+
+  .itemImgSection {
+    padding: 0;
+  }
+
+  .itemInfoSection {
+    justify-content: flex-start;
+  }
+
+  .infoTitle {
+    gap: 0.8rem;
+  }
+
+  .itemName {
+    font-size: 2rem;
+  }
+
+  .infoPrice {
+    font-size: 3.2rem;
+  }
+
+  .infoDetail {
+    gap: 0.8rem;
+  }
+
+  .subtitle {
+    font-size: 1.4rem;
+  }
+
+  .itemDescription {
+    max-height: 15.6rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .itemName {
+    font-size: 1.6rem;
+  }
+
+  .infoPrice {
+    font-size: 2.4rem;
+  }
+}

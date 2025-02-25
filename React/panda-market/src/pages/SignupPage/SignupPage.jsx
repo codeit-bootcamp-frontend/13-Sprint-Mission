@@ -1,35 +1,47 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { validEmail, validPassword } from "../../utils/validation";
+import {
+  validEmail,
+  validPassword,
+  matchPassword,
+} from "../../utils/validation";
 import PrimaryButton from "../../components/UI/PrimaryButton";
 import LogoImg from "../../assets/logo/panda-market-logo.svg";
 import VisibilityOff from "../../assets/icon/visibility_off.svg";
 import VisibilityOn from "../../assets/icon/visibility_on.svg";
 import GoogleIcon from "../../assets/icon/ic_google.svg";
 import KakaoIcon from "../../assets/icon/ic_kakao.svg";
-import styles from "./LoginPage.module.css";
+import styles from "./SignupPage.module.css";
 
-function LoginPage() {
+function SignupPage() {
   const [formData, setFormData] = useState({
     email: "",
+    nickname: "",
     password: "",
+    passwordCheck: "",
   });
   const [isValid, setIsValid] = useState({
     email: true,
+    nickname: true,
     password: true,
+    passwordCheck: true,
   });
   const [isFilled, setIsFilled] = useState({
     email: true,
+    nickname: true,
     password: true,
+    passwordCheck: true,
   });
   const [isVisible, setIsVisible] = useState({
     password: false,
+    passwordCheck: false,
   });
   const [isLoginAvailable, setIsLoginAvailable] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { id, value } = event.target;
+
     setFormData((prev) => ({
       ...prev,
       [id]: value,
@@ -50,8 +62,18 @@ function LoginPage() {
       updateValidationState("email", value, validEmail);
     }
 
+    if (id === "nickname") {
+      updateValidationState("nickname", value, () => true);
+    }
+
     if (id === "password") {
       updateValidationState("password", value, validPassword);
+    }
+
+    if (id === "passwordCheck") {
+      updateValidationState("passwordCheck", value, (value) =>
+        matchPassword(formData.password, value)
+      );
     }
   };
 
@@ -64,17 +86,20 @@ function LoginPage() {
     }));
   };
 
-  const handleLogin = (e) => {
+  const handleSignup = (e) => {
     if (!isLoginAvailable) {
       e.preventDefault();
       return;
     }
-    navigate("/items");
+    navigate("/login");
   };
 
   useEffect(() => {
     setIsLoginAvailable(
-      validEmail(formData.email) && validPassword(formData.password)
+      validEmail(formData.email) &&
+        formData.nickname.length > 0 &&
+        validPassword(formData.password) &&
+        matchPassword(formData.password, formData.passwordCheck)
     );
   }, [formData]);
 
@@ -105,6 +130,22 @@ function LoginPage() {
             ""
           ) : (
             <div className={styles.cautionText}>잘못된 이메일 형식입니다.</div>
+          )}
+        </label>
+        <label>
+          닉네임
+          <input
+            type="text"
+            id="nickname"
+            value={formData.nickname}
+            onChange={handleChange}
+            className={!isFilled.nickname ? styles.cautionInput : ""}
+            placeholder="닉네임을 입력해주세요"
+          />
+          {isFilled.nickname ? (
+            ""
+          ) : (
+            <div className={styles.cautionText}>닉네임을 입력해주세요.</div>
           )}
         </label>
         <label className={styles.passwordInput}>
@@ -141,13 +182,42 @@ function LoginPage() {
             </div>
           )}
         </label>
+        <label className={styles.passwordInput}>
+          비밀번호 확인
+          <input
+            type={isVisible.passwordCheck ? "text" : "password"}
+            id="passwordCheck"
+            value={formData.passwordCheck}
+            onChange={handleChange}
+            className={!isValid.passwordCheck ? styles.cautionInput : ""}
+            placeholder="비밀번호를 다시 한 번 입력해주세요"
+          />
+          <button
+            type="button"
+            name="passwordCheck"
+            onClick={handlePasswordVisible}
+          >
+            <img
+              src={isVisible.passwordCheck ? VisibilityOn : VisibilityOff}
+              className={styles.visibleIcon}
+              alt=""
+            />
+          </button>
+          {isValid.passwordCheck ? (
+            ""
+          ) : (
+            <div className={styles.cautionText}>
+              비밀번호가 일치하지 않습니다.
+            </div>
+          )}
+        </label>
         <PrimaryButton
           type="submit"
-          onClick={handleLogin}
+          onClick={handleSignup}
           className={styles.loginButton}
           disabled={!isLoginAvailable}
         >
-          로그인
+          회원가입
         </PrimaryButton>
         <div className={styles.socialLoginSection}>
           <div className={styles.socialLoginText}>간편 로그인하기</div>
@@ -164,10 +234,10 @@ function LoginPage() {
             </li>
           </ul>
         </div>
-        <div className={styles.signupSection}>
-          판다마켓이 처음이신가요?
-          <Link to="/signup" className={styles.signupLink}>
-            회원가입
+        <div className={styles.loginSection}>
+          이미 회원이신가요?
+          <Link to="/login" className={styles.loginLink}>
+            로그인
           </Link>
         </div>
       </form>
@@ -175,4 +245,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default SignupPage;

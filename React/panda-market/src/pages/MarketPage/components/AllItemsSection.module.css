@@ -23,7 +23,8 @@ form {
   position: relative;
 }
 
-.searchBar {
+.searchBar,
+.searchBar:focus {
   width: 32.5rem;
   height: 4.2rem;
   border: none;
