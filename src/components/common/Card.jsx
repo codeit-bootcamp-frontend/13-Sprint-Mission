@@ -4,8 +4,7 @@ import ic_heart from "../../assets/images/icons/ic_heart.svg";
 import placeholder from "../../assets/images/placeholder.jpg";
 
 export default function Card({ item, size }) {
-  const imageURL =
-    item.images && item.images.length > 0 ? item.images[0] : placeholder;
+  const imageURL = item?.images?.[0] ?? placeholder;
 
   return (
     <CardWrapper size={size}>
