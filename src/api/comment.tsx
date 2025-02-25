@@ -5,13 +5,11 @@ export interface Comment {
   content: string;
   createdAt: string;
   updatedAt: string;
-  writer: Writer;
-}
-
-interface Writer {
-  id: number;
-  image: string | null;
-  nickname: string;
+  writer: {
+    id: number;
+    image: string | null;
+    nickname: string;
+  };
 }
 
 export async function getComments(

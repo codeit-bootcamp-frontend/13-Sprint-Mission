@@ -1,3 +1,4 @@
+import { AddItem } from "../components/pages/AddItemPage/AddItemPage";
 import api from "./index";
 
 export interface Items {
@@ -15,6 +16,14 @@ interface Params {
   keyword: string;
 }
 
+export interface DetailItem extends Omit<AddItem, "images"> {
+  images: string | null;
+  favoriteCount: number;
+  createdAt: string;
+  updatedAt: string;
+  ownerNickname: string;
+}
+
 export async function getProducts(params: Params) {
   const { page, pageSize, orderBy, keyword } = params;
   const response = await api.get(`/products`, {
@@ -24,7 +33,7 @@ export async function getProducts(params: Params) {
   return response.data;
 }
 
-export async function getProductInfo(productId: string) {
+export async function getProductInfo(productId: string): Promise<DetailItem> {
   const response = await api.get(`/products/${productId}`);
 
   return response.data;

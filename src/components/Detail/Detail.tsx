@@ -1,22 +1,13 @@
 import * as S from "./Detail.styles";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getProductInfo } from "../../api/products";
-import { AddItem } from "../pages/AddItemPage/AddItemPage";
+import { DetailItem, getProductInfo } from "../../api/products";
 import Tag from "../Tag/Tag";
 import User from "../User/User";
 import emptyHeart from "../../assets/icons/emptyHeart.svg";
 import fullHeart from "../../assets/icons/fullHeart.svg";
 import dots from "../../assets/icons/dots.svg";
 import noneImg from "../../assets/icons/image.svg";
-
-interface DetailItem extends Omit<AddItem, "images"> {
-  images: string | null;
-  favoriteCount: number;
-  createdAt: string;
-  updatedAt: string;
-  ownerNickname: string;
-}
 
 export interface ProductParams extends Record<string, string | undefined> {
   productId: string;
