@@ -1,11 +1,15 @@
 import * as S from "./BestItems.styles";
 import { useState, useEffect } from "react";
 import ItemCard from "../ItemCard/ItemCard";
-import { getProducts } from "../../../api/products";
+import { getProducts, Items } from "../../../api/products";
 import useResize from "../../../hooks/useResize";
 
+export interface BestItem {
+  list: Items[];
+}
+
 export default function BestItems() {
-  const [bestItems, setBestItems] = useState([]);
+  const [bestItems, setBestItems] = useState<Items[]>([]);
   const { showItems } = useResize(1, 2, 4);
 
   useEffect(() => {
@@ -14,7 +18,7 @@ export default function BestItems() {
       pageSize: 4,
       orderBy: "favorite",
       keyword: "",
-    }).then((result) => {
+    }).then((result: BestItem) => {
       if (!result) return;
       const sortedBestItems = [...result.list].slice(0, 4);
       setBestItems(sortedBestItems);
