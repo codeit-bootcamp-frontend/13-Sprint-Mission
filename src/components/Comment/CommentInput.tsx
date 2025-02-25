@@ -3,7 +3,7 @@ import * as S from "./CommentInput.styles";
 import { useState } from "react";
 
 export default function CommentInput() {
-  const [comment, setComment] = useState("");
+  const [comment, setComment] = useState<string>("");
 
   return (
     <S.CommentContainer>
@@ -14,7 +14,9 @@ export default function CommentInput() {
         largeHeight="140px"
         isTextarea
         value={comment}
-        onChange={(e) => setComment(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setComment(e.target.value)
+        }
       />
       <S.RegisterBtn>
         <button disabled={!comment.trim()} onClick={() => setComment("")}>

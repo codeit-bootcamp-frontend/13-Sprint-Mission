@@ -1,31 +1,34 @@
 import * as S from "./CommentList.styles";
 import dots from "../../assets/icons/dots.svg";
 import { useState, useEffect } from "react";
-import { getComments } from "../../api/comment";
+import { Comment, getComments } from "../../api/comment";
 import { useParams } from "react-router-dom";
 import User from "../User/User";
 import Input from "../common/Input/Input";
 import NoneComment from "../NoneComment/NoneComment";
+import { ProductParams } from "../Detail/Detail";
 
 export default function CommentList() {
-  const [comments, setComments] = useState([]);
-  const [commentId, setCommentId] = useState(null);
-  const [editCommentId, setEditCommentId] = useState(null);
-  const { productId } = useParams();
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [commentId, setCommentId] = useState<number | null>(null);
+  const [editCommentId, setEditCommentId] = useState<number | null>(null);
+  const { productId } = useParams<ProductParams>();
 
   useEffect(() => {
-    getComments(productId)
-      .then((result) => setComments(result))
-      .catch((error) => console.error(error));
-  }, []);
+    if (productId) {
+      getComments(productId)
+        .then((result) => setComments(result))
+        .catch((error) => console.error(error));
+    }
+  }, [productId]);
 
-  function SelectBox({ comment }) {
+  function SelectBox({ id }: { id: number | null }) {
     const options = [
       {
         id: 1,
         option: "수정하기",
         onClick: () => {
-          setEditCommentId(comment.id);
+          setEditCommentId(id);
           setCommentId(null);
         },
       },
@@ -48,7 +51,7 @@ export default function CommentList() {
     );
   }
 
-  const handleOpenClick = (commentId) => {
+  const handleOpenClick = (commentId: number) => {
     setCommentId((prevId) => (prevId === commentId ? null : commentId));
   };
 
@@ -61,7 +64,7 @@ export default function CommentList() {
           {editCommentId === comment.id ? (
             <Input
               placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
-              value={comment.content}
+              defaultValue={comment.content}
               style={{ height: "80px" }}
               isTextarea
             />
@@ -73,7 +76,7 @@ export default function CommentList() {
                   src={dots}
                   onClick={() => handleOpenClick(comment.id)}
                 />
-                {commentId === comment.id && <SelectBox comment={comment} />}
+                {commentId === comment.id && <SelectBox id={comment.id} />}
               </S.Select>
             </S.Content>
           )}

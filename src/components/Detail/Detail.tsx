@@ -17,7 +17,7 @@ interface DetailItem extends AddItem {
   ownerNickname: string;
 }
 
-interface ProductParams extends Record<string, string | undefined> {
+export interface ProductParams extends Record<string, string | undefined> {
   productId: string;
 }
 
