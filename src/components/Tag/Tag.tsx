@@ -3,7 +3,7 @@ import x from "../../assets/icons/delete.svg";
 
 interface TagProps {
   tag: string;
-  onClick: () => void;
+  onClick?: () => void;
   readonly?: boolean;
 }
 
@@ -12,7 +12,7 @@ export default function Tag({ tag, onClick, readonly }: TagProps) {
     <S.TagContainer>
       <S.Tag>
         <S.TagName>#{tag}</S.TagName>
-        <S.DeleteTag readonly={readonly} src={x} onClick={onClick} />
+        <S.DeleteTag $readonly={readonly} src={x} onClick={onClick} />
       </S.Tag>
     </S.TagContainer>
   );

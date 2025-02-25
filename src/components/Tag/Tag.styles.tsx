@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import theme from "../../styles/theme";
 
 interface Readonly {
-  readonly?: boolean;
+  $readonly?: boolean;
 }
 
 export const TagContainer = styled.li`
@@ -28,5 +28,5 @@ export const DeleteTag = styled.img<Readonly>`
   height: 24px;
   cursor: pointer;
 
-  display: ${({ readonly }) => (readonly ? "none" : "block")};
+  display: ${({ $readonly }) => ($readonly ? "none" : "block")};
 `;

@@ -1,7 +1,13 @@
 import * as S from "./User.styles";
 import user from "../../assets/icons/user.svg";
 
-export default function User({ owner, createdAt, detail }) {
+interface UserProps {
+  owner: string;
+  createdAt: string;
+  detail: boolean;
+}
+
+export default function User({ owner, createdAt, detail }: UserProps) {
   const date = new Date(createdAt);
   const formattedDate = `${date.getFullYear()}.${String(
     date.getMonth() + 1

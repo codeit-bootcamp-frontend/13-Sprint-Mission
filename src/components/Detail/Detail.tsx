@@ -2,6 +2,7 @@ import * as S from "./Detail.styles";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getProductInfo } from "../../api/products";
+import { AddItem } from "../pages/AddItemPage/AddItemPage";
 import Tag from "../Tag/Tag";
 import User from "../User/User";
 import emptyHeart from "../../assets/icons/emptyHeart.svg";
@@ -9,8 +10,19 @@ import fullHeart from "../../assets/icons/fullHeart.svg";
 import dots from "../../assets/icons/dots.svg";
 import noneImg from "../../assets/icons/image.svg";
 
+interface DetailItem extends AddItem {
+  favoriteCount: number;
+  createdAt: string;
+  updatedAt: string;
+  ownerNickname: string;
+}
+
+interface ProductParams extends Record<string, string | undefined> {
+  productId: string;
+}
+
 export default function Detail() {
-  const [product, setProduct] = useState({
+  const [product, setProduct] = useState<DetailItem>({
     name: "",
     description: "",
     price: 0,
@@ -21,14 +33,16 @@ export default function Detail() {
     updatedAt: "",
     ownerNickname: "",
   });
-  const [isFull, setIsFull] = useState(false);
-  const [isImgError, setIsImgError] = useState(false);
-  const { productId } = useParams();
+  const [isFull, setIsFull] = useState<boolean>(false);
+  const [isImgError, setIsImgError] = useState<boolean>(false);
+  const { productId } = useParams<ProductParams>();
 
   useEffect(() => {
-    getProductInfo(productId)
-      .then((result) => setProduct(result))
-      .catch((error) => console.error(error));
+    if (productId) {
+      getProductInfo(productId)
+        .then((result) => setProduct(result))
+        .catch((error) => console.error(error));
+    }
   }, [productId]);
 
   const handleHeartChange = () => {
@@ -48,7 +62,6 @@ export default function Detail() {
           <S.NoneImage src={noneImg} />
         </S.NoneImageContainer>
       )}
-
       <S.Detail>
         <div>
           <S.Header>
@@ -67,7 +80,7 @@ export default function Detail() {
               <S.Label>상품 태그</S.Label>
               <S.TagWrapper>
                 {product.tags.map((tag) => (
-                  <Tag key={tag} tag={tag} readOnly />
+                  <Tag key={tag} tag={tag} readonly />
                 ))}
               </S.TagWrapper>
             </div>

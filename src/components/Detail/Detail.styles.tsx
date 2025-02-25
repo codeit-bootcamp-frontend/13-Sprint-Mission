@@ -48,10 +48,6 @@ export const NoneImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* @media (max-width: 767px) {
-    min-width: 343px;
-  } */
 `;
 
 export const NoneImage = styled.img`
