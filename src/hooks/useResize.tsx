@@ -1,7 +1,11 @@
 import { useState, useEffect, useMemo } from "react";
-import throttle from "lodash.throttle";
+import debounce from "lodash.debounce";
 
-export default function useResize(mobile, tablet, desktop) {
+export default function useResize(
+  mobile: number,
+  tablet: number,
+  desktop: number
+) {
   const [showItems, setShowItems] = useState(desktop);
 
   const updateItemsCount = () => {
@@ -15,7 +19,7 @@ export default function useResize(mobile, tablet, desktop) {
   };
 
   const handleThrottleUpdate = useMemo(
-    () => throttle(updateItemsCount, 500),
+    () => debounce(updateItemsCount, 500),
     []
   );
 
