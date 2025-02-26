@@ -1,18 +1,4 @@
-body {
-  margin: 0 auto;
-  width: 100%;
-}
-
-a {
-  display: inline-block;
-  text-decoration: none;
-}
-
-p {
-  margin: 0;
-}
-
-header {
+.header-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -169,6 +155,8 @@ footer {
 .footer-container {
   display: flex;
   justify-content: space-between;
+  margin: 0 auto;
+  padding: 32.5px 0;
   max-width: 1120px;
   width: 100%;
   height: fit-content;
