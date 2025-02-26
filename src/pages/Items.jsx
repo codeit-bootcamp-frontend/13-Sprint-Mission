@@ -8,27 +8,47 @@ import ItemList from "@/components/ItemList";
 import { useState, useEffect } from "react";
 import { BREAK_POINTS } from "@/constants/styles";
 import { mockData, mockData1 } from "@/mockData";
+import { fetchData } from "@/api/api";
 
-let currentPage = 7;
-let currentPages = [1, 2, 3, 4, 5];
+let sortOption = {
+  recent: "최신순",
+  favorite: "좋아요순",
+};
 
 function Items() {
-  // const fetchData = async () => {
-  //   const response = await fetch(
-  //     "https://panda-market-api.vercel.app/products",
-  //     {
-  //       method: "GET",
-  //     },
-  //   );
-  //   console.log(response);
-  // };
-
-  // fetchData();
-
+  const [width, setWidth] = useState(
+    window.innerWidth < BREAK_POINTS.md
+      ? "mobile"
+      : window.innerWidth < BREAK_POINTS.xl
+        ? "tablet"
+        : "pc",
+  );
   const [gridA, setGridA] = useState(1);
   const [gridB, setGridB] = useState(1);
   const [isMobileLayout, setIsMobileLayout] = useState(true);
   const [isSortDropdownOpen, setIsSortDropdownOpen] = useState(false);
+  const [items, setItems] = useState([]);
+  const [bestItems, setBestItems] = useState([]);
+  const [orderBy, setOrderBy] = useState("recent");
+  const [page, setPage] = useState(1);
+  // TODO: 반응형 현재 페이지, 페이지 크기 설정
+  const [pageSize, setPageSize] = useState(
+    window.innerWidth < BREAK_POINTS.md
+      ? 4
+      : window.innerWidth < BREAK_POINTS.xl
+        ? 6
+        : 8,
+  );
+  const [pages, setPages] = useState([1, 2, 3, 4, 5]);
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      const res = await fetchData(page, pageSize);
+      setItems(res.list);
+      setBestItems(res.list.sort((a, b) => a.favoriteCount - b.favoriteCount));
+    };
+    fetchItems();
+  }, [page, pageSize]);
 
   const toggleSortDropdown = () => {
     setIsSortDropdownOpen((prev) => !prev);
@@ -36,21 +56,25 @@ function Items() {
 
   useEffect(() => {
     const updateItemsToShow = () => {
-      const width = window.innerWidth;
-      console.log(width);
-      if (width < BREAK_POINTS.md) {
+      const currentWidth = window.innerWidth;
+      if (currentWidth < BREAK_POINTS.md) {
         setGridA("base1");
         setGridB("base2");
         setIsMobileLayout(true);
-      } else if (width < BREAK_POINTS.xl) {
+        setWidth("mobile");
+      } else if (currentWidth < BREAK_POINTS.xl) {
         setGridA("md1");
         setGridB("md2");
         setIsMobileLayout(false);
+        setWidth("tablet");
       } else {
         setGridA("xl1");
         setGridB("xl2");
         setIsMobileLayout(false);
+        setWidth("pc");
       }
+      console.log(width);
+      console.log(isMobileLayout);
     };
 
     updateItemsToShow(); // 초기 값 설정
@@ -65,7 +89,16 @@ function Items() {
       <main className="m-auto px-4 pt-4 pb-8 xl:max-w-480">
         <div className="mb-6 md:mb-10">
           <div className="mb-4 text-xl font-bold">베스트 상품</div>
-          <ItemList items={mockData} grid={gridA} />
+          <ItemList
+            items={
+              width === "mobile"
+                ? bestItems.slice(0, 1)
+                : width === "tablet"
+                  ? bestItems.slice(0, 2)
+                  : bestItems.slice(0, 4)
+            }
+            grid={gridA}
+          />
         </div>
         <div>
           {isMobileLayout ? (
@@ -164,20 +197,36 @@ function Items() {
               </div>
             </>
           )}
-          <ItemList items={mockData1} grid={gridB} />
+          <ItemList items={items} grid={gridB} />
           <div className="m-auto flex w-fit gap-1">
-            <button className="size-10 cursor-pointer rounded-full border-1 border-gray-200">
+            <button
+              className={`size-10 cursor-pointer rounded-full border-1 border-gray-200 ${pages[0] === 1 ? "invisible" : ""}`}
+              onClick={() => {
+                setPages((prev) => prev.map((num) => num - 5));
+                setPage((prev) => Math.floor(prev / 5) * 5);
+              }}
+            >
               <img className="m-auto w-fit" src={ic_arrow_left} alt="" />
             </button>
-            {currentPages.map((page) => (
+            {pages.map((pageNumber) => (
               <button
-                key={page}
-                className="size-10 cursor-pointer rounded-full border-1 border-gray-200 font-semibold text-gray-500"
+                key={pageNumber}
+                value={pageNumber}
+                className={`size-10 cursor-pointer rounded-full border-1 border-gray-200 font-semibold ${pageNumber === page ? "bg-blue-500 text-white" : "bg-white text-gray-500"}`}
+                onClick={(e) => {
+                  setPage(Number(e.target.value));
+                }}
               >
-                {page}
+                {pageNumber}
               </button>
             ))}
-            <button className="size-10 cursor-pointer rounded-full border-1 border-gray-200">
+            <button
+              className="size-10 cursor-pointer rounded-full border-1 border-gray-200"
+              onClick={() => {
+                setPages((prev) => prev.map((num) => num + 5));
+                setPage((prev) => Math.ceil(prev / 5) * 5 + 1);
+              }}
+            >
               <img className="m-auto w-fit" src={ic_arrow_right} alt="" />
             </button>
           </div>
