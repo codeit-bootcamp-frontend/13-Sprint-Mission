@@ -165,15 +165,20 @@ function Items() {
             </>
           )}
           <ItemList items={mockData1} grid={gridB} />
-          <div>
-            <button>
-              <img src={ic_arrow_left} alt="" />
+          <div className="m-auto flex w-fit gap-1">
+            <button className="size-10 cursor-pointer rounded-full border-1 border-gray-200">
+              <img className="m-auto w-fit" src={ic_arrow_left} alt="" />
             </button>
             {currentPages.map((page) => (
-              <button key={page}>{page}</button>
+              <button
+                key={page}
+                className="size-10 cursor-pointer rounded-full border-1 border-gray-200 font-semibold text-gray-500"
+              >
+                {page}
+              </button>
             ))}
-            <button>
-              <img src={ic_arrow_right} alt="" />
+            <button className="size-10 cursor-pointer rounded-full border-1 border-gray-200">
+              <img className="m-auto w-fit" src={ic_arrow_right} alt="" />
             </button>
           </div>
         </div>
