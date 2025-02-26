@@ -1,4 +1,5 @@
 import ic_heart from "@/assets/ic_heart.svg";
+import img_item_default from "@/assets/img_item_default.png";
 
 function Item({ item }) {
   return (
@@ -8,8 +9,12 @@ function Item({ item }) {
     >
       <img
         className="mb-2.5 aspect-square w-full rounded-2xl object-cover"
-        src={item.images[0]}
+        src={item.images[0] || img_item_default}
         alt=""
+        onError={(e) => {
+          e.currentTarget.onerror = null;
+          e.currentTarget.src = img_item_default;
+        }}
       />
       <div className="flex flex-col items-start gap-1.5">
         <div className="text-sm text-gray-800">{item.name}</div>
