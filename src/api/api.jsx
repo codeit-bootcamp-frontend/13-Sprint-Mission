@@ -1,8 +1,9 @@
-export const fetchData = async (page, pageSize) => {
+export const fetchData = async (page, pageSize, orderBy = "recent") => {
   const baseURL = "https://panda-market-api.vercel.app/products/";
   const queryString = new URLSearchParams({
     page: page,
     pageSize: pageSize,
+    orderBy: orderBy,
   }).toString();
   const requrl = `${baseURL}?${queryString}`;
 

@@ -50,6 +50,14 @@ function Items() {
     fetchItems();
   }, [page, pageSize]);
 
+  useEffect(() => {
+    const fetchItems = async () => {
+      const res = await fetchData(1, 4, "favorite");
+      setBestItems(res.list);
+    };
+    fetchItems();
+  }, []);
+
   const toggleSortDropdown = () => {
     setIsSortDropdownOpen((prev) => !prev);
   };
