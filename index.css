@@ -196,6 +196,8 @@ footer {
 .SNS-container {
   display: flex;
   gap: 12px;
+  margin: 0;
+  list-style: none;
 }
 
 .SNS-container img {
