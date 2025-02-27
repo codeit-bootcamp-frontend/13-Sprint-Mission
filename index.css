@@ -3,9 +3,9 @@
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
+  padding: 9.5px 200px;
   max-width: 1920px;
   width: calc(100% - 400px);
-  padding: 9.5px 200px;
 }
 
 .logo {
@@ -23,8 +23,6 @@
   cursor: pointer;
   border: 0;
   outline: none;
-  color: #F3F4F6;
-  background-color: #3692FF;
 }
 
 button:hover {
@@ -69,7 +67,6 @@ button:active {
   font-size: 40px;
   font-weight: 700;
   line-height: 56px;
-  color: #374151;
 }
 
 .explore-button {
@@ -122,13 +119,13 @@ button:active {
   font-size: 18px;
   font-weight: 700;
   line-height: 1.4;
-  color: #3692FF;
 }
 
 .section-message {
   font-size: 24px;
   font-weight: 500;
   line-height: 32px;
+  white-space: nowrap;
 }
 
 .bottom-landing-section {
@@ -144,12 +141,10 @@ button:active {
   margin-bottom: 60px;
 }
 
-footer {
+.footer-nav {
   display: flex;
   justify-content: center;
-  padding-top: 32.5px;
   height: 160px;
-  background-color: #111827;
 }
 
 .footer-container {
@@ -162,23 +157,17 @@ footer {
   height: fit-content;
 }
 
-.copy-right {
-  color: #9CA3AF;
-}
-
 .term {
   display: flex;
   gap: 30px;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.4;
-  color: #E5E7EB;
 }
 
 .term a {
   font-size: 16px;
   font-weight: 400;
-  color: #E5E7EB;
 }
 
 .SNS-container {
