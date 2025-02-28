@@ -6,6 +6,9 @@
   padding: 9.5px 200px;
   max-width: 1920px;
   width: calc(100% - 400px);
+  position: fixed;
+  top: 0;
+  background-color: white;
 }
 
 .logo {
@@ -39,6 +42,10 @@ button:active {
   font-size: 16px;
   font-weight: 600;
   line-height: 1.6;
+}
+
+.main-container {
+  padding-top: 70px;
 }
 
 .landing-section {

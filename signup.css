@@ -1,0 +1,116 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-icon {
+  width: 104px;
+  height: 104px;
+}
+
+.logo-text {
+  width: 266px;
+  height: 90px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 640px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.label-text {
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.password-container {
+  position: relative;
+}
+
+.styled-input {
+  padding: 15px 24px;
+  width: calc(100% - 48px);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  outline: none;
+  border: none;
+  border-radius: 12px;
+}
+
+.visibility-icon {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  cursor: pointer;
+}
+
+.styled-button {
+  margin-bottom: 24px;
+  padding: 12px 0;
+  width: 100%;
+  border: none;
+  border-radius: 40px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  cursor: pointer;
+}
+
+.sns-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding: 16px 23px;
+  width: calc(100% - 46px);
+  background-color: #E6F2FF;
+  border-radius: 8px;
+}
+
+.sns-login-message {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.sns-list {
+  display: flex;
+  align-items: center;
+}
+
+.sns-google {
+  margin-right: 16px;
+}
+
+.auth-message {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.login {
+  text-decoration: underline;
+}
