@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
 }
 
-body, ul, li, p {
+body, ul, li, p, h2 {
     margin: 0;
 }
 
@@ -40,8 +40,8 @@ button, input, textarea {
 
   @font-face {
   font-family: "Pretendard";
-  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff2') format('woff2');
-  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff2') format('woff2');
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff') format('woff');
     font-display: swap;
     font-weight: 600;
     font-style: normal;
