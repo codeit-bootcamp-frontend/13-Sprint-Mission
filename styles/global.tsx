@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
 }
 
-body, ul, li {
+body, ul, li, p {
     margin: 0;
 }
 
@@ -43,7 +43,7 @@ button, input, textarea {
   src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff2') format('woff2');
   src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
     font-display: swap;
-    font-weight: 700;
+    font-weight: 600;
     font-style: normal;
 }
 `;
