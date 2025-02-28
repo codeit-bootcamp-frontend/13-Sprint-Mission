@@ -1,0 +1,65 @@
+import theme from "@/styles/theme";
+import Link from "next/link";
+import styled from "styled-components";
+
+export const HeaderContainer = styled.div`
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 200px;
+  background: ${theme.color.white};
+  border-bottom: 1px solid #dfdfdf;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  @media (min-width: 769px) and (max-width: 1280px) {
+    padding: 9px 24px;
+  }
+  @media (max-width: 768px) {
+    padding: 9px 16px;
+  }
+`;
+
+export const Links = styled.div`
+  display: flex;
+`;
+
+export const LogoContainer = styled(Link)`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 16px;
+  cursor: pointer;
+`;
+
+export const Name = styled.div`
+  font-family: "ROKAF Sans", sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  color: ${theme.color.blue};
+
+  @media (max-width: 386px) {
+    display: none;
+  }
+`;
+
+export const LinkList = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
+export const NavItems = styled.div`
+  font: ${theme.font.H4Bold};
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  padding: 15px 21px;
+  color: ${theme.color.gray100};
+  cursor: pointer;
+  @media (max-width: 768px) {
+    padding: 15px 0;
+  }
+`;
