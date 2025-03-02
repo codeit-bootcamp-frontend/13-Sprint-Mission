@@ -16,6 +16,7 @@ const item = {
 function AddItem() {
   const [formData, setFormData] = useState({ ...item });
   const [image, setImage] = useState(null);
+  const [tags, setTags] = useState(["티셔츠", "상의"]);
   const [canSubmit, setCanSubmit] = useState(false);
 
   const handleImageChange = (e) => {
@@ -92,6 +93,16 @@ function AddItem() {
             {...value}
           />
         ))}
+        <div className="mt-3 flex justify-start gap-3">
+          {tags.map((tag) => (
+            <div className="flex gap-2 rounded-full bg-gray-100 py-1.5 pr-3 pl-4 font-normal">
+              <div>{`#${tag}`}</div>
+              <button className="cursor-pointer">
+                <img src={ic_close} alt="" />
+              </button>
+            </div>
+          ))}
+        </div>
       </main>
     </>
   );
