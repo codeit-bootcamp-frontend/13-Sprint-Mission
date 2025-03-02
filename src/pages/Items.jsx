@@ -44,7 +44,6 @@ function Items() {
     const fetchItems = async () => {
       const res = await fetchData(page, pageSize);
       setItems(res.list);
-      setBestItems(res.list.sort((a, b) => a.favoriteCount - b.favoriteCount));
     };
     fetchItems();
   }, [page, pageSize]);
