@@ -6,12 +6,12 @@ interface InputProps {
   size?: number;
 }
 
-export const InputContainer = styled.div`
+export const InputContainer = styled.div<{ label?: string }>`
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: ${({ label }) => (label ? "16px" : "0px")};
 `;
 
 export const Label = styled.label`

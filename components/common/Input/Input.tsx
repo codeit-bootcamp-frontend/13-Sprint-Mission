@@ -25,7 +25,7 @@ export default function Input({
   ...rest
 }: InputProps) {
   return (
-    <S.InputContainer>
+    <S.InputContainer label={label}>
       <S.Label>{label}</S.Label>
       <S.Input>
         {leftSlot && (
