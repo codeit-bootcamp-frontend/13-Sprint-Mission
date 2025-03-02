@@ -9,6 +9,7 @@ import DropDown from "@/components/DropDown";
 import Spinner from "@/components/Spinner";
 import useResponsiveLayout from "@/hooks/useResponsiveLayout";
 import { useState, useEffect } from "react";
+import { Link } from "react-router";
 import { getItems } from "@/api/api";
 
 const LAYOUT_BEST_ITEMS = {
@@ -130,9 +131,13 @@ function Items() {
             <>
               <div className="mb-4 flex items-center justify-between">
                 <div className="text-xl font-bold">전체 상품</div>
-                <button className="cursor-pointer rounded-lg bg-blue-500 px-6 py-3 font-semibold text-gray-100">
+                <Link
+                  to="/additem"
+                  title="상품 들록 페이지로 이동"
+                  className="cursor-pointer rounded-lg bg-blue-500 px-6 py-3 font-semibold text-gray-100"
+                >
                   상품 등록하기
-                </button>
+                </Link>
               </div>
               <div className="mb-4 flex gap-3.5">
                 <div className="flex grow-1 gap-1 rounded-xl bg-gray-100 px-4 py-2">
@@ -174,9 +179,14 @@ function Items() {
                       onChange={searchItem}
                     />
                   </div>
-                  <button className="cursor-pointer rounded-lg bg-blue-500 px-6 py-3 font-semibold text-gray-100">
+
+                  <Link
+                    to="/additem"
+                    title="상품 등록 페이지로 이동"
+                    className="cursor-pointer rounded-lg bg-blue-500 px-6 py-3 font-semibold text-gray-100"
+                  >
                     상품 등록하기
-                  </button>
+                  </Link>
                   <div className="relative">
                     <button
                       onClick={toggleDropDown}
