@@ -28,23 +28,14 @@ function Item({ item }) {
   );
 }
 
-function ItemList({ items, grid }) {
+function ItemList({ items, itemsLayout }) {
   return (
-    <ul className={GRID[grid]}>
+    <ul className={itemsLayout}>
       {items.map((item) => (
         <Item key={item.id} item={item} />
       ))}
     </ul>
   );
 }
-
-const GRID = {
-  base1: "grid grid-cols-1 grid-rows-1 gap-2.5",
-  base2: "grid grid-cols-2 grid-rows-2 gap-2.5",
-  md1: "grid grid-cols-2 grid-rows-1 gap-2.5",
-  md2: "grid grid-cols-3 grid-rows-2 gap-2.5",
-  xl1: "grid grid-cols-4 grid-rows-1 gap-6",
-  xl2: "grid grid-cols-4 grid-rows-2 gap-6",
-};
 
 export default ItemList;

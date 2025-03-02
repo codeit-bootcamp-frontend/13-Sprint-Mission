@@ -1,4 +1,4 @@
-export const fetchData = async (
+export const getItems = async (
   page,
   pageSize,
   orderBy = "recent",

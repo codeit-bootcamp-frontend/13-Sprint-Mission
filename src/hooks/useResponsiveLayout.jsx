@@ -28,6 +28,8 @@ function useResponsiveLayout({ onLayoutChange }) {
       }
 
       if (newLayoutType !== layoutType) {
+        console.log(layoutType, newLayoutType);
+
         setLayoutType(newLayoutType);
         if (onLayoutChange) {
           onLayoutChange(newLayoutType);
@@ -36,10 +38,10 @@ function useResponsiveLayout({ onLayoutChange }) {
     };
 
     updateLayoutType();
-    window.addEventListener("resize", updateItemsToShow);
+    window.addEventListener("resize", updateLayoutType);
 
-    return () => window.removeEventListener("resize", updateItemsToShow);
-  }, [layoutType, onLayoutChange]);
+    return () => window.removeEventListener("resize", updateLayoutType);
+  }, [onLayoutChange]);
 
   return { layoutType };
 }
