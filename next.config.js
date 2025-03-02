@@ -2,7 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["sprint-fe-project.s3.ap-northeast-2.amazonaws.com"],
+    domains: [
+      "example.com",
+      "sprint-fe-project.s3.ap-northeast-2.amazonaws.com",
+      "mblogthumb-phinf.pstatic.net",
+    ],
   },
 };
 

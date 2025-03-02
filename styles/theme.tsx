@@ -20,11 +20,7 @@ const theme = {
     textDark: "#374151",
     textBright: "#f3f4f6",
 
-    backgroundMain: "#fcfcfc",
-    backgroundFooter: "#111827",
-    backgroundLanding: "#cfe5ff",
-
-    easyLogin: "#e6f2ff",
+    bg: "#fcfcfc",
 
     white: "#ffffff",
     blue: "#3692FF",
