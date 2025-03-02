@@ -90,6 +90,15 @@ function Items() {
     return () => window.removeEventListener("resize", updateItemsToShow);
   }, []);
 
+  const handleChange = (e) => {
+    const keyword = e.target.value;
+    const fetchItems = async () => {
+      const res = await fetchData(page, pageSize, orderBy, keyword);
+      setItems(res.list);
+    };
+    fetchItems();
+  };
+
   return (
     <>
       <Header />
@@ -123,6 +132,7 @@ function Items() {
                     className="w-full"
                     type="text"
                     placeholder="검색할 상품을 입력해주세요"
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="relative">
@@ -166,6 +176,7 @@ function Items() {
                       className="w-full"
                       type="text"
                       placeholder="검색할 상품을 입력해주세요"
+                      onChange={handleChange}
                     />
                   </div>
                   <button className="rounded-lg bg-blue-500 px-6 py-3 font-semibold text-gray-100">
