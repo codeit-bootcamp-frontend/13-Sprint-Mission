@@ -13,7 +13,7 @@ interface BestItemProps {
 
 export default function BestItem({ best }: BestItemProps) {
   return (
-    <S.Container>
+    <S.Container href="/">
       <S.Item>
         <S.BestTitle>
           <Image src={medal} width={16} height={16} alt="medal" />

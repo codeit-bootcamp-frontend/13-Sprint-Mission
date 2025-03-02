@@ -1,12 +1,14 @@
-import theme from "@/styles/theme";
 import styled from "styled-components";
+import theme from "@/styles/theme";
+import Link from "next/link";
 
-export const Container = styled.div`
+export const Container = styled(Link)`
   width: 384px;
   height: 169px;
   padding: 0 24px;
   background-color: ${theme.color.gray50};
   border-radius: 8px;
+  cursor: pointer;
 `;
 
 export const Item = styled.div`

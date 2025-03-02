@@ -11,12 +11,10 @@ interface AllItemProps {
 
 export default function AllItem({ all }: AllItemProps) {
   return (
-    <S.Container>
+    <S.Container href="/">
       <S.Content>
         <S.ContentText>{all.content}</S.ContentText>
-        <S.Image>
-          <Image fill src={all.image} alt="" />
-        </S.Image>
+        <S.Image>{all.image && <Image fill src={all.image} alt="" />}</S.Image>
       </S.Content>
       <S.Footer>
         <S.UserWrapper>

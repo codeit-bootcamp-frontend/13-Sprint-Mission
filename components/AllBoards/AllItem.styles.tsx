@@ -1,7 +1,8 @@
 import theme from "@/styles/theme";
+import Link from "next/link";
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled(Link)`
   width: 100%;
   height: 138px;
   display: flex;
@@ -10,6 +11,7 @@ export const Container = styled.div`
   padding-bottom: 24px;
   background-color: ${theme.color.bg};
   border-bottom: 1px solid ${theme.color.gray200};
+  cursor: pointer;
 `;
 
 export const Content = styled.div`
