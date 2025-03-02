@@ -6,6 +6,7 @@ import ic_arrow_down from "@/assets/ic_arrow_down.svg";
 import Header from "@/components/Header";
 import ItemList from "@/components/ItemList";
 import DropDown from "@/components/DropDown";
+import Spinner from "@/components/Spinner";
 import useResponsiveLayout from "@/hooks/useResponsiveLayout";
 import { useState, useEffect } from "react";
 import { getItems } from "@/api/api";
@@ -47,26 +48,43 @@ function Items() {
   const [itemsLayout, setItemsLayout] = useState(LAYOUT_ITEMS[layoutType]);
   const [items, setItems] = useState([]);
   const [bestItems, setBestItems] = useState([]);
+  const [itemsLoading, setItemsLoading] = useState(false);
+  const [bestItemsLoading, setBestItemsLoading] = useState(false);
   const [orderBy, setOrderBy] = useState("recent");
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(PAGE_SIZE[layoutType]);
   const [pageNumbers, setPageNumbers] = useState([1, 2, 3, 4, 5]);
   const [isSortDropdownOpen, setIsSortDropdownOpen] = useState(false);
 
+  // items 로딩
   useEffect(() => {
     const fetchItems = async () => {
-      const res = await getItems(page, pageSize, orderBy);
-      setItems(res.list);
+      setItemsLoading(true);
+      try {
+        const res = await getItems(page, pageSize, orderBy);
+        setItems(res.list);
+      } catch (error) {
+        console.error("전체 상품 불러오기 실패", error);
+      } finally {
+        setItemsLoading(false);
+      }
     };
     fetchItems();
   }, [page, pageSize, orderBy]);
 
   useEffect(() => {
-    const fetchItems = async () => {
-      const res = await getItems(1, 4, "favorite");
-      setBestItems(res.list);
+    const fetchBestItems = async () => {
+      setBestItemsLoading(true);
+      try {
+        const res = await getItems(1, 4, "favorite");
+        setBestItems(res.list);
+      } catch (error) {
+        console.error("베스트 상품 불러오기 실패", error);
+      } finally {
+        setBestItemsLoading(false);
+      }
     };
-    fetchItems();
+    fetchBestItems();
   }, []);
 
   const searchItem = (e) => {
@@ -92,16 +110,20 @@ function Items() {
       <main className="m-auto px-4 pt-4 pb-8 xl:max-w-480">
         <div className="mb-6 md:mb-10">
           <div className="mb-4 text-xl font-bold">베스트 상품</div>
-          <ItemList
-            items={
-              layoutType === "mobile"
-                ? bestItems.slice(0, 1)
-                : layoutType === "tablet"
-                  ? bestItems.slice(0, 2)
-                  : bestItems.slice(0, 4)
-            }
-            itemsLayout={bestItemsLayout}
-          />
+          {bestItemsLoading ? (
+            <Spinner />
+          ) : (
+            <ItemList
+              items={
+                layoutType === "mobile"
+                  ? bestItems.slice(0, 1)
+                  : layoutType === "tablet"
+                    ? bestItems.slice(0, 2)
+                    : bestItems.slice(0, 4)
+              }
+              itemsLayout={bestItemsLayout}
+            />
+          )}
         </div>
         <div>
           {layoutType == "mobile" ? (
@@ -174,7 +196,11 @@ function Items() {
               </div>
             </>
           )}
-          <ItemList items={items} itemsLayout={itemsLayout} />
+          {itemsLoading ? (
+            <Spinner />
+          ) : (
+            <ItemList items={items} itemsLayout={itemsLayout} />
+          )}
           <div className="m-auto mt-10 flex w-fit gap-1">
             <button
               className={`size-10 cursor-pointer rounded-full border-1 border-gray-200 ${pageNumbers[0] === 1 ? "invisible" : ""}`}
