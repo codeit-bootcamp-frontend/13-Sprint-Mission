@@ -1,10 +1,8 @@
-"use client";
-
 import Input from "../common/Input/Input";
 import { useCallback, useMemo } from "react";
+import { useSearchParams } from "next/navigation";
 import debounce from "lodash.debounce";
 import search from "@/public/icons/search.svg";
-import { usePathname, useSearchParams, useRouter } from "next/navigation";
 
 interface SearchProps {
   onChange: (keyword: string) => void;
@@ -12,28 +10,10 @@ interface SearchProps {
 
 export default function Search({ onChange }: SearchProps) {
   const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const { replace } = useRouter();
-
-  const updateSearchParams = useCallback(
-    (search: string) => {
-      const params = new URLSearchParams(searchParams.toString());
-
-      if (search) {
-        params.set("keyword", search);
-      } else {
-        params.delete("keyword");
-      }
-
-      replace(`${pathname}?${params.toString()}`, { scroll: false });
-      onChange(search);
-    },
-    [searchParams, replace, pathname, onChange]
-  );
 
   const debouncedKeyword = useMemo(
-    () => debounce(updateSearchParams, 300),
-    [updateSearchParams]
+    () => debounce((search: string) => onChange(search), 300),
+    []
   );
 
   const handleSearchChange = useCallback(
