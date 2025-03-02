@@ -23,10 +23,10 @@ export const Arrow = styled(Image)<{ disabled: boolean }>`
   ${({ disabled }) => disabled && `opacity : 0.2`};
 `;
 
-export const Page = styled(Button)<{ isActive?: boolean }>`
+export const Page = styled(Button)<{ $isActive?: boolean }>`
   font: ${theme.font.H5Bold};
-  color: ${({ isActive }) =>
-    isActive ? `${theme.color.gray50}` : `${theme.color.gray500}`};
-  background-color: ${({ isActive }) =>
-    isActive ? `${theme.color.blue}` : `${theme.color.white}`};
+  color: ${({ $isActive }) =>
+    $isActive ? `${theme.color.gray50}` : `${theme.color.gray500}`};
+  background-color: ${({ $isActive }) =>
+    $isActive ? `${theme.color.blue}` : `${theme.color.white}`};
 `;

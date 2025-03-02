@@ -37,7 +37,7 @@ export default function Pagination({
       ).map((page) => (
         <S.Page
           key={page}
-          isActive={currentPage === page}
+          $isActive={currentPage === page}
           disabled={currentPage === page}
           onClick={() => onChange(page)}
         >
