@@ -17,14 +17,24 @@ const item = {
 function AddItem() {
   const [formData, setFormData] = useState({ ...item });
   const [image, setImage] = useState(null);
-  const [tags, setTags] = useState(["티셔츠", "상의"]);
+  const [tags, setTags] = useState([]);
   const [canSubmit, setCanSubmit] = useState(false);
+  const [currentTag, setCurrentTag] = useState("");
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       setImage(file);
     }
+  };
+
+  const addTag = (tag) => {
+    if (tags.includes(tag)) return;
+    setTags((prev) => [...prev, tag]);
+  };
+
+  const deleteTag = (tagToDelete) => {
+    setTags((prev) => prev.filter((tag) => tag !== tagToDelete));
   };
 
   return (
@@ -96,24 +106,33 @@ function AddItem() {
                   // value={formData[name]}
                   {...value}
                 />
-              ) : (
+              ) : key === "tag" ? (
                 <InputField
                   key={key}
                   name={value.id}
-                  // onChange={handleFieldChange}
+                  onChange={(name, e) => {
+                    setCurrentTag(e.target.value);
+                  }}
                   // onBlur={handleFieldBlur}
                   // hasValue={isFieldFilled[name]}
                   // isValidated={isFieldValidated[name]}
-                  // value={formData[name]}
+                  value={currentTag}
                   {...value}
+                  onEnterKeyDown={addTag}
                 />
-              ),
+              ) : null,
             )}
             <div className="-mt-3 flex justify-start gap-3">
               {tags.map((tag) => (
-                <div className="flex gap-2 rounded-full bg-gray-100 py-1.5 pr-3 pl-4 font-normal">
+                <div
+                  key={tag}
+                  className="flex gap-2 rounded-full bg-gray-100 py-1.5 pr-3 pl-4 font-normal"
+                >
                   <div>{`#${tag}`}</div>
-                  <button className="cursor-pointer">
+                  <button
+                    className="cursor-pointer"
+                    onClick={() => deleteTag(tag)}
+                  >
                     <img src={ic_close} alt="" />
                   </button>
                 </div>

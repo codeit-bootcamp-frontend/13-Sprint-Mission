@@ -66,7 +66,7 @@ export const ITEM_REGISTRATION = {
     pattern: /^.{8,}$/,
   },
   tag: {
-    id: "price",
+    id: "tag",
     type: "text",
     label: "태그",
     placeholder: "태그를 입력해주세요",

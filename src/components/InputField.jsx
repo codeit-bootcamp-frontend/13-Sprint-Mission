@@ -13,6 +13,7 @@ function InputField({
   value,
   onChange,
   onBlur,
+  onEnterKeyDown,
   hasValue,
   isValidated,
 }) {
@@ -32,6 +33,13 @@ function InputField({
     setIsFocused(false);
     setHasBeenTouched(true); // 한 번이라도 블러되면 true로 설정
     onBlur(name);
+  };
+
+  const handleEnterKeyDown = (e) => {
+    if (e.key === "Enter") {
+      onEnterKeyDown(e.target.value);
+    }
+    onChange(name, e);
   };
 
   const togglePasswordVisibility = () => {
@@ -58,6 +66,7 @@ function InputField({
           onChange={handleInputChange}
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
+          onKeyDown={handleEnterKeyDown}
         />
         {type === "password" ? (
           <button type="button" className="cursor-pointer">
