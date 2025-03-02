@@ -13,7 +13,7 @@ export const HeaderContainer = styled.div`
   border-bottom: 1px solid #dfdfdf;
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 100;
 
   @media (min-width: 769px) and (max-width: 1280px) {
     padding: 9px 24px;
