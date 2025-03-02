@@ -42,11 +42,11 @@ function Items() {
 
   useEffect(() => {
     const fetchItems = async () => {
-      const res = await fetchData(page, pageSize);
+      const res = await fetchData(page, pageSize, orderBy);
       setItems(res.list);
     };
     fetchItems();
-  }, [page, pageSize]);
+  }, [page, pageSize, orderBy]);
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -176,23 +176,29 @@ function Items() {
                       onClick={toggleSortDropdown}
                       className="flex cursor-pointer justify-between gap-6 rounded-lg border-1 border-gray-200 px-5 py-3"
                     >
-                      <div>{"최신순"}</div>
+                      <div>{sortOption[orderBy]}</div>
                       <img src={ic_arrow_down} alt="" />
                     </button>
                     {isSortDropdownOpen ? (
                       <ul className="absolute top-14 right-0 w-32.5 rounded-xl border-1 border-gray-200 bg-white">
                         <li>
                           <button
-                            id="sort-latest"
+                            id="recent"
                             className="m-auto my-2 w-full cursor-pointer"
+                            onClick={(e) => {
+                              setOrderBy(e.target.id);
+                            }}
                           >
                             최신순
                           </button>
                         </li>
                         <li>
                           <button
-                            id="sort-popular"
+                            id="favorite"
                             className="m-auto my-2 w-full cursor-pointer"
+                            onClick={(e) => {
+                              setOrderBy(e.target.id);
+                            }}
                           >
                             좋아요순
                           </button>
