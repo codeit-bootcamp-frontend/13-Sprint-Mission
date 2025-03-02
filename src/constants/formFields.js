@@ -36,3 +36,42 @@ export const FORM_FIELDS = {
     pattern: null,
   },
 };
+
+export const ITEM_REGISTRATION = {
+  name: {
+    id: "name",
+    type: "text",
+    label: "상품명",
+    placeholder: "상품명을 입력해주세요",
+    emptyMessage: "상품명을 입력해주세요.",
+    invalidMessage: "상품명을 입력해주세요.",
+    pattern: /^[a-zA-Z0-9가-힣]{1,10}$/,
+  },
+  explanation: {
+    id: "explanation",
+    type: "text",
+    label: "상품 소개",
+    placeholder: "상품 소개를 입력해주세요",
+    emptyMessage: "상품 소개를 입력해주세요.",
+    invalidMessage: "상품 소개 8자 이상 입력해주세요.",
+    pattern: /^.{8,}$/,
+  },
+  price: {
+    id: "price",
+    type: "text",
+    label: "판매 가격",
+    placeholder: "판매 가격을 입력해주세요",
+    emptyMessage: "판매 가격을 입력해주세요.",
+    invalidMessage: "판매 가격을 입력해주세요.",
+    pattern: /^.{8,}$/,
+  },
+  tag: {
+    id: "price",
+    type: "text",
+    label: "태그",
+    placeholder: "태그를 입력해주세요",
+    emptyMessage: "",
+    invalidMessage: "",
+    pattern: /^.{8,}$/,
+  },
+};
