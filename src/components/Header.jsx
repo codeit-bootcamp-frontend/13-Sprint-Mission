@@ -39,7 +39,7 @@ function Header() {
               </li>
               <li>
                 <Link
-                  className={`${pathname === "/items" ? "font-extrabold text-blue-500" : ""}`}
+                  className={`${pathname === "/items" || "/addItem" ? "font-extrabold text-blue-500" : ""}`}
                   title="중고마켓으로 이동"
                   to="/items"
                 >

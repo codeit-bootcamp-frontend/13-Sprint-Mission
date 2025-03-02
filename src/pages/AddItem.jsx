@@ -1,5 +1,11 @@
+import Header from "@/components/Header";
+
 function AddItem() {
-  return <>hello</>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
 
 export default AddItem;
