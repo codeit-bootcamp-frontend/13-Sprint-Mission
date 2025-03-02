@@ -7,7 +7,6 @@ import ic_arrow_down from "@/assets/ic_arrow_down.svg";
 import ItemList from "@/components/ItemList";
 import { useState, useEffect } from "react";
 import { BREAK_POINTS } from "@/constants/styles";
-import { mockData, mockData1 } from "@/mockData";
 import { fetchData } from "@/api/api";
 
 let sortOption = {
