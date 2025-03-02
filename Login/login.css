@@ -151,12 +151,12 @@ input::placeholder {
   .login_content,
   .btn_login2,
   .sns_login_content {
-    width: calc(100% - 32px);
+    margin-left: 16px;
     max-width: 400px;
   }
 
   .sns_login {
-    width: calc(100% - 32px);
+    margin-left: 16px;
     max-width: 400px;
   }
 }
