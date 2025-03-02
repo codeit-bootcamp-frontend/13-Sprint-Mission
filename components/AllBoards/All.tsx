@@ -51,7 +51,9 @@ export default function All() {
       }
     });
 
-    router.replace(`?${newParams.toString()}`, { scroll: false });
+    router.replace(`?${newParams.toString()}`, {
+      scroll: params.page ? true : false,
+    });
   };
 
   return (
