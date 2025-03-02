@@ -205,7 +205,7 @@ function Items() {
             </>
           )}
           <ItemList items={items} grid={gridB} />
-          <div className="m-auto flex w-fit gap-1">
+          <div className="m-auto mt-10 flex w-fit gap-1">
             <button
               className={`size-10 cursor-pointer rounded-full border-1 border-gray-200 ${pages[0] === 1 ? "invisible" : ""}`}
               onClick={() => {
