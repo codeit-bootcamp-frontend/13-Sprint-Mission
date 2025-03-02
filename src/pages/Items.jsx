@@ -31,7 +31,6 @@ function Items() {
   const [bestItems, setBestItems] = useState([]);
   const [orderBy, setOrderBy] = useState("recent");
   const [page, setPage] = useState(1);
-  // TODO: 반응형 현재 페이지, 페이지 크기 설정
   const [pageSize, setPageSize] = useState(
     window.innerWidth < BREAK_POINTS.md
       ? 4
@@ -70,25 +69,26 @@ function Items() {
         setGridB("base2");
         setIsMobileLayout(true);
         setWidth("mobile");
+        setPageSize(4);
       } else if (currentWidth < BREAK_POINTS.xl) {
         setGridA("md1");
         setGridB("md2");
         setIsMobileLayout(false);
         setWidth("tablet");
+        setPageSize(6);
       } else {
         setGridA("xl1");
         setGridB("xl2");
         setIsMobileLayout(false);
         setWidth("pc");
+        setPageSize(8);
       }
-      console.log(width);
-      console.log(isMobileLayout);
     };
 
-    updateItemsToShow(); // 초기 값 설정
-    window.addEventListener("resize", updateItemsToShow); // 리사이즈 감지
+    updateItemsToShow();
+    window.addEventListener("resize", updateItemsToShow);
 
-    return () => window.removeEventListener("resize", updateItemsToShow); // 클린업
+    return () => window.removeEventListener("resize", updateItemsToShow);
   }, []);
 
   return (
