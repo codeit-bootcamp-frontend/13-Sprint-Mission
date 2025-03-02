@@ -28,8 +28,6 @@ function useResponsiveLayout({ onLayoutChange }) {
       }
 
       if (newLayoutType !== layoutType) {
-        console.log(layoutType, newLayoutType);
-
         setLayoutType(newLayoutType);
         if (onLayoutChange) {
           onLayoutChange(newLayoutType);
