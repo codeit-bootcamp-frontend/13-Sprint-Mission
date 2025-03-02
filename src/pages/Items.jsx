@@ -5,14 +5,10 @@ import ic_arrow_right from "@/assets/ic_arrow_right.svg";
 import ic_arrow_down from "@/assets/ic_arrow_down.svg";
 import Header from "@/components/Header";
 import ItemList from "@/components/ItemList";
+import DropDown from "@/components/DropDown";
 import useResponsiveLayout from "@/hooks/useResponsiveLayout";
 import { useState, useEffect } from "react";
 import { getItems } from "@/api/api";
-
-let sortOption = {
-  recent: "최신순",
-  favorite: "좋아요순",
-};
 
 const LAYOUT_BEST_ITEMS = {
   mobile: "grid grid-cols-1 grid-rows-1 gap-2.5",
@@ -30,6 +26,11 @@ const PAGE_SIZE = {
   mobile: 4,
   tablet: 6,
   desktop: 8,
+};
+
+const SORT_OPTION = {
+  recent: { id: "recent", text: "최신순" },
+  favorite: { id: "favorite", text: "좋아요순" },
 };
 
 function Items() {
@@ -68,10 +69,6 @@ function Items() {
     fetchItems();
   }, []);
 
-  const toggleSortDropdown = () => {
-    setIsSortDropdownOpen((prev) => !prev);
-  };
-
   const handleChange = (e) => {
     const keyword = e.target.value;
     const fetchItems = async () => {
@@ -79,6 +76,14 @@ function Items() {
       setItems(res.list);
     };
     fetchItems();
+  };
+
+  const toggleDropDown = () => {
+    setIsSortDropdownOpen((prev) => !prev);
+  };
+
+  const updateSortOption = (option) => {
+    setOrderBy(option);
   };
 
   return (
@@ -119,30 +124,16 @@ function Items() {
                 </div>
                 <div className="relative">
                   <button
-                    onClick={toggleSortDropdown}
+                    onClick={toggleDropDown}
                     className="flex size-10 cursor-pointer rounded-xl border-1 border-gray-200 p-2"
                   >
                     <img src={ic_sort} alt="" />
                   </button>
                   {isSortDropdownOpen ? (
-                    <ul className="absolute top-11 right-0 w-32.5 rounded-xl border-1 border-gray-200 bg-white">
-                      <li>
-                        <button
-                          id="sort-latest"
-                          className="m-auto my-2 w-full cursor-pointer"
-                        >
-                          최신순
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          id="sort-popular"
-                          className="m-auto my-2 w-full cursor-pointer"
-                        >
-                          좋아요순
-                        </button>
-                      </li>
-                    </ul>
+                    <DropDown
+                      items={Object.values(SORT_OPTION)}
+                      onItemSelect={updateSortOption}
+                    />
                   ) : null}
                 </div>
               </div>
@@ -166,37 +157,17 @@ function Items() {
                   </button>
                   <div className="relative">
                     <button
-                      onClick={toggleSortDropdown}
+                      onClick={toggleDropDown}
                       className="flex cursor-pointer justify-between gap-6 rounded-lg border-1 border-gray-200 px-5 py-3"
                     >
-                      <div>{sortOption[orderBy]}</div>
+                      <div>{SORT_OPTION[orderBy].text}</div>
                       <img src={ic_arrow_down} alt="" />
                     </button>
                     {isSortDropdownOpen ? (
-                      <ul className="absolute top-14 right-0 w-32.5 rounded-xl border-1 border-gray-200 bg-white">
-                        <li>
-                          <button
-                            id="recent"
-                            className="m-auto my-2 w-full cursor-pointer"
-                            onClick={(e) => {
-                              setOrderBy(e.target.id);
-                            }}
-                          >
-                            최신순
-                          </button>
-                        </li>
-                        <li>
-                          <button
-                            id="favorite"
-                            className="m-auto my-2 w-full cursor-pointer"
-                            onClick={(e) => {
-                              setOrderBy(e.target.id);
-                            }}
-                          >
-                            좋아요순
-                          </button>
-                        </li>
-                      </ul>
+                      <DropDown
+                        items={Object.values(SORT_OPTION)}
+                        onItemSelect={updateSortOption}
+                      />
                     ) : null}
                   </div>
                 </div>
