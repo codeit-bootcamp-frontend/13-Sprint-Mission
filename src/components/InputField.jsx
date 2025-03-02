@@ -42,7 +42,7 @@ function InputField({
 
   return (
     <div>
-      <label htmlFor={id} className="text-gray-800">
+      <label htmlFor={id} className="text-lg font-bold text-gray-800">
         {label}
       </label>
       <div
