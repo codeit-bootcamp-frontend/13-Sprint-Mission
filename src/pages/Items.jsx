@@ -69,7 +69,7 @@ function Items() {
     fetchItems();
   }, []);
 
-  const handleChange = (e) => {
+  const searchItem = (e) => {
     const keyword = e.target.value;
     const fetchItems = async () => {
       const res = await getItems(page, pageSize, orderBy, keyword);
@@ -119,7 +119,7 @@ function Items() {
                     className="w-full border-none outline-none"
                     type="text"
                     placeholder="검색할 상품을 입력해주세요"
-                    onChange={handleChange}
+                    onChange={searchItem}
                   />
                 </div>
                 <div className="relative">
@@ -149,7 +149,7 @@ function Items() {
                       className="w-full border-none outline-none"
                       type="text"
                       placeholder="검색할 상품을 입력해주세요"
-                      onChange={handleChange}
+                      onChange={searchItem}
                     />
                   </div>
                   <button className="cursor-pointer rounded-lg bg-blue-500 px-6 py-3 font-semibold text-gray-100">
