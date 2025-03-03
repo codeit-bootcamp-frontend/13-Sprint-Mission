@@ -43,7 +43,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* 이메일 에러메세지 */
   function checkEmail() {
-    if (!validateEmail(emailInput.value)) {
+    if (!emailInput.value) {
+      emailError.textContent = "이메일을 입력해주세요.";
+      emailError.style.display = "block";
+      emailInputBorder.classList.add("error-border");
+    } else if (!validateEmail(emailInput.value)) {
       emailError.textContent = "잘못된 이메일 형식입니다.";
       emailError.style.display = "block";
       emailInputBorder.classList.add("error-border"); // input 오류
