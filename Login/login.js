@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   const emailInput = document.getElementById("email");
+  const emailInputBorder = document.getElementById("email_input");
   const emailError = document.getElementById("email_error");
   const passwordInput = document.getElementById("password");
+  const passwordInputBorder = document.getElementById("password_input");
   const passwordError = document.getElementById("password_error");
   const loginButton = document.querySelector(".btn_login2");
   const togglePasswordIcon = document.querySelector(".input_icon");
@@ -44,10 +46,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!validateEmail(emailInput.value)) {
       emailError.textContent = "잘못된 이메일 형식입니다.";
       emailError.style.display = "block";
-      emailInput.classList.add("error-border");
+      emailInputBorder.classList.add("error-border"); // input 오류
     } else {
       emailError.style.display = "none";
-      emailInput.classList.remove("error-border");
+      emailInputBorder.classList.remove("error-border"); // input 오류 제거
+      emailInputBorder.classList.add("success-border");
     }
     validateInputs();
   }
@@ -57,8 +60,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (passwordInput.value.length < 8) {
       passwordError.textContent = "비밀번호를 8자 이상 입력해주세요.";
       passwordError.style.display = "block";
+      passwordInputBorder.classList.add("error-border");
     } else {
       passwordError.style.display = "none";
+      passwordInputBorder.classList.remove("error-border");
+      passwordInputBorder.classList.add("success-border");
     }
     validateInputs();
   }
