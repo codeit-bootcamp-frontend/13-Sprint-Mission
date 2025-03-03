@@ -1,28 +1,36 @@
 import * as S from "./Pagination.styles";
 import left from "@/public/icons/arrowLeft.svg";
 import right from "@/public/icons/arrowRight.svg";
+import { useSearchParams } from "next/navigation";
 
 interface PagingProps {
   totalBoards: number;
   currentPage: number;
-  onChange: (page: number) => void;
+  pageSize: number;
 }
 
 export default function Pagination({
   totalBoards,
   currentPage,
-  onChange,
+  pageSize,
 }: PagingProps) {
+  const searchParams = useSearchParams();
+
   const pageGroup = Math.ceil(currentPage / 5);
+  const totalPages = Math.ceil(totalBoards / pageSize);
   const startPage = (pageGroup - 1) * 5 + 1;
-  const endPage = Math.min(startPage + 4, totalBoards);
+  const endPage = Math.min(startPage + 4, totalPages);
+
+  const createPageParams = (page: number) => {
+    const newParams = new URLSearchParams(searchParams.toString());
+    newParams.set("page", String(page));
+
+    return `?${newParams.toString()}`;
+  };
 
   return (
     <S.Pages>
-      <S.Button
-        disabled={currentPage === 1}
-        onClick={() => onChange(currentPage - 1)}
-      >
+      <S.LinkBtn href={createPageParams(currentPage - 1)} shallow>
         <S.Arrow
           disabled={currentPage === 1}
           src={left}
@@ -30,7 +38,7 @@ export default function Pagination({
           height={16}
           alt="prev"
         />
-      </S.Button>
+      </S.LinkBtn>
       {Array.from(
         { length: endPage - startPage + 1 },
         (_, i) => startPage + i
@@ -38,16 +46,12 @@ export default function Pagination({
         <S.Page
           key={page}
           $isActive={currentPage === page}
-          disabled={currentPage === page}
-          onClick={() => onChange(page)}
+          href={createPageParams(page)}
         >
           {page}
         </S.Page>
       ))}
-      <S.Button
-        disabled={currentPage === totalBoards}
-        onClick={() => onChange(currentPage + 1)}
-      >
+      <S.LinkBtn href={createPageParams(currentPage + 1)}>
         <S.Arrow
           disabled={currentPage === totalBoards}
           src={right}
@@ -55,7 +59,7 @@ export default function Pagination({
           height={16}
           alt="next"
         />
-      </S.Button>
+      </S.LinkBtn>
     </S.Pages>
   );
 }

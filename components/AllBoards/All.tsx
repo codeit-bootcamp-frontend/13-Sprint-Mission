@@ -82,7 +82,7 @@ export default function All() {
           <Pagination
             totalBoards={totalBoards}
             currentPage={page}
-            onChange={(page) => handleParamsUpdate({ page: page })}
+            pageSize={PAGE_SIZE}
           />
         )}
       </S.Container>
