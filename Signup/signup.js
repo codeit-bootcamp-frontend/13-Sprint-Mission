@@ -48,14 +48,13 @@ document.addEventListener("DOMContentLoaded", function () {
     return emailRegex.test(email);
   }
 
-  /* 비밀번호 유효성 + 버튼 활성화 조건 */
+  /* 버튼 활성화 조건 */
   function validateInputs() {
     const isEmailValid = emailInput.value && validateEmail(emailInput.value);
     const isPasswordValid =
       passwordInput.value && passwordInput.value.length >= 8;
-    const isNameValid = nameInput.value > 0;
-    const isMatchValid =
-      checkPasswordInput && passwdMatch(checkPasswordInput.value);
+    const isNameValid = nameInput.value.trim().length > 0;
+    const isMatchValid = passwdMatch();
     const isFormValid =
       isEmailValid && isPasswordValid && isNameValid && isMatchValid;
 
@@ -67,6 +66,15 @@ document.addEventListener("DOMContentLoaded", function () {
       signupButton.disabled = true;
     }
   }
+
+  /* 회원가입 버튼 활성화 */
+  signupButton.addEventListener("click", function (event) {
+    if (!signupButton.classList.contains("active")) {
+      event.preventDefault();
+    } else {
+      window.location.href = "/signin";
+    }
+  });
 
   /* 이메일 에러메세지 */
   function checkEmail() {
@@ -123,10 +131,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* 비밀번호, 비밀번호 확인 일치 검사 */
   function passwdMatch() {
+    const ispasswdmatch = false;
     if (checkPasswordInput.value === "") {
       checkPasswordError.style.display = "none";
       checkPasswordInputBorder.classList.remove("error-border");
-      return;
+      return false;
     }
     const isPasswdMatch = passwordInput.value === checkPasswordInput.value;
 
@@ -134,22 +143,15 @@ document.addEventListener("DOMContentLoaded", function () {
       checkPasswordError.textContent = "비밀번호가 일치하지 않습니다.";
       checkPasswordError.style.display = "block";
       checkPasswordInputBorder.classList.add("error-border");
+      return false;
     } else {
       checkPasswordError.style.display = "none";
       checkPasswordInputBorder.classList.remove("error-border");
+      return true;
     }
 
     validateInputs();
   }
-
-  /* 회원가입 버튼 활성화 */
-  signupButton.addEventListener("click", function (event) {
-    if (!signupButton.classList.contains("active")) {
-      event.preventDefault();
-    } else {
-      window.location.href = "/signin";
-    }
-  });
 
   emailInput.addEventListener("input", checkEmail);
   passwordInput.addEventListener("input", checkPassword);
