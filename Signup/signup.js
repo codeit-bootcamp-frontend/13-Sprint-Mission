@@ -53,11 +53,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const isEmailValid = emailInput.value && validateEmail(emailInput.value);
     const isPasswordValid =
       passwordInput.value && passwordInput.value.length >= 8;
-    const isNameValid = nameInput.value;
+    const isNameValid = nameInput.value > 0;
     const isMatchValid =
       checkPasswordInput && passwdMatch(checkPasswordInput.value);
     const isFormValid =
-      isEmailValid && isPasswordValid & isNameValid & isMatchValid;
+      isEmailValid && isPasswordValid && isNameValid && isMatchValid;
 
     if (isFormValid) {
       signupButton.classList.add("active");
@@ -123,6 +123,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* 비밀번호, 비밀번호 확인 일치 검사 */
   function passwdMatch() {
+    if (checkPasswordInput.value === "") {
+      checkPasswordError.style.display = "none";
+      checkPasswordInputBorder.classList.remove("error-border");
+      return;
+    }
     const isPasswdMatch = passwordInput.value === checkPasswordInput.value;
 
     if (!isPasswdMatch) {
