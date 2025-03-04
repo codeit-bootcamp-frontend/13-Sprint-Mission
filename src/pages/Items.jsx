@@ -57,7 +57,6 @@ function Items() {
   const [pageNumbers, setPageNumbers] = useState([1, 2, 3, 4, 5]);
   const [isSortDropdownOpen, setIsSortDropdownOpen] = useState(false);
 
-  // items 로딩
   useEffect(() => {
     const fetchItems = async () => {
       setItemsLoading(true);
@@ -66,6 +65,7 @@ function Items() {
         setItems(res.list);
       } catch (error) {
         console.error("전체 상품 불러오기 실패", error);
+        alert(error.message);
       } finally {
         setItemsLoading(false);
       }
@@ -81,6 +81,7 @@ function Items() {
         setBestItems(res.list);
       } catch (error) {
         console.error("베스트 상품 불러오기 실패", error);
+        alert(error.message);
       } finally {
         setBestItemsLoading(false);
       }
