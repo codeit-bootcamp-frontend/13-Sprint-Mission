@@ -1,4 +1,5 @@
-const BASE_URL = "https://panda-market-api.vercel.app/products/";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const PRODUCT_API_URL = `${API_BASE_URL}/products/`;
 
 export const getItems = async (
   page,
@@ -16,7 +17,7 @@ export const getItems = async (
     params.append("keyword", keyword);
   }
 
-  const requrl = `${BASE_URL}?${params.toString()}`;
+  const requrl = `${PRODUCT_API_URL}?${params.toString()}`;
 
   const response = await fetch(requrl, {
     method: "GET",
@@ -26,7 +27,7 @@ export const getItems = async (
 };
 
 export const postItem = async (item) => {
-  const response = await fetch(BASE_URL, {
+  const response = await fetch(PRODUCT_API_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
