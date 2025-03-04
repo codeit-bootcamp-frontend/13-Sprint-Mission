@@ -1,38 +1,37 @@
-.App {
-  text-align: center;
-}
+@import "tailwindcss";
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@layer base {
+  :root {
+    font-family: "Pretendard", sans-serif;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+@theme {
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  /* --color-gray-300: ; */
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
 
-.App-link {
-  color: #61dafb;
-}
+  --color-blue-50: #e3f2ff;
+  --color-blue-100: #b3d9ff;
+  --color-blue-200: #80bfff;
+  --color-blue-300: #4da6ff;
+  --color-blue-400: #1a8cff;
+  --color-blue-500: #3692ff;
+  --color-blue-600: #2e7cd1;
+  --color-blue-700: #2663a3;
+  --color-blue-800: #1f4b75;
+  --color-blue-900: #173347;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  --color-red: #f74747;
+
+  --color-white: #ffffff;
+
+  --color-black: #000000;
 }

@@ -1,0 +1,38 @@
+export const FORM_FIELDS = {
+  email: {
+    id: "email",
+    type: "email",
+    label: "이메일",
+    placeholder: "이메일을 입력해주세요",
+    emptyMessage: "이메일을 입력해주세요.",
+    invalidMessage: "잘못된 이메일 형식입니다.",
+    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+  },
+  nickname: {
+    id: "nickname",
+    type: "text",
+    label: "닉네임",
+    placeholder: "닉네임을 입력해주세요",
+    emptyMessage: "닉네임을 입력해주세요.",
+    invalidMessage: "닉네임을 입력해주세요.",
+    pattern: /^[a-zA-Z0-9가-힣]{1,10}$/,
+  },
+  password: {
+    id: "password",
+    type: "password",
+    label: "비밀번호",
+    placeholder: "비밀번호를 입력해주세요",
+    emptyMessage: "비밀번호를 입력해주세요.",
+    invalidMessage: "비밀번호를 8자 이상 입력해주세요.",
+    pattern: /^.{8,}$/,
+  },
+  passwordConfirm: {
+    id: "passwordConfirm",
+    type: "password",
+    label: "비밀번호 확인",
+    placeholder: "비밀번호를 다시 한 번 입력해주세요",
+    emptyMessage: "비밀번호가 일치하지 않습니다.",
+    invalidMessage: "비밀번호가 일치하지 않습니다.",
+    pattern: null,
+  },
+};
