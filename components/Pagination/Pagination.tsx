@@ -1,9 +1,9 @@
 import * as S from "./Pagination.styles";
 import left from "@/public/icons/arrowLeft.svg";
 import right from "@/public/icons/arrowRight.svg";
-import { useSearchParams } from "next/navigation";
+import usePagination from "./usePagination";
 
-interface PagingProps {
+export interface PagingProps {
   totalBoards: number;
   currentPage: number;
   pageSize: number;
@@ -14,23 +14,19 @@ export default function Pagination({
   currentPage,
   pageSize,
 }: PagingProps) {
-  const searchParams = useSearchParams();
-
-  const pageGroup = Math.ceil(currentPage / 5);
-  const totalPages = Math.ceil(totalBoards / pageSize);
-  const startPage = (pageGroup - 1) * 5 + 1;
-  const endPage = Math.min(startPage + 4, totalPages);
-
-  const createPageParams = (page: number) => {
-    const newParams = new URLSearchParams(searchParams.toString());
-    newParams.set("page", String(page));
-
-    return `?${newParams.toString()}`;
-  };
+  const { startPage, endPage, totalPages, createPageParams } = usePagination({
+    totalBoards,
+    currentPage,
+    pageSize,
+  });
 
   return (
     <S.Pages>
-      <S.LinkBtn href={createPageParams(currentPage - 1)} shallow>
+      <S.LinkBtn
+        href={currentPage > 1 ? createPageParams(currentPage - 1) : "#"}
+        shallow
+        scroll={false}
+      >
         <S.Arrow
           disabled={currentPage === 1}
           src={left}
@@ -46,12 +42,20 @@ export default function Pagination({
         <S.Page
           key={page}
           $isActive={currentPage === page}
-          href={createPageParams(page)}
+          href={currentPage !== page ? createPageParams(page) : "#"}
+          shallow
+          scroll={false}
         >
           {page}
         </S.Page>
       ))}
-      <S.LinkBtn href={createPageParams(currentPage + 1)}>
+      <S.LinkBtn
+        href={
+          currentPage < totalPages ? createPageParams(currentPage + 1) : "#"
+        }
+        shallow
+        scroll={false}
+      >
         <S.Arrow
           disabled={currentPage === totalBoards}
           src={right}
