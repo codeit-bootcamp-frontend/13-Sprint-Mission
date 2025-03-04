@@ -3,30 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./assets/images/logo.svg">
   <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="palette.css" />
+  <link rel="stylesheet" href="reset.css" />
   <title>판다마켓</title>
 </head>
 <body>
-  <header>
-    <a href="/">
+  <header class="header-nav">
+    <a href="index.html">
       <div class="logo">
         <img src="./assets/images/logo.svg" alt="판다마켓 로고 아이콘" class="logo-icon"/>
         <img src="./assets/images/typo.svg" alt="판다마켓 로코 텍스트" />
       </div>
     </a>
 
-    <a href="/login">
-      <button class="login-button" type="button">로그인</button>
-    </a>
+    <a href="login.html" class="blue text-gray100 button login-button">로그인</a>
   </header>
-  <main>
+  <main class="main-container">
     <div class="landing-section">
       <div class="landing-content">
         <div class="landing-message-container">
-          <p class="section-title">일상의 모든 물건을 <br />거래해 보세요</p>
-          <a href="/items" class="explore-button-link">
-            <button class="explore-button" type="button">구경하러 가기</button>
-          </a>
+          <p class="text-gray700 section-title">일상의 모든 물건을 <br />거래해 보세요</p>
+          <a href="/items" class="blue text-gray100 button explore-button">구경하러 가기</a>
         </div>
         <img src="./assets/images/lading-page-img.svg" alt="판다마켓 랜딩 페이지 배너 이미지"/>
       </div>
@@ -36,9 +35,9 @@
       <div class="hot-item-section section">
         <img src="./assets/images/home_01_img.svg" alt="hot-item 이미지" />
         <div class="hot-item-message-container message-container">
-          <span class="label">Hot item</span>
-          <p class="section-title">인기 상품을<br />확인해 보세요</p>
-          <p class="section-message">가장 HOT한 중고거래 물품을<br />판다 마켓에서 확인해 보세요</p>
+          <span class="text-blue label">Hot item</span>
+          <p class="text-gray700 section-title">인기 상품을<br />확인해 보세요</p>
+          <p class="text-gray700 section-message">가장 HOT한 중고거래 물품을<br />판다 마켓에서 확인해 보세요</p>
         </div>
       </div>
     </div>
@@ -47,9 +46,9 @@
       <div class="search-section section">
         <img src="./assets/images/home_02_img.svg" alt="search 이미지" />
         <div class="search-message-container message-container">
-          <span class="label">Search</span>
-          <p class="section-title">구매를 원하는<br />상품을 검색하세요</p>
-          <p class="section-message">구매하고 싶은 물품은 검색해서<br />쉽게 찾아보세요</p>
+          <span class="text-blue label">Search</span>
+          <p class="text-gray700 section-title">구매를 원하는<br />상품을 검색하세요</p>
+          <p class="text-gray700 section-message">구매하고 싶은 물품은 검색해서<br />쉽게 찾아보세요</p>
         </div>
       </div>
     </div>
@@ -58,9 +57,9 @@
       <div class="register-section section">
         <img src="./assets/images/home_03_img.svg" alt="register 이미지" />
         <div class="register-message-container message-container">
-          <span class="label">Register</span>
-          <p class="section-title">판매를 원하는<br />상품을 등록하세요</p>
-          <p class="section-message">어떤 물건이든 판매하고 싶은 상품을<br />쉽게 등록하세요</p>
+          <span class="text-blue label">Register</span>
+          <p class="text-gray700 section-title">판매를 원하는<br />상품을 등록하세요</p>
+          <p class="text-gray700 section-message">어떤 물건이든 판매하고 싶은 상품을<br />쉽게 등록하세요</p>
         </div>
       </div>
     </div>
@@ -69,7 +68,7 @@
       <div class="landing-section">
         <div class="landing-content">
           <div class="landing-message-container">
-            <p class="section-title">믿을 수 있는<br />판다마켓 중고 거래</p>
+            <p class="text-gray700 section-title">믿을 수 있는<br />판다마켓 중고 거래</p>
           </div>
           <img src="./assets/images/home_bottom_img.svg" alt="판다마켓 랜딩 페이지 배너 이미지"/>
         </div>
@@ -77,33 +76,41 @@
     </div>
 
   </main>
-  <footer>
+  <footer class="gray900 footer-nav">
     <div class="footer-container">
-      <div class="copy-right">
+      <div class="text-gray400">
         ©codeit - 2024
       </div>
-      <div class="term">
-        <a href="/privacy">
+      <div class="text-gray200 term">
+        <a href="/privacy" class="text-gray200">
           <span>Privacy Policy</span>
         </a>
-        <a href="/faq">
+        <a href="/faq" class="text-gray200">
           <span>FAQ</span>
         </a>
       </div>
-      <div class="SNS-container">
-        <a href="https://www.facebook.com/" target="_blank">
-          <img src="./assets/images/ic_facebook.svg" alt="facebook 아이콘"/>
-        </a>
-        <a href="https://x.com/" target="_blank">
-          <img src="./assets/images/ic_twitter.svg" alt="x 아이콘"/>
-        </a>
-        <a href="https://www.youtube.com/" target="_blank">
-          <img src="./assets/images/ic_youtube.svg" alt="youtude 아이콘"/>
-        </a>
-        <a href="https://www.instagram.com/" target="_blank">
-          <img src="./assets/images/ic_instagram.svg" alt="instagram 아이콘"/>
-        </a>
-      </div>
+      <ul class="SNS-container">
+        <li>
+          <a href="https://www.facebook.com/" target="_blank">
+            <img src="./assets/images/ic_facebook.svg" alt="facebook 아이콘"/>
+          </a>
+        </li>
+        <li>
+          <a href="https://x.com/" target="_blank">
+            <img src="./assets/images/ic_twitter.svg" alt="x 아이콘"/>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/" target="_blank">
+            <img src="./assets/images/ic_youtube.svg" alt="youtude 아이콘"/>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/" target="_blank">
+            <img src="./assets/images/ic_instagram.svg" alt="instagram 아이콘"/>
+          </a>
+        </li>
+      <ul>
     </div>
   </footer>
 </body>
