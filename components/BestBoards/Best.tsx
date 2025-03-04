@@ -1,19 +1,9 @@
-import { useEffect, useState } from "react";
 import * as S from "./Best.styles";
 import BestItem from "./BestItem";
-import { BoardItem, getBoards } from "@/apis/boards";
+import useBestData from "./useBestData";
 
 export default function Best() {
-  const [best, setBest] = useState<BoardItem[]>([]);
-
-  useEffect(() => {
-    getBoards({ page: 1, pageSize: 3, orderBy: "like", keyword: "" })
-      .then((result) => {
-        if (!result) return;
-        setBest(result.list);
-      })
-      .catch((error) => console.error(error));
-  }, []);
+  const best = useBestData();
 
   return (
     <S.BestContainer>
