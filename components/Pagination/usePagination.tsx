@@ -15,7 +15,12 @@ export default function usePagination({
 
   const createPageParams = (page: number) => {
     const newParams = new URLSearchParams(searchParams.toString());
-    newParams.set("page", String(page));
+
+    if (page === 1) {
+      newParams.delete("page");
+    } else {
+      newParams.set("page", String(page));
+    }
 
     return `?${newParams.toString()}`;
   };

@@ -1,3 +1,5 @@
+"use client";
+
 import * as S from "./Pagination.styles";
 import left from "@/public/icons/arrowLeft.svg";
 import right from "@/public/icons/arrowRight.svg";
