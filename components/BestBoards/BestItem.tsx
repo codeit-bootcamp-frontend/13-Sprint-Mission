@@ -1,5 +1,3 @@
-"use client";
-
 import * as S from "./BestItem.styles";
 import Image from "next/image";
 import medal from "@/public/icons/best.svg";

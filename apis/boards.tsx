@@ -14,7 +14,7 @@ export interface BoardItem {
   id: number;
 }
 
-interface Boards {
+export interface Boards {
   totalCount?: 0;
   list: BoardItem[];
 }

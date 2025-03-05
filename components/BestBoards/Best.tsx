@@ -1,10 +1,8 @@
+import { BoardItem } from "@/apis/boards";
 import * as S from "./Best.styles";
 import BestItem from "./BestItem";
-import useBestData from "./useBestData";
 
-export default function Best() {
-  const best = useBestData();
-
+export default function Best({ best }: { best: BoardItem[] }) {
   return (
     <S.BestContainer>
       <h2>베스트 게시글</h2>

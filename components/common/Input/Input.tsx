@@ -2,8 +2,6 @@ import Image from "next/image";
 import * as S from "./Input.styles";
 import { CSSProperties, InputHTMLAttributes } from "react";
 
-import search from "@/public/icons/search.svg";
-
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   style?: CSSProperties;

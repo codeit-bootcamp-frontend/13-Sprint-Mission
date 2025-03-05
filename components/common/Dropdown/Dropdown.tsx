@@ -1,3 +1,5 @@
+"use client";
+
 import * as S from "./Dropdown.styles";
 import Image from "next/image";
 import { useState } from "react";

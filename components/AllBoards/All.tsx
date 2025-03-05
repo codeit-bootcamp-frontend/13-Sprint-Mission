@@ -1,16 +1,17 @@
+"use client";
+
 import * as S from "./All.styles";
 import AllItem from "./AllItem";
 import Dropdown from "../common/Dropdown/Dropdown";
 import Search from "../Search/Search";
 import Pagination from "../Pagination/Pagination";
-import useAllData from "./useAllData";
 import useParams from "@/hooks/useParams";
+import { Boards } from "@/apis/boards";
 
 const FilterList = ["recent", "like"];
 const PAGE_SIZE = 10;
 
-export default function All() {
-  const { all, totalBoards } = useAllData(PAGE_SIZE);
+export default function All({ list, totalCount }: Boards) {
   const { page, orderBy, keyword, handleParamsUpdate } = useParams();
 
   return (
@@ -29,13 +30,13 @@ export default function All() {
           />
         </S.Filter>
         <S.Items>
-          {all.map((item) => (
+          {list.map((item) => (
             <AllItem key={item.id} all={item} />
           ))}
         </S.Items>
         {!keyword && (
           <Pagination
-            totalBoards={totalBoards}
+            totalBoards={totalCount ?? 0}
             currentPage={page}
             pageSize={PAGE_SIZE}
           />
