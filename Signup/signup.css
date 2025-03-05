@@ -13,3 +13,22 @@ main {
   align-items: center;
   grid-template-rows: 1fr 3fr;
 }
+
+.btn_signup {
+  width: 640px;
+  height: 56px;
+  background-color: var(--gray-400);
+  color: var(--gray-100);
+  border: none;
+  border-radius: 40px;
+  padding: 16px 124px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: not-allowed;
+}
+
+.btn_signup.active {
+  background-color: var(--primary-100);
+  cursor: pointer;
+}

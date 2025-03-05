@@ -59,6 +59,14 @@ main {
   border-color: var(--primary-100); /* 포커스 상태 테두리 색상 */
 }
 
+.input_wrapper.success-border {
+  border-color: var(--primary-100);
+}
+
+.input_wrapper.error-border {
+  border-color: var(--error);
+}
+
 input {
   border: none;
   background-color: transparent; /* 투명 배경 */
@@ -83,6 +91,16 @@ input::placeholder {
   cursor: pointer;
 }
 
+.error {
+  color: var(--error);
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 25px;
+  margin-left: 10px;
+  font-weight: 600;
+  display: none;
+}
+
 .btn_login2 {
   width: 640px;
   height: 56px;
@@ -94,6 +112,12 @@ input::placeholder {
   cursor: pointer;
   font-size: 20px;
   font-weight: 600;
+  cursor: not-allowed;
+}
+
+.btn_login2.active {
+  background-color: var(--primary-100);
+  cursor: pointer;
 }
 
 /*sns_login*/
@@ -151,12 +175,12 @@ input::placeholder {
   .login_content,
   .btn_login2,
   .sns_login_content {
-    width: calc(100% - 32px);
+    margin-left: 16px;
     max-width: 400px;
   }
 
   .sns_login {
-    width: calc(100% - 32px);
+    margin-left: 16px;
     max-width: 400px;
   }
 }

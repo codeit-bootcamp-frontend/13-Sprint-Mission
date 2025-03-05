@@ -13,7 +13,7 @@ header {
   background-color: var(--white);
   z-index: 1;
 }
-header > nav {
+.header_nav {
   max-width: 1920px;
   height: 70px;
   margin: 0 auto;
@@ -201,20 +201,20 @@ footer > div {
 }
 
 @media (max-width: 1920px) {
-  header > nav {
+  .header_nav {
     padding: 0 200px;
   }
 }
 
 @media (max-width: 1120px) {
-  header > nav {
+  .header_nav {
     padding: 0 50px;
   }
 }
 
 /* 태블릿 */
 @media (max-width: 768px) {
-  header > nav {
+  .header_nav {
     padding: 0 24px;
   }
 
@@ -237,7 +237,7 @@ footer > div {
 /* 모바일 */
 
 @media (max-width: 480px) {
-  header > nav {
+  .header_nav {
     padding: 0 16px;
   }
 
@@ -284,7 +284,7 @@ footer > div {
     position: static;
     height: auto;
     max-width: 100%;
-    margin-top: 150px;
+    margin-top: 140px;
   }
 
   .btn_item {
