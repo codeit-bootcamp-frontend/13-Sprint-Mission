@@ -63,3 +63,8 @@ export const NavItems = styled.div`
     padding: 15px 0;
   }
 `;
+
+export const Nav = styled(Link)`
+  font: ${theme.font.H4Bold};
+  color: ${theme.color.gray600};
+`;
