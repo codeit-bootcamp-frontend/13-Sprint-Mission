@@ -87,14 +87,10 @@ button:active {
   text-align: center;
 }
 
-.section-container {
-  margin: 138px 0;
-}
-
 .section {
   display: flex;
   align-items: center;
-  margin: 0 auto;
+  margin: 138px auto;
   width: 988px;
   border-radius: 12px;
   overflow: hidden;
@@ -156,6 +152,7 @@ button:active {
 
 .footer-container {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   margin: 0 auto;
   padding: 32.5px 0;
@@ -187,4 +184,130 @@ button:active {
 .SNS-container img {
   width: 20px;
   height: 20px;
+}
+
+
+/* tablet 사이즈 */
+@media only screen and (max-width: 1199px) {
+  .header-nav {
+    padding: 10px 24px;
+    width: calc(100% - 48px);
+  }
+  .landing-section {
+    height: auto;
+  }
+  .landing-content {
+    flex-direction: column;
+  }
+  .top-landing-message-container {
+    align-items: center;
+    margin: 84px 0 211px 0;
+    width: auto;
+  }
+  .top-landing-message-container .mobile-hide {
+    display: none;
+  }
+  .explore-button {
+    width: 357px;
+  }
+
+
+  .first-container .section {
+    margin: 24px 0;
+  }
+  .section-container {
+    padding: 0 24px;
+  }
+  .section {
+    flex-direction: column;
+    width: 100%;
+    margin: 52px 0;
+    background-color: transparent;
+  }
+  .section img {
+    width: 100%;
+    border-radius: 14px;
+  }
+  .section .section-title .mobile-hide {
+    display: none;
+  }
+  .message-container {
+    margin: 24px 0 0 0;
+    width: 100%;
+  }
+  .message-container .section-title {
+    font-size: 32px;
+    line-height: 42px;
+  }
+  .message-container .section-message {
+    font-size: 18px;
+    line-height: 26px;
+  }
+  .hot-item-message-container,
+  .register-section .message-container {
+    margin-left: 0;
+  }
+  .search-section .message-container {
+    margin-right: 0;
+  }
+
+  .bottom-landing-section {
+    padding-top: 0;
+  }
+
+  .bottom-landing-section .section-title {
+    margin: 201px 0 207px 0;
+    text-align: center;
+  }
+  .footer-container {
+    padding: 32.5px 104px;
+  }
+}
+
+/* mobile 사이즈 */
+@media only screen and (max-width: 767px) {
+  .header-nav {
+    padding: 10px 16px;
+    width: calc(100% - 32px);
+  }
+  .landing-content img {
+    width: 100%;
+  }
+  .landing-content .section-title {
+    text-align: center;
+  }
+  .landing-content .mobile-hide {
+    display: inline;
+  }
+  .explore-button {
+    width: 240px;
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+  }
+  .message-container .section-title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .message-container .section-message {
+    font-size: 16px;
+  }
+  .first-container .section {
+    margin: 52px 0;
+  }
+  .section-container {
+    padding: 0 16px;
+  }
+  .section {
+    margin: 40px 0;
+  }
+  .bottom-landing-section .section-title {
+    margin: 121px 0 131px 0;
+    font-size: 32px;
+    line-height: 44.8px;
+  }
+  .footer-container {
+    flex-wrap: wrap;
+    padding: 32px;
+  }
 }
