@@ -1,9 +1,15 @@
-import * as S from "./Header.styles";
+"use client";
+
 import logo from "@/public/icons/panda.svg";
 import user from "@/public/icons/user.svg";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import path from "path";
 
 export default function Header() {
+  const pathname = usePathname();
+
   const Links = [
     {
       link: "/boards",
@@ -16,21 +22,29 @@ export default function Header() {
   ];
 
   return (
-    <S.HeaderContainer>
-      <S.Links>
-        <S.LogoContainer href="/">
+    <div className="sticky top-0 z-[100] w-full h-[70px] flex justify-between items-center py-[9px] px-[200px] bg-white border-b border-[#dfdfdf] md:px-6 sm:px-4">
+      <div className="flex">
+        <Link className="flex items-center gap-2 mr-4 cursor-pointer" href="/">
           <Image src={logo} width={40} height={40} alt="logo" priority />
-          <S.Name>판다마켓</S.Name>
-        </S.LogoContainer>
-        <S.LinkList>
+          <span className="font-rokaf text-[25px] font-bold text-blue sm:hidden">
+            판다마켓
+          </span>
+        </Link>
+        <div className="flex">
           {Links.map((l) => (
-            <S.NavItems key={l.name}>
-              <S.Nav href={l.link}>{l.name}</S.Nav>
-            </S.NavItems>
+            <Link
+              className={`font-pretendard text-Bold18 px-[21px] py-[15px] md:py-[15px] cursor-pointer ${
+                pathname === l.link ? "text-blue" : "text-gray600"
+              }`}
+              key={l.name}
+              href={l.link}
+            >
+              {l.name}
+            </Link>
           ))}
-        </S.LinkList>
-      </S.Links>
+        </div>
+      </div>
       <Image src={user} width={40} height={40} alt="user" />
-    </S.HeaderContainer>
+    </div>
   );
 }
