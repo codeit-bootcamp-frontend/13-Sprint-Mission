@@ -14,3 +14,9 @@ export async function getProducts({ page, pageSize, orderBy, keyword }) {
     throw new Error(`HTTP error: ${error.response?.status || error.message}`);
   }
 }
+
+export async function getItemInfo(itemId) {
+  const response = await axios.get(`${BASE_URL}/products/${itemId}`);
+
+  return response.data;
+}
