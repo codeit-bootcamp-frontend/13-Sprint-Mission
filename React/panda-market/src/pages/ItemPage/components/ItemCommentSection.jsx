@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { getItemComments } from "../../../apis/itemApi";
 import PrimaryButton from "../../../components/UI/PrimaryButton";
 import ItemCommentCard from "./ItemCommentCard";
@@ -16,23 +16,21 @@ function ItemCommentSection({ productId }) {
     setNewComment(event.target.value);
   };
 
-  const handleLoad = async () => {
+  const handleLoad = useCallback(async () => {
     try {
-      const { list, nextCursor } = await getItemComments(productId, {
-        cursor,
-      });
+      const { list, nextCursor } = await getItemComments(productId, { cursor });
       setComments((prev) => [...prev, ...list]);
       setCursor(nextCursor);
     } catch (error) {
       alert(error.message);
       console.error("ERROR: ", error);
     }
-  };
+  }, [productId, cursor]);
 
   useEffect(() => {
+    if (cursor === null) return;
     handleLoad();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [cursor, handleLoad]);
 
   useEffect(() => {
     if (cursor === null) return;
@@ -44,8 +42,7 @@ function ItemCommentSection({ productId }) {
     );
     if (observerRef.current) observer.observe(observerRef.current);
     return () => observer.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cursor]);
+  }, [cursor, handleLoad]);
 
   useEffect(() => {
     if (newComment) {
