@@ -1,5 +1,5 @@
 import Header from "@/components/common/Header/Header";
-import GlobalStyle from "@/styles/global";
+import "./globals.css";
 
 export const metadata = {
   title: "판다마켓",
@@ -12,7 +12,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <GlobalStyle />
       <body>
         <Header />
         {children}
