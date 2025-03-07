@@ -7,7 +7,7 @@ const instance = axios.create({
 const COMMENTS_LIMIT = 3;
 
 export async function getItems({ page = "", pageSize = "", order = "" }) {
-  const query = `page=${page}&pageSize=${pageSize}&orderBy=${order}`;
+  const query = new URLSearchParams({ page, pageSize, orderBy: order });
   try {
     const res = await instance.get(`/products?${query}`);
     return res.data;
@@ -28,7 +28,7 @@ export async function getItemById(productId = "") {
 }
 
 export async function getItemComments(productId = "", { cursor = 0 }) {
-  const query = `limit=${COMMENTS_LIMIT}&cursor=${cursor}`;
+  const query = new URLSearchParams({ cursor, limit: COMMENTS_LIMIT });
   try {
     const res = await instance.get(`/products/${productId}/comments?${query}`);
     return res.data;

@@ -14,7 +14,7 @@ function HomePage() {
       <Helmet>
         <title>판다마켓 - 일상의 모든 물건을 거래해 보세요</title>
       </Helmet>
-      <div className={`${styles.banner} ${styles.top}`}>
+      <section className={`${styles.banner} ${styles.top}`}>
         <div className={styles.wrapper}>
           <div className={styles.bannerContainer}>
             <div className={styles.bannerLeft}>
@@ -33,8 +33,8 @@ function HomePage() {
             </div>
           </div>
         </div>
-      </div>
-      <div className={`${styles.features} ${styles.wrapper}`}>
+      </section>
+      <section className={`${styles.features} ${styles.wrapper}`}>
         <div className={styles.feature}>
           <img src={HomeImg1} width="68.5%" alt="인기 상품" />
           <div className={styles.featureContent}>
@@ -71,8 +71,8 @@ function HomePage() {
             </p>
           </div>
         </div>
-      </div>
-      <div className={`${styles.banner} ${styles.bottom}`}>
+      </section>
+      <section className={`${styles.banner} ${styles.bottom}`}>
         <div className={styles.wrapper}>
           <div className={styles.bannerContainer}>
             <div className={styles.bannerLeft}>
@@ -87,7 +87,7 @@ function HomePage() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }
