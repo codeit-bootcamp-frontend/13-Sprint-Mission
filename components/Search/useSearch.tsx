@@ -13,11 +13,11 @@ export default function useSearch() {
         (search: string) => handleParamsUpdate({ keyword: search }),
         300
       ),
-    []
+    [handleParamsUpdate]
   );
 
   const handleSearchChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       const search = e.target.value;
       debouncedKeyword(search);
     },
