@@ -47,8 +47,7 @@ function ItemCommentCard({
     } else {
       setEditAvailable(false);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [modifiedComment]);
+  }, [modifiedComment, content]);
 
   return (
     <div className={styles.container}>
