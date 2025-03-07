@@ -1,9 +1,9 @@
-import * as S from "./AllItem.styles";
 import Image from "next/image";
 import user from "@/public/icons/user.svg";
 import heart from "@/public/icons/emptyHeart.svg";
 import formattedDate from "@/utils/formattedDate";
 import { BoardItem } from "@/apis/boards";
+import Link from "next/link";
 
 interface AllItemProps {
   all: BoardItem;
@@ -11,22 +11,22 @@ interface AllItemProps {
 
 export default function AllItem({ all }: AllItemProps) {
   return (
-    <S.Container href="/">
-      <S.Content>
-        <S.ContentText>{all.content}</S.ContentText>
-        <S.Image>{all.image && <Image fill src={all.image} alt="" />}</S.Image>
-      </S.Content>
-      <S.Footer>
-        <S.UserWrapper>
+    <Link className="w-full h-[138px] flex flex-col gap-4 pb-6 bg-bg border-b border-gray200 cursor-pointer " href="/">
+      <div className="w-full flex justify-between items-start">
+        <p className="flex-1 h-[60px] break-words text-gray800 text-Bold20">{all.content}</p>
+        <div className="relative w-[72px] h-[72px] bg-white border-b border-gray200 rounded-md">{all.image && <Image fill src={all.image} alt="" />}</div>
+      </div>
+      <div className="w-full flex justify-between items-center">
+        <div className=" flex justify-center items-center gap-2">
           <Image src={user} width={24} height={24} alt="user" />
-          <S.User>{all.writer.nickname}</S.User>
-          <S.Date>{formattedDate(all.createdAt)}</S.Date>
-        </S.UserWrapper>
-        <S.Like>
+          <span className="text-gray600 text-Regular14">{all.writer.nickname}</span>
+          <span className="text-gray400 text-Regular14">{formattedDate(all.createdAt)}</span>
+        </div>
+        <div className="flex justify-center items-center gap-1">
           <Image src={heart} width={16} height={16} alt="like" />
-          <S.LikeCount>{all.likeCount}</S.LikeCount>
-        </S.Like>
-      </S.Footer>
-    </S.Container>
+          <span className="text-gray500 text-Regular14">{all.likeCount}</span>
+        </div>
+      </div>
+    </Link>
   );
 }
