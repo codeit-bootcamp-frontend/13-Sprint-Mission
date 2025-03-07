@@ -1,9 +1,9 @@
-import * as S from "./BestItem.styles";
 import Image from "next/image";
 import medal from "@/public/icons/best.svg";
 import heart from "@/public/icons/emptyHeart.svg";
 import { BoardItem } from "@/apis/boards";
 import formattedDate from "@/utils/formattedDate";
+import Link from "next/link";
 
 interface BestItemProps {
   best: BoardItem;
@@ -11,29 +11,29 @@ interface BestItemProps {
 
 export default function BestItem({ best }: BestItemProps) {
   return (
-    <S.Container href="/">
-      <S.Item>
-        <S.BestTitle>
+    <Link className="w-[384px] h-[169px] px-6 bg-gray50 rounded-lg cursor-pointer" href="/">
+      <div className="flex flex-col justify-center items-start gap-3">
+        <div className="w-[102px] h-[30px] flex justify-center items-center gap-1 bg-blue rounded-bl-[16px] rounded-br-[16px]">
           <Image src={medal} width={16} height={16} alt="medal" />
-          <S.Best>Best</S.Best>
-        </S.BestTitle>
-        <S.Content>
-          <S.ContentText>{best.content}</S.ContentText>
-          <S.Image>
+          <span className="text-white text-Bold16">Best</span>
+        </div>
+        <div className="w-full flex justify-between items-center gap-2">
+          <p className="line-break flex-1 h-[60px] break-words text-gray800 text-Bold20">{best.content}</p>
+          <div className="relative w-[72px] h-[72px] bg-white border-b border-gray200 rounded-md">
             <Image fill src={best.image} alt="image" />
-          </S.Image>
-        </S.Content>
-        <S.Footer>
-          <S.UserWrapper>
-            <S.User>{best.writer.nickname}</S.User>
-            <S.Like>
+          </div>
+        </div>
+        <div className="w-full flex justify-between items-center">
+          <div className="flex justify-center items-end gap-2">
+            <span className="text-gray600 text-Regular14">{best.writer.nickname}</span>
+            <div className="flex justify-center items-center gap-1">
               <Image src={heart} width={16} height={16} alt="like" />
-              <S.LikeCount>{best.likeCount}</S.LikeCount>
-            </S.Like>
-          </S.UserWrapper>
-          <S.Date>{formattedDate(best.createdAt)}</S.Date>
-        </S.Footer>
-      </S.Item>
-    </S.Container>
+              <span className="text-gray500 text-Regular14">{best.likeCount}</span>
+            </div>
+          </div>
+          <div className="text-gray400 text-Regular14">{formattedDate(best.createdAt)}</div>
+        </div>
+      </div>
+    </Link>
   );
 }
