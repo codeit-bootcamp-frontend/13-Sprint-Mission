@@ -52,13 +52,11 @@ function ItemCommentCard({
 
   return (
     <div className={styles.container}>
-      {!isEditMode ? (
+      {!isEditMode && (
         <MenuButton
           className={styles.menuButton}
           onClick={() => setIsMenuOpen((prev) => !prev)}
         />
-      ) : (
-        ""
       )}
       {isMenuOpen && (
         <div className={styles.commentMenuList}>
@@ -92,7 +90,7 @@ function ItemCommentCard({
             </div>
           </div>
         </div>
-        {isEditMode ? (
+        {isEditMode && (
           <div className={styles.buttonContainer}>
             <button
               type="button"
@@ -110,8 +108,6 @@ function ItemCommentCard({
               수정 완료
             </PrimaryButton>
           </div>
-        ) : (
-          ""
         )}
       </div>
     </div>

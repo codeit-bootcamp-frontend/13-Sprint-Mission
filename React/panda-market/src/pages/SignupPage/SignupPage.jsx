@@ -117,18 +117,14 @@ function SignupPage() {
             value={formData.email}
             onChange={handleChange}
             className={
-              !(isFilled.email && isValid.email) ? styles.cautionInput : ""
+              !(isFilled.email && isValid.email) && styles.cautionInput
             }
             placeholder="이메일을 입력해주세요"
           />
-          {isFilled.email ? (
-            ""
-          ) : (
+          {!isFilled.email && (
             <div className={styles.cautionText}>이메일을 입력해주세요.</div>
           )}
-          {isValid.email ? (
-            ""
-          ) : (
+          {!isValid.email && (
             <div className={styles.cautionText}>잘못된 이메일 형식입니다.</div>
           )}
         </label>
@@ -139,12 +135,10 @@ function SignupPage() {
             id="nickname"
             value={formData.nickname}
             onChange={handleChange}
-            className={!isFilled.nickname ? styles.cautionInput : ""}
+            className={!isFilled.nickname && styles.cautionInput}
             placeholder="닉네임을 입력해주세요"
           />
-          {isFilled.nickname ? (
-            ""
-          ) : (
+          {!isFilled.nickname && (
             <div className={styles.cautionText}>닉네임을 입력해주세요.</div>
           )}
         </label>
@@ -156,9 +150,7 @@ function SignupPage() {
             value={formData.password}
             onChange={handleChange}
             className={
-              !(isFilled.password && isValid.password)
-                ? styles.cautionInput
-                : ""
+              !(isFilled.password && isValid.password) && styles.cautionInput
             }
             placeholder="비밀번호를 입력해주세요"
           />
@@ -169,14 +161,10 @@ function SignupPage() {
               alt=""
             />
           </button>
-          {isFilled.password ? (
-            ""
-          ) : (
+          {!isFilled.password && (
             <div className={styles.cautionText}>비밀번호를 입력해주세요.</div>
           )}
-          {isValid.password ? (
-            ""
-          ) : (
+          {!isValid.password && (
             <div className={styles.cautionText}>
               비밀번호를 8자 이상 입력해주세요.
             </div>
@@ -189,7 +177,7 @@ function SignupPage() {
             id="passwordCheck"
             value={formData.passwordCheck}
             onChange={handleChange}
-            className={!isValid.passwordCheck ? styles.cautionInput : ""}
+            className={!isValid.passwordCheck && styles.cautionInput}
             placeholder="비밀번호를 다시 한 번 입력해주세요"
           />
           <button
@@ -203,9 +191,7 @@ function SignupPage() {
               alt=""
             />
           </button>
-          {isValid.passwordCheck ? (
-            ""
-          ) : (
+          {!isValid.passwordCheck && (
             <div className={styles.cautionText}>
               비밀번호가 일치하지 않습니다.
             </div>

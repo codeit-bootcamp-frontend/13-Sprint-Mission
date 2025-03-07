@@ -92,18 +92,14 @@ function LoginPage() {
             value={formData.email}
             onChange={handleChange}
             className={
-              !(isFilled.email && isValid.email) ? styles.cautionInput : ""
+              !(isFilled.email && isValid.email) && styles.cautionInput
             }
             placeholder="이메일을 입력해주세요"
           />
-          {isFilled.email ? (
-            ""
-          ) : (
+          {!isFilled.email && (
             <div className={styles.cautionText}>이메일을 입력해주세요.</div>
           )}
-          {isValid.email ? (
-            ""
-          ) : (
+          {!isValid.email && (
             <div className={styles.cautionText}>잘못된 이메일 형식입니다.</div>
           )}
         </label>
@@ -115,9 +111,7 @@ function LoginPage() {
             value={formData.password}
             onChange={handleChange}
             className={
-              !(isFilled.password && isValid.password)
-                ? styles.cautionInput
-                : ""
+              !(isFilled.password && isValid.password) && styles.cautionInput
             }
             placeholder="비밀번호를 입력해주세요"
           />
@@ -128,14 +122,10 @@ function LoginPage() {
               alt=""
             />
           </button>
-          {isFilled.password ? (
-            ""
-          ) : (
+          {!isFilled.password && (
             <div className={styles.cautionText}>비밀번호를 입력해주세요.</div>
           )}
-          {isValid.password ? (
-            ""
-          ) : (
+          {!isValid.password && (
             <div className={styles.cautionText}>
               비밀번호를 8자 이상 입력해주세요.
             </div>

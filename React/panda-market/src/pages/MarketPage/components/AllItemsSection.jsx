@@ -167,9 +167,8 @@ function AllItems() {
         {PAGE_ARRAY.map((num) => (
           <button
             className={`${styles.pageButton} ${
-              Number(num + PAGE_CHUNK_SIZE * pageBound) === page
-                ? styles.activePage
-                : ""
+              Number(num + PAGE_CHUNK_SIZE * pageBound) === page &&
+              styles.activePage
             }`}
             value={num + PAGE_CHUNK_SIZE * pageBound}
             onClick={changePage}
