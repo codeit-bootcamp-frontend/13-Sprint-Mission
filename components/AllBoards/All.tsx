@@ -17,7 +17,7 @@ export default function All() {
   return (
     <div className="flex flex-col gap-6">
       <div className="flex justify-between items-center">
-        <h2 className="text-gray900 text-Bold20">게시글</h2>
+        <h2 className="text-gray900 text-Bold20 font-bold">게시글</h2>
         <button className="py-2 px-6 bg-blue text-white text-Bold16 rounded-lg cursor-pointer">
           글쓰기
         </button>
