@@ -2,7 +2,7 @@ import logo_sm from "@/assets/logo_sm.svg";
 import logo_text from "@/assets/logo_text.svg";
 import LogoImage from "@/components/LogoImage";
 import ic_profile from "@/assets/ic_profile.svg";
-import { Link, useLocation, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 function Header() {
   const { pathname } = useLocation();

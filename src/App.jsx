@@ -9,20 +9,23 @@ import AddItem from "@/pages/AddItem.jsx";
 import Boards from "@/pages/Boards";
 import Policy from "@/pages/Policy.jsx";
 import Faq from "@/pages/Faq.jsx";
+import Layout from "./components/MainLayout";
 
 function App() {
   return (
     <StrictMode>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/signup" element={<Signup />}></Route>
-          <Route path="/items" element={<Items />}></Route>
-          <Route path="/additem" element={<AddItem />}></Route>
-          <Route path="/privacy" element={<Policy />}></Route>
-          <Route path="/faq" element={<Faq />}></Route>
-          <Route path="/boards" element={<Boards />}></Route>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/items" element={<Items />} />
+            <Route path="/additem" element={<AddItem />} />
+            <Route path="/boards" element={<Boards />} />
+          </Route>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/privacy" element={<Policy />} />
+          <Route path="/faq" element={<Faq />} />
         </Routes>
       </BrowserRouter>
     </StrictMode>

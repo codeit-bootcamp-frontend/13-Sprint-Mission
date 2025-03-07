@@ -3,8 +3,6 @@ import img_home_search from "@/assets/img_home_search.png";
 import img_home_register from "@/assets/img_home_register.png";
 import img_home_top from "@/assets/img_home_top.png";
 import img_home_bottom from "@/assets/img_home_bottom.png";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import FeatureCard from "@/components/FeatureCard";
 import PrimaryCard from "@/components/PrimaryCard";
 
@@ -51,7 +49,6 @@ const FEATURE_CARDS = [
 function Home() {
   return (
     <>
-      <Header />
       <div className="flex h-135 w-full items-end justify-center bg-blue-100">
         <PrimaryCard {...PRIMARY_CARDS[0]} />
       </div>
@@ -65,7 +62,6 @@ function Home() {
       <div className="flex h-135 w-full items-end justify-center bg-blue-100">
         <PrimaryCard {...PRIMARY_CARDS[1]} />
       </div>
-      <Footer />
     </>
   );
 }
