@@ -62,7 +62,7 @@ function InputField({
           type={type === "password" ? currentInputType : type}
           placeholder={placeholder}
           value={value}
-          className="w-full text-gray-800 placeholder:font-normal placeholder:text-gray-400 focus:outline-none"
+          className={`w-full text-gray-800 placeholder:font-normal placeholder:text-gray-400 focus:outline-none ${type === "number" ? "[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" : ""}`}
           onChange={handleInputChange}
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
