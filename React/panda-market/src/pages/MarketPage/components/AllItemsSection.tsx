@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, MouseEvent } from "react";
 import { getItems } from "../../../apis/itemApi";
+import { Product } from "../../../utils/types";
 import useWindowSize from "../../../hooks/useWindowSize";
 import BREAKPOINTS from "../../../utils/breakpoints";
 import ItemCard from "./ItemCard";
@@ -15,14 +16,16 @@ import PrimaryButton from "../../../components/UI/PrimaryButton";
 const PAGE_ARRAY = [1, 2, 3, 4, 5];
 const PAGE_CHUNK_SIZE = 5;
 
+type Order = "recent" | "favorite";
+
 function AllItems() {
-  const [order, setOrder] = useState("recent");
+  const [order, setOrder] = useState<Order>("recent");
   const [page, setPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [isOpen, setIsOpen] = useState(false);
   const [totalItemCount, setTotalItemCount] = useState(0);
   const [pageBound, setPageBound] = useState(0);
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<Product[]>([]);
 
   const MaxPageBound = Math.floor(
     totalItemCount / itemsPerPage / PAGE_CHUNK_SIZE
@@ -33,25 +36,29 @@ function AllItems() {
   useEffect(() => {
     const handleLoad = async () => {
       try {
-        const { list, totalCount } = await getItems({
-          page,
-          pageSize: itemsPerPage,
+        const { list, totalCount = 0 } = await getItems({
+          page: String(page),
+          pageSize: String(itemsPerPage),
           order,
         });
         setItems(list);
         setTotalItemCount(totalCount);
       } catch (error) {
-        alert(error.message);
-        console.error("ERROR: ", error);
+        if (error instanceof Error) {
+          alert(error.message);
+          console.error("ERROR: ", error);
+        } else {
+          console.error("An unknown error occurred");
+        }
       }
     };
     handleLoad();
   }, [page, itemsPerPage, order]);
 
   // 아이템 정렬
-  const handleOrderChange = (event) => {
+  const handleOrderChange = (event: MouseEvent<HTMLDivElement>) => {
     event.stopPropagation();
-    let selectedOrder = event.target.textContent;
+    let selectedOrder = (event.target as HTMLDivElement).textContent;
     if (selectedOrder === "최신순") {
       setOrder("recent");
     } else if (selectedOrder === "좋아요순") {
@@ -63,8 +70,8 @@ function AllItems() {
   };
 
   // 페이지네이션
-  const changePage = (e) => {
-    setPage(Number(e.target.value));
+  const changePage = (e: MouseEvent<HTMLButtonElement>) => {
+    setPage(Number((e.target as HTMLButtonElement).value));
   };
 
   const plusPageBound = () => {

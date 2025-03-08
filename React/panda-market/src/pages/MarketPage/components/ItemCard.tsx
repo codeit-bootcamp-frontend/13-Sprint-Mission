@@ -1,8 +1,13 @@
 import { useNavigate } from "react-router-dom";
+import { Product } from "../../../utils/types";
 import heartIcon from "../../../assets/icon/ic_heart.svg";
 import styles from "./ItemCard.module.css";
 
-function ItemCard({ item }) {
+interface ItemCardProps {
+  item: Product;
+}
+
+function ItemCard({ item }: ItemCardProps) {
   const { id, images, name, price, favoriteCount } = item;
   const navigate = useNavigate();
 
@@ -13,7 +18,7 @@ function ItemCard({ item }) {
   return (
     <>
       <button type="button" onClick={handleClick}>
-        <img src={images} className={styles.itemImg} alt={name} />
+        <img src={images[0]} className={styles.itemImg} alt={name} />
       </button>
       <div>
         <ul className={styles.itemInfo}>

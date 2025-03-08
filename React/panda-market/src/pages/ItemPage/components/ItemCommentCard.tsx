@@ -1,9 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, ChangeEvent, MouseEvent } from "react";
 import { getFormattedDate, getPassedTime } from "../../../utils/dateTimeUtils";
+import { Comment } from "../../../utils/types";
 import MenuButton from "../../../components/UI/MenuButton";
 import PrimaryButton from "../../../components/UI/PrimaryButton";
 import UserDefaultImg from "../../../assets/image/default-profile.png";
 import styles from "./ItemCommentCard.module.css";
+
+interface ItemCommentCardProps {
+  comment: Comment;
+}
 
 function ItemCommentCard({
   comment: {
@@ -11,7 +16,7 @@ function ItemCommentCard({
     updatedAt,
     writer: { nickname, image },
   },
-}) {
+}: ItemCommentCardProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [modifiedComment, setModifiedComment] = useState(content);
@@ -25,7 +30,7 @@ function ItemCommentCard({
     setIsMenuOpen(false);
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setModifiedComment(event.target.value);
   };
 
@@ -34,7 +39,7 @@ function ItemCommentCard({
     setModifiedComment(content);
   };
 
-  const handleEditComplete = (event) => {
+  const handleEditComplete = (event: MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
     setIsEditMode(false);
     // 나중에 수정한 코멘트 patch 함수 동작하도록 추가

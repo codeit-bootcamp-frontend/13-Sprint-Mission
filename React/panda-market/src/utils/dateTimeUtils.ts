@@ -1,4 +1,4 @@
-export const getFormattedDate = (dateString) => {
+export const getFormattedDate = (dateString: string): string => {
   const date = new Date(dateString);
 
   const year = date.getFullYear();
@@ -10,9 +10,9 @@ export const getFormattedDate = (dateString) => {
   return formattedDate;
 };
 
-export const getPassedTime = (dateString) => {
-  const updatedTime = new Date(dateString);
-  const now = new Date();
+export const getPassedTime = (dateString: string): number => {
+  const updatedTime = new Date(dateString).getTime();
+  const now = new Date().getTime();
   const diffTime = now - updatedTime;
   const passedTime = Math.floor(diffTime / (1000 * 60 * 60));
 

@@ -1,4 +1,10 @@
-import { useState, useEffect } from "react";
+import {
+  useState,
+  useEffect,
+  FormEvent,
+  ChangeEvent,
+  KeyboardEvent,
+} from "react";
 import PrimaryButton from "../../components/UI/PrimaryButton";
 import ImageUploader from "./components/ImageUploader";
 import DeleteButton from "../../components/UI/DeleteButton";
@@ -6,8 +12,8 @@ import styles from "./RegisterItemPage.module.css";
 
 function RegisterItemPage() {
   const [registerAvailable, setRegisterAvailable] = useState(false);
-  const [itemImg, setItemImg] = useState(null);
-  const [tagValues, setTagValues] = useState([]);
+  const [itemImg, setItemImg] = useState<string | null>(null);
+  const [tagValues, setTagValues] = useState<string[]>([]);
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -15,19 +21,21 @@ function RegisterItemPage() {
     tag: "",
   });
 
-  const handleRegister = async (event) => {
+  const handleRegister = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
 
-  const handleChange = (event) => {
+  const handleChange = (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { id, value } = event.target;
     setFormData((prev) => ({
       ...prev,
-      [id]: value,
+      [id]: id === "price" ? value.replace(/\D/g, "") : value,
     }));
   };
 
-  const handleAddTag = (event) => {
+  const handleAddTag = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter" && formData.tag !== "") {
       setTagValues((prev) => [...prev, formData.tag]);
       setFormData((prev) => ({
@@ -37,7 +45,7 @@ function RegisterItemPage() {
     }
   };
 
-  const handleDeleteTag = (index) => {
+  const handleDeleteTag = (index: number) => {
     setTagValues((prev) => prev.filter((_, i) => i !== index));
   };
 
@@ -99,9 +107,6 @@ function RegisterItemPage() {
             id="price"
             value={formData.price}
             onChange={handleChange}
-            onInput={(e) =>
-              (e.target.value = e.target.value.replace(/\D/g, ""))
-            } // 입력된 값이 숫자가 아닐 시 제거
             placeholder="판매 가격을 입력해주세요"
           />
         </label>

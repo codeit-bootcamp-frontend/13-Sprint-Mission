@@ -6,7 +6,12 @@ import BackIcon from "../../assets/icon/ic_back.svg";
 import styles from "./ItemPage.module.css";
 
 function ItemPage() {
-  const { productId } = useParams(null);
+  const { productId } = useParams<Record<string, string | undefined>>();
+
+  if (!productId) {
+    alert("Product not found!");
+    return null;
+  }
 
   return (
     <div className={styles.container}>

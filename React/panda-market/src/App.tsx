@@ -13,11 +13,11 @@ function App() {
 
   return (
     <>
-      {!isAuthPage && <Header className={styles.nav} />}
+      {!isAuthPage && <Header />}
       <div className={styles.body}>
         <Outlet />
       </div>
-      {isHomePage && <Footer className={styles.footer} />}
+      {isHomePage && <Footer />}
     </>
   );
 }

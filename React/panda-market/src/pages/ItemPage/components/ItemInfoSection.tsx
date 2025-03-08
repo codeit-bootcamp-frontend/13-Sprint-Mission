@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react";
 import { getItemById } from "../../../apis/itemApi";
 import { getFormattedDate } from "../../../utils/dateTimeUtils";
+import { Product } from "../../../utils/types";
 import MenuButton from "../../../components/UI/MenuButton";
 import SellerIcon from "../../../assets/image/default-profile.png";
 import HeartIcon from "../../../assets/icon/ic_heart.svg";
 import styles from "./ItemInfoSection.module.css";
 
-function ItemInfoSection({ productId }) {
-  const [item, setItem] = useState();
+interface ItemInfoSectionProps {
+  productId: string;
+}
+
+function ItemInfoSection({ productId }: ItemInfoSectionProps) {
+  const [item, setItem] = useState<Product | null>(null);
 
   useEffect(() => {
     const handleLoad = async () => {
@@ -15,15 +20,19 @@ function ItemInfoSection({ productId }) {
         const data = await getItemById(productId);
         setItem(data);
       } catch (error) {
-        alert(error.message);
-        console.error("ERROR: ", error);
+        if (error instanceof Error) {
+          alert(error.message);
+          console.error("ERROR: ", error);
+        } else {
+          console.error("An unknown error occurred");
+        }
       }
     };
     handleLoad();
   }, [productId]);
 
   if (!item) {
-    return;
+    return null;
   }
 
   const {
@@ -42,7 +51,7 @@ function ItemInfoSection({ productId }) {
   return (
     <div className={styles.container}>
       <div className={styles.itemImgSection}>
-        <img src={images} className={styles.itemImg} alt={name} />
+        <img src={images[0]} className={styles.itemImg} alt={name} />
       </div>
       <div className={styles.itemInfoSection}>
         <div className={styles.itemInfoTopSection}>
