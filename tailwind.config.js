@@ -25,15 +25,15 @@ module.exports = {
         gray900: "#111827",
       },
       screens: {
-        sx: { max: "375px" },
-        mx: { max: "767px" },
-        sm: { min: "376px", max: "768px" },
-        md: { min: "769px", max: "1024px" },
-        lg: { min: "1024px" },
+        maxS: { max: "375px" },
+        sm: { min: "376px", max: "767px" },
+        maxM: { max: "768px" },
+        md: { min: "769px", max: "1023px" },
+        lg: { max: "1024px" },
       },
       fontFamily: {
         pretendard: ["Pretendard", "sans-serif"],
-        rokaf: ["ROKAF Sans", "sans-serif"]
+        rokaf: ["ROKAF Sans", "sans-serif"],
       },
       fontSize: {
         Bold40: ["40px", { lineHeight: "47px", fontWeight: "600" }],
@@ -55,5 +55,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
-
+};
