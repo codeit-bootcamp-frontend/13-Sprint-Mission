@@ -1,6 +1,10 @@
 import Best from "@/components/BestBoards/Best";
 import All from "@/components/AllBoards/All";
 
+export const metadata = {
+  title: "판다마켓 | 자유게시판",
+};
+
 export default function Boards() {
   return (
     <div className="flex justify-center items-center my-10 lg:my-0">
