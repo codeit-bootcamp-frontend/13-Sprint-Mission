@@ -9,6 +9,10 @@
     list-style: none;
   }
 
+  body {
+    font-family: "Pretendard", sans-serif;
+  }
+
   body,
   p,
   h2 {
@@ -37,7 +41,6 @@
     overflow: hidden;
   }
 }
-
 
 @font-face {
   font-family: "ROKAF Sans";
