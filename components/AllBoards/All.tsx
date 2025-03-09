@@ -15,14 +15,14 @@ export default function All() {
   const { all, totalBoards } = useAllData(PAGE_SIZE);
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="w-full flex flex-col gap-6">
       <div className="flex justify-between items-center">
         <h2 className="text-gray900 text-Bold20 font-bold">게시글</h2>
         <button className="py-2 px-6 bg-blue text-white text-Bold16 rounded-lg cursor-pointer">
           글쓰기
         </button>
       </div>
-      <div className="flex flex-col gap-6">
+      <div className="w-full flex flex-col gap-6">
         <div className="flex justify-center items-center gap-3">
           <Search />
           <Dropdown
@@ -31,7 +31,7 @@ export default function All() {
             onChange={(filter) => handleParamsUpdate({ orderBy: filter })}
           />
         </div>
-        <div className="flex flex-col gap-6">
+        <div className="w-full flex flex-col gap-6">
           {all.map((item) => (
             <AllItem key={item.id} all={item} />
           ))}
