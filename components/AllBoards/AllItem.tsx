@@ -4,6 +4,7 @@ import heart from "@/public/icons/emptyHeart.svg";
 import formattedDate from "@/utils/formattedDate";
 import { BoardItem } from "@/apis/boards";
 import Link from "next/link";
+import BoardImage from "../BoardImage/BoardImage";
 
 interface AllItemProps {
   all: BoardItem;
@@ -19,9 +20,7 @@ export default function AllItem({ all }: AllItemProps) {
         <p className="flex-1 h-[60px] break-words text-gray800 text-Bold20">
           {all.content}
         </p>
-        <div className="relative w-[72px] h-[72px] bg-white border-b border-gray200 rounded-md">
-          {all.image && <Image fill src={all.image} alt="" />}
-        </div>
+        <BoardImage image={all.image} />
       </div>
       <div className="w-full flex justify-between items-center">
         <div className=" flex justify-center items-center gap-2">

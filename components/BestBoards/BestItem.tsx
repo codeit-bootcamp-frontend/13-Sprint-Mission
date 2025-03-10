@@ -4,6 +4,7 @@ import heart from "@/public/icons/emptyHeart.svg";
 import { BoardItem } from "@/apis/boards";
 import formattedDate from "@/utils/formattedDate";
 import Link from "next/link";
+import BoardImage from "../BoardImage/BoardImage";
 
 interface BestItemProps {
   best: BoardItem;
@@ -25,9 +26,7 @@ export default function BestItem({ best }: BestItemProps) {
             <p className="line-break flex-1 h-[60px] break-words text-gray800 text-Bold20">
               {best.content}
             </p>
-            <div className="relative w-[72px] h-[72px] bg-white border-b border-gray200 rounded-md">
-              <Image fill src={best.image} alt="image" />
-            </div>
+            <BoardImage image={best.image} />
           </div>
           <div className="w-full flex justify-between items-center">
             <div className="flex justify-center items-end gap-2">
