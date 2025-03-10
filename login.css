@@ -115,3 +115,25 @@
 .login {
   text-decoration: underline;
 }
+
+/* mobile 사이즈 */
+@media only screen and (max-width: 767px) {
+  .logo-icon {
+    width: 52px;
+    height: 52px;
+  }
+  .logo-text {
+    width: 166px;
+    height: 65px;
+  }
+  .form-container {
+    padding: 0 16px;
+    max-width: 400px;
+    width: calc(100% - 32px);
+  }
+  .label-text {
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
