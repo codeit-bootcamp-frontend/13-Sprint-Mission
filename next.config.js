@@ -14,6 +14,7 @@ const nextConfig = {
       "mblogthumb-phinf.pstatic.net",
       "ibb.co",
       "via.placeholder.com",
+      "www.kjcnews.co.kr",
     ],
   },
 };
