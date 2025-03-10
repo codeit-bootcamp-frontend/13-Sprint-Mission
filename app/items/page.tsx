@@ -1,4 +1,6 @@
-export const metadata = {
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "판다마켓 | 중고마켓",
 };
 

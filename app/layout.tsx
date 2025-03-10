@@ -1,7 +1,8 @@
 import Header from "@/components/common/Header/Header";
 import "./globals.css";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "판다마켓",
 };
 

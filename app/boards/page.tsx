@@ -1,8 +1,9 @@
 import Best from "@/components/BestBoards/Best";
 import All from "@/components/AllBoards/All";
 import getBoardsData from "./getBoardsData";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "판다마켓 | 자유게시판",
 };
 
