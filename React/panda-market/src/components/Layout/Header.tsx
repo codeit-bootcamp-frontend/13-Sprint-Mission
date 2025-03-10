@@ -1,5 +1,5 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
-import useWindowSize from "../..//hooks/useWindowSize";
+import useWindowSize from "../../hooks/useWindowSize";
 import BREAKPOINTS from "../../utils/breakpoints";
 import PrimaryButton from "../UI/PrimaryButton";
 import logoImg from "../../assets/logo/panda-market-logo.svg";
@@ -11,13 +11,13 @@ function Header() {
   const { width } = useWindowSize();
   const location = useLocation();
 
-  function communityLinkStyle({ isActive }) {
+  function communityLinkStyle({ isActive }: { isActive: boolean }) {
     return {
       color: isActive ? "var(--blue)" : "",
     };
   }
 
-  function marketLinkStyle({ isActive }) {
+  function marketLinkStyle({ isActive }: { isActive: boolean }) {
     const isMarketRelatedPage = ["/items", "/additem"].includes(
       location.pathname
     );

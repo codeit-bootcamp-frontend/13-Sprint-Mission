@@ -118,10 +118,6 @@
   color: var(--gray400);
 }
 
-/* Tablet */
-@media (max-width: 1199px) {
-}
-
 /* Mobile */
 @media (max-width: 767px) {
   .commentMenuList {

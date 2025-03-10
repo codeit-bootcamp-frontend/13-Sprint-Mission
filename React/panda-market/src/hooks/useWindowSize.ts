@@ -19,7 +19,7 @@ function useWindowSize(delay = 300) {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [delay]);
 
   return windowSize;
 }

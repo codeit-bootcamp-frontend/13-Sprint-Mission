@@ -1,19 +1,25 @@
-import { useState, useRef } from "react";
+import { useState, useRef, ChangeEvent } from "react";
 import DeleteButton from "../../../components/UI/DeleteButton";
 import PrusIcon from "../../../assets/icon/ic_plus.svg";
 import styles from "./ImageUploader.module.css";
 
+interface ImageUploadProps {
+  itemImg: string | null;
+  setItemImg: React.Dispatch<React.SetStateAction<string | null>>;
+}
+
 // 나중에 등록 기능 구현 시 업로드한 이미지 파일 주소를 RegisterItemPage로 lifting 해줄 필요가 있어 보임
-function ImageUpload({ itemImg, setItemImg }) {
+function ImageUpload({ itemImg, setItemImg }: ImageUploadProps) {
   const [fileError, setFileError] = useState("");
-  const fileInputRef = useRef(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const handleFileButtonClick = () => {
-    if (!fileInputRef.current) return;
-    fileInputRef.current.click();
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
   };
 
-  const handleFileChange = (event) => {
+  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
 
     if (!files) {
@@ -32,7 +38,9 @@ function ImageUpload({ itemImg, setItemImg }) {
   const handleDeleteFile = () => {
     setItemImg(null);
     setFileError("");
-    fileInputRef.current.value = "";
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
   };
 
   return (

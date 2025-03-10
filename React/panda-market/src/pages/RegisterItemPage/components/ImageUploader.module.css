@@ -62,24 +62,10 @@
     gap: 1rem;
   }
 
-  .imgAddButton {
-    width: 16.8rem;
-    height: 16.8rem;
-  }
-
-  .imgPreview {
-    width: 16.8rem;
-    height: 16.8rem;
-  }
-}
-
-/* Mobile */
-@media (max-width: 767px) {
-  .imgSectionContainer {
-    gap: 1rem;
-  }
-
-  .imgAddButton {
+  .imgAddButton,
+  .imgAddButton:hover,
+  .imgAddButton:focus,
+  .imgAddButton:disabled {
     width: 16.8rem;
     height: 16.8rem;
   }

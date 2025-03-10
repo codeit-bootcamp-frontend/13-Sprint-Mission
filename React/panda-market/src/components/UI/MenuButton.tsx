@@ -1,7 +1,12 @@
 import MenuIcon from "../../assets/icon/ic_menu.svg";
 import styles from "./MenuButton.module.css";
 
-function MenuButton({ className = "", onClick = () => {} }) {
+interface MenuButtonProps {
+  className?: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+function MenuButton({ className = "", onClick = () => {} }: MenuButtonProps) {
   return (
     <button
       type="button"

@@ -1,38 +1,51 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback, ChangeEvent } from "react";
 import { getItemComments } from "../../../apis/itemApi";
+import { Comment } from "../../../utils/types";
 import PrimaryButton from "../../../components/UI/PrimaryButton";
 import ItemCommentCard from "./ItemCommentCard";
 import EmptyCommentImg from "../../../assets/image/Img_inquiry_empty.svg";
 import styles from "./ItemCommentSection.module.css";
 
-function ItemCommentSection({ productId }) {
+interface ItemCommentSectionProps {
+  productId: string;
+}
+
+function ItemCommentSection({ productId }: ItemCommentSectionProps) {
   const [newComment, setNewComment] = useState("");
   const [registerAvailable, setRegisterAvailable] = useState(false);
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useState<Comment[]>([]);
   const [cursor, setCursor] = useState(0);
-  const observerRef = useRef(null);
+  const observerRef = useRef<HTMLDivElement | null>(null);
 
-  const handleChange = (event) => {
+  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setNewComment(event.target.value);
   };
 
-  const handleLoad = async () => {
+  const handleLoad = useCallback(async () => {
     try {
       const { list, nextCursor } = await getItemComments(productId, {
         cursor,
       });
-      setComments((prev) => [...prev, ...list]);
-      setCursor(nextCursor);
+      if (list !== null) {
+        setComments((prev) => [...prev, ...list]);
+      }
+      if (nextCursor !== null) {
+        setCursor(nextCursor);
+      }
     } catch (error) {
-      alert(error.message);
-      console.error("ERROR: ", error);
+      if (error instanceof Error) {
+        alert(error.message);
+        console.error("ERROR: ", error);
+      } else {
+        console.error("An unknown error occurred");
+      }
     }
-  };
+  }, [productId, cursor]);
 
   useEffect(() => {
+    if (cursor === null) return;
     handleLoad();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [cursor, handleLoad]);
 
   useEffect(() => {
     if (cursor === null) return;
@@ -44,8 +57,7 @@ function ItemCommentSection({ productId }) {
     );
     if (observerRef.current) observer.observe(observerRef.current);
     return () => observer.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cursor]);
+  }, [cursor, handleLoad]);
 
   useEffect(() => {
     if (newComment) {
@@ -62,7 +74,7 @@ function ItemCommentSection({ productId }) {
           문의하기
           <textarea
             id="newComment"
-            value={newComment.newComment}
+            value={newComment}
             onChange={handleChange}
             placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
             className={styles.newComment}

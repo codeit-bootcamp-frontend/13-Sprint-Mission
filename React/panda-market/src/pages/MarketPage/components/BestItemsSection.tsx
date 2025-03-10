@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { getItems } from "../../../apis/itemApi";
+import { Product } from "../../../utils/types";
 import useWindowSize from "../../../hooks/useWindowSize";
 import BREAKPOINTS from "../../../utils/breakpoints";
 import ItemCard from "./ItemCard";
 import styles from "./BestItemsSection.module.css";
 
 function BestItems() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<Product[]>([]);
   const [pageSize, setPageSize] = useState(4);
   const { width } = useWindowSize();
 
@@ -15,14 +16,18 @@ function BestItems() {
     const handleLoad = async () => {
       try {
         const { list } = await getItems({
-          page: 1,
-          pageSize,
+          page: String(1),
+          pageSize: String(pageSize),
           order: "favorite",
         });
         setItems(list);
       } catch (error) {
-        alert(error.message);
-        console.error("ERROR: ", error);
+        if (error instanceof Error) {
+          alert(error.message);
+          console.error("ERROR: ", error);
+        } else {
+          console.error("An unknown error occurred");
+        }
       }
     };
     handleLoad();
