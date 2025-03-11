@@ -1,17 +1,53 @@
+// ProductInquiry.jsx
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import theme from "../styles/theme";
 
 export default function ProductInquiry({ productId }) {
+  console.log("Product ID:", productId);
+
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmitComment = () => {
+    if (!comment.trim() || !productId) return;
+
+    setIsSubmitting(true);
+
+    fetch(
+      `https://panda-market-api.vercel.app/products/${productId}/comments`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ content: comment }),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("댓글 등록 성공:", data);
+        setComments("");
+      })
+      .catch((err) => {
+        console.error("댓글 등록 실패:", err);
+        alert("댓글 등록에 실패했습니다.");
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
+  };
 
   useEffect(() => {
+    if (!productId) return; // productId가 없으면 실행하지 않음.
+
     fetch(
       `https://panda-market-api.vercel.app/products/${productId}/comments?limit=10`
     )
       .then((res) => res.json())
       .then((data) => {
+        console.log("댓글 데이터:", data); // 디버깅용 로그 추가
         setComments(data.list || []);
       })
       .catch((err) => console.error("댓글 불러오기 실패:", err));
@@ -25,7 +61,13 @@ export default function ProductInquiry({ productId }) {
         value={comment}
         onChange={(e) => setComment(e.target.value)}
       />
-      <Button active={comment.length > 0}>등록</Button>
+      <Button
+        active={comment.length > 0}
+        onClick={comment.length > 0 ? handleSubmitComment : undefined}
+        disabled={isSubmitting}
+      >
+        등록
+      </Button>
 
       <InquiryList>
         {comments.map((comment) => (
@@ -64,12 +106,14 @@ const Input = styled.textarea`
   outline: none;
 `;
 
-const Button = styled.button`
+const Button = styled.button.attrs(({ active }) => ({
+  "data-active": active || undefined,
+}))`
   width: 74px;
   height: 42px;
   padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 12px;
   background-color: ${({ active }) =>
     active ? theme.colors.Primary200 : theme.colors.Gray400};
   color: white;

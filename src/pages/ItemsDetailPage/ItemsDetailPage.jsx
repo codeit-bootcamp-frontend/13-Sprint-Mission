@@ -2,18 +2,20 @@
 import styled from "styled-components";
 import ItemDetail from "../../components/ItemDetail";
 import theme from "../../styles/theme";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import backToListBtn from "../../assets/images/icons/backToListBtn.svg";
 import ProductInquiry from "../../components/ProductInquiry";
 
 export default function ItemsPage() {
   const navigate = useNavigate();
+  const { productId } = useParams();
+  console.log("ItemsPage에서 가져온 productId:", productId);
 
   return (
     <ItemContainer>
       <Item>
-        <ItemDetail />
-        <ProductInquiry />
+        <ItemDetail productId={productId} />
+        <ProductInquiry productId={productId} />
       </Item>
       <BackToList onClick={() => navigate("/items")}>
         <img src={backToListBtn} alt="목록으로 돌아가기" />
