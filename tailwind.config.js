@@ -31,6 +31,18 @@ module.exports = {
         md: { min: "769px", max: "1023px" },
         lg: { max: "1024px" },
       },
+      keyframes: {
+        gradient: {
+          from: { "background-position-x": "200%" },
+          to: { "background-position-x": "-200%" },
+        },
+      },
+      animation: {
+        gradient: "gradient 3s linear infinite",
+      },
+      backgroundSize: {
+        "200%": "200% 100%",
+      },
       fontFamily: {
         pretendard: ["Pretendard", "sans-serif"],
         rokaf: ["ROKAF Sans", "sans-serif"],

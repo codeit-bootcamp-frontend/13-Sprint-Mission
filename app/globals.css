@@ -32,6 +32,10 @@
   }
 }
 
+.gradientWave {
+  @apply bg-gradient-to-r from-gray200 via-gray100 to-gray200 bg-[length:200%] animate-gradient;
+}
+
 @layer utilities {
   .line-break {
     display: -webkit-box;
