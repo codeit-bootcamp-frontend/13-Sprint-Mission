@@ -4,7 +4,7 @@ import AllItem from "./AllItem";
 import Dropdown from "../common/Dropdown/Dropdown";
 import Search from "../Search/Search";
 import Pagination from "../Pagination/Pagination";
-import useParams from "@/hooks/useParams";
+import useBoardsParams from "@/hooks/useBoardsParams";
 import useAllData from "./useAllData";
 import { BoardItem } from "@/apis/boards";
 
@@ -16,7 +16,7 @@ interface AllProps {
 }
 
 export default function All({ initialData }: AllProps) {
-  const { page, orderBy, keyword, handleParamsUpdate } = useParams();
+  const { page, orderBy, keyword, handleParamsUpdate } = useBoardsParams();
   const { all, totalBoards } = useAllData({ initialData, PAGE_SIZE });
 
   return (

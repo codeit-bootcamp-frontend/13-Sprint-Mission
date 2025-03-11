@@ -1,6 +1,6 @@
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function useParams() {
+export default function useBoardsParams() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
