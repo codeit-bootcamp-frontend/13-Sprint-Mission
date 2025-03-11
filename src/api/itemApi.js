@@ -15,8 +15,8 @@ export async function getProducts({ page, pageSize, orderBy, keyword }) {
   }
 }
 
-export async function getItemInfo(itemId) {
-  const response = await axios.get(`${BASE_URL}/products/${itemId}`);
+export async function getProductInfo(productId) {
+  const response = await axios.get(`${BASE_URL}/products/${productId}`);
 
   return response.data;
 }

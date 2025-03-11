@@ -2,6 +2,7 @@
 const theme = {
   fonts: {
     //weight , size , height , fontfamily
+    H0: "400 40px/42px 'Pretendard', sans-serif",
     H1: "700 28px/42px 'Pretendard', sans-serif",
     H2Bold: "700 24px/36px 'Pretendard', sans-serif",
     H2Regular: "400 24px/36px 'Pretendard', sans-serif",
