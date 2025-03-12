@@ -34,9 +34,9 @@ function AddItem() {
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
+
     if (file) {
       setImage(file);
-      console.log(file);
 
       setIsFieldFilled((prev) => ({ ...prev, images: true }));
     }
@@ -88,7 +88,6 @@ function AddItem() {
               onClick={() => {
                 const handleSubmit = async () => {
                   const imageUrl = await uploadImage();
-                  console.log(imageUrl);
                 };
                 handleSubmit();
               }}
