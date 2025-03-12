@@ -8,5 +8,5 @@ export async function getComments(productId) {
     `${BASE_URL}/products/${productId}/comments?limit=3`
   );
 
-  return response.data.list;
+  return response.data.list || [];
 }

@@ -1,14 +1,19 @@
-// ProductInquiry.jsx
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import theme from "../styles/theme";
+import Comments from "./Comments";
 
 export default function ProductInquiry({ productId }) {
-  console.log("Product ID:", productId);
-
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSubmitComment();
+    }
+  };
 
   const handleSubmitComment = () => {
     if (!comment.trim() || !productId) return;
@@ -27,11 +32,10 @@ export default function ProductInquiry({ productId }) {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log("댓글 등록 성공:", data);
-        setComments("");
+        setComments((prevComments) => [...prevComments, data]);
+        setComment("");
       })
-      .catch((err) => {
-        console.error("댓글 등록 실패:", err);
+      .catch(() => {
         alert("댓글 등록에 실패했습니다.");
       })
       .finally(() => {
@@ -40,43 +44,38 @@ export default function ProductInquiry({ productId }) {
   };
 
   useEffect(() => {
-    if (!productId) return; // productId가 없으면 실행하지 않음.
+    if (!productId) return;
 
     fetch(
       `https://panda-market-api.vercel.app/products/${productId}/comments?limit=10`
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log("댓글 데이터:", data); // 디버깅용 로그 추가
         setComments(data.list || []);
       })
-      .catch((err) => console.error("댓글 불러오기 실패:", err));
+      .catch(console.error);
   }, [productId]);
 
   return (
     <Container>
       <Title>문의하기</Title>
-      <Input
-        placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포 시 삭제될 수 있습니다."
-        value={comment}
-        onChange={(e) => setComment(e.target.value)}
-      />
-      <Button
-        active={comment.length > 0}
-        onClick={comment.length > 0 ? handleSubmitComment : undefined}
-        disabled={isSubmitting}
-      >
-        등록
-      </Button>
+      <FormContainer>
+        <Input
+          placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포 시 삭제될 수 있습니다."
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
+          onKeyDown={handleKeyDown}
+        />
+        <Button
+          {...(comment.length > 0 ? { active: true } : {})}
+          onClick={comment.length > 0 ? handleSubmitComment : undefined}
+          disabled={isSubmitting}
+        >
+          등록
+        </Button>
+      </FormContainer>
 
-      <InquiryList>
-        {comments.map((comment) => (
-          <InquiryItem key={comment.id}>
-            <p>{comment.content}</p>
-            <Author>작성자: {comment.writer.nickname}</Author>
-          </InquiryItem>
-        ))}
-      </InquiryList>
+      <Comments comments={comments} />
     </Container>
   );
 }
@@ -90,6 +89,15 @@ const Title = styled.h2`
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 12px;
+`;
+
+const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+  position: relative;
+  gap: 24px;
 `;
 
 const Input = styled.textarea`
@@ -118,20 +126,5 @@ const Button = styled.button.attrs(({ active }) => ({
     active ? theme.colors.Primary200 : theme.colors.Gray400};
   color: white;
   font-size: 16px;
-  margin-top: 8px;
   cursor: ${({ active }) => (active ? "pointer" : "default")};
-`;
-
-const InquiryList = styled.div`
-  margin-top: 16px;
-`;
-
-const InquiryItem = styled.div`
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-`;
-
-const Author = styled.span`
-  font-size: 12px;
-  color: #777;
 `;

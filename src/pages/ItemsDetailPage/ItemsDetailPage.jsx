@@ -9,7 +9,6 @@ import ProductInquiry from "../../components/ProductInquiry";
 export default function ItemsPage() {
   const navigate = useNavigate();
   const { productId } = useParams();
-  console.log("ItemsPage에서 가져온 productId:", productId);
 
   return (
     <ItemContainer>
