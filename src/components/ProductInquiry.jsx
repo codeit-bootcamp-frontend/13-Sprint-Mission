@@ -1,3 +1,4 @@
+// ProductInquiry.jsx
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import theme from "../styles/theme";
@@ -6,41 +7,12 @@ import Comments from "./Comments";
 export default function ProductInquiry({ productId }) {
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
-      handleSubmitComment();
+      setComment("");
     }
-  };
-
-  const handleSubmitComment = () => {
-    if (!comment.trim() || !productId) return;
-
-    setIsSubmitting(true);
-
-    fetch(
-      `https://panda-market-api.vercel.app/products/${productId}/comments`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ content: comment }),
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setComments((prevComments) => [...prevComments, data]);
-        setComment("");
-      })
-      .catch(() => {
-        alert("댓글 등록에 실패했습니다.");
-      })
-      .finally(() => {
-        setIsSubmitting(false);
-      });
   };
 
   useEffect(() => {
@@ -66,11 +38,7 @@ export default function ProductInquiry({ productId }) {
           onChange={(e) => setComment(e.target.value)}
           onKeyDown={handleKeyDown}
         />
-        <Button
-          {...(comment.length > 0 ? { active: true } : {})}
-          onClick={comment.length > 0 ? handleSubmitComment : undefined}
-          disabled={isSubmitting}
-        >
+        <Button $active={comment.length > 0} onClick={() => setComment("")}>
           등록
         </Button>
       </FormContainer>
@@ -114,17 +82,17 @@ const Input = styled.textarea`
   outline: none;
 `;
 
-const Button = styled.button.attrs(({ active }) => ({
-  "data-active": active || undefined,
+const Button = styled.button.attrs(({ $active }) => ({
+  "data-active": $active || undefined,
 }))`
   width: 74px;
   height: 42px;
   padding: 10px;
   border: none;
   border-radius: 12px;
-  background-color: ${({ active }) =>
-    active ? theme.colors.Primary200 : theme.colors.Gray400};
+  background-color: ${({ $active }) =>
+    $active ? theme.colors.Primary200 : theme.colors.Gray400};
   color: white;
   font-size: 16px;
-  cursor: ${({ active }) => (active ? "pointer" : "default")};
+  cursor: ${({ $active }) => ($active ? "pointer" : "default")};
 `;

@@ -6,6 +6,7 @@ import { getProductInfo } from "../api/itemApi";
 import img_default from "../assets/images/icons/img_default.svg";
 import ic_heart from "../assets/images/icons/ic_heart.svg";
 import ic_user from "../assets/images/icons/ic_user.svg";
+import EditDropdown from "./common/EditDropdown";
 
 export default function ItemDetail() {
   const { productId } = useParams();
@@ -49,7 +50,7 @@ export default function ItemDetail() {
           <S.Header>
             <S.TitleWrapper>
               <S.Title>{product.name}</S.Title>
-              {/* edit버튼 */}
+              <EditDropdown />
             </S.TitleWrapper>
             <S.Price>{product.price.toLocaleString()}원</S.Price>
           </S.Header>
