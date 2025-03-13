@@ -13,6 +13,7 @@ function InputField({
   value,
   onChange,
   onBlur,
+  onEnterKeyDown,
   hasValue,
   isValidated,
 }) {
@@ -34,6 +35,13 @@ function InputField({
     onBlur(name);
   };
 
+  const handleEnterKeyDown = (e) => {
+    if (e.key === "Enter") {
+      onEnterKeyDown(e.target.value);
+    }
+    onChange(name, e);
+  };
+
   const togglePasswordVisibility = () => {
     setCurrentInputType((prevInputType) =>
       prevInputType === "password" ? "text" : "password",
@@ -42,7 +50,7 @@ function InputField({
 
   return (
     <div>
-      <label htmlFor={id} className="text-gray-800">
+      <label htmlFor={id} className="text-lg font-bold text-gray-800">
         {label}
       </label>
       <div
@@ -54,10 +62,11 @@ function InputField({
           type={type === "password" ? currentInputType : type}
           placeholder={placeholder}
           value={value}
-          className="w-full text-gray-800 placeholder:font-normal placeholder:text-gray-400 focus:outline-none"
+          className={`w-full text-gray-800 placeholder:font-normal placeholder:text-gray-400 focus:outline-none ${type === "number" ? "[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" : ""}`}
           onChange={handleInputChange}
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
+          onKeyDown={handleEnterKeyDown}
         />
         {type === "password" ? (
           <button type="button" className="cursor-pointer">
