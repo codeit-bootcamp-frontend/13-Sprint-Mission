@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="login.css" />
   <link rel="stylesheet" href="palette.css" />
   <link rel="stylesheet" href="reset.css" />
+  <script type="text/javascript" src="login.js"></script>
 </head>
 <body>
   <main class="main-container">
@@ -20,18 +21,20 @@
     <form class="form-container">
       <div class="input-container">
         <label class="text-gray800 label-text">이메일</label>
-        <input class="text-gray800 gray100 styled-input" placeholder="이메일을 입력해 주세요" type="email" name="email" required/>
+        <input class="text-gray800 gray100 styled-input email-input" placeholder="이메일을 입력해 주세요" type="email" name="email" required/>
+        <p class="error-message" id="emailError"></p>
       </div>
 
       <div class="input-container">
         <label class="text-gray800 label-text">비밀번호</label>
         <div class="password-container">
-          <input class="text-gray800 gray100 styled-input" placeholder="비밀번호를 입력해 주세요" type="password" name="password" required/>
+          <input class="text-gray800 gray100 styled-input password-input" placeholder="비밀번호를 입력해 주세요" type="password" name="password" required/>
           <img src="./assets/images/btn_visibility_on_24px.svg" class="visibility-icon">
         </div>
+        <p class="error-message" id="passwordError"></p>
       </div>
 
-      <button class="text-gray100 blue styled-button">로그인</button>
+      <button class="text-gray100 styled-button login-button" disabled>로그인</button>
 
       <div class="sns-container">
         <span class="text-gray800 sns-login-message">간편 로그인하기</span>
