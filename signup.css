@@ -80,6 +80,14 @@
   cursor: pointer;
 }
 
+.on {
+  background-image: url("./assets/images/btn_visibility_on_24px.svg");
+}
+
+.off {
+  background-image: url("./assets/images/btn_visibility_off_24px.svg");
+}
+
 .styled-button {
   margin-bottom: 24px;
   padding: 12px 0;
