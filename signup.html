@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="signup.css" />
   <link rel="stylesheet" href="palette.css" />
   <link rel="stylesheet" href="reset.css" />
+  <script type="text/javascript" src="login.js"></script>
+  <script type="text/javascript" src="password-check.js"></script>
 </head>
 <body>
   <main class="main-container">
@@ -20,31 +22,35 @@
     <form class="form-container">
       <div class="input-container">
         <label class="text-gray800 label-text">이메일</label>
-        <input class="text-gray800 gray100 styled-input" placeholder="이메일을 입력해 주세요" type="email"/>
+        <input class="text-gray800 gray100 styled-input email-input" placeholder="이메일을 입력해 주세요" type="email" name="email" required/>
+        <p class="error-message" id="emailError"></p>
       </div>
 
       <div class="input-container">
         <label class="text-gray800 label-text">닉네임</label>
-        <input class="text-gray800 gray100 styled-input" placeholder="닉네임을 입력해 주세요"/>
+        <input class="text-gray800 gray100 styled-input nickname-input" placeholder="닉네임을 입력해 주세요" type="text" name="nickname" required/>
+        <p class="error-message" id="nicknameError"></p>
       </div>
 
       <div class="input-container">
         <label class="text-gray800 label-text">비밀번호</label>
         <div class="password-container">
-          <input class="text-gray800 gray100 styled-input" placeholder="비밀번호를 입력해 주세요" type="password"/>
-          <img src="./assets/images/btn_visibility_on_24px.svg" class="visibility-icon">
+          <input class="text-gray800 gray100 styled-input password-input" placeholder="비밀번호를 입력해 주세요" type="password" name="password" required/>
+          <div class="visibility-icon off"></div>
         </div>
+        <p class="error-message" id="passwordError"></p>
       </div>
 
       <div class="input-container">
         <label class="text-gray800 label-text">비밀번호 확인</label>
         <div class="password-container">
-          <input class="text-gray800 gray100 styled-input" placeholder="비밀번호를 다시 입력해 주세요" type="password"/>
-          <img src="./assets/images/btn_visibility_on_24px.svg" class="visibility-icon">
+          <input class="text-gray800 gray100 styled-input password-check-input" placeholder="비밀번호를 다시 입력해 주세요" type="password" name="passwordDoubleCheck" required/>
+          <div class="visibility-icon password-check-visibility-icon off"></div>
         </div>
+        <p class="error-message" id="passwordCheckError"></p>
       </div>
 
-      <button class="text-gray100 blue styled-button">회원 가입</button>
+      <button class="text-gray100 blue styled-button signup-button" disabled>회원 가입</button>
 
       <div class="sns-container">
         <span class="text-gray800 sns-login-message">간편 로그인하기</span>
