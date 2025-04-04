@@ -109,6 +109,118 @@
   }
 }
 
+@utility text-semi24 {
+  @layer components {
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 600;
+  }
+}
+
+@utility text-semi20 {
+  @layer components {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 600;
+  }
+}
+
+@utility text-semi18 {
+  @layer components {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 600;
+  }
+}
+
+@utility text-semi16 {
+  @layer components {
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 600;
+  }
+}
+
+@utility text-semi15 {
+  @layer components {
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 600;
+  }
+}
+
+@utility text-semi14 {
+  @layer components {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+  }
+}
+
+@utility text-semi12 {
+  @layer components {
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 600;
+  }
+}
+
+@utility text-medium24 {
+  @layer components {
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 500;
+  }
+}
+
+@utility text-medium20 {
+  @layer components {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 500;
+  }
+}
+
+@utility text-medium18 {
+  @layer components {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 500;
+  }
+}
+
+@utility text-medium16 {
+  @layer components {
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 500;
+  }
+}
+
+@utility text-medium15 {
+  @layer components {
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 500;
+  }
+}
+
+@utility text-medium14 {
+  @layer components {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+  }
+}
+
+@utility text-medium12 {
+  @layer components {
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 500;
+  }
+}
+
 @utility text-regular24 {
   @layer components {
     font-size: 24px;
@@ -173,6 +285,28 @@
     format("woff");
   font-display: swap;
   font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff2")
+    format("woff2");
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff")
+    format("woff");
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff2")
+    format("woff2");
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff")
+    format("woff");
+  font-display: swap;
+  font-weight: 600;
   font-style: normal;
 }
 
