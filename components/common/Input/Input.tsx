@@ -11,7 +11,6 @@ interface InputProps {
   leftSlot?: React.ReactNode;
   rightSlot?: React.ReactNode;
   height?: number;
-  largeHeight?: number;
 }
 
 type IOrTProps =

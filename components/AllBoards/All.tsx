@@ -7,6 +7,7 @@ import Pagination from "../Pagination/Pagination";
 import useBoardsParams from "@/hooks/useBoardsParams";
 import useAllData from "./useAllData";
 import { BoardItem } from "@/apis/boards";
+import Button from "../common/Button/Button";
 
 const FilterList = ["recent", "like"];
 const PAGE_SIZE = 10;
@@ -22,10 +23,10 @@ export default function All({ initialData }: AllProps) {
   return (
     <div className="w-full flex flex-col gap-6">
       <div className="flex justify-between items-center">
-        <h2 className="text-gray900 text-Bold20 font-bold">게시글</h2>
-        <button className="py-2 px-6 bg-blue text-white text-Bold16 rounded-lg cursor-pointer">
+        <h2 className="text-gray900 text-bold20">게시글</h2>
+        <Button fontSize="16" rounded="8" paddingX={24} paddingY={8}>
           글쓰기
-        </button>
+        </Button>
       </div>
       <div className="w-full flex flex-col gap-6">
         <div className="flex justify-center items-center gap-3">

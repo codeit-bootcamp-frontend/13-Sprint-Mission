@@ -1,3 +1,4 @@
+import Button from "../common/Button/Button";
 import Input from "../common/Input/Input";
 
 export default function LoginForm() {
@@ -21,9 +22,9 @@ export default function LoginForm() {
         height={56}
         required
       />
-      <button className="w-full h-14 flex justify-center items-center text-Bold20 rounded-[40px] bg-blue text-gray100 cursor-pointer">
+      <Button fullWidth fontSize="20" paddingY={16}>
         로그인
-      </button>
+      </Button>
     </form>
   );
 }
