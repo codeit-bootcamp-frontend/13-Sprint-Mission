@@ -1,65 +1,56 @@
-import Image from "next/image";
-import { CSSProperties, InputHTMLAttributes,TextareaHTMLAttributes } from "react";
+import clsx from "clsx";
+import {
+  CSSProperties,
+  InputHTMLAttributes,
+  TextareaHTMLAttributes,
+} from "react";
 
 interface InputProps {
   label?: string;
   style?: CSSProperties;
-  leftSlot?: string;
-  slotSize?: number;
-  height?: string;
-  largeHeight?: string;
+  leftSlot?: React.ReactNode;
+  rightSlot?: React.ReactNode;
+  height?: number;
+  largeHeight?: number;
 }
 
 type IOrTProps =
-  | (InputProps & InputHTMLAttributes<HTMLInputElement> & { isTextarea?: false })
-  | (InputProps & TextareaHTMLAttributes<HTMLTextAreaElement> & { isTextarea?: true });
+  | (InputProps &
+      InputHTMLAttributes<HTMLInputElement> & { isTextarea?: false })
+  | (InputProps &
+      TextareaHTMLAttributes<HTMLTextAreaElement> & { isTextarea?: true });
 
 export default function Input({
   label,
   style,
   isTextarea,
   leftSlot,
-  slotSize,
-  height,
-  largeHeight,
+  rightSlot,
+  height = 56,
   ...rest
 }: IOrTProps) {
   return (
-    <div className={`w-full h-full flex flex-col ${label ? 'gap-4' : 'gap-0'}`}>
-      <label className="text-gray800 text-Bold18 font-bold">{label}</label>
-      <div className="relative w-full">
-        {leftSlot && (
-          <div className="absolute top-[-3px] left-3 translate-y-1/2"
-          style={{ width: slotSize, height: slotSize }}
-          >
-            <Image fill src={leftSlot} alt="" />
-          </div>
-        )}
+    <div className={`w-full h-full flex flex-col ${label ? "gap-4" : "gap-0"}`}>
+      <label className="text-gray800 text-bold18">{label}</label>
+      <div
+        className="w-full flex gap-2 bg-gray100 py-[9px] px-[20px] rounded-xl"
+        style={{
+          height: `${height}px`,
+        }}
+      >
         {isTextarea ? (
           <textarea
-            className={`
-              w-full bg-gray100 py-[9px] px-5 rounded-xl
-              placeholder:text-gray400 placeholder:text-Regular16
-              focus:outline-none resize-none
-              ${height ? `h-[${height}px]` : "h-[42px]"}
-              ${largeHeight ? `sm:h-[${largeHeight}px] sm:placeholder:text-Regular14` : ""}
-            `}
-            style={{ paddingLeft: slotSize ? `${12 + slotSize}px` : '9px' }} 
+            className="w-full h-full placeholder:text-gray400 placeholder:text-regular16 focus:outline-none resize-none"
             {...(rest as TextareaHTMLAttributes<HTMLTextAreaElement>)}
-          />  
+          />
         ) : (
           <input
-            className={`
-              w-full bg-gray100 py-[9px] px-5 rounded-xl
-              placeholder:text-gray400 placeholder:text-Regular16
-              focus:outline-none resize-none
-              ${height ? `h-[${height}px]` : "h-[42px]"}
-              ${largeHeight ? `sm:h-[${largeHeight}px] sm:placeholder:text-Regular14` : ""}
-            `}
-            style={{ paddingLeft: slotSize ? `${12 + slotSize}px` : '9px' }}
+            className="w-full h-full placeholder:text-gray400 placeholder:text-regular16 focus:outline-none"
             {...(rest as InputHTMLAttributes<HTMLInputElement>)}
           />
         )}
+
+        {rightSlot}
       </div>
     </div>
   );
