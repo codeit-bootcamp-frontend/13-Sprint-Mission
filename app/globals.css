@@ -1,42 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@layer base {
-  * {
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
-  }
-
+@layer {
   body {
     font-family: "Pretendard", sans-serif;
-  }
 
-  body,
-  p,
-  h2 {
-    margin: 0;
+    button {
+      cursor: pointer;
+    }
   }
-
-  ul,
-  li {
-    margin: 0;
-    padding: 0;
-  }
-
-  button,
-  input,
-  textarea {
-    border: none;
-  }
-}
-
-.gradientWave {
-  @apply bg-gradient-to-r from-gray200 via-gray100 to-gray200 bg-[length:200%] animate-gradient;
 }
 
 @layer utilities {
+  .gradientWave {
+    background-image: linear-gradient(to right, #e5e7eb, #f3f4f6, #e5e7eb);
+    background-size: 200%;
+    animation: gradient 1.5s infinite linear;
+  }
+
   .line-break {
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -46,11 +26,143 @@
   }
 }
 
-@font-face {
-  font-family: "ROKAF Sans";
-  src: url("/font/ROKAF.ttf");
-  font-weight: 700;
-  font-style: normal;
+@theme {
+  --color-bg: #fcfcfc;
+  --color-white: #ffffff;
+  --color-black: "#000000";
+  --color-blue: #3692ff;
+  --color-blueHover: #1967d6;
+  --color-error: #f74747;
+  --color-gray50: #f9fafb;
+  --color-gray100: #f3f4f6;
+  --color-gray200: #e5e7eb;
+  --color-gray300: #d1d5db;
+  --color-gray400: #9ca3af;
+  --color-gray500: #6b7280;
+  --color-gray600: #4b5563;
+  --color-gray700: #374151;
+  --color-gray800: #1f2937;
+  --color-gray900: #111827;
+}
+
+@utility text-bold40 {
+  @layer components {
+    font-size: 40px;
+    line-height: 47px;
+    font-weight: 700;
+  }
+}
+
+@utility text-bold28 {
+  @layer components {
+    font-size: 28px;
+    line-height: 42px;
+    font-weight: 700;
+  }
+}
+
+@utility text-bold24 {
+  @layer components {
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 700;
+  }
+}
+
+@utility text-bold20 {
+  @layer components {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 700;
+  }
+}
+
+@utility text-bold18 {
+  @layer components {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 700;
+  }
+}
+
+@utility text-bold16 {
+  @layer components {
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 700;
+  }
+}
+
+@utility text-bold15 {
+  @layer components {
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 700;
+  }
+}
+
+@utility text-bold14 {
+  @layer components {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+  }
+}
+
+@utility text-regular24 {
+  @layer components {
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 400;
+  }
+}
+
+@utility text-regular20 {
+  @layer components {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 400;
+  }
+}
+
+@utility text-regular18 {
+  @layer components {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+  }
+}
+
+@utility text-regular16 {
+  @layer components {
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 400;
+  }
+}
+
+@utility text-regular15 {
+  @layer components {
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 400;
+  }
+}
+
+@utility text-regular14 {
+  @layer components {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+}
+
+@utility text-regular12 {
+  @layer components {
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 400;
+  }
 }
 
 @font-face {
@@ -66,22 +178,18 @@
 
 @font-face {
   font-family: "Pretendard";
-  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff2")
-    format("woff2");
-  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff")
-    format("woff");
-  font-display: swap;
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Pretendard";
   src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff2")
     format("woff2");
   src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff")
     format("woff");
   font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ROKAF Sans";
+  src: url("/font/ROKAF.ttf");
   font-weight: 700;
   font-style: normal;
 }
