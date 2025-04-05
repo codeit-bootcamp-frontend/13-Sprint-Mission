@@ -7,6 +7,7 @@ type RoundedSize = "8" | "40";
 interface ButtonProps {
   children: React.ReactNode;
   fullWidth?: boolean;
+  disabled?: boolean;
   className?: string;
   fontSize?: FontSize;
   rounded?: RoundedSize;
@@ -17,6 +18,7 @@ interface ButtonProps {
 export default function Button({
   children,
   fullWidth,
+  disabled,
   className,
   fontSize = "18",
   rounded = "40",
@@ -39,6 +41,7 @@ export default function Button({
     <button
       className={clsx(
         "flex items-center justify-center w-fit bg-blue text-white ",
+        disabled && "bg-gray400",
         fullWidth && "w-full",
         fontSize && fontSizeCSS[fontSize],
         rounded && roundedCSS[rounded],
