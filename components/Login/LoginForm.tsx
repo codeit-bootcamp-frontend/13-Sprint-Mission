@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Button from "../common/Button/Button";
-import Input from "../common/Input/Input";
+import FormField from "../common/FormField/FormField";
 import PasswordToggleBtn from "../PasswordToggleBtn/PasswordToggleBtn";
 
 export default function LoginForm() {
@@ -10,22 +10,20 @@ export default function LoginForm() {
   const passwordType = isVisiblePassword ? "text" : "password";
   return (
     <form className="w-full flex flex-col gap-6">
-      <Input
+      <FormField
         id="email"
         label="이메일"
         name="email"
         type="email"
         placeholder="이메일을 입력해주세요"
-        height={56}
         required
       />
-      <Input
+      <FormField
         id="password"
         label="비밀번호"
         name="password"
         type={passwordType}
         placeholder="비밀번호를 입력해주세요"
-        height={56}
         required
         rightSlot={
           <PasswordToggleBtn
