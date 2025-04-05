@@ -2,17 +2,16 @@ import { InputHTMLAttributes, TextareaHTMLAttributes } from "react";
 import Textarea, { TextareaProps } from "../Textarea/Textarea";
 import Input, { InputProps } from "../Input/Input";
 
+interface CommonFieldProps {
+  label: string;
+  height?: number;
+  isValid?: boolean;
+  errorMessage?: string;
+}
+
 type IOrTProps =
-  | (InputProps & {
-      isTextarea?: false;
-      label: string;
-      height?: number;
-    })
-  | (TextareaProps & {
-      isTextarea?: true;
-      label: string;
-      height?: number;
-    });
+  | (InputProps & CommonFieldProps & { isTextarea?: false })
+  | (TextareaProps & CommonFieldProps & { isTextarea?: true });
 
 export default function FormField({
   label,
@@ -20,6 +19,8 @@ export default function FormField({
   leftSlot = null,
   rightSlot = null,
   height,
+  isValid,
+  errorMessage,
   ...rest
 }: IOrTProps) {
   return (
@@ -30,6 +31,7 @@ export default function FormField({
           leftSlot={leftSlot}
           rightSlot={rightSlot}
           height={height}
+          isValid={isValid}
           {...(rest as TextareaHTMLAttributes<HTMLTextAreaElement>)}
         />
       ) : (
@@ -37,8 +39,12 @@ export default function FormField({
           leftSlot={leftSlot}
           rightSlot={rightSlot}
           height={height}
+          isValid={isValid}
           {...(rest as Omit<InputHTMLAttributes<HTMLInputElement>, "height">)}
         />
+      )}
+      {!isValid && errorMessage && (
+        <span className="text-error text-semi14 pl-5">{errorMessage}</span>
       )}
     </div>
   );

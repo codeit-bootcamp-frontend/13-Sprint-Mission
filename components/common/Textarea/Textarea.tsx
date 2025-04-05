@@ -1,21 +1,24 @@
 import { TextareaHTMLAttributes } from "react";
+import clsx from "clsx";
 import { InputOrTextareaProps } from "../Input/Input";
 
 export interface TextareaProps
   extends InputOrTextareaProps,
-    TextareaHTMLAttributes<HTMLTextAreaElement> {
-  height?: number;
-}
+    TextareaHTMLAttributes<HTMLTextAreaElement> {}
 
 export default function Textarea({
   leftSlot = null,
   rightSlot = null,
   height,
+  isValid,
   ...rest
 }: TextareaProps) {
   return (
     <div
-      className="w-full flex gap-2 bg-gray100 py-[9px] px-[20px] rounded-xl"
+      className={clsx(
+        "w-full flex gap-2 bg-gray100 py-[9px] px-[20px] rounded-xl",
+        isValid === false && "border border-error"
+      )}
       style={{
         height: `${height}px`,
       }}
