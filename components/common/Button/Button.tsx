@@ -1,10 +1,11 @@
 import clsx from "clsx";
+import { ButtonHTMLAttributes } from "react";
 
 type FontSize = "16" | "18" | "20";
 
 type RoundedSize = "8" | "40";
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   fullWidth?: boolean;
   disabled?: boolean;
