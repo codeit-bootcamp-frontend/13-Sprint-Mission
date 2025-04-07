@@ -5,17 +5,17 @@ import {
   isValidatePassword,
   isValidateEqualPassword,
 } from "@/utils/authValidate";
-import { SIGNUP_MESSAGE } from "@/constants/message";
-import { SignupState, SignupType } from "./useSignup";
+import { ERROR_MESSAGE } from "@/constants/message";
+import { ResponseState, SignupType } from "./useSignup";
 
-export const signupValidate = (formData: SignupType): SignupState | null => {
+export const signupValidate = (formData: SignupType): ResponseState | null => {
   const { email, nickname, password, checkPassword } = formData;
 
   if (!isValidateEmail(email)) {
     return {
       success: false,
       field: "email",
-      message: SIGNUP_MESSAGE.EMAIL,
+      message: ERROR_MESSAGE.EMAIL,
     };
   }
 
@@ -23,7 +23,7 @@ export const signupValidate = (formData: SignupType): SignupState | null => {
     return {
       success: false,
       field: "nickname",
-      message: SIGNUP_MESSAGE.NICKNAME,
+      message: ERROR_MESSAGE.NICKNAME,
     };
   }
 
@@ -31,7 +31,7 @@ export const signupValidate = (formData: SignupType): SignupState | null => {
     return {
       success: false,
       field: "password",
-      message: SIGNUP_MESSAGE.PASSWORD_LENGTH,
+      message: ERROR_MESSAGE.PASSWORD_LENGTH,
     };
   }
 
@@ -39,7 +39,7 @@ export const signupValidate = (formData: SignupType): SignupState | null => {
     return {
       success: false,
       field: "password",
-      message: SIGNUP_MESSAGE.PASSWORD_VALID,
+      message: ERROR_MESSAGE.PASSWORD_VALID,
     };
   }
 
@@ -47,7 +47,7 @@ export const signupValidate = (formData: SignupType): SignupState | null => {
     return {
       success: false,
       field: "checkPassword",
-      message: SIGNUP_MESSAGE.CHECK_PASSWORD,
+      message: ERROR_MESSAGE.CHECK_PASSWORD,
     };
   }
 

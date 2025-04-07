@@ -1,4 +1,4 @@
-import { SIGNUP_MESSAGE } from "@/constants/message";
+import { ERROR_MESSAGE } from "@/constants/message";
 import { apiServer } from "@/lib/apiServer";
 import { NextResponse } from "next/server";
 
@@ -19,7 +19,7 @@ export async function POST(req: Request) {
       {
         success: false,
         field: "nickname",
-        message: SIGNUP_MESSAGE.DUPLICATE_NICKNAME,
+        message: ERROR_MESSAGE.DUPLICATE_NICKNAME,
       },
       { status: 400 }
     );
