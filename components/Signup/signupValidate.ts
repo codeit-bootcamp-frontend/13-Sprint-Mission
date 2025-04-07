@@ -8,7 +8,7 @@ import {
 import { ERROR_MESSAGE } from "@/constants/message";
 import { ResponseState, SignupType } from "./useSignup";
 
-export const signupValidate = (formData: SignupType): ResponseState | null => {
+const signupValidate = (formData: SignupType): ResponseState | null => {
   const { email, nickname, password, checkPassword } = formData;
 
   if (!isValidateEmail(email)) {
@@ -53,3 +53,5 @@ export const signupValidate = (formData: SignupType): ResponseState | null => {
 
   return null;
 };
+
+export default signupValidate;

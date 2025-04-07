@@ -1,7 +1,7 @@
 import { useState } from "react";
 import checkAllFormComplete from "@/utils/checkAllFormComplete";
 import { useRouter } from "next/navigation";
-import { signupValidate } from "./signupValidate";
+import signupValidate from "./signupValidate";
 
 export interface SignupType {
   email: string;
@@ -10,7 +10,7 @@ export interface SignupType {
   checkPassword: string;
 }
 
-export interface SignupState {
+export interface ResponseState {
   success: boolean;
   field?: string;
   message: string;
@@ -35,7 +35,7 @@ export default function useSignup() {
     password: false,
     checkPassword: false,
   });
-  const [state, setState] = useState<SignupState>({
+  const [state, setState] = useState<ResponseState>({
     success: false,
     field: "",
     message: "",
