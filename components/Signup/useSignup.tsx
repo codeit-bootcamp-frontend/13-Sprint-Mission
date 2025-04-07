@@ -1,15 +1,16 @@
 import { useState } from "react";
 import checkAllFormComplete from "@/utils/checkAllFormComplete";
 import { useRouter } from "next/navigation";
+import { signupValidate } from "./signupValidate";
 
-interface SignupType {
+export interface SignupType {
   email: string;
   nickname: string;
   password: string;
   checkPassword: string;
 }
 
-interface SignupState {
+export interface SignupState {
   status: boolean;
   field?: string;
   message: string;
@@ -75,6 +76,12 @@ export default function useSignup() {
 
     if (!isFormComplete) return;
 
+    const validation = signupValidate(formData);
+
+    if (validation) {
+      return setState(validation);
+    }
+
     setIsPending(true);
 
     try {
@@ -93,7 +100,7 @@ export default function useSignup() {
 
       const result = await response.json();
 
-      if (result.status) {
+      if (response.ok) {
         router.push("/login");
         return;
       }
