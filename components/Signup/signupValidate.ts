@@ -8,18 +8,12 @@ import {
 import { SIGNUP_MESSAGE } from "@/constants/message";
 import { SignupState, SignupType } from "./useSignup";
 
-export interface SignupValidationResult {
-  status: boolean;
-  field: string;
-  message: string;
-}
-
 export const signupValidate = (formData: SignupType): SignupState | null => {
   const { email, nickname, password, checkPassword } = formData;
 
   if (!isValidateEmail(email)) {
     return {
-      status: false,
+      success: false,
       field: "email",
       message: SIGNUP_MESSAGE.EMAIL,
     };
@@ -27,7 +21,7 @@ export const signupValidate = (formData: SignupType): SignupState | null => {
 
   if (!isValidateNicknameLimitLength(nickname)) {
     return {
-      status: false,
+      success: false,
       field: "nickname",
       message: SIGNUP_MESSAGE.NICKNAME,
     };
@@ -35,7 +29,7 @@ export const signupValidate = (formData: SignupType): SignupState | null => {
 
   if (!isValidatePasswordLength(password)) {
     return {
-      status: false,
+      success: false,
       field: "password",
       message: SIGNUP_MESSAGE.PASSWORD_LENGTH,
     };
@@ -43,7 +37,7 @@ export const signupValidate = (formData: SignupType): SignupState | null => {
 
   if (!isValidatePassword(password)) {
     return {
-      status: false,
+      success: false,
       field: "password",
       message: SIGNUP_MESSAGE.PASSWORD_VALID,
     };
@@ -51,7 +45,7 @@ export const signupValidate = (formData: SignupType): SignupState | null => {
 
   if (!isValidateEqualPassword(password, checkPassword)) {
     return {
-      status: false,
+      success: false,
       field: "checkPassword",
       message: SIGNUP_MESSAGE.CHECK_PASSWORD,
     };

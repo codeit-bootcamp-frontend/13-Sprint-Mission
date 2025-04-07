@@ -17,7 +17,7 @@ export async function POST(req: Request) {
   if (status === 400) {
     return NextResponse.json(
       {
-        status: false,
+        success: false,
         field: "nickname",
         message: SIGNUP_MESSAGE.DUPLICATE_NICKNAME,
       },

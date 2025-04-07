@@ -11,7 +11,7 @@ export interface SignupType {
 }
 
 export interface SignupState {
-  status: boolean;
+  success: boolean;
   field?: string;
   message: string;
 }
@@ -36,7 +36,7 @@ export default function useSignup() {
     checkPassword: false,
   });
   const [state, setState] = useState<SignupState>({
-    status: false,
+    success: false,
     field: "",
     message: "",
   });
@@ -106,8 +106,8 @@ export default function useSignup() {
       }
 
       if (!response.ok) {
-        const { status, field, message } = result;
-        setState({ status, field, message });
+        const { success, field, message } = result;
+        setState({ success, field, message });
         return;
       }
     } catch (err) {
