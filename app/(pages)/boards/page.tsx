@@ -13,8 +13,8 @@ export const revalidate = 60;
 
 export default async function Boards() {
   return (
-    <div className="flex justify-center items-center my-10 lg:my-0">
-      <div className="max-w-[1200px] min-w-[343px] px-6 lg:p-4 md:p-6 flex flex-col gap-10">
+    <div className="flex justify-center items-center">
+      <div className="max-w-[1200px] min-w-[343px] px-4 py-5 md:p-6 flex flex-col gap-10">
         <Suspense fallback={<BestLoading />}>
           <Best />
         </Suspense>
