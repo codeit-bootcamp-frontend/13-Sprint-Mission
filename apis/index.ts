@@ -1,89 +1,122 @@
-import { getItem, removeItem, setItem } from "@/utils/localstorage";
-import axios, {
-  AxiosError,
-  AxiosResponse,
-  InternalAxiosRequestConfig,
-} from "axios";
+import { redirect } from "next/navigation";
+import { NextResponse } from "next/server";
+import { getItem } from "../utils/localstorage";
 
-interface CustomRequestConfig extends InternalAxiosRequestConfig {
-  withAuth?: boolean;
+export function createApi(
+  baseConfig: {
+    baseURL?: string;
+    headers?: Record<string, string>;
+  } = {}
+) {
+  const {
+    baseURL = process.env.NEXT_PUBLIC_BASE_URL,
+    headers: baseHeaders = {},
+  } = baseConfig;
+
+  const getAccessToken = async (): Promise<string | undefined> => {
+    if (typeof window === "undefined") {
+      const { cookies } = await import("next/headers");
+      const cookie = await cookies();
+      return cookie.get("accessToken")?.value;
+    } else {
+      return getItem<string>("accessToken") ?? undefined;
+    }
+  };
+
+  async function fetcher<T>(
+    url: string,
+    options: RequestInit & {
+      data?: unknown;
+      next?: NextFetchRequestConfig;
+    } = {}
+  ): Promise<T & { status?: number }> {
+    const { data, next, headers, ...restOptions } = options;
+    const accessToken = await getAccessToken();
+
+    const fetchOptions: RequestInit & { next?: NextFetchRequestConfig } = {
+      ...restOptions,
+      headers: {
+        ...baseHeaders,
+        ...headers,
+        ...(accessToken ? { Authorization: `Bearer ${accessToken}` } : {}),
+      },
+    };
+
+    if (data && options.method && options.method !== "GET") {
+      fetchOptions.headers = {
+        "Content-Type": "application/json",
+        ...fetchOptions.headers,
+      };
+      fetchOptions.body = JSON.stringify(data);
+    }
+
+    if (next) {
+      fetchOptions.next = next;
+    }
+
+    const response = await fetch(`${baseURL}${url}`, fetchOptions);
+
+    if (response.status === 401) {
+      if (typeof window === "undefined") {
+        throw NextResponse.redirect(new URL("/login", response.url));
+      } else {
+        redirect("/login");
+      }
+    }
+
+    const contentType = response.headers.get("content-type");
+    if (contentType && contentType.includes("application/json")) {
+      const json = await response.json();
+      return { ...json, status: response.status };
+    }
+
+    return { status: response.status } as T & { status?: number };
+  }
+
+  return {
+    get<T>(
+      url: string,
+      options: Omit<RequestInit, "method"> & {
+        next?: NextFetchRequestConfig;
+      } = {}
+    ): Promise<T> {
+      return fetcher<T>(url, { ...options, method: "GET" });
+    },
+
+    post<T>(
+      url: string,
+      data?: unknown,
+      options: Omit<RequestInit, "method" | "body"> & {
+        next?: NextFetchRequestConfig;
+      } = {}
+    ): Promise<T> {
+      return fetcher<T>(url, { ...options, method: "POST", data });
+    },
+
+    put<T>(
+      url: string,
+      data?: unknown,
+      options: Omit<RequestInit, "method" | "body"> & {
+        next?: NextFetchRequestConfig;
+      } = {}
+    ): Promise<T> {
+      return fetcher<T>(url, { ...options, method: "PUT", data });
+    },
+
+    delete<T>(
+      url: string,
+      options: Omit<RequestInit, "method"> & {
+        next?: NextFetchRequestConfig;
+      } = {}
+    ): Promise<T> {
+      return fetcher<T>(url, { ...options, method: "DELETE" });
+    },
+  };
 }
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
-
-const api = axios.create({
-  baseURL: BASE_URL,
+export const api = createApi({
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
   headers: {
-    "Content-Type": "application/json",
+    Accept: "application/json",
   },
 });
-
-const getToken = async (
-  tokenName: "accessToken" | "refreshToken"
-): Promise<string | undefined> => {
-  if (typeof window === "undefined") {
-    const { cookies } = await import("next/headers");
-    const cookie = await cookies();
-    return cookie.get(tokenName)?.value;
-  } else {
-    return getItem<string>(tokenName) ?? undefined;
-  }
-};
-
-api.interceptors.request.use(
-  async (config: CustomRequestConfig): Promise<CustomRequestConfig> => {
-    const { withAuth = false } = config;
-    if (!withAuth) return config;
-
-    const accessToken = await getToken("accessToken");
-    const refreshToken = await getToken("refreshToken");
-
-    config.headers = config.headers || {};
-
-    if (accessToken) {
-      config.headers.Authorization = `Bearer ${accessToken}`;
-    }
-    if (refreshToken) {
-      config.headers.REFRESH_TOKEN = `Bearer ${refreshToken}`;
-    }
-
-    return config;
-  }
-);
-
-api.interceptors.response.use(
-  (response: AxiosResponse): AxiosResponse => {
-    if (typeof window !== "undefined") {
-      const accessToken: string | null = response.data.accessToken;
-      const refreshToken: string | null = response.data.refreshToken;
-
-      const editToken = (token: string) => token.replace("Bearer", "").trim();
-
-      if (accessToken) {
-        setItem("accessToken", editToken(accessToken));
-      }
-      if (refreshToken) {
-        setItem("refreshToken", editToken(refreshToken));
-      }
-    }
-
-    return response;
-  },
-  async (error: AxiosError) => {
-    if (error.response?.status === 401 && typeof window !== "undefined") {
-      removeItem("accessToken");
-      removeItem("refreshToken");
-
-      window.location.href = "/login";
-    }
-    return Promise.reject(error);
-  }
-);
-
-declare module "axios" {
-  export interface AxiosRequestConfig {
-    withAuth?: boolean;
-  }
-}
-
-export default api;
