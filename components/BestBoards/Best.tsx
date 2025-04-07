@@ -1,15 +1,11 @@
 "use client";
 
-import { BoardItem } from "@/apis/boards";
 import BestItem from "./BestItem";
 import useBestData from "./useBestData";
+import { INITIAL_BOARDS_VALUE } from "@/app/(pages)/boards/action";
 
-interface BestDataProps {
-  initialData: BoardItem[];
-}
-
-export default function Best({ initialData }: BestDataProps) {
-  const { best } = useBestData(initialData);
+export default function Best() {
+  const { best } = useBestData();
 
   return (
     <div className="w-full flex flex-col items-start gap-6">

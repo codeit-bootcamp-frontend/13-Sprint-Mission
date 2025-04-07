@@ -1,9 +1,15 @@
-import { BoardItem, getBoards } from "@/apis/boards";
+import {
+  BoardItem,
+  getBoards,
+  INITIAL_BOARDS_VALUE,
+} from "@/app/(pages)/boards/action";
 import useResize from "@/hooks/useResize";
 import { useEffect, useMemo, useState } from "react";
 
-export default function useBestData(initialData: BoardItem[]) {
-  const [bestItems, setBestItems] = useState<BoardItem[]>(initialData);
+export default function useBestData() {
+  const [bestItems, setBestItems] = useState<BoardItem[]>([
+    INITIAL_BOARDS_VALUE,
+  ]);
   const { showItems } = useResize(1, 2, 3);
 
   const best = useMemo(

@@ -1,14 +1,13 @@
-import { BoardItem, getBoards } from "@/apis/boards";
 import { useEffect, useState } from "react";
 import useBoardsParams from "@/hooks/useBoardsParams";
+import {
+  BoardItem,
+  getBoards,
+  INITIAL_BOARDS_VALUE,
+} from "@/app/(pages)/boards/action";
 
-interface AllDataProps {
-  initialData: BoardItem[];
-  PAGE_SIZE: number;
-}
-
-export default function useAllData({ initialData, PAGE_SIZE }: AllDataProps) {
-  const [all, setAll] = useState<BoardItem[]>(initialData);
+export default function useAllData(PAGE_SIZE: number) {
+  const [all, setAll] = useState<BoardItem[]>([INITIAL_BOARDS_VALUE]);
   const [totalBoards, setTotalBoards] = useState<number>(0);
   const { page, orderBy, keyword } = useBoardsParams();
 

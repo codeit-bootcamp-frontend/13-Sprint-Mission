@@ -6,19 +6,14 @@ import Search from "../Search/Search";
 import Pagination from "../Pagination/Pagination";
 import useBoardsParams from "@/hooks/useBoardsParams";
 import useAllData from "./useAllData";
-import { BoardItem } from "@/apis/boards";
 import Button from "../common/Button/Button";
 
 const FilterList = ["recent", "like"];
 const PAGE_SIZE = 10;
 
-interface AllProps {
-  initialData: BoardItem[];
-}
-
-export default function All({ initialData }: AllProps) {
+export default function All() {
   const { page, orderBy, keyword, handleParamsUpdate } = useBoardsParams();
-  const { all, totalBoards } = useAllData({ initialData, PAGE_SIZE });
+  const { all, totalBoards } = useAllData(PAGE_SIZE);
 
   return (
     <div className="w-full flex flex-col gap-6">
