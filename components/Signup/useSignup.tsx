@@ -1,6 +1,6 @@
 import { useState } from "react";
 import checkAllFormComplete from "@/utils/checkAllFormComplete";
-import axios from "axios";
+import { useRouter } from "next/navigation";
 
 interface SignupType {
   email: string;
@@ -40,6 +40,8 @@ export default function useSignup() {
     message: "",
   });
   const [isPending, setIsPending] = useState(false);
+
+  const router = useRouter();
 
   const isFormComplete = checkAllFormComplete({
     email: formData.email,
@@ -90,6 +92,11 @@ export default function useSignup() {
       });
 
       const result = await response.json();
+
+      if (result.status) {
+        router.push("/login");
+        return;
+      }
 
       if (!response.ok) {
         const { status, field, message } = result;
