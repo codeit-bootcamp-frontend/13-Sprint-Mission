@@ -7,8 +7,8 @@ import useWindowSize from "@/hooks/useWindowSize";
 import { getArticles, getBestArticles } from "@/lib/Articles";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
-//
 const BEST_PAGE_SIZE: number = 3;
 const PAGE_SIZE: number = 10;
 interface Props {
@@ -16,6 +16,7 @@ interface Props {
   sortedArticles: Article[];
   decodedKeyword: string;
 }
+
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { orderBy = "recent", keyword } = context.query as {
     orderBy: string;
@@ -33,7 +34,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: { bestArticles, sortedArticles, decodedKeyword },
   };
 };
-//
+
 export default function Board({
   bestArticles,
   sortedArticles,
@@ -44,8 +45,6 @@ export default function Board({
   const [keywordValue, setKeywordValue] = useState("");
   const device: string = useWindowSize();
   const router = useRouter();
-
-  const handleClick = () => {};
 
   const handleSortChange = (option: string) => {
     const newOrderBy = option === "최신순" ? "recent" : "like";
@@ -84,8 +83,8 @@ export default function Board({
     }
   }, [device, sortedArticles]);
 
-  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const searchValue = e.target.value.toLowerCase();
+  const handleSearchChange = (value: string) => {
+    const searchValue = value.toLowerCase();
     const newQuery = { ...router.query };
     if (!searchValue) {
       delete newQuery.keyword;
@@ -112,7 +111,9 @@ export default function Board({
         <div className="flex gap-6 mx-auto">
           {best.length > 0 &&
             best.map((article) => (
-              <BestArticle key={article.id} article={article} />
+              <Link key={article.id} href={`board/${article.id}`}>
+                <BestArticle article={article} />
+              </Link>
             ))}
         </div>
       </div>
@@ -122,21 +123,25 @@ export default function Board({
             게시글
           </div>
           <div className="w-[88px]">
-            <Button onClick={handleClick}>글쓰기</Button>
+            <Link href={"/addboard"}>
+              <Button>글쓰기</Button>
+            </Link>
           </div>
         </div>
         <div className="flex w-full gap-4">
           <SearchInput
             placeholder="검색할 상품을 입력해주세요"
             name="search"
-            onChange={handleSearchChange}
+            onChange={(value) => handleSearchChange(value)}
           />
           <SortSelect onChange={handleSortChange} />
         </div>
         <div className="flex flex-col w-full gap-6">
           {articles.length > 0 &&
             articles.map((article) => (
-              <Articles key={article.id} article={article} />
+              <Link href={`board/${article.id}`}>
+                <Articles key={article.id} article={article} />
+              </Link>
             ))}
         </div>
       </div>

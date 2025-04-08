@@ -6,7 +6,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <Nav />
       <div className="w-full h-screen mx-auto">
-        <div className="max-w-[1200px] mx-auto h-screen mt-[70px] px-6">
+        <div className="max-w-[1200px] px-[15px] tablet:px-6 mx-auto h-screen mt-[70px] py-6">
           <Component {...pageProps} />
         </div>
       </div>

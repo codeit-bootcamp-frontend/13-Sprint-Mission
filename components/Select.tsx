@@ -80,7 +80,7 @@ export function EditSelect({ onChange, ...props }: Props) {
           onClick={() => setIsOpen(!isOpen)}
           className="h-6 bg-white border-none cursor-pointer"
         >
-          <img src={kebabIcon} alt="케밥" />
+          <Image src={kebabIcon} width={24} height={24} alt="케밥" />
         </div>
         <ul
           className={`${

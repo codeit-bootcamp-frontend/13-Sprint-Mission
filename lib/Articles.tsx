@@ -31,3 +31,28 @@ export async function getArticles({
     throw new Error(" 게시글 불러오기 실패");
   }
 }
+
+export async function getArticleDetail(articleId: number) {
+  const res = await instance.get(`/articles/${articleId}`);
+  return res.data;
+}
+
+export async function deleteArticle(articleId: number) {
+  await instance.delete(`/articles/${articleId}`);
+}
+
+interface articleEditedRequestParams {
+  articleId: number;
+  articleData: ArticleData;
+}
+export async function editArticle({
+  articleId,
+  articleData,
+}: articleEditedRequestParams) {
+  await instance.delete(`/articles/${articleId}`);
+}
+
+export async function createArticle(articleData: ArticleData) {
+  console.log(articleData);
+  const res = await instance.post(`/articles`, { ...articleData });
+}
