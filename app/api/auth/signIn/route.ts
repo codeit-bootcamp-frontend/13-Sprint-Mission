@@ -28,7 +28,7 @@ export async function POST(req: Request) {
 
   if (status === 200) {
     const accessToken = response.data.accessToken;
-    const res = NextResponse.json({ response }, { status: 200 });
+    const res = NextResponse.json({ data: response.data }, { status: 200 });
 
     res.cookies.set("accessToken", accessToken, {
       httpOnly: true,

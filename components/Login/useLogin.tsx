@@ -69,8 +69,8 @@ export default function useLogin() {
       const result = await response.json();
 
       if (response.ok) {
-        router.push("/");
-        setItem("accessToken", result.accessToken);
+        // router.push("/");
+        setItem("accessToken", result.data.accessToken);
         return;
       }
 
