@@ -20,7 +20,7 @@ export default function LoginForm() {
   const passwordType = isPasswordVisible ? "text" : "password";
 
   return (
-    <form onSubmit={handleLoginSubmit} className="w-full flex flex-col gap-6">
+    <form onSubmit={handleLoginSubmit} className="flex w-full flex-col gap-6">
       <FormField
         id="email"
         label="이메일"

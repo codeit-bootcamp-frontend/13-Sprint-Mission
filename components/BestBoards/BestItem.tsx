@@ -13,27 +13,27 @@ interface BestItemProps {
 export default function BestItem({ best }: BestItemProps) {
   return (
     <Link
-      className="w-full h-[198px] px-6 bg-gray50 rounded-lg cursor-pointer lg:h-[169px]"
+      className="bg-gray50 h-[198px] w-full cursor-pointer rounded-lg px-6 lg:h-[169px]"
       href="/"
     >
-      <div className="w-full h-full flex flex-col justify-start items-start gap-4 lg:gap-2.5">
-        <div className="w-[102px] h-[30px] flex justify-center items-center gap-1 bg-blue rounded-bl-[16px] rounded-br-[16px]">
+      <div className="flex h-full w-full flex-col items-start justify-start gap-4 lg:gap-2.5">
+        <div className="bg-blue flex h-[30px] w-[102px] items-center justify-center gap-1 rounded-br-[16px] rounded-bl-[16px]">
           <Image src={medal} width={16} height={16} alt="medal" />
-          <span className="text-white text-bold16">Best</span>
+          <span className="text-bold16 text-white">Best</span>
         </div>
         <div className="flex flex-col gap-10 lg:gap-5">
-          <div className="w-full flex justify-between items-center gap-2">
-            <p className="line-break flex-1 h-[60px] break-words text-gray800 text-bold20">
+          <div className="flex w-full items-center justify-between gap-2">
+            <p className="line-break text-gray800 text-bold20 h-[60px] flex-1 break-words">
               {best.content}
             </p>
             <BoardImage image={best.image} />
           </div>
-          <div className="w-full flex justify-between items-center">
-            <div className="flex justify-center items-end gap-2">
+          <div className="flex w-full items-center justify-between">
+            <div className="flex items-end justify-center gap-2">
               <span className="text-gray600 text-regular14">
                 {best.writer.nickname}
               </span>
-              <div className="flex justify-center items-center gap-1">
+              <div className="flex items-center justify-center gap-1">
                 <Image src={heart} width={16} height={16} alt="like" />
                 <span className="text-gray500 text-regular14">
                   {best.likeCount}

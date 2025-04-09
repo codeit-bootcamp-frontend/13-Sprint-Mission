@@ -21,11 +21,11 @@ export default function Header() {
   ];
 
   return (
-    <div className="sticky top-0 z-[100] w-full h-[70px] flex justify-center items-center px-6 py-[9px] bg-white border-b border-[#dfdfdf] md:px-6 sm:px-4 maxS:px-4">
-      <div className="w-[1200px] flex justify-between">
+    <div className="maxS:px-4 sticky top-0 z-[100] flex h-[70px] w-full items-center justify-center border-b border-[#dfdfdf] bg-white px-6 py-[9px] sm:px-4 md:px-6">
+      <div className="flex w-[1200px] justify-between">
         <div className="flex">
           <Link
-            className="flex items-center gap-2 mr-4 cursor-pointer"
+            className="mr-4 flex cursor-pointer items-center gap-2"
             href="/"
           >
             <Image
@@ -36,14 +36,14 @@ export default function Header() {
               priority
               className="[@media(max-width:480px)]:hidden"
             />
-            <span className="font-rokaf text-[25px] font-bold text-blue">
+            <span className="font-rokaf text-blue text-[25px] font-bold">
               판다마켓
             </span>
           </Link>
           <div className="flex">
             {Links.map((l) => (
               <Link
-                className={`text-Bold18 px-[21px] py-[15px] [@media(max-width:480px)]:px-[8px] cursor-pointer ${
+                className={`text-Bold18 cursor-pointer px-[21px] py-[15px] [@media(max-width:480px)]:px-[8px] ${
                   pathname === l.link ? "text-blue" : "text-gray600"
                 }`}
                 key={l.name}

@@ -3,7 +3,7 @@ import LoginForm from "@/components/Login/LoginForm";
 
 export default function Login() {
   return (
-    <div className="w-full flex flex-col gap-6">
+    <div className="flex w-full flex-col gap-6">
       <LoginForm />
       <AuthFooter
         href="/signup"

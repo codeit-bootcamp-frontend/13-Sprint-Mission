@@ -14,7 +14,7 @@ export default function useBestData() {
 
   const best = useMemo(
     () => bestItems.slice(0, showItems),
-    [bestItems, showItems]
+    [bestItems, showItems],
   );
 
   useEffect(() => {

@@ -41,12 +41,12 @@ export default function Button({
   return (
     <button
       className={clsx(
-        "flex items-center justify-center w-fit bg-blue text-white ",
+        "bg-blue flex w-fit items-center justify-center text-white",
         disabled && "bg-gray400",
         fullWidth && "w-full",
         fontSize && fontSizeCSS[fontSize],
         rounded && roundedCSS[rounded],
-        className
+        className,
       )}
       style={{
         paddingLeft: paddingX,

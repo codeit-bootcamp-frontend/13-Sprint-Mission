@@ -12,7 +12,7 @@ interface FooterProps {
 export default function AuthFooter({ title, href, hrefMessage }: FooterProps) {
   return (
     <>
-      <div className="w-full bg-[#e6f2ff] flex justify-between items-center py-4 px-[23px] rounded-lg">
+      <div className="flex w-full items-center justify-between rounded-lg bg-[#e6f2ff] px-[23px] py-4">
         <p className="text-gray800 text-Regular16">간편 로그인하기</p>
         <div className="flex gap-4">
           <Link href="https://www.google.com">
@@ -23,9 +23,9 @@ export default function AuthFooter({ title, href, hrefMessage }: FooterProps) {
           </Link>
         </div>
       </div>
-      <div className="flex justify-center items-center text-Regular14 text-gray800">
+      <div className="text-Regular14 text-gray800 flex items-center justify-center">
         {title}
-        <Link className="text-blue underline ml-1" href={href}>
+        <Link className="text-blue ml-1 underline" href={href}>
           {hrefMessage}
         </Link>
       </div>

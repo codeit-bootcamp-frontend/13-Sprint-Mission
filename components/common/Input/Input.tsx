@@ -22,8 +22,8 @@ export default function Input({
   return (
     <div
       className={clsx(
-        "w-full flex gap-2 bg-gray100 py-[9px] px-[20px] rounded-xl",
-        isValid === false && "border border-error"
+        "bg-gray100 flex w-full gap-2 rounded-xl px-[20px] py-[9px]",
+        isValid === false && "border-error border",
       )}
       style={{
         height: `${height}px`,
@@ -32,7 +32,7 @@ export default function Input({
       {leftSlot}
 
       <input
-        className="w-full h-full placeholder:text-gray400 placeholder:text-regular16 focus:outline-none"
+        className="placeholder:text-gray400 placeholder:text-regular16 h-full w-full focus:outline-none"
         {...(rest as InputHTMLAttributes<HTMLInputElement>)}
       />
 

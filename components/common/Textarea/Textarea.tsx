@@ -16,8 +16,8 @@ export default function Textarea({
   return (
     <div
       className={clsx(
-        "w-full flex gap-2 bg-gray100 py-[9px] px-[20px] rounded-xl",
-        isValid === false && "border border-error"
+        "bg-gray100 flex w-full gap-2 rounded-xl px-[20px] py-[9px]",
+        isValid === false && "border-error border",
       )}
       style={{
         height: `${height}px`,
@@ -26,7 +26,7 @@ export default function Textarea({
       {leftSlot}
 
       <textarea
-        className="w-full h-full placeholder:text-gray400 placeholder:text-regular16 focus:outline-none resize-none"
+        className="placeholder:text-gray400 placeholder:text-regular16 h-full w-full resize-none focus:outline-none"
         {...(rest as TextareaHTMLAttributes<HTMLTextAreaElement>)}
       />
 

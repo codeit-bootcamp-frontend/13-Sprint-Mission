@@ -6,7 +6,7 @@ export default function BoardImage({ image }: { image: string }) {
   const [isError, setIsError] = useState<boolean>(false);
 
   return (
-    <div className="relative flex justify-center items-center w-[72px] h-[72px] bg-white border border-solid border-gray200 rounded-md">
+    <div className="border-gray200 relative flex h-[72px] w-[72px] items-center justify-center rounded-md border border-solid bg-white">
       {image && !isError ? (
         <Image
           fill

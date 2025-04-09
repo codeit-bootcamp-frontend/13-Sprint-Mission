@@ -7,6 +7,7 @@ import Pagination from "../Pagination/Pagination";
 import useBoardsParams from "@/hooks/useBoardsParams";
 import useAllData from "./useAllData";
 import Button from "../common/Button/Button";
+import Link from "next/link";
 
 const FilterList = ["recent", "like"];
 const PAGE_SIZE = 10;
@@ -16,15 +17,17 @@ export default function All() {
   const { all, totalBoards } = useAllData(PAGE_SIZE);
 
   return (
-    <div className="w-full flex flex-col gap-6">
-      <div className="flex justify-between items-center">
+    <div className="flex w-full flex-col gap-6">
+      <div className="flex items-center justify-between">
         <h2 className="text-gray900 text-bold20">게시글</h2>
-        <Button fontSize="16" rounded="8" paddingX={24} paddingY={8}>
-          글쓰기
-        </Button>
+        <Link href="/addboard">
+          <Button fontSize="16" rounded="8" paddingX={24} paddingY={8}>
+            글쓰기
+          </Button>
+        </Link>
       </div>
-      <div className="w-full flex flex-col gap-6">
-        <div className="flex justify-center items-center gap-3">
+      <div className="flex w-full flex-col gap-6">
+        <div className="flex items-center justify-center gap-3">
           <Search />
           <Dropdown
             list={FilterList}
@@ -32,7 +35,7 @@ export default function All() {
             onChange={(filter) => handleParamsUpdate({ orderBy: filter })}
           />
         </div>
-        <div className="w-full flex flex-col gap-6">
+        <div className="flex w-full flex-col gap-6">
           {all.map((item) => (
             <AllItem key={item.id} all={item} />
           ))}

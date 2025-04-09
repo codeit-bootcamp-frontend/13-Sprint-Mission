@@ -13,7 +13,6 @@ const signupValidate = (formData: SignupType): ResponseState | null => {
 
   if (!isValidateEmail(email)) {
     return {
-      success: false,
       field: "email",
       message: ERROR_MESSAGE.EMAIL,
     };
@@ -21,7 +20,6 @@ const signupValidate = (formData: SignupType): ResponseState | null => {
 
   if (!isValidateNicknameLimitLength(nickname)) {
     return {
-      success: false,
       field: "nickname",
       message: ERROR_MESSAGE.NICKNAME,
     };
@@ -29,7 +27,6 @@ const signupValidate = (formData: SignupType): ResponseState | null => {
 
   if (!isValidatePasswordLength(password)) {
     return {
-      success: false,
       field: "password",
       message: ERROR_MESSAGE.PASSWORD_LENGTH,
     };
@@ -37,7 +34,6 @@ const signupValidate = (formData: SignupType): ResponseState | null => {
 
   if (!isValidatePassword(password)) {
     return {
-      success: false,
       field: "password",
       message: ERROR_MESSAGE.PASSWORD_VALID,
     };
@@ -45,7 +41,6 @@ const signupValidate = (formData: SignupType): ResponseState | null => {
 
   if (!isValidateEqualPassword(password, checkPassword)) {
     return {
-      success: false,
       field: "checkPassword",
       message: ERROR_MESSAGE.CHECK_PASSWORD,
     };

@@ -7,9 +7,9 @@ export default function BestLoading() {
   const { showItems } = useResize(1, 2, 3);
 
   return (
-    <div className="w-full flex flex-col gap-6">
-      <div className="w-[100px] h-[30px] bg-gray200 rounded-md gradientWave" />
-      <div className="w-full flex gap-6">
+    <div className="flex w-full flex-col gap-6">
+      <div className="bg-gray200 gradientWave h-[30px] w-[100px] rounded-md" />
+      <div className="flex w-full gap-6">
         {Array.from({ length: showItems }, (_, i) => (
           <BestBoardsLoading key={i} />
         ))}

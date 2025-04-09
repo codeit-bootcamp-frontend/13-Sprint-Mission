@@ -14,7 +14,6 @@ const loginValidate = (formData: LoginType): ResponseState | null => {
 
   if (!isValidateEmail(email)) {
     return {
-      success: false,
       field: "email",
       message: ERROR_MESSAGE.EMAIL,
     };
@@ -22,7 +21,6 @@ const loginValidate = (formData: LoginType): ResponseState | null => {
 
   if (!isValidatePasswordLength(password)) {
     return {
-      success: false,
       field: "password",
       message: ERROR_MESSAGE.PASSWORD_LENGTH,
     };
