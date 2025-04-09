@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { ResponseState } from "../Signup/useSignup";
 import checkAllFormComplete from "@/utils/checkAllFormComplete";
 import loginValidate from "./loginValidate";
+import { setItem } from "@/utils/localstorage";
 
 export interface LoginType {
   email: string;
@@ -18,7 +19,6 @@ export default function useLogin() {
   const [formData, setFormData] = useState<LoginType>(INITIAL_LOGIN_FORM_VALUE);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [state, setState] = useState<ResponseState>({
-    success: false,
     field: "",
     message: "",
   });
@@ -43,7 +43,7 @@ export default function useLogin() {
     }));
   };
 
-  const hadleLoginSubmit = async (e: React.FormEvent) => {
+  const handleLoginSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!isFormComplete) return;
@@ -69,12 +69,14 @@ export default function useLogin() {
       const result = await response.json();
 
       if (response.ok) {
-        router.push("/login");
+        router.push("/");
+        setItem("accessToken", result.accessToken);
         return;
       }
+
       if (!response.ok) {
-        const { success, field, message } = result;
-        setState({ success, field, message });
+        const { field, message } = result;
+        setState({ field, message });
         return;
       }
     } catch (err) {
@@ -92,6 +94,6 @@ export default function useLogin() {
     isFormComplete,
     toggleVisiblePassword,
     handleFormChange,
-    hadleLoginSubmit,
+    handleLoginSubmit,
   };
 }

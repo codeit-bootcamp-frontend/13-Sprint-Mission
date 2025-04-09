@@ -14,13 +14,13 @@ export default function LoginForm() {
     isFormComplete,
     toggleVisiblePassword,
     handleFormChange,
-    hadleLoginSubmit,
+    handleLoginSubmit,
   } = useLogin();
 
   const passwordType = isPasswordVisible ? "text" : "password";
 
   return (
-    <form onSubmit={hadleLoginSubmit} className="w-full flex flex-col gap-6">
+    <form onSubmit={handleLoginSubmit} className="w-full flex flex-col gap-6">
       <FormField
         id="email"
         label="이메일"

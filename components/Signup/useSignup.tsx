@@ -11,7 +11,6 @@ export interface SignupType {
 }
 
 export interface ResponseState {
-  success: boolean;
   field?: string;
   message: string;
 }
@@ -36,7 +35,6 @@ export default function useSignup() {
     checkPassword: false,
   });
   const [state, setState] = useState<ResponseState>({
-    success: false,
     field: "",
     message: "",
   });
@@ -106,8 +104,8 @@ export default function useSignup() {
       }
 
       if (!response.ok) {
-        const { success, field, message } = result;
-        setState({ success, field, message });
+        const { field, message } = result;
+        setState({ field, message });
         return;
       }
     } catch (err) {
