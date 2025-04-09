@@ -4,6 +4,7 @@ import Input, { InputProps } from "../Input/Input";
 
 interface CommonFieldProps {
   label: string;
+  required?: boolean;
   height?: number;
   isValid?: boolean;
   errorMessage?: string;
@@ -18,14 +19,20 @@ export default function FormField({
   isTextarea,
   leftSlot = null,
   rightSlot = null,
+  required = false,
   height,
   isValid,
   errorMessage,
   ...rest
 }: IOrTProps) {
+  const requiredLabe = required ? "*" : "";
+
   return (
-    <div className="w-full h-full flex flex-col gap-4">
-      <label className="text-gray800 text-bold18">{label}</label>
+    <div className="flex h-full w-full flex-col gap-4">
+      <label className="text-gray800 text-bold18">
+        <span className="text-bold18 text-blue ml-0.5">{requiredLabe}</span>
+        {label}
+      </label>
       {isTextarea ? (
         <Textarea
           leftSlot={leftSlot}
