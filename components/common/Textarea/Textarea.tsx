@@ -16,11 +16,12 @@ export default function Textarea({
   return (
     <div
       className={clsx(
-        "bg-gray100 flex w-full gap-2 rounded-xl px-[20px] py-[9px]",
+        "bg-gray100 flex w-full gap-2 rounded-xl px-[20px] py-4",
         isValid === false && "border-error border",
       )}
       style={{
         height: `${height}px`,
+        minHeight: `${height}px`,
       }}
     >
       {leftSlot}
