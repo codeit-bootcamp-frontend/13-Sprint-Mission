@@ -21,7 +21,7 @@ export default function Header() {
   ];
 
   return (
-    <div className="maxS:px-4 sticky top-0 z-[100] flex h-[70px] w-full items-center justify-center border-b border-[#dfdfdf] bg-white px-6 py-[9px] sm:px-4 md:px-6">
+    <div className="sticky top-0 z-[100] flex h-[70px] w-full items-center justify-center border-b border-[#dfdfdf] bg-white px-4 py-[9px] sm:px-6">
       <div className="flex w-[1200px] justify-between">
         <div className="flex">
           <Link
@@ -43,7 +43,7 @@ export default function Header() {
           <div className="flex">
             {Links.map((l) => (
               <Link
-                className={`text-Bold18 cursor-pointer px-[21px] py-[15px] [@media(max-width:480px)]:px-[8px] ${
+                className={`text-bold18 flex cursor-pointer items-center justify-center px-2 sm:px-[21px] sm:py-[15px] ${
                   pathname === l.link ? "text-blue" : "text-gray600"
                 }`}
                 key={l.name}
