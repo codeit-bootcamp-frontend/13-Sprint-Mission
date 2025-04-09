@@ -51,5 +51,5 @@ export async function getBoards(params: Params) {
 
   const response = await apiClient.get<Boards>(`/articles?${query}`);
 
-  return response;
+  return response.data;
 }
