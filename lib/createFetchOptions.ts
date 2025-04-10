@@ -10,7 +10,7 @@ export function createFetchOptions({ getAccessToken }: FetchOptionsType) {
     options: RequestInit & {
       data?: unknown;
       next?: NextFetchRequestConfig;
-    } = {}
+    } = {},
   ): Promise<{ data: T; status: number }> {
     const { data, headers, next, ...restOptions } = options;
     const token = getAccessToken();
@@ -36,11 +36,9 @@ export function createFetchOptions({ getAccessToken }: FetchOptionsType) {
     const res = await fetch(`${BASE_URL}${url}`, fetchOptions);
     const contentType = res.headers.get("content-type");
 
-    let responseData: T = {} as T;
+    const isJson = contentType?.includes("application/json");
 
-    if (contentType?.includes("application/json")) {
-      responseData = await res.json();
-    }
+    const responseData: T = isJson ? await res.json() : ({} as T);
 
     return {
       data: responseData,
