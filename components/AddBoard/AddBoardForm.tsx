@@ -49,7 +49,7 @@ export default function AddBoardForm() {
         />
         <FileInput
           label="이미지"
-          image={formBoard.image === DEFAULT_IMAGE ? "" : formBoard.image}
+          image={formBoard.image}
           onChange={handleImageChange}
         />
       </div>

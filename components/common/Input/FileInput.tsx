@@ -39,7 +39,9 @@ export default function FileInput({
           onClick={triggerFileInput}
         >
           {image ? (
-            <Image src={image} alt="image" fill className="rounded-xl" />
+            <div className="relative flex h-42 w-42 rounded-xl sm:h-[282px] sm:w-[282px]">
+              <Image src={image} alt="image" fill className="rounded-xl" />
+            </div>
           ) : (
             <div className="bg-gray100 flex h-42 w-42 items-center justify-center rounded-xl sm:h-[282px] sm:w-[282px]">
               <div className="flex flex-col items-center gap-3">

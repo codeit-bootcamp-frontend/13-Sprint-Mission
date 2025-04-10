@@ -43,14 +43,18 @@ export default function useAddBoard() {
     if (!e.target.files) return;
     const file = e.target.files[0];
 
+    const formData = new FormData();
+    formData.append("image", file);
+
     try {
-      const data = await apiClient.post<{ image: string }>("/images/upload", {
-        image: file,
-      });
+      const data = await apiClient.post<{ url: string }>(
+        "/images/upload",
+        formData,
+      );
 
       setFormBoard((prev) => ({
         ...prev,
-        image: data.data.image,
+        image: data.data.url,
       }));
     } catch (err) {
       console.error(err);
