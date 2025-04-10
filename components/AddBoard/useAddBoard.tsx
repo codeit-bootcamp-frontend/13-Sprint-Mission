@@ -10,7 +10,7 @@ export interface AddBoardType {
   image: string | null;
 }
 
-const INITIAL_ADD_BAORD_VALUE = {
+const INITIAL_ADD_BOARD_VALUE = {
   title: "",
   content: "",
   image: null,
@@ -18,13 +18,13 @@ const INITIAL_ADD_BAORD_VALUE = {
 
 export default function useAddBoard() {
   const [formBoard, setFormBoard] = useState<AddBoardType>(
-    INITIAL_ADD_BAORD_VALUE,
+    INITIAL_ADD_BOARD_VALUE,
   );
   const [isPending, setIsPending] = useState(false);
 
   const router = useRouter();
 
-  const isFormCompelete = checkAllFormComplete({
+  const isFormComplete = checkAllFormComplete({
     title: formBoard.title,
     content: formBoard.content,
   });
@@ -39,10 +39,28 @@ export default function useAddBoard() {
     }));
   };
 
+  const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files) return;
+    const file = e.target.files[0];
+
+    try {
+      const data = await apiClient.post<{ image: string }>("/images/upload", {
+        image: file,
+      });
+
+      setFormBoard((prev) => ({
+        ...prev,
+        image: data.data.image,
+      }));
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const handleBoardSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!isFormCompelete) return;
+    if (!isFormComplete) return;
 
     try {
       const response = await apiClient.post<{ id: number }>("/api/articles", {
@@ -64,8 +82,9 @@ export default function useAddBoard() {
   return {
     formBoard,
     isPending,
-    isFormCompelete,
+    isFormComplete,
     handleFormChange,
+    handleImageChange,
     handleBoardSubmit,
   };
 }

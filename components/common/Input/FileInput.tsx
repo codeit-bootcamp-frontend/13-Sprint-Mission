@@ -8,7 +8,7 @@ import plus from "@/public/icons/plus.svg";
 interface FileInputProps {
   image?: string | null;
   label?: string;
-  onChange: () => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function FileInput({

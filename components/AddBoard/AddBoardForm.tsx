@@ -1,5 +1,6 @@
 "use client";
 
+import DEFAULT_IMAGE from "@/constants/defaultImage";
 import Button from "../common/Button/Button";
 import FormField from "../common/FormField/FormField";
 import FileInput from "../common/Input/FileInput";
@@ -9,8 +10,9 @@ export default function AddBoardForm() {
   const {
     formBoard,
     isPending,
-    isFormCompelete,
+    isFormComplete,
     handleFormChange,
+    handleImageChange,
     handleBoardSubmit,
   } = useAddBoard();
   return (
@@ -18,7 +20,7 @@ export default function AddBoardForm() {
       <div className="flex items-center justify-between">
         <h1 className="text-bold20 text-gray800">게시글 쓰기</h1>
         <Button
-          disabled={!isFormCompelete}
+          disabled={!isFormComplete}
           paddingX={23}
           paddingY={12}
           rounded="8"
@@ -47,9 +49,8 @@ export default function AddBoardForm() {
         />
         <FileInput
           label="이미지"
-          onChange={() => {
-            console.log("");
-          }}
+          image={formBoard.image === DEFAULT_IMAGE ? "" : formBoard.image}
+          onChange={handleImageChange}
         />
       </div>
     </form>
