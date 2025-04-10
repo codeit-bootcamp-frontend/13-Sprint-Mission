@@ -1,7 +1,7 @@
 import { getItem } from "@/utils/localstorage";
 import { createFetchOptions } from "./createFetchOptions";
 
-const getAccessToken = () => getItem<string>("accessToken") ?? undefined;
+const getAccessToken = () => getItem("accessToken") ?? undefined;
 
 const fetcher = createFetchOptions({
   getAccessToken,

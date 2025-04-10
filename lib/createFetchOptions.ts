@@ -33,7 +33,10 @@ export function createFetchOptions({ getAccessToken }: FetchOptionsType) {
       fetchOptions.next = next;
     }
 
-    const res = await fetch(`${BASE_URL}${url}`, fetchOptions);
+    const fullUrl = url.startsWith("/api") ? url : `${BASE_URL}${url}`;
+
+    const res = await fetch(fullUrl, fetchOptions);
+
     const contentType = res.headers.get("content-type");
 
     const isJson = contentType?.includes("application/json");
