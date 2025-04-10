@@ -31,7 +31,6 @@ export default function LoginForm() {
         errorMessage={state.message}
         onChange={handleFormChange}
         placeholder="이메일을 입력해주세요"
-        required
       />
       <FormField
         id="password"
@@ -43,7 +42,6 @@ export default function LoginForm() {
         errorMessage={state.message}
         onChange={handleFormChange}
         placeholder="비밀번호를 입력해주세요"
-        required
         rightSlot={
           <PasswordToggleBtn
             isVisible={isPasswordVisible}

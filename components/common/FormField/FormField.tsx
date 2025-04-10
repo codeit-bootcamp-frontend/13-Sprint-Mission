@@ -25,12 +25,10 @@ export default function FormField({
   errorMessage,
   ...rest
 }: IOrTProps) {
-  const requiredLabe = required ? "*" : "";
-
   return (
     <div className="flex h-full w-full flex-col gap-4">
       <label className="text-gray800 text-bold18">
-        <span className="text-bold18 text-blue ml-0.5">{requiredLabe}</span>
+        {required && <span className="text-bold18 text-blue ml-0.5">*</span>}
         {label}
       </label>
       {isTextarea ? (
