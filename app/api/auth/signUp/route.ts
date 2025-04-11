@@ -21,19 +21,19 @@ export async function POST(req: Request) {
         field: "nickname",
         message: ERROR_MESSAGE.DUPLICATE_NICKNAME,
       },
-      { status: 400 }
+      { status: 400 },
     );
   }
 
   if (status === 200) {
     return NextResponse.json(
       { success: true, data: response },
-      { status: 201 }
+      { status: 201 },
     );
   } else {
     return NextResponse.json(
       { success: false, data: response },
-      { status: status }
+      { status: status },
     );
   }
 }

@@ -28,9 +28,17 @@ export async function POST(req: Request) {
 
   if (status === 200) {
     const accessToken = response.data.accessToken;
+    const refreshToken = response.data.refreshToken;
     const res = NextResponse.json({ data: response.data }, { status: 200 });
 
     res.cookies.set("accessToken", accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      path: "/",
+    });
+
+    res.cookies.set("refreshToken", refreshToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",

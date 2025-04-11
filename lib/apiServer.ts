@@ -1,13 +1,20 @@
 import { cookies } from "next/headers";
 import { createFetchOptions } from "./createFetchOptions";
+import { refreshAccessToken } from "@/app/lib/refreshAccessToken";
 
 const getAccessToken = async () => {
   const cookie = await cookies();
   return cookie.get("accessToken")?.value;
 };
 
+const getRefreshToken = async (): Promise<string> => {
+  const newAccessToken = await refreshAccessToken();
+  return newAccessToken;
+};
+
 const fetcher = createFetchOptions({
   getAccessToken,
+  getRefreshToken,
 });
 
 export const apiServer = {
