@@ -2,7 +2,7 @@ import {
   BoardItem,
   getBoards,
   INITIAL_BOARDS_VALUE,
-} from "@/app/(pages)/boards/action";
+} from "@/app/(pages)/board/action";
 import useResize from "@/hooks/useResize";
 import { useEffect, useMemo, useState } from "react";
 

@@ -2,7 +2,6 @@
 
 import BestItem from "./BestItem";
 import useBestData from "./useBestData";
-import { INITIAL_BOARDS_VALUE } from "@/app/(pages)/boards/action";
 
 export default function Best() {
   const { best } = useBestData();

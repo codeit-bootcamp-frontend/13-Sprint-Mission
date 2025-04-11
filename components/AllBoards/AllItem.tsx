@@ -14,7 +14,7 @@ export default function AllItem({ all }: AllItemProps) {
   return (
     <Link
       className="bg-bg border-gray200 flex h-[138px] w-full cursor-pointer flex-col gap-4 border-b pb-6"
-      href="/"
+      href={`/board/${all.id}`}
     >
       <div className="flex w-full items-start justify-between">
         <p className="text-gray800 text-bold20 h-[60px] flex-1 break-words">

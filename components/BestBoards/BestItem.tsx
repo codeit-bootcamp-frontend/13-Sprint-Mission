@@ -14,7 +14,7 @@ export default function BestItem({ best }: BestItemProps) {
   return (
     <Link
       className="bg-gray50 h-[198px] w-full cursor-pointer rounded-lg px-6 lg:h-[169px]"
-      href="/"
+      href={`/board/${best.id}`}
     >
       <div className="flex h-full w-full flex-col items-start justify-start gap-4 lg:gap-2.5">
         <div className="bg-blue flex h-[30px] w-[102px] items-center justify-center gap-1 rounded-br-[16px] rounded-bl-[16px]">

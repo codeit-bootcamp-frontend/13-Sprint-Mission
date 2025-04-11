@@ -11,7 +11,7 @@ export default function Header() {
 
   const Links = [
     {
-      link: "/boards",
+      link: "/board",
       name: "자유게시판",
     },
     {

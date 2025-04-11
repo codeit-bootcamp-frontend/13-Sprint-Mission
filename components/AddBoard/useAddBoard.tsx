@@ -74,7 +74,7 @@ export default function useAddBoard() {
       });
 
       if (response.status === 200) {
-        router.push(`/articles/${response.data.id}`);
+        router.push(`/board/${response.data.id}`);
       }
     } catch (err) {
       console.error(err);

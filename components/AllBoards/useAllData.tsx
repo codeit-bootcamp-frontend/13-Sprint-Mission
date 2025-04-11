@@ -4,7 +4,7 @@ import {
   BoardItem,
   getBoards,
   INITIAL_BOARDS_VALUE,
-} from "@/app/(pages)/boards/action";
+} from "@/app/(pages)/board/action";
 
 export default function useAllData(PAGE_SIZE: number) {
   const [all, setAll] = useState<BoardItem[]>([INITIAL_BOARDS_VALUE]);
