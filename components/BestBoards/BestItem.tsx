@@ -4,7 +4,7 @@ import medal from "@/public/icons/best.svg";
 import heart from "@/public/icons/emptyHeart.svg";
 import formattedDate from "@/utils/formattedDate";
 import BoardImage from "../BoardImage/BoardImage";
-import { BoardItem } from "@/app/(pages)/boards/action";
+import { BoardItem } from "@/app/(pages)/board/action";
 
 interface BestItemProps {
   best: BoardItem;
@@ -21,7 +21,7 @@ export default function BestItem({ best }: BestItemProps) {
           <Image src={medal} width={16} height={16} alt="medal" />
           <span className="text-bold16 text-white">Best</span>
         </div>
-        <div className="flex flex-col gap-10 lg:gap-5">
+        <div className="flex w-full flex-col gap-10 lg:gap-5">
           <div className="flex w-full items-center justify-between gap-2">
             <p className="line-break text-gray800 text-bold20 h-[60px] flex-1 break-words">
               {best.content}
