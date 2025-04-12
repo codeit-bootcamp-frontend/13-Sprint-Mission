@@ -1,11 +1,9 @@
-import Comment from "@/components/Comment/Comment";
-import Button from "@/components/common/Button/Button";
-import DetailBoard, {
-  DetailBoardProps,
-} from "@/components/DetailBoard/DetailBoard";
-import { apiServer } from "@/lib/apiServer";
 import Image from "next/image";
 import Link from "next/link";
+import Comment from "@/components/Comment/Comment";
+import Button from "@/components/common/Button/Button";
+import DetailBoard from "@/components/DetailBoard/DetailBoard";
+import CommentList from "@/components/Comment/CommentList";
 
 export default async function DetailBoardPage({
   params,
@@ -13,17 +11,14 @@ export default async function DetailBoardPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-
   const articleId = Number(id);
 
-  const response = await apiServer.get<DetailBoardProps>(
-    `/articles/${articleId}`,
-  );
   return (
     <>
       <div className="flex flex-col gap-8">
-        <DetailBoard board={response.data} />
+        <DetailBoard articleId={articleId} />
         <Comment articleId={articleId} />
+        <CommentList articleId={articleId} />
       </div>
       <Link href="/board">
         <Button paddingX={64} paddingY={12} className="m-auto">

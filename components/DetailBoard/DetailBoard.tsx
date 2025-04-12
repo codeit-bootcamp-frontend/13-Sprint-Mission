@@ -1,5 +1,6 @@
 import Image from "next/image";
 import formatISODateTime from "@/utils/formatISODateTime";
+import { apiServer } from "@/lib/apiServer";
 
 export interface DetailBoardProps {
   id: number;
@@ -15,7 +16,17 @@ export interface DetailBoardProps {
   };
 }
 
-export default function DetailBoard({ board }: { board: DetailBoardProps }) {
+export default async function DetailBoard({
+  articleId,
+}: {
+  articleId: number;
+}) {
+  const response = await apiServer.get<DetailBoardProps>(
+    `/articles/${articleId}`,
+  );
+
+  const board = response.data;
+
   return (
     <div className="flex w-full flex-col gap-4 sm:gap-6">
       <div className="border-gray200 flex flex-col gap-4 border-b pb-4">

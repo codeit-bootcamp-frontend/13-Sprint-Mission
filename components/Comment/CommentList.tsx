@@ -1,4 +1,5 @@
 import { apiServer } from "@/lib/apiServer";
+import { useUserStore } from "@/store/useUserStore";
 import Image from "next/image";
 
 interface Comment {
@@ -17,7 +18,7 @@ interface CommentResponse {
   list: Comment[];
 }
 
-const COMMENT_LIMIT = 3;
+const COMMENT_LIMIT = 4;
 
 export default async function CommentList({
   articleId,
@@ -28,6 +29,8 @@ export default async function CommentList({
     `/articles/${articleId}/comments?limit=${COMMENT_LIMIT}`,
   );
   const comments = response.data.list ?? [];
+
+  const userId = useUserStore.getState().userId;
 
   if (comments.length === 0)
     return (
@@ -51,7 +54,14 @@ export default async function CommentList({
         <div key={comment.id} className="sm:bg-bg border-gray300 border-b pb-2">
           <div className="mb-6 flex items-center justify-between">
             <p className="text-gray800 text-regular14">{comment.content}</p>
-            <Image src="/icons/kebab.svg" width={24} height={24} alt="kebab" />
+            {comment.writer.id == userId && (
+              <Image
+                src="/icons/kebab.svg"
+                width={24}
+                height={24}
+                alt="kebab"
+              />
+            )}
           </div>
           <div className="flex items-start gap-2">
             <Image src="/icons/user.svg" width={32} height={32} alt="user" />
