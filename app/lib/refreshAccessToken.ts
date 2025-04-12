@@ -17,12 +17,14 @@ export const refreshAccessToken = async () => {
 
   const { accessToken } = await response.json();
 
-  cookie.set("accessToken", accessToken, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    path: "/",
-  });
+  if (typeof window === undefined) {
+    cookie.set("accessToken", accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      path: "/",
+    });
+  }
 
   return accessToken;
 };
