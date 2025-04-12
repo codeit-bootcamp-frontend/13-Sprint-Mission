@@ -20,7 +20,7 @@ export default function DetailBoard({ board }: { board: DetailBoardProps }) {
     <div className="flex w-full flex-col gap-4 sm:gap-6">
       <div className="border-gray200 flex flex-col gap-4 border-b pb-4">
         <div className="flex w-full items-center justify-between">
-          <h1 className="text-bold20 text-gray800">{board.title}</h1>
+          <h2 className="text-bold20 text-gray800">{board.title}</h2>
           <Image
             src="/icons/kebab.svg"
             width={24}
