@@ -9,7 +9,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
   return (
     <div className="flex min-h-screen flex-col gap-6">
       <Header />
-      <main className="px-4 md:px-6 lg:px-[360px]">{children}</main>
+      <main className="lg:max-w-1200px mx-auto px-4 md:px-6">{children}</main>
     </div>
   );
 }
