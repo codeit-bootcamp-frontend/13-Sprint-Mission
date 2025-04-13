@@ -1,3 +1,3 @@
 export default function BoardsPage() {
-  return <div>Boards</div>;
+  return <div className="text-xs-12px-regular">Boards</div>;
 }
