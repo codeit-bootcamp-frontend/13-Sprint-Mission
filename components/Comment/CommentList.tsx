@@ -1,34 +1,13 @@
-import { apiServer } from "@/lib/apiServer";
 import { useUserStore } from "@/store/useUserStore";
 import Image from "next/image";
-
-interface Comment {
-  id: number;
-  content: string;
-  createdAt: string;
-  updatedAt: string;
-  writer: {
-    id: number;
-    nickname: string;
-    image: string;
-  };
-}
-
-interface CommentResponse {
-  list: Comment[];
-}
-
-const COMMENT_LIMIT = 4;
+import getComments from "./action";
 
 export default async function CommentList({
   articleId,
 }: {
   articleId: number;
 }) {
-  const response = await apiServer.get<CommentResponse>(
-    `/articles/${articleId}/comments?limit=${COMMENT_LIMIT}`,
-  );
-  const comments = response.data.list ?? [];
+  const comments = await getComments(articleId);
 
   const userId = useUserStore.getState().userId;
 
