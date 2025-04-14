@@ -53,6 +53,14 @@
   }
 }
 
+@utility text-bold32 {
+  @layer components {
+    font-size: 32px;
+    line-height: 44px;
+    font-weight: 700;
+  }
+}
+
 @utility text-bold28 {
   @layer components {
     font-size: 28px;
