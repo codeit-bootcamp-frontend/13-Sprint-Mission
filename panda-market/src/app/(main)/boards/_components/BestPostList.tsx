@@ -1,6 +1,6 @@
 'use client';
 
-import BestPostCard from './BestPostCard';
+import BestPostCard from '@/app/(main)/boards/_components/BestPostCard';
 
 export default function BestPostList() {
   // card rendering
