@@ -1,5 +1,3 @@
-"use client";
-
 import Button from "@/components/common/Button/Button";
 import HomeCardSection from "@/components/HomePage/HomeCardSection";
 import HomeFooter from "@/components/HomePage/HomeFooter";
@@ -18,7 +16,7 @@ export default function HomePage() {
                 <br />
                 거래해 보세요
               </h1>
-              <Link href="#">
+              <Link href="/items">
                 <Button paddingX={110} paddingY={16}>
                   <p className="text-semi18 sm:text-semi20 shrink-0">
                     구경하러가기
