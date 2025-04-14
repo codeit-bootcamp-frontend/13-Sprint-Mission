@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function PostCard() {
   return (
-    <article className="flex flex-col bg-[#fcfcfc] px-2 pt-2 pb-6">
+    <article className="flex cursor-pointer flex-col bg-[#fcfcfc] px-2 pt-2 pb-6 shadow-lg transition-transform duration-200 ease-out hover:-translate-y-1">
       <header className="mb-4 flex justify-between">
         <h2 className="text-xl-semibold flex-1">
           맥북 16인치 16기가 1테라 정도 사양이면 얼마에 팔아야하나요?
