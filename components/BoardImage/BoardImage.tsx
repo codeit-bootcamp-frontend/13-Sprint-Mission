@@ -1,5 +1,4 @@
 import Image from "next/image";
-import none from "@/public/icons/whitePanda.svg";
 import { useState } from "react";
 
 export default function BoardImage({ image }: { image: string }) {
@@ -16,7 +15,7 @@ export default function BoardImage({ image }: { image: string }) {
           onError={() => setIsError(true)}
         />
       ) : (
-        <Image width={48} height={48} src={none} alt="none" />
+        <Image src="/icons/whitePanda.svg" width={48} height={48} alt="none" />
       )}
     </div>
   );
