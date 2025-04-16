@@ -3,7 +3,7 @@
 import BestPostCard from '@/app/(main)/boards/_components/BestPostCard';
 
 export default function BestPostList() {
-  // card rendering
+  // GET API
   return (
     <div className="flex h-[169px] gap-6">
       <BestPostCard />

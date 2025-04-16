@@ -4,7 +4,7 @@ import AllPostList from '@/app/(main)/boards/_components/AllPostList';
 import PostsHeaderWithCreate from '@/app/(main)/boards/_components/PostsHeaderWithCreate';
 
 export default function BoardsPage() {
-  // GET
+  // fetch API, revalidate option
 
   return (
     <div>
