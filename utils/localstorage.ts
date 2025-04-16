@@ -1,12 +1,13 @@
-export function setItem(key: string, value: string): void {
+export function setItem<T>(key: string, value: T): void {
   if (typeof window !== "undefined") {
-    localStorage.setItem(key, value);
+    localStorage.setItem(key, JSON.stringify(value));
   }
 }
 
-export function getItem(key: string): string | null {
+export function getItem<T>(key: string): T | null {
   if (typeof window !== "undefined") {
-    return localStorage.getItem(key);
+    const item = localStorage.getItem(key);
+    return item ? JSON.parse(item) : null;
   }
   return null;
 }

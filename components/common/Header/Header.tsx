@@ -3,14 +3,16 @@
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { useUserStore } from "@/store/useUserStore";
+import { useState } from "react";
+import { getItem } from "@/utils/localstorage";
 import Button from "../Button/Button";
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const pathname = usePathname();
   const boardPages = pathname.startsWith("/board");
-
-  const { userId } = useUserStore();
+  const userId = getItem("userId");
 
   const Links = [
     {
@@ -59,7 +61,17 @@ export default function Header() {
           </div>
         </div>
         {userId !== 0 ? (
-          <Image src="/icons/user.svg" width={40} height={40} alt="user" />
+          <div
+            onClick={() => setIsOpen((prev) => !prev)}
+            className="relative flex cursor-pointer justify-center"
+          >
+            <Image src="/icons/user.svg" width={40} height={40} alt="user" />
+            {isOpen && (
+              <div className="border-gray300 text-regular14 text-gray500 absolute top-15 right-0 w-[102px] cursor-pointer rounded-lg border bg-white p-4 text-center">
+                로그아웃
+              </div>
+            )}
+          </div>
         ) : (
           <Link href="/login">
             <Button paddingX={23} paddingY={12} rounded="8" fontSize="16">
