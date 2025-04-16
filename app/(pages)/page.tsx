@@ -1,8 +1,8 @@
+import Image from "next/image";
+import Link from "next/link";
 import Button from "@/components/common/Button/Button";
 import HomeCardSection from "@/components/HomePage/HomeCardSection";
 import HomeFooter from "@/components/HomePage/HomeFooter";
-import Image from "next/image";
-import Link from "next/link";
 
 export default function HomePage() {
   return (
