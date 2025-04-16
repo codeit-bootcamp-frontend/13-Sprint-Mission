@@ -1,18 +1,25 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { getItem } from "@/utils/localstorage";
+import { useEffect, useState } from "react";
+import { getItem, removeItem } from "@/utils/localstorage";
 import Button from "../Button/Button";
+import { apiClient } from "@/lib/apiClient";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [userId, setUserId] = useState<number | null>(null);
 
+  useEffect(() => {
+    const id = getItem<number>("userId");
+    setUserId(id);
+  }, []);
+
+  const router = useRouter();
   const pathname = usePathname();
   const boardPages = pathname.startsWith("/board");
-  const userId = getItem("userId");
 
   const Links = [
     {
@@ -25,6 +32,21 @@ export default function Header() {
       name: "중고마켓",
     },
   ];
+
+  const logout = async () => {
+    const res = await apiClient.post("/api/auth/signOut");
+    console.log(res);
+
+    if (res.status !== 200) {
+      return;
+    }
+
+    router.push("/");
+
+    removeItem("userId");
+    removeItem("accessToken");
+    setUserId(null);
+  };
 
   return (
     <div className="sticky top-0 z-[100] flex h-[70px] w-full items-center justify-center border-b border-[#dfdfdf] bg-white px-4 py-[9px] sm:px-6">
@@ -60,14 +82,17 @@ export default function Header() {
             ))}
           </div>
         </div>
-        {userId !== 0 ? (
+        {userId ? (
           <div
             onClick={() => setIsOpen((prev) => !prev)}
             className="relative flex cursor-pointer justify-center"
           >
             <Image src="/icons/user.svg" width={40} height={40} alt="user" />
             {isOpen && (
-              <div className="border-gray300 text-regular14 text-gray500 absolute top-15 right-0 w-[102px] cursor-pointer rounded-lg border bg-white p-4 text-center">
+              <div
+                onClick={logout}
+                className="border-gray300 text-regular14 text-gray500 absolute top-15 right-0 w-[102px] cursor-pointer rounded-lg border bg-white p-4 text-center"
+              >
                 로그아웃
               </div>
             )}
