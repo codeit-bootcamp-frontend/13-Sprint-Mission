@@ -1,12 +1,11 @@
 import { NextResponse } from "next/server";
 import { apiServer } from "@/lib/apiServer";
-import { useUserStore } from "@/store/useUserStore";
 
 export interface User {
   id: number;
 }
 
-interface LoginResponse {
+export interface LoginResponse {
   accessToken: string;
   refreshToken: string;
   user: User;
@@ -25,9 +24,6 @@ export async function POST(req: Request) {
   if (status === 200) {
     const accessToken = response.data.accessToken;
     const refreshToken = response.data.refreshToken;
-    const userId = response.data.user.id;
-
-    useUserStore.getState().setUserId(userId);
 
     const res = NextResponse.json({ data: response.data }, { status: 200 });
 
@@ -39,13 +35,6 @@ export async function POST(req: Request) {
     });
 
     res.cookies.set("refreshToken", refreshToken, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
-      path: "/",
-    });
-
-    res.cookies.set("userId", JSON.stringify(userId), {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",

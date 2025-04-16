@@ -3,10 +3,14 @@
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { useUserStore } from "@/store/useUserStore";
+import Button from "../Button/Button";
 
 export default function Header() {
   const pathname = usePathname();
   const boardPages = pathname.startsWith("/board");
+
+  const { userId } = useUserStore();
 
   const Links = [
     {
@@ -54,7 +58,15 @@ export default function Header() {
             ))}
           </div>
         </div>
-        <Image src="/icons/user.svg" width={40} height={40} alt="user" />
+        {userId !== 0 ? (
+          <Image src="/icons/user.svg" width={40} height={40} alt="user" />
+        ) : (
+          <Link href="/login">
+            <Button paddingX={23} paddingY={12} rounded="8" fontSize="16">
+              로그인
+            </Button>
+          </Link>
+        )}
       </div>
     </div>
   );

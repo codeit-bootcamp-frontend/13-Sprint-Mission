@@ -4,10 +4,18 @@ import { ResponseState } from "../Signup/useSignup";
 import checkAllFormComplete from "@/utils/checkAllFormComplete";
 import loginValidate from "./loginValidate";
 import { setItem } from "@/utils/localstorage";
+import { useUserStore } from "@/store/useUserStore";
+import { apiClient } from "@/lib/apiClient";
+import { LoginResponse } from "@/app/api/auth/signIn/route";
 
 export interface LoginType {
   email: string;
   password: string;
+}
+
+interface LoginResponseType {
+  data: LoginResponse;
+  status: number;
 }
 
 const INITIAL_LOGIN_FORM_VALUE = {
@@ -25,6 +33,8 @@ export default function useLogin() {
   const [isPending, setIsPending] = useState(false);
 
   const router = useRouter();
+
+  const { setUserId } = useUserStore();
 
   const toggleVisiblePassword = () => {
     setIsPasswordVisible((prev) => !prev);
@@ -55,28 +65,22 @@ export default function useLogin() {
     }
 
     try {
-      const response = await fetch("/api/auth/signIn", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
+      const response = await apiClient.post<LoginResponseType>(
+        "/api/auth/signIn",
+        {
           email: formData.email,
           password: formData.password,
-        }),
-      });
+        },
+      );
 
-      const result = await response.json();
+      const result = response.data;
 
-      if (response.ok) {
+      if (response.status === 200) {
         router.push("/");
         setItem("accessToken", result.data.accessToken);
-        return;
-      }
 
-      if (!response.ok) {
-        const { field, message } = result;
-        setState({ field, message });
+        setUserId(result.data.user.id);
+
         return;
       }
     } catch (err) {
