@@ -7,17 +7,36 @@ import {
 } from '../types/article';
 import { apiClient } from './index';
 
-// get All articles
+// get all articles
 export const getAllArticles = async ({
   page = 1,
   pageSize = 10,
   orderBy = 'recent',
   keyword,
-}: GetAllArticlesParams) => {
-  const res = await apiClient.get<GetArticlesResponse>('/articles', {
-    params: { page, pageSize, orderBy, keyword },
+}: GetAllArticlesParams): Promise<GetArticlesResponse> => {
+  // set query parameter
+  const params = new URLSearchParams();
+  params.append('page', page.toString());
+  params.append('pageSize', pageSize.toString());
+  params.append('orderBy', orderBy);
+  if (keyword) {
+    params.append('keyword', keyword);
+  }
+
+  // get baseURL
+  const baseURL = process.env.NEXT_PUBLIC_API_URL;
+  const res = await fetch(`${baseURL}/articles?${params.toString()}`, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
   });
-  return res.data;
+
+  if (!res.ok) {
+    throw new Error(`HTTP Error : ${res.status}`);
+  }
+
+  const data = (await res.json()) as GetArticlesResponse;
+  return data;
 };
 
 // post article

@@ -2,9 +2,12 @@ import SearchInput from '@/components/common/Input/SearchInput';
 import BestPostList from '@/app/(main)/boards/_components/BestPostList';
 import AllPostList from '@/app/(main)/boards/_components/AllPostList';
 import PostsHeaderWithCreate from '@/app/(main)/boards/_components/PostsHeaderWithCreate';
+import { getAllArticles } from '@/lib/api/article';
 
-export default function BoardsPage() {
+export default async function BoardsPage() {
   // fetch API, revalidate option
+  const articles = await getAllArticles({});
+  console.log(articles);
 
   return (
     <div>
@@ -21,7 +24,7 @@ export default function BoardsPage() {
           <div>DropDown</div>
         </div>
 
-        <AllPostList />
+        <AllPostList posts={articles.list} />
       </section>
     </div>
   );
