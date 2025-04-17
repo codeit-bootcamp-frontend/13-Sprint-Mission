@@ -29,6 +29,9 @@ export const getAllArticles = async ({
     headers: {
       'Content-Type': 'application/json',
     },
+    next: {
+      revalidate: 3600,
+    },
   });
 
   if (!res.ok) {
