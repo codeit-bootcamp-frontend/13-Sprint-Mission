@@ -1,10 +1,21 @@
 import { getItem } from "@/utils/localstorage";
 import { createFetchOptions } from "./createFetchOptions";
 
-const getAccessToken = () => getItem("accessToken") ?? undefined;
+const getAccessToken = () => getItem<string>("accessToken") ?? undefined;
+
+const getRefreshToken = async () => {
+  const response = await fetch("/api/auth/refresh-token", {
+    method: "POST",
+  });
+
+  const data = await response.json();
+
+  return data.accessToken;
+};
 
 const fetcher = createFetchOptions({
   getAccessToken,
+  getRefreshToken,
 });
 
 export const apiClient = {
