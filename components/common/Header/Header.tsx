@@ -35,7 +35,6 @@ export default function Header() {
 
   const logout = async () => {
     const res = await apiClient.post("/api/auth/signOut");
-    console.log(res);
 
     if (res.status !== 200) {
       return;

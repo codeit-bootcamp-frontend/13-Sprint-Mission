@@ -1,6 +1,6 @@
-import { useUserStore } from "@/store/useUserStore";
 import Image from "next/image";
 import getComments from "./action";
+import { cookies } from "next/headers";
 
 export default async function CommentList({
   articleId,
@@ -9,7 +9,9 @@ export default async function CommentList({
 }) {
   const comments = await getComments(articleId);
 
-  const userId = useUserStore.getState().userId;
+  const cookie = await cookies();
+  const rawUserId = cookie.get("userId")?.value;
+  const userId = rawUserId ? Number(JSON.parse(rawUserId)) : null;
 
   if (comments.length === 0)
     return (
@@ -33,7 +35,7 @@ export default async function CommentList({
         <div key={comment.id} className="sm:bg-bg border-gray300 border-b pb-2">
           <div className="mb-6 flex items-center justify-between">
             <p className="text-gray800 text-regular14">{comment.content}</p>
-            {comment.writer.id == userId && (
+            {comment.writer.id === userId && (
               <Image
                 src="/icons/kebab.svg"
                 width={24}
