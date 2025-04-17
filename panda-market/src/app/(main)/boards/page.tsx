@@ -6,8 +6,7 @@ import { getAllArticles } from '@/lib/api/article';
 
 export default async function BoardsPage() {
   // fetch API, revalidate option
-  const articles = await getAllArticles({});
-  console.log(articles);
+  const articles = await getAllArticles();
 
   return (
     <div>

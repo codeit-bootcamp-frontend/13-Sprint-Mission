@@ -13,7 +13,7 @@ export const getAllArticles = async ({
   pageSize = 10,
   orderBy = 'recent',
   keyword,
-}: GetAllArticlesParams): Promise<GetArticlesResponse> => {
+}: GetAllArticlesParams = {}): Promise<GetArticlesResponse> => {
   // set query parameter
   const params = new URLSearchParams();
   params.append('page', page.toString());

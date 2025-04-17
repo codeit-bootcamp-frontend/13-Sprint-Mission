@@ -10,18 +10,24 @@ type AllPostListProps = {
 export default function AllPostList({ posts }: AllPostListProps) {
   console.log(posts);
   // tanstack query
+
   return (
     <div className="flex flex-col gap-6">
-      {posts.map((post) => (
-        <PostCard
-          key={post.id}
-          title={post.title}
-          imageUrl={post.image}
-          likeCount={post.likeCount}
-          nickName={post.writer.nickname}
-          createdAt={post.createdAt}
-        />
-      ))}
+      {posts.map((post) => {
+        const isValidImage = post.image?.startsWith(
+          'https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com',
+        );
+        return (
+          <PostCard
+            key={post.id}
+            title={post.title}
+            imageUrl={isValidImage ? post.image : '/images/default_card.png'}
+            likeCount={post.likeCount}
+            nickName={post.writer.nickname}
+            createdAt={post.createdAt}
+          />
+        );
+      })}
     </div>
   );
 }
