@@ -1,38 +1,22 @@
+import {
+  ArticleBody,
+  ArticleResponse,
+  DeleteArticleResponse,
+  GetAllArticlesParams,
+  GetArticlesResponse,
+} from '../types/article';
 import { apiClient } from './index';
 
-interface ArticleBody {
-  image: string;
-  content: string;
-  title: string;
-}
-
-// article common type
-export interface ArticleResponse {
-  updatedAt: string;
-  createdAt: string;
-  likeCount: number;
-  writer: {
-    nickname: string;
-    id: number;
-  };
-  image: string;
-  content: string;
-  title: string;
-  id: number;
-}
-
-interface GetArticlesResponse {
-  totalCount: number;
-  list: ArticleResponse[];
-}
-
-interface DeleteArticleResponse {
-  id: number;
-}
-
-// fetch All articles
-export const getAllArticles = async () => {
-  const res = await apiClient.get<GetArticlesResponse>('/articles');
+// get All articles
+export const getAllArticles = async ({
+  page = 1,
+  pageSize = 10,
+  orderBy = 'recent',
+  keyword,
+}: GetAllArticlesParams) => {
+  const res = await apiClient.get<GetArticlesResponse>('/articles', {
+    params: { page, pageSize, orderBy, keyword },
+  });
   return res.data;
 };
 
