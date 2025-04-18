@@ -8,11 +8,6 @@ type BestPostListProps = {
 };
 
 export default function BestPostList({ posts }: BestPostListProps) {
-  console.log(posts);
-  // posts 에서 likeCount 기준으로
-  // map 으로 렌더링할 때 likeCount 가 가장 많은 순부터 적은 순으로 우선 3개 나열
-  // GET API
-
   return (
     <div className="flex h-[169px] gap-6">
       {posts.map((post) => {
