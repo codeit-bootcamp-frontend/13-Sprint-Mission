@@ -31,7 +31,7 @@ export default function PostCard({
         </div>
         <div className="flex gap-2">
           <Image src="/icons/heartIcon.svg" alt="heart icon" width={24} height={24} />
-          <span className="text-lg-regular text-gray-500">{likeCount}</span>
+          <span className="text-lg-regular text-gray-500">{likeCount}+</span>
         </div>
       </footer>
     </article>

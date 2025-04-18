@@ -38,7 +38,7 @@ export const getAllArticles = async ({
     throw new Error(`HTTP Error : ${res.status}`);
   }
 
-  const data = (await res.json()) as GetArticlesResponse;
+  const data = await res.json();
   return data;
 };
 

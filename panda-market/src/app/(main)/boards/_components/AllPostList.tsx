@@ -8,7 +8,6 @@ type AllPostListProps = {
 };
 
 export default function AllPostList({ posts }: AllPostListProps) {
-  console.log(posts);
   // tanstack query
 
   return (
@@ -24,7 +23,7 @@ export default function AllPostList({ posts }: AllPostListProps) {
             imageUrl={isValidImage ? post.image : '/images/default_card.png'}
             likeCount={post.likeCount}
             nickName={post.writer.nickname}
-            createdAt={post.createdAt}
+            createdAt={post.createdAt.split('T')[0]}
           />
         );
       })}
