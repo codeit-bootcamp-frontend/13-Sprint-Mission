@@ -7,12 +7,16 @@ import PostList from '@/app/(main)/boards/_components/PostList';
 export default async function BoardsPage() {
   // fetch API
   const articles = await getArticles();
+  const bestArticles = await getArticles({
+    pageSize: 3,
+    orderBy: 'like',
+  });
 
   return (
     <div>
       <section className="flex flex-col gap-6">
         <h2 className="text-xl-bold text-gray-900">베스트 게시글</h2>
-        <BestPostList />
+        <BestPostList posts={bestArticles.list} />
       </section>
 
       <section className="mt-10 flex flex-col gap-6">

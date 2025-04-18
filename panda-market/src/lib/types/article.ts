@@ -1,7 +1,7 @@
 export interface GetArticlesParams {
   page?: number;
   pageSize?: number;
-  orderBy?: string;
+  orderBy?: 'recent' | 'like';
   keyword?: string;
 }
 
