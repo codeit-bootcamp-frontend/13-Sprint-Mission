@@ -7,7 +7,7 @@ type AllPostListProps = {
   posts: ArticleResponse[]; // [{},{},...]
 };
 
-export default function AllPostList({ posts }: AllPostListProps) {
+export default function PostList({ posts }: AllPostListProps) {
   // tanstack query
 
   return (

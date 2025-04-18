@@ -2,18 +2,18 @@ import {
   ArticleBody,
   ArticleResponse,
   DeleteArticleResponse,
-  GetAllArticlesParams,
+  GetArticlesParams,
   GetArticlesResponse,
 } from '../types/article';
 import { apiClient } from './index';
 
 // get all articles
-export const getAllArticles = async ({
+export const getArticles = async ({
   page = 1,
   pageSize = 10,
   orderBy = 'recent',
   keyword,
-}: GetAllArticlesParams = {}): Promise<GetArticlesResponse> => {
+}: GetArticlesParams = {}): Promise<GetArticlesResponse> => {
   // set query parameter
   const params = new URLSearchParams();
   params.append('page', page.toString());
