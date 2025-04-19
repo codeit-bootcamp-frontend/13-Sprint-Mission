@@ -11,7 +11,7 @@ export default function BestPostList({ posts }: BestPostListProps) {
   return (
     <div className="flex h-[169px] gap-6">
       {posts.map((post) => {
-        // 로직
+        // invalid image url handling
         const isValidImage = post.image?.startsWith(
           'https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com',
         );

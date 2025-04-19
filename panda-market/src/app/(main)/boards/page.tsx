@@ -4,12 +4,23 @@ import PostsHeaderWithCreate from '@/app/(main)/boards/_components/PostsHeaderWi
 import { getArticles } from '@/lib/api/article';
 import PostList from '@/app/(main)/boards/_components/PostList';
 
-export default async function BoardsPage() {
-  // fetch API
+export default async function BoardsPage({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
+  // get articles
   const articles = await getArticles();
+
+  // get best articles
   const bestArticles = await getArticles({
     pageSize: 3,
     orderBy: 'like',
+  });
+
+  // get filtered articles with keyword
+  const filteredArticles = await getArticles({
+    keyword: searchParams.keyword as string,
   });
 
   return (
@@ -27,7 +38,7 @@ export default async function BoardsPage() {
           <div>DropDown</div>
         </div>
 
-        <PostList posts={articles.list} />
+        <PostList posts={searchParams.keyword ? filteredArticles.list : articles.list} />
       </section>
     </div>
   );
