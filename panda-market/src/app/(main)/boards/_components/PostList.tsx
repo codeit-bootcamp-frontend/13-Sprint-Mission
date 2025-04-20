@@ -11,8 +11,9 @@ type AllPostListProps = {
 export default function PostList({ posts }: AllPostListProps) {
   const router = useRouter();
   // tanstack query
-  const handlePostCardClick = () => {
-    router.push('/boards/addboard');
+  const handlePostClick = (postId: number) => {
+    console.log('route to post page');
+    router.push(`/boards/${postId}`);
   };
 
   return (
@@ -29,7 +30,7 @@ export default function PostList({ posts }: AllPostListProps) {
             likeCount={post.likeCount}
             nickName={post.writer.nickname}
             createdAt={post.createdAt.split('T')[0]}
-            onClick={handlePostCardClick}
+            onClick={() => handlePostClick(post.id)}
           />
         );
       })}

@@ -2,12 +2,19 @@
 
 import BestPostCard from '@/app/(main)/boards/_components/BestPostCard';
 import { ArticleResponse } from '@/lib/types/article';
+import { useRouter } from 'next/navigation';
 
 type BestPostListProps = {
   posts: ArticleResponse[];
 };
 
 export default function BestPostList({ posts }: BestPostListProps) {
+  const router = useRouter();
+
+  const handlePostClick = (postId: number) => {
+    router.push(`/boards/${postId}`);
+  };
+
   return (
     <div className="flex h-[169px] gap-6">
       {posts.map((post) => {
@@ -24,6 +31,7 @@ export default function BestPostList({ posts }: BestPostListProps) {
             likeCount={post.likeCount}
             nickName={post.writer.nickname}
             createdAt={post.createdAt.split('T')[0]}
+            onClick={() => handlePostClick(post.id)}
           />
         );
       })}
