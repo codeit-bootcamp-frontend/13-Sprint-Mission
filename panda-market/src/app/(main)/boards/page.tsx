@@ -17,11 +17,12 @@ export default async function BoardsPage({ searchParams }: { searchParams: Searc
     orderBy: 'like',
   });
 
-  const { keyword } = await searchParams;
+  const { keyword, orderBy } = await searchParams;
 
   // get filtered articles with keyword
   const filteredArticles = await getArticles({
     keyword: keyword as string,
+    orderBy: orderBy as string,
   });
 
   return (
@@ -39,7 +40,7 @@ export default async function BoardsPage({ searchParams }: { searchParams: Searc
           <DropDown />
         </div>
 
-        <PostList posts={keyword ? filteredArticles.list : articles.list} />
+        <PostList posts={keyword || orderBy ? filteredArticles.list : articles.list} />
       </section>
     </div>
   );
