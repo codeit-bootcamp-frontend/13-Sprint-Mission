@@ -3,6 +3,7 @@ import BestPostList from '@/app/(main)/boards/_components/BestPostList';
 import PostsHeaderWithCreate from '@/app/(main)/boards/_components/PostsHeaderWithCreate';
 import { getArticles } from '@/lib/api/article';
 import PostList from '@/app/(main)/boards/_components/PostList';
+import DropDown from '@/components/common/DropDown';
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
@@ -35,7 +36,7 @@ export default async function BoardsPage({ searchParams }: { searchParams: Searc
 
         <div className="flex items-center justify-between gap-4">
           <SearchInput />
-          <div>DropDown</div>
+          <DropDown />
         </div>
 
         <PostList posts={keyword ? filteredArticles.list : articles.list} />

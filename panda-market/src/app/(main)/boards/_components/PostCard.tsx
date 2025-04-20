@@ -8,6 +8,7 @@ type PostCardProps = {
   likeCount: number;
   nickName: string;
   createdAt: string;
+  onClick: () => void;
 };
 
 export default function PostCard({
@@ -16,6 +17,7 @@ export default function PostCard({
   likeCount,
   nickName,
   createdAt,
+  onClick,
 }: PostCardProps) {
   return (
     <article className="flex cursor-pointer flex-col bg-[#fcfcfc] px-2 pt-2 pb-6 shadow-lg transition-transform duration-200 ease-out hover:-translate-y-1">

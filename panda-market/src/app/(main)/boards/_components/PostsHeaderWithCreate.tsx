@@ -9,6 +9,7 @@ export default function PostsHeaderWithCreate() {
   const handleCreatePost = () => {
     router.push('/boards/addboard');
   };
+
   return (
     <div className="flex justify-between">
       <h2 className="text-xl-bold font-bold text-gray-900">게시글</h2>

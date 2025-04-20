@@ -2,13 +2,18 @@
 
 import { ArticleResponse } from '@/lib/types/article';
 import PostCard from './PostCard';
+import { useRouter } from 'next/navigation';
 
 type AllPostListProps = {
   posts: ArticleResponse[]; // [{},{},...]
 };
 
 export default function PostList({ posts }: AllPostListProps) {
+  const router = useRouter();
   // tanstack query
+  const handlePostCardClick = () => {
+    router.push('/boards/addboard');
+  };
 
   return (
     <div className="flex flex-col gap-6">
@@ -24,6 +29,7 @@ export default function PostList({ posts }: AllPostListProps) {
             likeCount={post.likeCount}
             nickName={post.writer.nickname}
             createdAt={post.createdAt.split('T')[0]}
+            onClick={handlePostCardClick}
           />
         );
       })}
