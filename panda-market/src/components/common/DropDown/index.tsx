@@ -1,10 +1,12 @@
 'use client';
 
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 export default function DropDown() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const router = useRouter();
 
   // todo : check
   const dropDownOptions = [
@@ -16,9 +18,13 @@ export default function DropDown() {
     setIsOpen((prev) => !prev);
   };
 
-  const handleDropDownOptionClick = (selectedOption: string) => {
-    console.log('selectedId', selectedOption);
+  const handleDropDownOptionClick = (option: string) => {
+    // option :recent, like
+    const params = new URLSearchParams(window.location.search);
+    params.set('orderBy', option);
+    router.push(`?${params}`);
   };
+
   return (
     <div className="relative">
       {/* dropdown handler*/}
