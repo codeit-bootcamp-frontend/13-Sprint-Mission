@@ -16,12 +16,22 @@ export default function DropDown() {
   type OptionType = 'recent' | 'like';
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [labelName, setLabelName] = useState<string>('최신순');
 
   // 선택된 드롭다운 옵션에 따라 경로 쿼리 스트링 업데이트
-  const handleDropDownOptionClick = (selectedOption: OptionType) => {
+  const handleDropDownOptionClick = (optionId: OptionType) => {
+    // optionId : 선택된 옵션
     const params = new URLSearchParams(window.location.search);
-    params.set('orderBy', selectedOption);
+
+    const currentOrder = params.get('orderBy') || 'recent';
+    if (currentOrder === optionId) return;
+
+    params.set('orderBy', optionId);
     router.push(`?${params}`);
+
+    // set dropdown handler label
+    setLabelName(dropDownOptions.find((option) => optionId === option.id)?.label as string);
+    setIsOpen(false); // close modal
   };
 
   // 드롭다운 외부 클릭 시 닫힘
@@ -46,7 +56,7 @@ export default function DropDown() {
         onClick={() => setIsOpen((prev) => !prev)}
       >
         <div className="flex gap-6">
-          <span>최신순</span>
+          <span>{labelName}</span>
           <Image src="/icons/arrow_down.svg" alt="arrow down" width={16} height={8} />
         </div>
       </div>
