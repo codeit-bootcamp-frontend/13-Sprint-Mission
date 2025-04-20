@@ -6,8 +6,18 @@ import { useState } from 'react';
 export default function DropDown() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
+  // todo : check
+  const dropDownOptions = [
+    { id: 'recent', label: '최신순' },
+    { id: 'like', label: '좋아요순' },
+  ];
+
   const handleDropDownToggle = () => {
     setIsOpen((prev) => !prev);
+  };
+
+  const handleDropDownOptionClick = (selectedOption: string) => {
+    console.log('selectedId', selectedOption);
   };
   return (
     <div className="relative">
@@ -23,14 +33,19 @@ export default function DropDown() {
       </div>
 
       {isOpen && (
-        <div className="absolute z-50 flex w-[130px] flex-col items-center justify-center rounded-xl border border-gray-200 bg-white">
-          <span className="h-[42px] w-full cursor-pointer border-b border-gray-200 pt-[9px] pb-[7px] text-center">
-            최신순
-          </span>
-          <span className="h-[42px] w-full cursor-pointer pt-[9px] pb-[7px] text-center">
-            좋아요순
-          </span>
-        </div>
+        <ul className="absolute top-full z-50 mt-2 flex w-[130px] flex-col items-center justify-center divide-x divide-gray-200 rounded-xl border border-gray-200 bg-white">
+          {dropDownOptions.map((option) => (
+            <li
+              key={option.id}
+              className="h-[42px] w-full cursor-pointer pt-[9px] pb-[7px] text-center"
+              onClick={() => {
+                handleDropDownOptionClick(option.id);
+              }}
+            >
+              {option.label}
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   );
