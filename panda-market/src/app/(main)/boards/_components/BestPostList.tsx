@@ -1,6 +1,6 @@
 'use client';
 
-import BestPostCard from '@/app/(main)/boards/_components/BestPostCard';
+import BestPost from '@/app/(main)/boards/_components/BestPost';
 import { ArticleResponse } from '@/lib/types/article';
 import { useRouter } from 'next/navigation';
 
@@ -24,7 +24,7 @@ export default function BestPostList({ posts }: BestPostListProps) {
         );
 
         return (
-          <BestPostCard
+          <BestPost
             key={post.id}
             title={post.title}
             imageUrl={isValidImage ? post.image : '/images/default_card.png'}

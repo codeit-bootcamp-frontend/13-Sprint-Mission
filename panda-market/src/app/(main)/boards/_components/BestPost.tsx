@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-type BestPostCardProps = {
+type BestPostProps = {
   title: string;
   imageUrl: string;
   likeCount: number;
@@ -11,14 +11,14 @@ type BestPostCardProps = {
   onClick: () => void;
 };
 
-export default function BestPostCard({
+export default function BestPost({
   title,
   imageUrl,
   likeCount,
   nickName,
   createdAt,
   onClick,
-}: BestPostCardProps) {
+}: BestPostProps) {
   return (
     <article
       onClick={onClick}

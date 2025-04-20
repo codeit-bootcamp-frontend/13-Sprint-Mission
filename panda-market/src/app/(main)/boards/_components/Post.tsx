@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-type PostCardProps = {
+type PostProps = {
   title: string;
   imageUrl: string;
   likeCount: number;
@@ -11,14 +11,14 @@ type PostCardProps = {
   onClick: () => void;
 };
 
-export default function PostCard({
+export default function Post({
   title,
   imageUrl,
   likeCount,
   nickName,
   createdAt,
   onClick,
-}: PostCardProps) {
+}: PostProps) {
   return (
     <article
       onClick={onClick}

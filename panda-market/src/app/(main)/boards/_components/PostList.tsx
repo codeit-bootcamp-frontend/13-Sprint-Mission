@@ -1,7 +1,7 @@
 'use client';
 
 import { ArticleResponse } from '@/lib/types/article';
-import PostCard from './PostCard';
+import Post from '@/app/(main)/boards/_components/Post';
 import { useRouter } from 'next/navigation';
 
 type AllPostListProps = {
@@ -10,7 +10,7 @@ type AllPostListProps = {
 
 export default function PostList({ posts }: AllPostListProps) {
   const router = useRouter();
-  // tanstack query
+
   const handlePostClick = (postId: number) => {
     console.log('route to post page');
     router.push(`/boards/${postId}`);
@@ -23,7 +23,7 @@ export default function PostList({ posts }: AllPostListProps) {
           'https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com',
         );
         return (
-          <PostCard
+          <Post
             key={post.id}
             title={post.title}
             imageUrl={isValidImage ? post.image : '/images/default_card.png'}
