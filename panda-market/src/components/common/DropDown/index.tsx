@@ -2,11 +2,27 @@
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function DropDown() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const router = useRouter();
+  const dropDownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleCheckClickOutside = (event: MouseEvent) => {
+      if (dropDownRef.current && !dropDownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleCheckClickOutside);
+
+    // clean up
+    return () => {
+      document.removeEventListener('mousedown', handleCheckClickOutside);
+    };
+  }, []);
 
   const handleDropDownToggle = () => {
     setIsOpen((prev) => !prev);
@@ -25,11 +41,8 @@ export default function DropDown() {
     router.push(`?${params}`);
   };
 
-  // 드롭다운이 닫히려면 handleDropDownToggle 을 호출
-  // 외부 클릭 시 -> handleDropDownToggle 을 호출
-
   return (
-    <div className="relative">
+    <div className="relative" ref={dropDownRef}>
       {/* dropdown handler*/}
       <div
         className="flex h-[42px] w-[130px] cursor-pointer items-center rounded-xl border border-gray-200 bg-white px-5 py-3"
