@@ -4,31 +4,30 @@ import AllItem from "./AllItem";
 import Dropdown from "../common/Dropdown/Dropdown";
 import Search from "../Search/Search";
 import Pagination from "../Pagination/Pagination";
-import useParams from "@/hooks/useParams";
+import useBoardsParams from "@/hooks/useBoardsParams";
 import useAllData from "./useAllData";
-import { BoardItem } from "@/apis/boards";
+import Button from "../common/Button/Button";
+import Link from "next/link";
 
 const FilterList = ["recent", "like"];
 const PAGE_SIZE = 10;
 
-interface AllProps {
-  initialData: BoardItem[];
-}
-
-export default function All({ initialData }: AllProps) {
-  const { page, orderBy, keyword, handleParamsUpdate } = useParams();
-  const { all, totalBoards } = useAllData({ initialData, PAGE_SIZE });
+export default function All() {
+  const { page, orderBy, keyword, handleParamsUpdate } = useBoardsParams();
+  const { all, totalBoards } = useAllData(PAGE_SIZE);
 
   return (
-    <div className="w-full flex flex-col gap-6">
-      <div className="flex justify-between items-center">
-        <h2 className="text-gray900 text-Bold20 font-bold">게시글</h2>
-        <button className="py-2 px-6 bg-blue text-white text-Bold16 rounded-lg cursor-pointer">
-          글쓰기
-        </button>
+    <div className="flex w-full flex-col gap-6">
+      <div className="flex items-center justify-between">
+        <h2 className="text-gray900 text-bold20">게시글</h2>
+        <Link href="/addboard">
+          <Button fontSize="16" rounded="8" paddingX={24} paddingY={8}>
+            글쓰기
+          </Button>
+        </Link>
       </div>
-      <div className="w-full flex flex-col gap-6">
-        <div className="flex justify-center items-center gap-3">
+      <div className="flex w-full flex-col gap-6">
+        <div className="flex items-center justify-center gap-3">
           <Search />
           <Dropdown
             list={FilterList}
@@ -36,7 +35,7 @@ export default function All({ initialData }: AllProps) {
             onChange={(filter) => handleParamsUpdate({ orderBy: filter })}
           />
         </div>
-        <div className="w-full flex flex-col gap-6">
+        <div className="flex w-full flex-col gap-6">
           {all.map((item) => (
             <AllItem key={item.id} all={item} />
           ))}

@@ -1,0 +1,56 @@
+import { NextResponse } from "next/server";
+import { apiServer } from "@/lib/apiServer";
+
+export interface User {
+  id: number;
+}
+
+export interface LoginResponse {
+  accessToken: string;
+  refreshToken: string;
+  user: User;
+}
+
+export async function POST(req: Request) {
+  const { email, password } = await req.json();
+
+  const response = await apiServer.post<LoginResponse>("/auth/signIn", {
+    email,
+    password,
+  });
+
+  const status = response.status;
+
+  if (status === 200) {
+    const accessToken = response.data.accessToken;
+    const refreshToken = response.data.refreshToken;
+    const userId = response.data.user.id;
+
+    const res = NextResponse.json({ data: response.data }, { status: 200 });
+
+    res.cookies.set("userId", JSON.stringify(userId), {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      path: "/",
+    });
+
+    res.cookies.set("accessToken", accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      path: "/",
+    });
+
+    res.cookies.set("refreshToken", refreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      path: "/",
+    });
+
+    return res;
+  } else {
+    return NextResponse.json({ data: response }, { status: status });
+  }
+}

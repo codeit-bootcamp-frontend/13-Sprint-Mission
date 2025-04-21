@@ -24,15 +24,15 @@ export default function Pagination({
   });
 
   return (
-    <div className="w-full flex justify-center items-center gap-1">
+    <div className="flex w-full items-center justify-center gap-1">
       <Link
-        className="w-10 h-10 flex justify-center items-center rounded-[40px]border-b border-gray200 bg-white cursor-pointer"
+        className="rounded-[40px]border-b border-gray200 flex h-10 w-10 cursor-pointer items-center justify-center bg-white"
         href={currentPage > 1 ? createPageParams(currentPage - 1) : "#"}
         shallow
         scroll={false}
       >
         <Image
-          className={`${currentPage === 1 ? 'opacity-20' : 'opacity-100'}`}
+          className={`${currentPage === 1 ? "opacity-20" : "opacity-100"}`}
           src={left}
           width={16}
           height={16}
@@ -41,11 +41,10 @@ export default function Pagination({
       </Link>
       {Array.from(
         { length: endPage - startPage + 1 },
-        (_, i) => startPage + i
+        (_, i) => startPage + i,
       ).map((page) => (
         <Link
-          className={`w-10 h-10 flex justify-center items-center text-Bold16 rounded-[40px] border-b border-gray200 cursor-pointer
-          ${currentPage === page ? 'text-gray50 bg-blue' : 'text-gray500 bg-white'}`}        
+          className={`text-Bold16 border-gray200 flex h-10 w-10 cursor-pointer items-center justify-center rounded-[40px] border-b ${currentPage === page ? "text-gray50 bg-blue" : "text-gray500 bg-white"}`}
           key={page}
           href={currentPage !== page ? createPageParams(page) : "#"}
           shallow
@@ -55,7 +54,7 @@ export default function Pagination({
         </Link>
       ))}
       <Link
-        className="w-10 h-10 flex justify-center items-center rounded-[40px]border-b border-gray200 bg-white cursor-pointer"
+        className="rounded-[40px]border-b border-gray200 flex h-10 w-10 cursor-pointer items-center justify-center bg-white"
         href={
           currentPage < totalPages ? createPageParams(currentPage + 1) : "#"
         }
@@ -63,7 +62,7 @@ export default function Pagination({
         scroll={false}
       >
         <Image
-          className={`${currentPage === totalBoards ? 'opacity-20' : 'opacity-100'}`}
+          className={`${currentPage === totalBoards ? "opacity-20" : "opacity-100"}`}
           src={right}
           width={16}
           height={16}

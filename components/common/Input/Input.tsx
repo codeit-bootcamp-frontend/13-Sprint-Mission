@@ -1,66 +1,50 @@
-import Image from "next/image";
-import { CSSProperties, InputHTMLAttributes,TextareaHTMLAttributes } from "react";
+import { InputHTMLAttributes } from "react";
+import clsx from "clsx";
 
-interface InputProps {
-  label?: string;
-  style?: CSSProperties;
-  leftSlot?: string;
-  slotSize?: number;
-  height?: string;
-  largeHeight?: string;
+export interface InputOrTextareaProps {
+  leftSlot?: React.ReactNode;
+  rightSlot?: React.ReactNode;
+  height?: number;
+  isValid?: boolean;
+  className?: string;
+  ref?: React.Ref<HTMLInputElement>;
 }
 
-type IOrTProps =
-  | (InputProps & InputHTMLAttributes<HTMLInputElement> & { isTextarea?: false })
-  | (InputProps & TextareaHTMLAttributes<HTMLTextAreaElement> & { isTextarea?: true });
+export interface InputProps
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, "height">,
+    InputOrTextareaProps {}
 
 export default function Input({
-  label,
-  style,
-  isTextarea,
-  leftSlot,
-  slotSize,
-  height,
-  largeHeight,
+  leftSlot = null,
+  rightSlot = null,
+  height = 56,
+  isValid,
+  className,
+  ref,
   ...rest
-}: IOrTProps) {
+}: InputProps) {
   return (
-    <div className={`w-full h-full flex flex-col ${label ? 'gap-4' : 'gap-0'}`}>
-      <label className="text-gray800 text-Bold18 font-bold">{label}</label>
-      <div className="relative w-full">
-        {leftSlot && (
-          <div className="absolute top-[-3px] left-3 translate-y-1/2"
-          style={{ width: slotSize, height: slotSize }}
-          >
-            <Image fill src={leftSlot} alt="" />
-          </div>
+    <div
+      className={clsx(
+        "bg-gray100 flex w-full gap-2 rounded-xl px-[20px] py-[9px]",
+        isValid === false && "border-error border",
+        className,
+      )}
+      style={{
+        height: `${height}px`,
+      }}
+    >
+      {leftSlot}
+
+      <input
+        className={clsx(
+          "placeholder:text-gray400 placeholder:text-regular16 h-full w-full focus:outline-none",
         )}
-        {isTextarea ? (
-          <textarea
-            className={`
-              w-full bg-gray100 py-[9px] px-5 rounded-xl
-              placeholder:text-gray400 placeholder:text-Regular16
-              focus:outline-none resize-none
-              ${height ? `h-[${height}px]` : "h-[42px]"}
-              ${largeHeight ? `sm:h-[${largeHeight}px] sm:placeholder:text-Regular14` : ""}
-            `}
-            style={{ paddingLeft: slotSize ? `${12 + slotSize}px` : '9px' }} 
-            {...(rest as TextareaHTMLAttributes<HTMLTextAreaElement>)}
-          />  
-        ) : (
-          <input
-            className={`
-              w-full bg-gray100 py-[9px] px-5 rounded-xl
-              placeholder:text-gray400 placeholder:text-Regular16
-              focus:outline-none resize-none
-              ${height ? `h-[${height}px]` : "h-[42px]"}
-              ${largeHeight ? `sm:h-[${largeHeight}px] sm:placeholder:text-Regular14` : ""}
-            `}
-            style={{ paddingLeft: slotSize ? `${12 + slotSize}px` : '9px' }}
-            {...(rest as InputHTMLAttributes<HTMLInputElement>)}
-          />
-        )}
-      </div>
+        ref={ref}
+        {...(rest as InputHTMLAttributes<HTMLInputElement>)}
+      />
+
+      {rightSlot}
     </div>
   );
 }

@@ -1,11 +1,11 @@
-import useParams from "@/hooks/useParams";
+import useBoardsParams from "@/hooks/useBoardsParams";
 import debounce from "lodash.debounce";
 import { useSearchParams } from "next/navigation";
 import { useCallback, useMemo } from "react";
 
 export default function useSearch() {
   const searchParams = useSearchParams();
-  const { handleParamsUpdate } = useParams();
+  const { handleParamsUpdate } = useBoardsParams();
 
   const debouncedKeyword = useMemo(
     () =>

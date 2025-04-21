@@ -1,6 +1,8 @@
 import { useSearchParams } from "next/navigation";
 import { PagingProps } from "./Pagination";
 
+const PAGE_GROUP = 5;
+
 export default function usePagination({
   totalBoards,
   currentPage,
@@ -8,10 +10,10 @@ export default function usePagination({
 }: PagingProps) {
   const searchParams = useSearchParams();
 
-  const pageGroup = Math.ceil(currentPage / 5);
+  const pageGroup = Math.ceil(currentPage / PAGE_GROUP);
   const totalPages = Math.ceil(totalBoards / pageSize);
-  const startPage = (pageGroup - 1) * 5 + 1;
-  const endPage = Math.min(startPage + 4, totalPages);
+  const startPage = (pageGroup - 1) * PAGE_GROUP + 1;
+  const endPage = Math.min(startPage + PAGE_GROUP - 1, totalPages);
 
   const createPageParams = (page: number) => {
     const newParams = new URLSearchParams(searchParams.toString());
